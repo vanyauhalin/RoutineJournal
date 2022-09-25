@@ -26,6 +26,7 @@ opt_in_rules:
   - empty_string
   - enum_case_associated_values_count
   - fatal_error_message
+  - file_types_order
   - first_where
   - force_unwrapping
   - implicitly_unwrapped_optional
@@ -47,6 +48,7 @@ opt_in_rules:
   - strict_fileprivate
   - toggle_bool
   - trailing_closure
+  - type_contents_order
   - unneeded_parentheses_in_closure_argument
   - unused_import
   - vertical_whitespace_closing_braces
@@ -68,23 +70,28 @@ attributes:
     - "@NSManaged"
     - "@objc"
 
-force_cast: warning
-force_try: warning
-function_body_length:
-    warning: 60
+file_types_order:
+  order:
+    - SwiftLintFramework.FileType.supportingType
+    - SwiftLintFramework.FileType.mainType
+    - SwiftLintFramework.FileType.extension
+    - SwiftLintFramework.FileType.previewProvider
+    - SwiftLintFramework.FileType.libraryContentProvider
 
-legacy_hashing: error
+force_cast: warning
+
+force_try: warning
+
+function_body_length:
+  warning: 60
 
 identifier_name:
-  excluded:
-    - i
-    - id
-    - x
-    - y
-    - z
+  min_length: 2
 
 indentation_width:
   indentation_width: 2
+
+legacy_hashing: error
 
 line_length:
   error: 80
@@ -103,5 +110,23 @@ trailing_whitespace:
   ignores_empty_lines: false
   ignores_comments: true
 
+type_contents_order:
+  order:
+    - SwiftLintFramework.TypeContent.case
+    - SwiftLintFramework.TypeContent.typeAlias
+    - SwiftLintFramework.TypeContent.associatedType
+    - SwiftLintFramework.TypeContent.subtype
+    - SwiftLintFramework.TypeContent.typeProperty
+    - SwiftLintFramework.TypeContent.instanceProperty
+    - SwiftLintFramework.TypeContent.ibInspectable
+    - SwiftLintFramework.TypeContent.ibOutlet
+    - SwiftLintFramework.TypeContent.initializer
+    - SwiftLintFramework.TypeContent.typeMethod
+    - SwiftLintFramework.TypeContent.viewLifeCycleMethod
+    - SwiftLintFramework.TypeContent.ibAction
+    - SwiftLintFramework.TypeContent.otherMethod
+    - SwiftLintFramework.TypeContent.subscript
+    - SwiftLintFramework.TypeContent.deinitializer
+
 vertical_whitespace:
-  max_empty_lines: 2
+  max_empty_lines: 1
