@@ -2,7 +2,11 @@ import SwiftUI
 
 struct ContentView: View {
   var body: some View {
-    Text("hello world")
+    VStack {
+      CalendarView(model: CalendarViewModel())
+    }
+    .frame(width: .infinity, height: UIScreen.main.bounds.height)
+    .background(Color(.systemGroupedBackground))
   }
 }
 
