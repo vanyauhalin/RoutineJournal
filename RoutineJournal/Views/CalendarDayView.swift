@@ -1,11 +1,12 @@
 import SwiftUI
 
 struct CalendarDayView: View {
-  var model: CalendarDayViewModel
+  let viewModel: CalendarDayViewModel
+  var day: CalendarDay
 
   var body: some View {
-    if model.current {
-      Text(model.representation)
+    if day.current {
+      Text(viewModel.represent(date: day.date))
         .font(.callout)
         .fontWeight(.medium)
         .foregroundColor(.white)
@@ -15,7 +16,7 @@ struct CalendarDayView: View {
             .foregroundColor(.black)
         }
     } else {
-      Text(model.representation)
+      Text(viewModel.represent(date: day.date))
         .font(.callout)
         .frame(width: 28, height: 28, alignment: .center)
     }
@@ -24,10 +25,9 @@ struct CalendarDayView: View {
 
 struct CalendarDayView_Previews: PreviewProvider {
   static var previews: some View {
-    CalendarDayView(model: CalendarDayViewModel(
-      calendar: Calendar.current,
-      today: Date.now,
-      date: Date.now
-    ))
+    CalendarDayView(
+      viewModel: CalendarDayViewModel(),
+      day: CalendarDay(Calendar.current, date: Date.now)
+    )
   }
 }

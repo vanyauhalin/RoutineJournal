@@ -1,22 +1,17 @@
 import Foundation
 
 class CalendarDayViewModel {
-  static let formatter: DateFormatter = {
+  private let formatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateFormat = "dd"
     return formatter
   }()
 
-  let current: Bool
-  let date: Date
-  var representation: String {
-    CalendarDayViewModel.formatter.string(from: date)
-  }
-
-  init(calendar: Calendar, today: Date, date: Date) {
-    self.current = calendar
-      .compare(date, to: today, toGranularity: .day)
-      .rawValue == 0
-    self.date = date
+  func represent(date: Date) -> String {
+    let formatted = formatter.string(from: date)
+    if let firstCharacter = formatted.first, firstCharacter == "0" {
+      return formatted.last?.description ?? formatted
+    }
+    return formatted
   }
 }
