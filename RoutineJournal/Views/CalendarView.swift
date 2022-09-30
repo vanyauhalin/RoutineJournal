@@ -7,15 +7,7 @@ struct CalendarView: View {
 
   var body: some View {
     VStack(spacing: 4) {
-      HStack {
-        Spacer()
-        ForEach(calendarViewModel.weekdaySymbols, id: \.self) { weekdaySymbol in
-          Spacer()
-          CalendarWeekdayView(weekdaySymbol: weekdaySymbol)
-          Spacer()
-        }
-        Spacer()
-      }
+      CalendarWeekdaysView(weekdaySymbols: calendarViewModel.weekdaySymbols)
       CalendarMonthView(
         monthViewModel: monthViewModel,
         dayViewModel: dayViewModel
