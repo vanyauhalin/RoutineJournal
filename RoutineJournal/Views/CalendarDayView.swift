@@ -2,11 +2,10 @@ import SwiftUI
 
 struct CalendarDayView: View {
   let viewModel: CalendarDayViewModel
-  var day: CalendarDay
 
   var body: some View {
-    if day.current {
-      Text(viewModel.represent(date: day.date))
+    if viewModel.day.current {
+      Text(viewModel.represent)
         .font(.callout)
         .fontWeight(.medium)
         .foregroundColor(.white)
@@ -16,7 +15,7 @@ struct CalendarDayView: View {
             .foregroundColor(.black)
         }
     } else {
-      Text(viewModel.represent(date: day.date))
+      Text(viewModel.represent)
         .font(.callout)
         .frame(width: 28, height: 28, alignment: .center)
     }
