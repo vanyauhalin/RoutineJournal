@@ -58,7 +58,7 @@ extension CalendarMonth {
 }
 
 extension CalendarMonth {
-  var previousMonth: CalendarMonth? {
+  func previousMonth() -> CalendarMonth? {
     if
       let unwrappedFirstDay = firstDay,
       let previousMonthAnchor = calendar.date(

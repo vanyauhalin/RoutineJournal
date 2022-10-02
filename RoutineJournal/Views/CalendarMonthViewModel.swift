@@ -16,7 +16,7 @@ extension CalendarMonthViewModel {
   private var previousDays: [CalendarDay] {
     if
       let firstWeekday = month.firstWeekday,
-      let previousDays = month.previousMonth?.days
+      let previousDays = month.previousMonth()?.days
     {
       let dayCount = firstWeekday >= calendar.firstWeekday
       ? firstWeekday - calendar.firstWeekday
