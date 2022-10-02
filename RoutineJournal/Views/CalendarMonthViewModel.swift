@@ -39,7 +39,9 @@ extension CalendarMonthViewModel {
     return []
   }
 
-  var days: [CalendarDay] {
-    previousDays + month.days + nextDays
+  var dayViewModels: [CalendarDayViewModel] {
+    return Array(previousDays + month.days + nextDays).map { day in
+      CalendarDayViewModel(day: day)
+    }
   }
 }
