@@ -18,17 +18,3 @@ struct CalendarMonthView: View {
     }
   }
 }
-
-struct CalendarMonthView_Previews: PreviewProvider {
-  static var previews: some View {
-    let calendar = Calendar.current
-    CalendarMonthView(
-      monthViewModel: CalendarMonthViewModel(
-        calendar,
-        month: CalendarMonth(calendar, anchor: Date.now),
-        columnCount: calendar.weekdaySymbols.count
-      ),
-      dayViewModel: CalendarDayViewModel()
-    )
-  }
-}
