@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SpaceEvenlyGridView<Content>: View where Content: View {
-  @ObservedObject private var viewModel: SpaceEvenlyGridViewModel
+  @StateObject var viewModel: SpaceEvenlyGridViewModel
   @ViewBuilder var content: (SpaceEvenlyGridViewModel) -> Content
 
   var body: some View {
