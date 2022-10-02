@@ -9,9 +9,3 @@ struct CalendarWeekdayView: View {
       .frame(width: 28, alignment: .center)
   }
 }
-
-struct CalendarWeekdayView_Previews: PreviewProvider {
-  static var previews: some View {
-    CalendarWeekdayView(weekdaySymbol: "S")
-  }
-}
