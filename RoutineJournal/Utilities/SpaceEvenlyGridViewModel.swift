@@ -40,9 +40,13 @@ extension SpaceEvenlyGridViewModel {
       containerWidth = width
     }
   }
+}
 
+extension SpaceEvenlyGridViewModel {
   func updateSpacing() {
-    spacing = (containerWidth - columnWidth * CGFloat(columnCount))
-    / CGFloat(columnCount + 1)
+    if spacing == .zero {
+      spacing = (containerWidth - columnWidth * CGFloat(columnCount))
+      / CGFloat(columnCount + 1)
+    }
   }
 }
