@@ -72,7 +72,7 @@ extension CalendarMonth {
     return nil
   }
 
-  var nextMonth: CalendarMonth? {
+  func nextMonth() -> CalendarMonth? {
     if
       let unwrappedFirstDay = firstDay,
       let nextMonthAnchor = calendar.date(

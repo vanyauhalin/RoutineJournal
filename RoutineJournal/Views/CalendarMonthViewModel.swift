@@ -29,7 +29,7 @@ extension CalendarMonthViewModel {
   private var nextDays: [CalendarDay] {
     if
       let lastWeekday = month.lastWeekday,
-      let nextDays = month.nextMonth?.days
+      let nextDays = month.nextMonth()?.days
     {
       let dayCount = lastWeekday >= calendar.firstWeekday
       ? columnCount - (lastWeekday - calendar.firstWeekday + 1)
