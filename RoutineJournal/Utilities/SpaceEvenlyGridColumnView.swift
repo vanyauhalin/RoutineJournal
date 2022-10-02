@@ -10,12 +10,4 @@ struct SpaceEvenlyGridColumnView<Content>: View where Content: View {
         gridViewModel.setColumnWidth(width: size.width)
       }
   }
-
-  init(
-    gridViewModel: SpaceEvenlyGridViewModel,
-    content: @escaping () -> Content
-  ) {
-    self.gridViewModel = gridViewModel
-    self.content = content
-  }
 }

@@ -18,12 +18,4 @@ struct SpaceEvenlyGridView<Content>: View where Content: View {
       Spacer(minLength: viewModel.spacing)
     }
   }
-
-  init(
-    columnCount: Int,
-    content: @escaping (SpaceEvenlyGridViewModel) -> Content
-  ) {
-    self.viewModel = SpaceEvenlyGridViewModel(columnCount: columnCount)
-    self.content = content
-  }
 }
