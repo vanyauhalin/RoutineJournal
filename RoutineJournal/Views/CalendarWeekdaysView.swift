@@ -15,11 +15,3 @@ struct CalendarWeekdaysView: View {
     }
   }
 }
-
-struct CalendarWeekdaysView_Previews: PreviewProvider {
-  static var previews: some View {
-    CalendarWeekdaysView(
-      weekdaySymbols: Calendar.current.veryShortWeekdaySymbols
-    )
-  }
-}
