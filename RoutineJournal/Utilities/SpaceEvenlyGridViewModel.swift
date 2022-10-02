@@ -9,7 +9,22 @@ class SpaceEvenlyGridViewModel: ObservableObject {
 
   init(columnCount: Int) {
     self.columnCount = columnCount
-    self.updateColumns()
+    self.initColumns()
+  }
+}
+
+extension SpaceEvenlyGridViewModel {
+  private func initColumns() {
+    columns = Array(
+      repeating: .init(spacing: spacing),
+      count: columnCount
+    )
+  }
+
+  func updateColumns() {
+    if let first = columns.first, first.spacing == .zero {
+      initColumns()
+    }
   }
 }
 
@@ -27,12 +42,5 @@ extension SpaceEvenlyGridViewModel {
   func updateSpacing() {
     spacing = (containerWidth - columnWidth * CGFloat(columnCount))
     / CGFloat(columnCount + 1)
-  }
-
-  func updateColumns() {
-    columns = Array(
-      repeating: .init(spacing: spacing),
-      count: columnCount
-    )
   }
 }
