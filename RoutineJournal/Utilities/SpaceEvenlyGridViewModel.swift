@@ -36,7 +36,9 @@ extension SpaceEvenlyGridViewModel {
   }
 
   func setContainerWidth(width: CGFloat) {
-    containerWidth = width
+    if width > containerWidth {
+      containerWidth = width
+    }
   }
 
   func updateSpacing() {
