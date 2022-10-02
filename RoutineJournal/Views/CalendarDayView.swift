@@ -22,12 +22,3 @@ struct CalendarDayView: View {
     }
   }
 }
-
-struct CalendarDayView_Previews: PreviewProvider {
-  static var previews: some View {
-    CalendarDayView(
-      viewModel: CalendarDayViewModel(),
-      day: CalendarDay(Calendar.current, date: Date.now)
-    )
-  }
-}
