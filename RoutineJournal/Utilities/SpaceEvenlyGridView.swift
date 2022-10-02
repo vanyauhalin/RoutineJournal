@@ -2,12 +2,12 @@ import SwiftUI
 
 struct SpaceEvenlyGridView<Content>: View where Content: View {
   @StateObject var viewModel: SpaceEvenlyGridViewModel
-  @ViewBuilder var content: (SpaceEvenlyGridViewModel) -> Content
+  @ViewBuilder var content: () -> Content
 
   var body: some View {
     HStack {
       Spacer(minLength: viewModel.spacing)
-      content(viewModel)
+      content()
         .readSize { size in
           viewModel.setContainerWidth(width: size.width)
         }
