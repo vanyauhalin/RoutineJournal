@@ -1,17 +1,16 @@
 import SwiftUI
 
-struct CalendarMonthView: View {
+struct CalendarMonthView<Content>: View where Content: View {
   @ObservedObject var monthViewModel: CalendarMonthViewModel
-  let dayViewModel: CalendarDayViewModel
+  @ObservedObject var gridViewModel: SpaceEvenlyGridViewModel
+  @ViewBuilder var content: (CalendarDayViewModel) -> Content
 
   var body: some View {
-    SpaceEvenlyGridView(
-      columnCount: monthViewModel.columnCount
-    ) { gridViewModel in
+    SpaceEvenlyGridView(viewModel: gridViewModel) {
       LazyVGrid(columns: gridViewModel.columns, spacing: 4) {
-        ForEach(monthViewModel.days, id: \.date) { day in
-          SpaceEvenlyGridColumnView(gridViewModel: gridViewModel) {
-            CalendarDayView(viewModel: dayViewModel, day: day)
+        ForEach(monthViewModel.dayViewModels, id: \.day.date) { dayViewModel in
+          SpaceEvenlyGridColumnView(viewModel: gridViewModel) {
+            content(dayViewModel)
           }
         }
       }
