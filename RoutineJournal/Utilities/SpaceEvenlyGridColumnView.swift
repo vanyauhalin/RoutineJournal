@@ -19,13 +19,3 @@ struct SpaceEvenlyGridColumnView<Content>: View where Content: View {
     self.content = content
   }
 }
-
-struct SpaceEvenlyElementView_Previews: PreviewProvider {
-  static var previews: some View {
-    SpaceEvenlyGridColumnView(
-      gridViewModel: SpaceEvenlyGridViewModel(columnCount: 1)
-    ) {
-      Text("preview")
-    }
-  }
-}

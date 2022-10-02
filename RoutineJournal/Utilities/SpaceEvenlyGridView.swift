@@ -27,11 +27,3 @@ struct SpaceEvenlyGridView<Content>: View where Content: View {
     self.content = content
   }
 }
-
-struct SpaceEvenlyGridView_Previews: PreviewProvider {
-  static var previews: some View {
-    SpaceEvenlyGridView(columnCount: 7) { viewModel in
-      Text("\(viewModel.spacing)")
-    }
-  }
-}
