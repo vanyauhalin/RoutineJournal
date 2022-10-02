@@ -6,6 +6,11 @@ class CalendarDayViewModel {
     formatter.dateFormat = "dd"
     return formatter
   }()
+  let day: CalendarDay
+
+  init(day: CalendarDay) {
+    self.day = day
+  }
 
   func represent(date: Date) -> String {
     let formatted = formatter.string(from: date)
