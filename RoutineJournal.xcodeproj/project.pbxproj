@@ -28,6 +28,8 @@
 		FA9114BD28D9C43D004D8B7D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FA9114BB28D9C43D004D8B7D /* .gitignore */; };
 		FAC8B6DA28E6E3440003EE95 /* CalendarDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC8B6D928E6E3440003EE95 /* CalendarDayViewModel.swift */; };
 		FAC8B6E128E72B500003EE95 /* CalendarWeekdaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC8B6E028E72B500003EE95 /* CalendarWeekdaysView.swift */; };
+		FAC8B6E528E742440003EE95 /* CalendarMonthsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC8B6E428E742440003EE95 /* CalendarMonthsView.swift */; };
+		FAC8B6E728E743870003EE95 /* CalendarMonthsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC8B6E628E743870003EE95 /* CalendarMonthsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +57,8 @@
 		FA9114BB28D9C43D004D8B7D /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		FAC8B6D928E6E3440003EE95 /* CalendarDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayViewModel.swift; sourceTree = "<group>"; };
 		FAC8B6E028E72B500003EE95 /* CalendarWeekdaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWeekdaysView.swift; sourceTree = "<group>"; };
+		FAC8B6E428E742440003EE95 /* CalendarMonthsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMonthsView.swift; sourceTree = "<group>"; };
+		FAC8B6E628E743870003EE95 /* CalendarMonthsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMonthsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 				FA4657B328E0B5670064973B /* CalendarViewModel.swift */,
 				FA4657AB28E05DCD0064973B /* CalendarDay */,
 				FA4657BC28E1718F0064973B /* CalendarMonth */,
+				FAC8B6E328E7423B0003EE95 /* CalendarMonths */,
 				FA4657B728E0BCD00064973B /* CalendarWeekday */,
 				FAC8B6DF28E6FB580003EE95 /* CalendarWeekdays */,
 			);
@@ -192,6 +197,15 @@
 				FAC8B6E028E72B500003EE95 /* CalendarWeekdaysView.swift */,
 			);
 			name = CalendarWeekdays;
+			sourceTree = "<group>";
+		};
+		FAC8B6E328E7423B0003EE95 /* CalendarMonths */ = {
+			isa = PBXGroup;
+			children = (
+				FAC8B6E428E742440003EE95 /* CalendarMonthsView.swift */,
+				FAC8B6E628E743870003EE95 /* CalendarMonthsViewModel.swift */,
+			);
+			name = CalendarMonths;
 			sourceTree = "<group>";
 		};
 		FAE70D0728D5CC26002BF76C /* Views */ = {
@@ -322,8 +336,10 @@
 			files = (
 				FA4657C028E172F20064973B /* CalendarMonth.swift in Sources */,
 				FA11A2E328E58615009DB9D0 /* CalendarMonthViewModel.swift in Sources */,
+				FAC8B6E528E742440003EE95 /* CalendarMonthsView.swift in Sources */,
 				FA4657B428E0B5670064973B /* CalendarViewModel.swift in Sources */,
 				FA11A2E528E5B00B009DB9D0 /* SpaceEvenlyGridView.swift in Sources */,
+				FAC8B6E728E743870003EE95 /* CalendarMonthsViewModel.swift in Sources */,
 				FA11A2DF28E44BDF009DB9D0 /* View.swift in Sources */,
 				FA11A2EB28E5FF77009DB9D0 /* SpaceEvenlyGridColumnView.swift in Sources */,
 				FA11A2E928E5B041009DB9D0 /* SpaceEvenlyGridViewModel.swift in Sources */,
