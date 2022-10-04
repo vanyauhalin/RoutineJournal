@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct CalendarDayView: View {
+  static let width = CGFloat(28)
   let viewModel: CalendarDayViewModel
 
   var body: some View {
@@ -9,7 +10,11 @@ struct CalendarDayView: View {
         .font(.callout)
         .fontWeight(.medium)
         .foregroundColor(.white)
-        .frame(width: 28, height: 28, alignment: .center)
+        .frame(
+          width: CalendarDayView.width,
+          height: CalendarDayView.width,
+          alignment: .center
+        )
         .background {
           Circle()
             .foregroundColor(.black)
@@ -17,7 +22,11 @@ struct CalendarDayView: View {
     } else {
       Text(viewModel.represent)
         .font(.callout)
-        .frame(width: 28, height: 28, alignment: .center)
+        .frame(
+          width: CalendarDayView.width,
+          height: CalendarDayView.width,
+          alignment: .center
+        )
     }
   }
 }
