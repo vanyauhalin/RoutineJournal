@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct CalendarView: View {
-  @ObservedObject private var gridViewModel: SpaceEvenlyGridViewModel
   let viewModel: CalendarViewModel
+  @ObservedObject private var evenlyViewModel: SpaceEvenlyViewModel
 
   var body: some View {
     VStack(spacing: 4) {
@@ -12,11 +12,12 @@ struct CalendarView: View {
         CalendarWeekdayView(weekdaySymbol: weekdaySymbol)
       }
       CalendarMonthsView(
-        viewModel: viewModel.monthsViewModel
+        viewModel: viewModel.monthsViewModel,
+        evenlyViewModel: evenlyViewModel
       ) { monthViewModel in
         CalendarMonthView(
-          monthViewModel: monthViewModel,
-          gridViewModel: gridViewModel
+          viewModel: monthViewModel,
+          evenlyViewModel: evenlyViewModel
         ) { dayViewModel in
           CalendarDayView(viewModel: dayViewModel)
         }
@@ -26,8 +27,9 @@ struct CalendarView: View {
 
   init(viewModel: CalendarViewModel) {
     self.viewModel = viewModel
-    self.gridViewModel = SpaceEvenlyGridViewModel(
-      columnCount: viewModel.weekdaySymbols.count
+    self.evenlyViewModel = SpaceEvenlyViewModel(
+      columnCount: viewModel.weekdaySymbols.count,
+      columnWidth: CalendarDayView.width
     )
   }
 }
