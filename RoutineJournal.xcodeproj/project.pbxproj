@@ -10,9 +10,8 @@
 		A9D05B27E42D8E13529A779D /* Pods_RoutineJournal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CEE04A71FE2C38292DF09C /* Pods_RoutineJournal.framework */; };
 		FA11A2DF28E44BDF009DB9D0 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA11A2DE28E44BDF009DB9D0 /* View.swift */; };
 		FA11A2E328E58615009DB9D0 /* CalendarMonthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA11A2E228E58615009DB9D0 /* CalendarMonthViewModel.swift */; };
-		FA11A2E528E5B00B009DB9D0 /* SpaceEvenlyGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA11A2E428E5B00B009DB9D0 /* SpaceEvenlyGridView.swift */; };
-		FA11A2E928E5B041009DB9D0 /* SpaceEvenlyGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA11A2E828E5B041009DB9D0 /* SpaceEvenlyGridViewModel.swift */; };
-		FA11A2EB28E5FF77009DB9D0 /* SpaceEvenlyGridColumnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA11A2EA28E5FF77009DB9D0 /* SpaceEvenlyGridColumnView.swift */; };
+		FA11A2E528E5B00B009DB9D0 /* SpaceEvenlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA11A2E428E5B00B009DB9D0 /* SpaceEvenlyView.swift */; };
+		FA11A2E928E5B041009DB9D0 /* SpaceEvenlyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA11A2E828E5B041009DB9D0 /* SpaceEvenlyViewModel.swift */; };
 		FA2A224C28E1DD3F00A641CD /* CalendarDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2A224B28E1DD3F00A641CD /* CalendarDay.swift */; };
 		FA4657AA28E05B800064973B /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4657A928E05B800064973B /* CalendarView.swift */; };
 		FA4657AD28E05DD90064973B /* CalendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4657AC28E05DD90064973B /* CalendarDayView.swift */; };
@@ -24,6 +23,7 @@
 		FA5BF5DB28D47576007304C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5BF5DA28D47576007304C4 /* ContentView.swift */; };
 		FA5BF5DD28D47579007304C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA5BF5DC28D47579007304C4 /* Assets.xcassets */; };
 		FA5BF5E028D47579007304C4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA5BF5DF28D47579007304C4 /* Preview Assets.xcassets */; };
+		FA8FD65728EC44870055AC87 /* SpaceEvenlyContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FD65628EC44870055AC87 /* SpaceEvenlyContainerView.swift */; };
 		FA9114BC28D9C43D004D8B7D /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA9114BA28D9C43D004D8B7D /* .swiftlint.yml */; };
 		FA9114BD28D9C43D004D8B7D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FA9114BB28D9C43D004D8B7D /* .gitignore */; };
 		FAC8B6DA28E6E3440003EE95 /* CalendarDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC8B6D928E6E3440003EE95 /* CalendarDayViewModel.swift */; };
@@ -38,9 +38,8 @@
 		CE9E17D1FC8AA6519743BCFE /* Pods-RoutineJournal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutineJournal.debug.xcconfig"; path = "Target Support Files/Pods-RoutineJournal/Pods-RoutineJournal.debug.xcconfig"; sourceTree = "<group>"; };
 		FA11A2DE28E44BDF009DB9D0 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		FA11A2E228E58615009DB9D0 /* CalendarMonthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMonthViewModel.swift; sourceTree = "<group>"; };
-		FA11A2E428E5B00B009DB9D0 /* SpaceEvenlyGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceEvenlyGridView.swift; sourceTree = "<group>"; };
-		FA11A2E828E5B041009DB9D0 /* SpaceEvenlyGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceEvenlyGridViewModel.swift; sourceTree = "<group>"; };
-		FA11A2EA28E5FF77009DB9D0 /* SpaceEvenlyGridColumnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceEvenlyGridColumnView.swift; sourceTree = "<group>"; };
+		FA11A2E428E5B00B009DB9D0 /* SpaceEvenlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceEvenlyView.swift; sourceTree = "<group>"; };
+		FA11A2E828E5B041009DB9D0 /* SpaceEvenlyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceEvenlyViewModel.swift; sourceTree = "<group>"; };
 		FA2A224B28E1DD3F00A641CD /* CalendarDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDay.swift; sourceTree = "<group>"; };
 		FA4657A928E05B800064973B /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		FA4657AC28E05DD90064973B /* CalendarDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayView.swift; sourceTree = "<group>"; };
@@ -53,6 +52,7 @@
 		FA5BF5DA28D47576007304C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FA5BF5DC28D47579007304C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA5BF5DF28D47579007304C4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FA8FD65628EC44870055AC87 /* SpaceEvenlyContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceEvenlyContainerView.swift; sourceTree = "<group>"; };
 		FA9114BA28D9C43D004D8B7D /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		FA9114BB28D9C43D004D8B7D /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		FAC8B6D928E6E3440003EE95 /* CalendarDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayViewModel.swift; sourceTree = "<group>"; };
@@ -94,19 +94,19 @@
 			isa = PBXGroup;
 			children = (
 				FA11A2DE28E44BDF009DB9D0 /* View.swift */,
-				FA11A2E728E5B034009DB9D0 /* SpaceEvenlyGridView */,
+				FA11A2E728E5B034009DB9D0 /* SpaceEvenly */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		FA11A2E728E5B034009DB9D0 /* SpaceEvenlyGridView */ = {
+		FA11A2E728E5B034009DB9D0 /* SpaceEvenly */ = {
 			isa = PBXGroup;
 			children = (
-				FA11A2EA28E5FF77009DB9D0 /* SpaceEvenlyGridColumnView.swift */,
-				FA11A2E428E5B00B009DB9D0 /* SpaceEvenlyGridView.swift */,
-				FA11A2E828E5B041009DB9D0 /* SpaceEvenlyGridViewModel.swift */,
+				FA8FD65628EC44870055AC87 /* SpaceEvenlyContainerView.swift */,
+				FA11A2E428E5B00B009DB9D0 /* SpaceEvenlyView.swift */,
+				FA11A2E828E5B041009DB9D0 /* SpaceEvenlyViewModel.swift */,
 			);
-			name = SpaceEvenlyGridView;
+			name = SpaceEvenly;
 			sourceTree = "<group>";
 		};
 		FA4657A828E05B710064973B /* Calendar */ = {
@@ -338,16 +338,16 @@
 				FA11A2E328E58615009DB9D0 /* CalendarMonthViewModel.swift in Sources */,
 				FAC8B6E528E742440003EE95 /* CalendarMonthsView.swift in Sources */,
 				FA4657B428E0B5670064973B /* CalendarViewModel.swift in Sources */,
-				FA11A2E528E5B00B009DB9D0 /* SpaceEvenlyGridView.swift in Sources */,
+				FA11A2E528E5B00B009DB9D0 /* SpaceEvenlyView.swift in Sources */,
 				FAC8B6E728E743870003EE95 /* CalendarMonthsViewModel.swift in Sources */,
 				FA11A2DF28E44BDF009DB9D0 /* View.swift in Sources */,
-				FA11A2EB28E5FF77009DB9D0 /* SpaceEvenlyGridColumnView.swift in Sources */,
-				FA11A2E928E5B041009DB9D0 /* SpaceEvenlyGridViewModel.swift in Sources */,
+				FA11A2E928E5B041009DB9D0 /* SpaceEvenlyViewModel.swift in Sources */,
 				FAC8B6E128E72B500003EE95 /* CalendarWeekdaysView.swift in Sources */,
 				FA4657AA28E05B800064973B /* CalendarView.swift in Sources */,
 				FA4657BB28E0BCF90064973B /* CalendarWeekdayView.swift in Sources */,
 				FA5BF5DB28D47576007304C4 /* ContentView.swift in Sources */,
 				FA5BF5D928D47576007304C4 /* RoutineJournal.swift in Sources */,
+				FA8FD65728EC44870055AC87 /* SpaceEvenlyContainerView.swift in Sources */,
 				FAC8B6DA28E6E3440003EE95 /* CalendarDayViewModel.swift in Sources */,
 				FA4657BE28E1719F0064973B /* CalendarMonthView.swift in Sources */,
 				FA4657AD28E05DD90064973B /* CalendarDayView.swift in Sources */,
