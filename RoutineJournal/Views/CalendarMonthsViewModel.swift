@@ -3,63 +3,59 @@ import Foundation
 class CalendarMonthsViewModel: ObservableObject {
   let calendar: Calendar
   @Published var monthViewModels: [CalendarMonthViewModel]
-  @Published var selection = Int.zero
+  @Published var monthViewModelSelection = Int.zero
 
   init(_ calendar: Calendar, monthViewModel: CalendarMonthViewModel) {
     self.calendar = calendar
     self.monthViewModels = [monthViewModel]
-    self.initMonths()
+    self.preloadMonthViews()
   }
 }
 
 extension CalendarMonthsViewModel {
-  func initMonths() {
-    loadPreviousMonth()
-//    loadPreviousMonth()
-    loadNextMonth()
-//    loadNextMonth()
+  func preloadMonthViews() {
+    loadPreviousMonthView()
+    loadNextMonthView()
   }
 
-  func loadPreviousMonth() {
+  func loadPreviousMonthView() {
     if
-      let selected = Optional(monthViewModels[selection]),
-      let previousMonth = selected.month.previousMonth()
+      let selected = Optional(monthViewModels[monthViewModelSelection]),
+      let previous = selected.month.previousMonth()
     {
       monthViewModels.insert(
         CalendarMonthViewModel(
           calendar,
-          month: previousMonth,
+          month: previous,
           columnCount: selected.columnCount
         ),
         at: .zero
       )
-      selection += 1
+      monthViewModelSelection += 1
     }
   }
 
-  func loadNextMonth() {
+  func loadNextMonthView() {
     if
-      let selected = Optional(monthViewModels[selection]),
-      let nextMonth = selected.month.nextMonth()
+      let selected = Optional(monthViewModels[monthViewModelSelection]),
+      let next = selected.month.nextMonth()
     {
       monthViewModels.append(
         CalendarMonthViewModel(
           calendar,
-          month: nextMonth,
+          month: next,
           columnCount: selected.columnCount
         )
       )
     }
   }
 
-  func loadMonths() {
-    switch selection {
+  func loadMonthView() {
+    switch monthViewModelSelection {
       case Int.zero:
-        loadPreviousMonth()
-//        loadPreviousMonth()
+        loadPreviousMonthView()
       case monthViewModels.count - 1:
-        loadNextMonth()
-//        loadNextMonth()
+        loadNextMonthView()
       default:
         break
     }

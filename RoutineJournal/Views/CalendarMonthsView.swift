@@ -7,7 +7,7 @@ struct CalendarMonthsView<Content>: View where Content: View {
 
   var body: some View {
     SpaceEvenlyContainerView(viewModel: evenlyViewModel) {
-      TabView(selection: $viewModel.selection) {
+      TabView(selection: $viewModel.monthViewModelSelection) {
         ForEach(
           Array(viewModel.monthViewModels.enumerated()),
           id: \.offset
@@ -15,7 +15,7 @@ struct CalendarMonthsView<Content>: View where Content: View {
           content(monthViewModel)
             .tag(index)
             .onDisappear {
-              viewModel.loadMonths()
+              viewModel.loadMonthView()
             }
         }
       }
