@@ -1,144 +1,156 @@
 import SwiftUI
 
 class VStretchable: ObservableObject {
-  private let rowHeight: CGFloat
-  private let rowCount: Int
-  private let rowSelection: Int
-
-  private var containerPreviousHeight = CGFloat.zero
-  private var containerDefaultHeight: CGFloat {
-    rowHeight * CGFloat(rowCount)
-  }
-  private var containerMaximumHeight: CGFloat {
-    containerDefaultHeight + rowHeight * 4
-  }
-  private var containerThresholdHeight: CGFloat {
-    containerDefaultHeight / 2
-  }
-
-  private var contentMinimumOffset = CGFloat.zero
-  private var firstRowOffset: CGFloat {
-    (containerDefaultHeight - rowHeight) / 2
-  }
-  private var selectedRowMargin: CGFloat {
-    rowHeight * CGFloat(rowSelection)
-  }
-  private var selectedRowOffset: CGFloat {
-    firstRowOffset - selectedRowMargin
-  }
-  private var selectedRowOffsetLimit: CGFloat {
-    selectedRowOffset + selectedRowMargin / 2
-  }
-
-  private var toOpen = false
-  private var moreTopRow: Bool {
-    Float(rowSelection) >= Float(containerHeight / rowHeight - 1) / 2
-  }
+  private let row: VStretchableRow
+  private let container: VStretchableContainer
+  private let content: VStretchableContent
+  private let translation: VStretchableTranslation
 
   @Published var containerHeight = CGFloat.zero
-  @Published var contentOffset = CGFloat.zero
+  @Published var contentCenterOffset = CGFloat.zero
 
-  init(
-    height: CGFloat,
-    count: Int,
-    selection: Int
-  ) {
-    self.rowHeight = height
-    self.rowCount = count
-    self.rowSelection = selection
-    self.presetOffset()
-    self.presetHeight()
-  }
-}
+  init(height: CGFloat, count: Int, selection: Int) {
+    self.row = VStretchableRow(
+      height: height,
+      count: count,
+      selection: selection
+    )
+    self.container = VStretchableContainer(
+      row: self.row
+    )
+    self.content = VStretchableContent(
+      row: self.row,
+      container: self.container
+    )
+    self.translation = VStretchableTranslation(
+      container: self.container,
+      content: self.content
+    )
 
-extension VStretchable {
-  private func presetOffset() {
-    contentOffset = selectedRowOffset
-  }
+    self.container.willSetHeight { containerHeight in
+      self.containerHeight = containerHeight
+    }
+    self.content.center.willSetOffset { contentCenterOffset in
+      self.contentCenterOffset = contentCenterOffset
+    }
 
-  private func presetHeight() {
-    containerHeight = rowHeight
+    self.handleCloseStabilization()
   }
 }
 
 extension VStretchable {
   func onChange(height: CGFloat) {
-    toOpen = height > containerPreviousHeight
-
-    if toOpen {
-      handleOpen(height: height)
+    guard height != translation.previousHeight else { return }
+    translation.updateDirection(height: height)
+    switch translation.direction {
+      case .bottom:
+        handleOpen(height: height)
+      case .top:
+        handleClose(height: height)
     }
+    translation.store(height: height)
+  }
 
-    containerPreviousHeight = height
+  func onEnded() {
+    if container.crossedThreshold() {
+      handleOpenStabilization()
+    } else {
+      handleCloseStabilization()
+    }
+    translation.resetHeight()
   }
 }
 
 extension VStretchable {
   private func handleOpen(height: CGFloat) {
-    if containerHeight == containerMaximumHeight {
-      return
+    guard !container.opened else { return }
+    switch translation.type {
+      case .evenly:
+        handleOpenEvenly(height: height)
+      case .unevenly:
+        handleOpenUnevenly(height: height)
     }
-
-    if contentOffset == contentMinimumOffset || moreTopRow {
-      handleOpenEvenly(height: height)
-      return
-    }
-
-    handleOpenUnevenly(height: height)
   }
 
   private func handleOpenEvenly(height: CGFloat) {
-    let additionalHeight = height - containerPreviousHeight
-    let expectedHeight = containerHeight + additionalHeight
-    containerHeight = expectedHeight > containerMaximumHeight
-    ? containerMaximumHeight
-    : containerHeight + additionalHeight
+    let additionalHeight = height - translation.previousHeight
+    let expectedHeight = container.height + additionalHeight
+    container.height = expectedHeight > container.maximumHeight
+    ? container.maximumHeight
+    : expectedHeight
   }
 
   private func handleOpenUnevenly(height: CGFloat) {
-    let additionalHeight = height - containerPreviousHeight
-    let additionalOffset = additionalHeight / 2
-    let currentCenter = containerHeight / 2
-    let shiftedCenter = (containerHeight + additionalOffset) / 2
-    let centerOffset = shiftedCenter - currentCenter
-    let expectedOffset = contentOffset - centerOffset
-
-    if expectedOffset >= contentMinimumOffset {
-      contentOffset = expectedOffset
-      containerHeight += additionalHeight
+    let additionalHeight = height - translation.previousHeight
+    let expectedHeight = container.height + additionalHeight
+    if expectedHeight > container.unevenlyTranslationMaximumHeight {
+      handleOpenWithTransition(height: height)
       return
     }
-
-    handleOpenTransition(height: height)
+    container.height = expectedHeight
+    content.center.offset -= additionalHeight * content.translation.ratio
   }
 
-  private func handleOpenTransition(height: CGFloat) {
-    let currentCenter = containerHeight / 2
-    let centerOffset = contentOffset
-    let shiftedOffset = currentCenter + centerOffset
-    let additionalOffset = shiftedOffset * 2 - containerHeight
-    let additionalHeight = additionalOffset * 2
-    contentOffset = contentMinimumOffset
-    containerHeight += additionalHeight
-    containerPreviousHeight += additionalHeight
+  private func handleOpenWithTransition(height: CGFloat) {
+    let additionalHeight = content.center.offset
+    * content.translation.coefficient
+    container.height += additionalHeight
+    content.center.finalizeOffset()
+    translation.update(height: additionalHeight)
     handleOpenEvenly(height: height)
   }
 
-  private func handleOpenReturn() {
-    contentOffset = contentMinimumOffset
-    containerHeight = containerDefaultHeight
+  private func handleOpenStabilization() {
+    container.finalizeHeight()
+    content.center.finalizeOffset()
   }
 }
 
 extension VStretchable {
-  func onEnded() {
-    if contentOffset == contentMinimumOffset {
-      handleOpenReturn()
+  private func handleClose(height: CGFloat) {
+    guard !container.closed else { return }
+    switch translation.type {
+      case .evenly:
+        handleCloseEvenly(height: height)
+      case .unevenly:
+        handleCloseUnevenly(height: height)
+    }
+  }
+
+  private func handleCloseEvenly(height: CGFloat) {
+    let extraHeight = translation.previousHeight - height
+    let expectedHeight = container.height - extraHeight
+    if
+      expectedHeight > container.unevenlyTranslationMinimumHeight
+        && expectedHeight < container.unevenlyTranslationMaximumHeight
+    {
+      handleCloseWithTransition(height: height)
       return
     }
-
-    if containerHeight >= containerThresholdHeight {
-      handleOpenReturn()
+    if expectedHeight < container.minimumHeight {
+      handleCloseStabilization()
+      return
     }
+    container.height = expectedHeight
+  }
+
+  private func handleCloseUnevenly(height: CGFloat) {
+    let extraHeight = translation.previousHeight - height
+    let expectedHeight = container.height - extraHeight
+    container.height = expectedHeight
+    content.center.offset += extraHeight * content.translation.ratio
+  }
+
+  private func handleCloseWithTransition(height: CGFloat) {
+    let extraHeight = height - container.unevenlyTranslationMaximumHeight
+    container.height -= extraHeight
+    content.center.offset = extraHeight * content.translation.ratio
+    translation.update(height: -extraHeight)
+    handleCloseUnevenly(height: height)
+  }
+
+  private func handleCloseStabilization() {
+    container.resetHeight()
+    content.center.resetOffset()
   }
 }
