@@ -45,3 +45,20 @@ extension CalendarMonthViewModel {
     }
   }
 }
+
+extension CalendarMonthViewModel {
+  var weekCount: Int {
+    dayViewModels.count / columnCount
+  }
+
+  func weekIndex() -> Int {
+    if
+      let index = dayViewModels.firstIndex(where: { dayViewModel in
+        dayViewModel.day.current
+      })
+    {
+      return Int(Float((index + 1) / columnCount).rounded(.up))
+    }
+    return 0
+  }
+}
