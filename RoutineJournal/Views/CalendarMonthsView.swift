@@ -7,20 +7,24 @@ struct CalendarMonthsView<Content>: View where Content: View {
 
   var body: some View {
     SpaceEvenlyContainerView(viewModel: evenlyViewModel) {
-      TabView(selection: $viewModel.monthViewModelSelection) {
-        ForEach(
-          Array(viewModel.monthViewModels.enumerated()),
-          id: \.offset
-        ) { index, monthViewModel in
-          content(monthViewModel)
-            .tag(index)
-            .onDisappear {
-              viewModel.loadMonthView()
+      VStretchableContainerView(viewModel: viewModel) {
+        TabView(selection: $viewModel.monthViewModelSelection) {
+          ForEach(
+            Array(viewModel.monthViewModels.enumerated()),
+            id: \.offset
+          ) { index, monthViewModel in
+            VStretchableContentView(viewModel: viewModel) {
+              content(monthViewModel)
+                .tag(index)
+                .onDisappear {
+                  viewModel.loadMonthView()
+                }
             }
+          }
         }
+        .id(viewModel.monthViewModels.count)
+        .tabViewStyle(.page(indexDisplayMode: .never))
       }
-      .id(viewModel.monthViewModels.count)
-      .tabViewStyle(.page(indexDisplayMode: .never))
     }
   }
 }

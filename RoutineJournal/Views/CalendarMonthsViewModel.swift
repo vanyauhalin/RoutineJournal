@@ -1,6 +1,6 @@
-import Foundation
+import SwiftUI
 
-class CalendarMonthsViewModel: ObservableObject {
+class CalendarMonthsViewModel: VStretchable {
   let calendar: Calendar
   @Published var monthViewModels: [CalendarMonthViewModel]
   @Published var monthViewModelSelection = Int.zero
@@ -8,6 +8,11 @@ class CalendarMonthsViewModel: ObservableObject {
   init(_ calendar: Calendar, monthViewModel: CalendarMonthViewModel) {
     self.calendar = calendar
     self.monthViewModels = [monthViewModel]
+    super.init(
+      height: CalendarDayView.width,
+      count: monthViewModel.weekCount,
+      selection: monthViewModel.weekIndex()
+    )
     self.preloadMonthViews()
   }
 }
