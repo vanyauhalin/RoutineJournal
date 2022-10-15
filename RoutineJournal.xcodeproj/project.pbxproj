@@ -10,8 +10,6 @@
 		A9D05B27E42D8E13529A779D /* Pods_RoutineJournal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CEE04A71FE2C38292DF09C /* Pods_RoutineJournal.framework */; };
 		FA11A2DF28E44BDF009DB9D0 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA11A2DE28E44BDF009DB9D0 /* View.swift */; };
 		FA11A2E328E58615009DB9D0 /* CalendarMonthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA11A2E228E58615009DB9D0 /* CalendarMonthViewModel.swift */; };
-		FA11A2E528E5B00B009DB9D0 /* SpaceEvenlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA11A2E428E5B00B009DB9D0 /* SpaceEvenlyView.swift */; };
-		FA11A2E928E5B041009DB9D0 /* SpaceEvenlyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA11A2E828E5B041009DB9D0 /* SpaceEvenlyViewModel.swift */; };
 		FA2A224C28E1DD3F00A641CD /* CalendarDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2A224B28E1DD3F00A641CD /* CalendarDay.swift */; };
 		FA3A529228F727C100AC39E4 /* VStretchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A529128F727C100AC39E4 /* VStretchable.swift */; };
 		FA4657AA28E05B800064973B /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4657A928E05B800064973B /* CalendarView.swift */; };
@@ -26,7 +24,7 @@
 		FA5BF5DB28D47576007304C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5BF5DA28D47576007304C4 /* ContentView.swift */; };
 		FA5BF5DD28D47579007304C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA5BF5DC28D47579007304C4 /* Assets.xcassets */; };
 		FA5BF5E028D47579007304C4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA5BF5DF28D47579007304C4 /* Preview Assets.xcassets */; };
-		FA8FD65728EC44870055AC87 /* SpaceEvenlyContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FD65628EC44870055AC87 /* SpaceEvenlyContainerView.swift */; };
+		FA8735F328FAB5BA00D3E660 /* CalendarMonthsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8735F228FAB5BA00D3E660 /* CalendarMonthsContainerView.swift */; };
 		FA9114BC28D9C43D004D8B7D /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA9114BA28D9C43D004D8B7D /* .swiftlint.yml */; };
 		FA9114BD28D9C43D004D8B7D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FA9114BB28D9C43D004D8B7D /* .gitignore */; };
 		FAC8B6DA28E6E3440003EE95 /* CalendarDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC8B6D928E6E3440003EE95 /* CalendarDayViewModel.swift */; };
@@ -37,6 +35,8 @@
 		FADF314028F7F44800B2447C /* VStretchableTranslation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF313C28F7F44800B2447C /* VStretchableTranslation.swift */; };
 		FADF314128F7F44800B2447C /* VStretchableContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF313D28F7F44800B2447C /* VStretchableContainer.swift */; };
 		FADF314228F7F44800B2447C /* VStretchableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF313E28F7F44800B2447C /* VStretchableRow.swift */; };
+		FAFD8ADE28F96FBF00CFD702 /* VSpaceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD8ADD28F96FBF00CFD702 /* VSpaceable.swift */; };
+		FAFD8AE028F9B66C00CFD702 /* VSpaceableContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD8ADF28F9B66C00CFD702 /* VSpaceableContainerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,8 +45,6 @@
 		CE9E17D1FC8AA6519743BCFE /* Pods-RoutineJournal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutineJournal.debug.xcconfig"; path = "Target Support Files/Pods-RoutineJournal/Pods-RoutineJournal.debug.xcconfig"; sourceTree = "<group>"; };
 		FA11A2DE28E44BDF009DB9D0 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		FA11A2E228E58615009DB9D0 /* CalendarMonthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMonthViewModel.swift; sourceTree = "<group>"; };
-		FA11A2E428E5B00B009DB9D0 /* SpaceEvenlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceEvenlyView.swift; sourceTree = "<group>"; };
-		FA11A2E828E5B041009DB9D0 /* SpaceEvenlyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceEvenlyViewModel.swift; sourceTree = "<group>"; };
 		FA2A224B28E1DD3F00A641CD /* CalendarDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDay.swift; sourceTree = "<group>"; };
 		FA3A529128F727C100AC39E4 /* VStretchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStretchable.swift; sourceTree = "<group>"; };
 		FA4657A928E05B800064973B /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
@@ -62,7 +60,7 @@
 		FA5BF5DA28D47576007304C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FA5BF5DC28D47579007304C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA5BF5DF28D47579007304C4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		FA8FD65628EC44870055AC87 /* SpaceEvenlyContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceEvenlyContainerView.swift; sourceTree = "<group>"; };
+		FA8735F228FAB5BA00D3E660 /* CalendarMonthsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMonthsContainerView.swift; sourceTree = "<group>"; };
 		FA9114BA28D9C43D004D8B7D /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		FA9114BB28D9C43D004D8B7D /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		FAC8B6D928E6E3440003EE95 /* CalendarDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayViewModel.swift; sourceTree = "<group>"; };
@@ -73,6 +71,8 @@
 		FADF313C28F7F44800B2447C /* VStretchableTranslation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStretchableTranslation.swift; sourceTree = "<group>"; };
 		FADF313D28F7F44800B2447C /* VStretchableContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStretchableContainer.swift; sourceTree = "<group>"; };
 		FADF313E28F7F44800B2447C /* VStretchableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStretchableRow.swift; sourceTree = "<group>"; };
+		FAFD8ADD28F96FBF00CFD702 /* VSpaceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSpaceable.swift; sourceTree = "<group>"; };
+		FAFD8ADF28F9B66C00CFD702 /* VSpaceableContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSpaceableContainerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,20 +108,10 @@
 			isa = PBXGroup;
 			children = (
 				FA11A2DE28E44BDF009DB9D0 /* View.swift */,
-				FA11A2E728E5B034009DB9D0 /* SpaceEvenly */,
+				FAFD8ADC28F96C0700CFD702 /* VSpaceable */,
 				FA5658AE28ED584E007C0CD9 /* VStretchable */,
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		FA11A2E728E5B034009DB9D0 /* SpaceEvenly */ = {
-			isa = PBXGroup;
-			children = (
-				FA8FD65628EC44870055AC87 /* SpaceEvenlyContainerView.swift */,
-				FA11A2E428E5B00B009DB9D0 /* SpaceEvenlyView.swift */,
-				FA11A2E828E5B041009DB9D0 /* SpaceEvenlyViewModel.swift */,
-			);
-			name = SpaceEvenly;
 			sourceTree = "<group>";
 		};
 		FA3A528D28F7276E00AC39E4 /* Views */ = {
@@ -247,6 +237,7 @@
 		FAC8B6E328E7423B0003EE95 /* CalendarMonths */ = {
 			isa = PBXGroup;
 			children = (
+				FA8735F228FAB5BA00D3E660 /* CalendarMonthsContainerView.swift */,
 				FAC8B6E428E742440003EE95 /* CalendarMonthsView.swift */,
 				FAC8B6E628E743870003EE95 /* CalendarMonthsViewModel.swift */,
 			);
@@ -260,6 +251,15 @@
 				FA4657A828E05B710064973B /* Calendar */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		FAFD8ADC28F96C0700CFD702 /* VSpaceable */ = {
+			isa = PBXGroup;
+			children = (
+				FAFD8ADD28F96FBF00CFD702 /* VSpaceable.swift */,
+				FAFD8ADF28F9B66C00CFD702 /* VSpaceableContainerView.swift */,
+			);
+			name = VSpaceable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,18 +383,18 @@
 				FA11A2E328E58615009DB9D0 /* CalendarMonthViewModel.swift in Sources */,
 				FAC8B6E528E742440003EE95 /* CalendarMonthsView.swift in Sources */,
 				FA4657B428E0B5670064973B /* CalendarViewModel.swift in Sources */,
-				FA11A2E528E5B00B009DB9D0 /* SpaceEvenlyView.swift in Sources */,
+				FAFD8AE028F9B66C00CFD702 /* VSpaceableContainerView.swift in Sources */,
 				FAC8B6E728E743870003EE95 /* CalendarMonthsViewModel.swift in Sources */,
 				FA11A2DF28E44BDF009DB9D0 /* View.swift in Sources */,
-				FA11A2E928E5B041009DB9D0 /* SpaceEvenlyViewModel.swift in Sources */,
 				FADF314128F7F44800B2447C /* VStretchableContainer.swift in Sources */,
 				FADF314228F7F44800B2447C /* VStretchableRow.swift in Sources */,
 				FAC8B6E128E72B500003EE95 /* CalendarWeekdaysView.swift in Sources */,
 				FA4657AA28E05B800064973B /* CalendarView.swift in Sources */,
 				FA4657BB28E0BCF90064973B /* CalendarWeekdayView.swift in Sources */,
+				FAFD8ADE28F96FBF00CFD702 /* VSpaceable.swift in Sources */,
 				FA5BF5DB28D47576007304C4 /* ContentView.swift in Sources */,
+				FA8735F328FAB5BA00D3E660 /* CalendarMonthsContainerView.swift in Sources */,
 				FA5BF5D928D47576007304C4 /* RoutineJournal.swift in Sources */,
-				FA8FD65728EC44870055AC87 /* SpaceEvenlyContainerView.swift in Sources */,
 				FA5658B428ED6005007C0CD9 /* VStretchableContentView.swift in Sources */,
 				FA5658B228ED59FD007C0CD9 /* VStretchableContainerView.swift in Sources */,
 				FA3A529228F727C100AC39E4 /* VStretchable.swift in Sources */,
