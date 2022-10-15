@@ -1,12 +1,12 @@
 import SwiftUI
 
 class CalendarMonthViewModel: ObservableObject {
-  let calendar: Calendar
+  private typealias Settings = CalendarSettings
+
   let month: CalendarMonth
   let columns: [GridItem]
 
-  init(_ calendar: Calendar, month: CalendarMonth, columns: [GridItem]) {
-    self.calendar = calendar
+  init(month: CalendarMonth, columns: [GridItem]) {
     self.month = month
     self.columns = columns
   }
@@ -18,9 +18,9 @@ extension CalendarMonthViewModel {
       let firstWeekday = month.firstWeekday,
       let previousDays = month.previousMonth()?.days
     {
-      let dayCount = firstWeekday >= calendar.firstWeekday
-      ? firstWeekday - calendar.firstWeekday
-      : columns.count - (calendar.firstWeekday - firstWeekday)
+      let dayCount = firstWeekday >= Settings.firstWeekday
+      ? firstWeekday - Settings.firstWeekday
+      : columns.count - (Settings.firstWeekday - firstWeekday)
       return Array(previousDays[(previousDays.count - dayCount)...])
     }
     return []
@@ -31,9 +31,9 @@ extension CalendarMonthViewModel {
       let lastWeekday = month.lastWeekday,
       let nextDays = month.nextMonth()?.days
     {
-      let dayCount = lastWeekday >= calendar.firstWeekday
-      ? columns.count - (lastWeekday - calendar.firstWeekday + 1)
-      : calendar.firstWeekday - (lastWeekday + 1)
+      let dayCount = lastWeekday >= Settings.firstWeekday
+      ? columns.count - (lastWeekday - Settings.firstWeekday + 1)
+      : Settings.firstWeekday - (lastWeekday + 1)
       return Array(nextDays[..<dayCount])
     }
     return []

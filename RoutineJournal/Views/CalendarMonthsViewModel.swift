@@ -1,8 +1,7 @@
 import SwiftUI
 
 class CalendarMonthsViewModel: ObservableObject {
-  private let calendar: Calendar
-  let anchor: Date
+  private typealias Settings = CalendarSettings
 
   let month: Month
   var container: VStretchable?
@@ -10,10 +9,11 @@ class CalendarMonthsViewModel: ObservableObject {
   @Published var list: [CalendarMonthViewModel] = []
   @Published var monthSelection = Int.zero
 
-  init(_ calendar: Calendar, anchor: Date, count: Int) {
-    self.calendar = calendar
-    self.anchor = anchor
-    self.month = Month(columnWidth: CalendarDayView.width, columnCount: count)
+  init() {
+    self.month = Month(
+      columnWidth: CalendarDayView.width,
+      columnCount: Settings.weekdaySymbols.count
+    )
     self.month.willSetSelection { monthSelection in
       self.monthSelection = monthSelection
     }
@@ -27,11 +27,7 @@ extension CalendarMonthsViewModel {
       let previous = selected.month.previousMonth()
     {
       list.insert(
-        CalendarMonthViewModel(
-          calendar,
-          month: previous,
-          columns: month.columns
-        ),
+        CalendarMonthViewModel(month: previous, columns: month.columns),
         at: .zero
       )
       month.selection += 1
@@ -44,19 +40,14 @@ extension CalendarMonthsViewModel {
       let next = selected.month.nextMonth()
     {
       list.append(
-        CalendarMonthViewModel(
-          calendar,
-          month: next,
-          columns: month.columns
-        )
+        CalendarMonthViewModel(month: next, columns: month.columns)
       )
     }
   }
 
   func preload() {
     let month = CalendarMonthViewModel(
-      calendar,
-      month: CalendarMonth(calendar, anchor: anchor),
+      month: CalendarMonth(anchor: Settings.today),
       columns: self.month.columns
     )
     list = [month]

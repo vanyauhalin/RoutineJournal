@@ -1,32 +1,28 @@
 import Foundation
 
 class CalendarViewModel {
-  let calendar: Calendar
-  let today: Date
+  private typealias Settings = CalendarSettings
 
   init(_ calendar: Calendar, today: Date) {
-    self.calendar = calendar
-    self.today = today
+    //
   }
 }
 
 extension CalendarViewModel {
   var weekdaySymbols: [String] {
-    let defaultSymbols = calendar.veryShortWeekdaySymbols
-    if calendar.firstWeekday == 1 {
-      return defaultSymbols
+    if Settings.firstWeekday == 1 {
+      return Settings.weekdaySymbols
     }
-    let bound = calendar.firstWeekday - 1
-    return Array(defaultSymbols[bound...] + defaultSymbols[..<bound])
+    let bound = Settings.firstWeekday - 1
+    return Array(
+      Settings.weekdaySymbols[bound...]
+      + Settings.weekdaySymbols[..<bound]
+    )
   }
 }
 
 extension CalendarViewModel {
   var monthsViewModel: CalendarMonthsViewModel {
-    CalendarMonthsViewModel(
-      calendar,
-      anchor: today,
-      count: weekdaySymbols.count
-    )
+    CalendarMonthsViewModel()
   }
 }

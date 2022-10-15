@@ -1,28 +1,27 @@
 import Foundation
 
 class CalendarMonth {
+  private typealias Settings = CalendarSettings
   private let anchor: Date
-  let calendar: Calendar
 
-  init(_ calendar: Calendar, anchor: Date) {
-    self.calendar = calendar
+  init(anchor: Date) {
     self.anchor = anchor
   }
 }
 
 extension CalendarMonth {
   var firstDay: Date? {
-    return calendar.date(
-      from: calendar.dateComponents(
+    return Settings.calendar.date(
+      from: Settings.calendar.dateComponents(
         [.year, .month],
-        from: calendar.startOfDay(for: anchor)
+        from: Settings.calendar.startOfDay(for: anchor)
       )
     )
   }
 
   var lastDay: Date? {
     if let unwrappedFirstDay = firstDay {
-      return calendar.date(
+      return Settings.calendar.date(
         byAdding: DateComponents(month: 1, day: -1),
         to: unwrappedFirstDay
       )
@@ -34,10 +33,10 @@ extension CalendarMonth {
 extension CalendarMonth {
   var firstWeekday: Int? {
     if let unwrappedFirstDay = firstDay {
-      return calendar
+      return Settings.calendar
         .dateComponents(
           [.weekday],
-          from: calendar.startOfDay(for: unwrappedFirstDay)
+          from: Settings.calendar.startOfDay(for: unwrappedFirstDay)
         )
         .weekday
     }
@@ -46,10 +45,10 @@ extension CalendarMonth {
 
   var lastWeekday: Int? {
     if let unwrappedLastDay = lastDay {
-      return calendar
+      return Settings.calendar
         .dateComponents(
           [.weekday],
-          from: calendar.startOfDay(for: unwrappedLastDay)
+          from: Settings.calendar.startOfDay(for: unwrappedLastDay)
         )
         .weekday
     }
@@ -61,13 +60,13 @@ extension CalendarMonth {
   func previousMonth() -> CalendarMonth? {
     if
       let unwrappedFirstDay = firstDay,
-      let previousMonthAnchor = calendar.date(
+      let previousMonthAnchor = Settings.calendar.date(
         byAdding: .month,
         value: -1,
         to: unwrappedFirstDay
       )
     {
-      return CalendarMonth(calendar, anchor: previousMonthAnchor)
+      return CalendarMonth(anchor: previousMonthAnchor)
     }
     return nil
   }
@@ -75,13 +74,13 @@ extension CalendarMonth {
   func nextMonth() -> CalendarMonth? {
     if
       let unwrappedFirstDay = firstDay,
-      let nextMonthAnchor = calendar.date(
+      let nextMonthAnchor = Settings.calendar.date(
         byAdding: .month,
         value: 1,
         to: unwrappedFirstDay
       )
     {
-      return CalendarMonth(calendar, anchor: nextMonthAnchor)
+      return CalendarMonth(anchor: nextMonthAnchor)
     }
     return nil
   }
@@ -91,21 +90,21 @@ extension CalendarMonth {
   var days: [CalendarDay] {
     if
       let unwrappedFirstDay = firstDay,
-      let firstDayNumber = calendar
+      let firstDayNumber = Settings.calendar
         .dateComponents([.day], from: unwrappedFirstDay)
         .day,
       let unwrappedLastDay = lastDay,
-      let lastDayNumber = calendar
+      let lastDayNumber = Settings.calendar
         .dateComponents([.day], from: unwrappedLastDay)
         .day
     {
       return ((firstDayNumber - 1)..<lastDayNumber).compactMap { number in
-        if let day = calendar.date(
+        if let day = Settings.calendar.date(
           byAdding: .day,
           value: number,
           to: unwrappedFirstDay
         ) {
-          return CalendarDay(calendar, date: day)
+          return CalendarDay(Settings.calendar, date: day)
         }
         return nil
       }
