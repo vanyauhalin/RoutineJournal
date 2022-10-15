@@ -1,28 +1,28 @@
 import SwiftUI
 
 struct CalendarMonthsView<Content>: View where Content: View {
-  @ObservedObject var viewModel: CalendarMonthsViewModel
-  @ObservedObject var evenlyViewModel: SpaceEvenlyViewModel
-  @ViewBuilder var content: (CalendarMonthViewModel) -> Content
+  @ObservedObject var months: CalendarMonthsViewModel
+  @ViewBuilder let content: (CalendarMonthViewModel) -> Content
 
   var body: some View {
-    SpaceEvenlyContainerView(viewModel: evenlyViewModel) {
-      VStretchableContainerView(viewModel: viewModel) {
-        TabView(selection: $viewModel.monthViewModelSelection) {
+    CalendarMonthsContainerView(viewModel: months) { container in
+      VStretchableContainerView(viewModel: container) {
+        TabView(selection: $months.monthSelection) {
           ForEach(
-            Array(viewModel.monthViewModels.enumerated()),
+            Array(months.list.enumerated()),
             id: \.offset
           ) { index, monthViewModel in
-            VStretchableContentView(viewModel: viewModel) {
+            VStretchableContentView(viewModel: container) {
               content(monthViewModel)
                 .tag(index)
+                .padding([.horizontal])
                 .onDisappear {
-                  viewModel.loadMonthView()
+                  months.load()
                 }
             }
           }
         }
-        .id(viewModel.monthViewModels.count)
+        .id(months.list.count)
         .tabViewStyle(.page(indexDisplayMode: .never))
       }
     }

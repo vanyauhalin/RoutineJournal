@@ -1,68 +1,100 @@
 import SwiftUI
 
-class CalendarMonthsViewModel: VStretchable {
-  let calendar: Calendar
-  @Published var monthViewModels: [CalendarMonthViewModel]
-  @Published var monthViewModelSelection = Int.zero
+class CalendarMonthsViewModel: ObservableObject {
+  private let calendar: Calendar
+  let anchor: Date
 
-  init(_ calendar: Calendar, monthViewModel: CalendarMonthViewModel) {
+  let month: Month
+  var container: VStretchable?
+
+  @Published var list: [CalendarMonthViewModel] = []
+  @Published var monthSelection = Int.zero
+
+  init(_ calendar: Calendar, anchor: Date, count: Int) {
     self.calendar = calendar
-    self.monthViewModels = [monthViewModel]
-    super.init(
-      height: CalendarDayView.width,
-      count: monthViewModel.weekCount,
-      selection: monthViewModel.weekIndex()
-    )
-    self.preloadMonthViews()
+    self.anchor = anchor
+    self.month = Month(columnWidth: CalendarDayView.width, columnCount: count)
+    self.month.willSetSelection { monthSelection in
+      self.monthSelection = monthSelection
+    }
   }
 }
 
 extension CalendarMonthsViewModel {
-  func preloadMonthViews() {
-    loadPreviousMonthView()
-    loadNextMonthView()
-  }
-
-  func loadPreviousMonthView() {
+  private func loadPrevious() {
     if
-      let selected = Optional(monthViewModels[monthViewModelSelection]),
+      let selected = Optional(list[month.selection]),
       let previous = selected.month.previousMonth()
     {
-      monthViewModels.insert(
+      list.insert(
         CalendarMonthViewModel(
           calendar,
           month: previous,
-          columnCount: selected.columnCount
+          columns: month.columns
         ),
         at: .zero
       )
-      monthViewModelSelection += 1
+      month.selection += 1
     }
   }
 
-  func loadNextMonthView() {
+  private func loadNext() {
     if
-      let selected = Optional(monthViewModels[monthViewModelSelection]),
+      let selected = Optional(list[month.selection]),
       let next = selected.month.nextMonth()
     {
-      monthViewModels.append(
+      list.append(
         CalendarMonthViewModel(
           calendar,
           month: next,
-          columnCount: selected.columnCount
+          columns: month.columns
         )
       )
     }
   }
 
-  func loadMonthView() {
-    switch monthViewModelSelection {
+  func preload() {
+    let month = CalendarMonthViewModel(
+      calendar,
+      month: CalendarMonth(calendar, anchor: anchor),
+      columns: self.month.columns
+    )
+    list = [month]
+    container = VStretchable(
+      height: CalendarDayView.width,
+      count: month.weekCount,
+      selection: month.weekIndex()
+    )
+
+    loadPrevious()
+    loadNext()
+  }
+
+  func load() {
+    switch month.selection {
       case Int.zero:
-        loadPreviousMonthView()
-      case monthViewModels.count - 1:
-        loadNextMonthView()
+        loadPrevious()
+      case list.count - 1:
+        loadNext()
       default:
         break
+    }
+  }
+}
+
+extension CalendarMonthsViewModel {
+  class Month: VSpaceable {
+    private var willSetSelectionCallback: ((Int) -> Void)?
+    var selection = Int.zero {
+      willSet {
+        if let callback = willSetSelectionCallback {
+          callback(newValue)
+        }
+      }
+    }
+
+    func willSetSelection(_ callback: @escaping (Int) -> Void) {
+      self.willSetSelectionCallback = callback
     }
   }
 }

@@ -2,7 +2,6 @@ import SwiftUI
 
 struct CalendarView: View {
   let viewModel: CalendarViewModel
-  @ObservedObject private var evenlyViewModel: SpaceEvenlyViewModel
 
   var body: some View {
     VStack(spacing: 4) {
@@ -11,26 +10,12 @@ struct CalendarView: View {
       ) { weekdaySymbol in
         CalendarWeekdayView(weekdaySymbol: weekdaySymbol)
       }
-      CalendarMonthsView(
-        viewModel: viewModel.monthsViewModel,
-        evenlyViewModel: evenlyViewModel
-      ) { monthViewModel in
-        CalendarMonthView(
-          viewModel: monthViewModel,
-          evenlyViewModel: evenlyViewModel
-        ) { dayViewModel in
+      CalendarMonthsView(months: viewModel.monthsViewModel) { monthViewModel in
+        CalendarMonthView(viewModel: monthViewModel) { dayViewModel in
           CalendarDayView(viewModel: dayViewModel)
         }
       }
     }
-  }
-
-  init(viewModel: CalendarViewModel) {
-    self.viewModel = viewModel
-    self.evenlyViewModel = SpaceEvenlyViewModel(
-      columnCount: viewModel.weekdaySymbols.count,
-      columnWidth: CalendarDayView.width
-    )
   }
 }
 

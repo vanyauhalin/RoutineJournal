@@ -3,12 +3,12 @@ import SwiftUI
 class CalendarMonthViewModel: ObservableObject {
   let calendar: Calendar
   let month: CalendarMonth
-  let columnCount: Int
+  let columns: [GridItem]
 
-  init(_ calendar: Calendar, month: CalendarMonth, columnCount: Int) {
+  init(_ calendar: Calendar, month: CalendarMonth, columns: [GridItem]) {
     self.calendar = calendar
     self.month = month
-    self.columnCount = columnCount
+    self.columns = columns
   }
 }
 
@@ -20,7 +20,7 @@ extension CalendarMonthViewModel {
     {
       let dayCount = firstWeekday >= calendar.firstWeekday
       ? firstWeekday - calendar.firstWeekday
-      : columnCount - (calendar.firstWeekday - firstWeekday)
+      : columns.count - (calendar.firstWeekday - firstWeekday)
       return Array(previousDays[(previousDays.count - dayCount)...])
     }
     return []
@@ -32,7 +32,7 @@ extension CalendarMonthViewModel {
       let nextDays = month.nextMonth()?.days
     {
       let dayCount = lastWeekday >= calendar.firstWeekday
-      ? columnCount - (lastWeekday - calendar.firstWeekday + 1)
+      ? columns.count - (lastWeekday - calendar.firstWeekday + 1)
       : calendar.firstWeekday - (lastWeekday + 1)
       return Array(nextDays[..<dayCount])
     }
@@ -48,7 +48,7 @@ extension CalendarMonthViewModel {
 
 extension CalendarMonthViewModel {
   var weekCount: Int {
-    dayViewModels.count / columnCount
+    dayViewModels.count / columns.count
   }
 
   func weekIndex() -> Int {
@@ -57,7 +57,7 @@ extension CalendarMonthViewModel {
         dayViewModel.day.current
       })
     {
-      return Int(Float((index + 1) / columnCount).rounded(.up))
+      return Int(Float((index + 1) / columns.count).rounded(.up))
     }
     return 0
   }

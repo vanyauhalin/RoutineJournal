@@ -22,19 +22,11 @@ extension CalendarViewModel {
 }
 
 extension CalendarViewModel {
-  var month: CalendarMonth {
-    CalendarMonth(calendar, anchor: today)
-  }
-
-  var monthViewModel: CalendarMonthViewModel {
-    CalendarMonthViewModel(
-      calendar,
-      month: month,
-      columnCount: weekdaySymbols.count
-    )
-  }
-
   var monthsViewModel: CalendarMonthsViewModel {
-    CalendarMonthsViewModel(calendar, monthViewModel: monthViewModel)
+    CalendarMonthsViewModel(
+      calendar,
+      anchor: today,
+      count: weekdaySymbols.count
+    )
   }
 }
