@@ -1,14 +1,19 @@
 import SwiftUI
 
 struct ContentView: View {
-  var calendarViewModel = CalendarViewModel()
-
   var body: some View {
-    VStack {
-      CalendarView(viewModel: calendarViewModel)
+    LayoutSettingsView {
+      NavigationView {
+        VStack(alignment: .leading) {
+          CalendarView()
+          Spacer()
+        }
+        .navigationTitle("Routine")
+        .background(Color(.systemGroupedBackground))
+      }
+      .frame(height: UIScreen.main.bounds.height)
+      .navigationViewStyle(.stack)
     }
-    .frame(height: UIScreen.main.bounds.height)
-    .background(Color(.systemGroupedBackground))
   }
 }
 

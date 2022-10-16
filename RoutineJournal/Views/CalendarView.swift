@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct CalendarView: View {
-  let viewModel: CalendarViewModel
+  private let viewModel = CalendarViewModel()
 
   var body: some View {
     VStack(spacing: 4) {
@@ -19,6 +19,6 @@ struct CalendarView: View {
 
 struct CalendarView_Previews: PreviewProvider {
   static var previews: some View {
-    CalendarView(viewModel: .init())
+    CalendarView()
   }
 }

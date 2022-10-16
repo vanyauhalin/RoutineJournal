@@ -21,6 +21,7 @@ class CalendarMonthsViewModel: ObservableObject {
       rowSelection: month.weekIndex() ?? .zero
     )
     self.monthContainer = .init(
+      containerWidth: CalendarMonthsContainerView.width,
       columnWidth: CalendarDayView.width,
       columnCount: Settings.weekdaySymbols.count
     )

@@ -1,7 +1,7 @@
 import SwiftUI
 
 class VSpaceable {
-  var containerWidth = CGFloat.zero
+  private let containerWidth: CGFloat
 
   private let columnWidth: CGFloat
   private let columnCount: Int
@@ -17,7 +17,8 @@ class VSpaceable {
     Array(repeating: column, count: columnCount)
   }
 
-  init(columnWidth: CGFloat, columnCount: Int) {
+  init(containerWidth: CGFloat, columnWidth: CGFloat, columnCount: Int) {
+    self.containerWidth = containerWidth
     self.columnWidth = columnWidth
     self.columnCount = columnCount
   }
