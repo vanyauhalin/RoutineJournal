@@ -6,35 +6,9 @@ class VStretchableContainer {
   private var willSetHeightCallback: ((CGFloat) -> Void)?
   var height = CGFloat.zero {
     willSet {
-      if let callback = willSetHeightCallback {
-        callback(newValue)
-      }
+      guard let callback = willSetHeightCallback else { return }
+      callback(newValue)
     }
-  }
-
-  var finalHeight: CGFloat {
-    row.height * CGFloat(row.count)
-  }
-  var thresholdHeight: CGFloat {
-    finalHeight / 2
-  }
-  var minimumHeight: CGFloat {
-    row.height
-  }
-  var maximumHeight: CGFloat {
-    finalHeight + row.height * 4
-  }
-  var unevenlyTranslationMinimumHeight: CGFloat {
-    minimumHeight * CGFloat(row.abs * 2 + 1)
-  }
-  var unevenlyTranslationMaximumHeight: CGFloat {
-    finalHeight + unevenlyTranslationMinimumHeight
-  }
-  var closed: Bool {
-    height == minimumHeight
-  }
-  var opened: Bool {
-    height == maximumHeight
   }
 
   init(row: VStretchableRow) {
@@ -43,19 +17,37 @@ class VStretchableContainer {
 }
 
 extension VStretchableContainer {
+  var naturalMaximumHeight: CGFloat {
+    row.height * CGFloat(row.count)
+  }
+  var thresholdHeight: CGFloat {
+    naturalMaximumHeight / 2
+  }
+  var minimumHeight: CGFloat {
+    row.height
+  }
+  var maximumHeight: CGFloat {
+    naturalMaximumHeight + row.height * 3
+  }
+  var closed: Bool {
+    height == minimumHeight
+  }
+  var opened: Bool {
+    height == maximumHeight
+  }
+}
+
+extension VStretchableContainer {
   func willSetHeight(_ callback: @escaping (CGFloat) -> Void) {
     self.willSetHeightCallback = callback
   }
-
   func crossedThreshold() -> Bool {
     height >= thresholdHeight
   }
-
-  func resetHeight() {
+  func close() {
     height = minimumHeight
   }
-
-  func finalizeHeight() {
-    height = finalHeight
+  func open() {
+    height = naturalMaximumHeight
   }
 }

@@ -4,33 +4,25 @@ class VStretchable: ObservableObject {
   private let row: VStretchableRow
   private let container: VStretchableContainer
   private let content: VStretchableContent
-  private let translation: VStretchableTranslation
+  private let gesture: VStretchableGesture
 
   @Published var containerHeight = CGFloat.zero
   @Published var contentCenterOffset = CGFloat.zero
 
   init(rowHeight: CGFloat, rowCount: Int, rowSelection: Int) {
-    self.row = VStretchableRow(
+    self.row = .init(
       height: rowHeight,
       count: rowCount,
       selection: rowSelection
     )
-    self.container = VStretchableContainer(
-      row: self.row
-    )
-    self.content = VStretchableContent(
-      row: self.row,
-      container: self.container
-    )
-    self.translation = VStretchableTranslation(
-      container: self.container,
-      content: self.content
-    )
+    self.container = .init(row: self.row)
+    self.content = .init(row: self.row, container: self.container)
+    self.gesture = .init(container: self.container, content: self.content)
 
     self.container.willSetHeight { containerHeight in
       self.containerHeight = containerHeight
     }
-    self.content.center.willSetOffset { contentCenterOffset in
+    self.content.willSetOffset { contentCenterOffset in
       self.contentCenterOffset = contentCenterOffset
     }
 
@@ -40,15 +32,15 @@ class VStretchable: ObservableObject {
 
 extension VStretchable {
   func onChange(height: CGFloat) {
-    guard height != translation.previousHeight else { return }
-    translation.updateDirection(height: height)
-    switch translation.direction {
+    guard height != gesture.translation.previousHeight else { return }
+    gesture.updateDirection(height: height)
+    switch gesture.direction {
       case .bottom:
         handleOpen(height: height)
       case .top:
         handleClose(height: height)
     }
-    translation.store(height: height)
+    gesture.translation.store(height: height)
   }
 
   func onEnded() {
@@ -57,14 +49,14 @@ extension VStretchable {
     } else {
       handleCloseStabilization()
     }
-    translation.resetHeight()
+    gesture.translation.resetHeight()
   }
 }
 
 extension VStretchable {
   private func handleOpen(height: CGFloat) {
     guard !container.opened else { return }
-    switch translation.type {
+    switch gesture.translation.type {
       case .evenly:
         handleOpenEvenly(height: height)
       case .unevenly:
@@ -73,7 +65,7 @@ extension VStretchable {
   }
 
   private func handleOpenEvenly(height: CGFloat) {
-    let additionalHeight = height - translation.previousHeight
+    let additionalHeight = height - gesture.translation.previousHeight
     let expectedHeight = container.height + additionalHeight
     container.height = expectedHeight > container.maximumHeight
     ? container.maximumHeight
@@ -81,35 +73,34 @@ extension VStretchable {
   }
 
   private func handleOpenUnevenly(height: CGFloat) {
-    let additionalHeight = height - translation.previousHeight
+    let additionalHeight = height - gesture.translation.previousHeight
     let expectedHeight = container.height + additionalHeight
-    if expectedHeight > container.unevenlyTranslationMaximumHeight {
+    if expectedHeight > container.maximumHeight {
       handleOpenWithTransition(height: height)
       return
     }
     container.height = expectedHeight
-    content.center.offset -= additionalHeight * content.translation.ratio
+    content.offset -= additionalHeight * gesture.translation.ratio
   }
 
   private func handleOpenWithTransition(height: CGFloat) {
-    let additionalHeight = content.center.offset
-    * content.translation.coefficient
+    let additionalHeight = content.offset * gesture.translation.coefficient
     container.height += additionalHeight
-    content.center.finalizeOffset()
-    translation.update(height: additionalHeight)
+    content.open()
+    gesture.translation.update(height: additionalHeight)
     handleOpenEvenly(height: height)
   }
 
   private func handleOpenStabilization() {
-    container.finalizeHeight()
-    content.center.finalizeOffset()
+    container.open()
+    content.open()
   }
 }
 
 extension VStretchable {
   private func handleClose(height: CGFloat) {
     guard !container.closed else { return }
-    switch translation.type {
+    switch gesture.translation.type {
       case .evenly:
         handleCloseEvenly(height: height)
       case .unevenly:
@@ -118,39 +109,36 @@ extension VStretchable {
   }
 
   private func handleCloseEvenly(height: CGFloat) {
-    let extraHeight = translation.previousHeight - height
+    let extraHeight = gesture.translation.previousHeight - height
     let expectedHeight = container.height - extraHeight
-    if
-      expectedHeight > container.unevenlyTranslationMinimumHeight
-        && expectedHeight < container.unevenlyTranslationMaximumHeight
-    {
+    if expectedHeight < container.maximumHeight {
       handleCloseWithTransition(height: height)
-      return
-    }
-    if expectedHeight < container.minimumHeight {
-      handleCloseStabilization()
       return
     }
     container.height = expectedHeight
   }
 
   private func handleCloseUnevenly(height: CGFloat) {
-    let extraHeight = translation.previousHeight - height
+    let extraHeight = gesture.translation.previousHeight - height
     let expectedHeight = container.height - extraHeight
+    if expectedHeight < container.minimumHeight {
+      handleCloseStabilization()
+      return
+    }
     container.height = expectedHeight
-    content.center.offset += extraHeight * content.translation.ratio
+    content.offset += extraHeight * gesture.translation.ratio
   }
 
   private func handleCloseWithTransition(height: CGFloat) {
-    let extraHeight = height - container.unevenlyTranslationMaximumHeight
+    let extraHeight = height - container.maximumHeight
     container.height -= extraHeight
-    content.center.offset = extraHeight * content.translation.ratio
-    translation.update(height: -extraHeight)
+    content.offset = extraHeight * gesture.translation.ratio
+    gesture.translation.update(height: -extraHeight)
     handleCloseUnevenly(height: height)
   }
 
   private func handleCloseStabilization() {
-    container.resetHeight()
-    content.center.resetOffset()
+    container.close()
+    content.close()
   }
 }
