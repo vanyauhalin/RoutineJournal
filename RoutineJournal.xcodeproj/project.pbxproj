@@ -11,6 +11,8 @@
 		FA11A2DF28E44BDF009DB9D0 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA11A2DE28E44BDF009DB9D0 /* View.swift */; };
 		FA11A2E328E58615009DB9D0 /* CalendarMonthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA11A2E228E58615009DB9D0 /* CalendarMonthViewModel.swift */; };
 		FA2A224C28E1DD3F00A641CD /* CalendarDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2A224B28E1DD3F00A641CD /* CalendarDay.swift */; };
+		FA35D7D428FBF2D800FA8CFE /* CalendarWeekdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35D7D328FBF2D800FA8CFE /* CalendarWeekdayViewModel.swift */; };
+		FA35D7D628FBF3DB00FA8CFE /* CalendarWeekdaysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35D7D528FBF3DB00FA8CFE /* CalendarWeekdaysViewModel.swift */; };
 		FA3A529228F727C100AC39E4 /* VStretchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A529128F727C100AC39E4 /* VStretchable.swift */; };
 		FA4657AA28E05B800064973B /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4657A928E05B800064973B /* CalendarView.swift */; };
 		FA4657AD28E05DD90064973B /* CalendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4657AC28E05DD90064973B /* CalendarDayView.swift */; };
@@ -24,7 +26,7 @@
 		FA5BF5DB28D47576007304C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5BF5DA28D47576007304C4 /* ContentView.swift */; };
 		FA5BF5DD28D47579007304C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA5BF5DC28D47579007304C4 /* Assets.xcassets */; };
 		FA5BF5E028D47579007304C4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA5BF5DF28D47579007304C4 /* Preview Assets.xcassets */; };
-		FA8735F328FAB5BA00D3E660 /* CalendarMonthsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8735F228FAB5BA00D3E660 /* CalendarMonthsContainerView.swift */; };
+		FA8735F628FAC75500D3E660 /* CalendarSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8735F528FAC75500D3E660 /* CalendarSettings.swift */; };
 		FA9114BC28D9C43D004D8B7D /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA9114BA28D9C43D004D8B7D /* .swiftlint.yml */; };
 		FA9114BD28D9C43D004D8B7D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FA9114BB28D9C43D004D8B7D /* .gitignore */; };
 		FAC8B6DA28E6E3440003EE95 /* CalendarDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC8B6D928E6E3440003EE95 /* CalendarDayViewModel.swift */; };
@@ -46,6 +48,8 @@
 		FA11A2DE28E44BDF009DB9D0 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		FA11A2E228E58615009DB9D0 /* CalendarMonthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMonthViewModel.swift; sourceTree = "<group>"; };
 		FA2A224B28E1DD3F00A641CD /* CalendarDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDay.swift; sourceTree = "<group>"; };
+		FA35D7D328FBF2D800FA8CFE /* CalendarWeekdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWeekdayViewModel.swift; sourceTree = "<group>"; };
+		FA35D7D528FBF3DB00FA8CFE /* CalendarWeekdaysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWeekdaysViewModel.swift; sourceTree = "<group>"; };
 		FA3A529128F727C100AC39E4 /* VStretchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStretchable.swift; sourceTree = "<group>"; };
 		FA4657A928E05B800064973B /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		FA4657AC28E05DD90064973B /* CalendarDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayView.swift; sourceTree = "<group>"; };
@@ -60,7 +64,7 @@
 		FA5BF5DA28D47576007304C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FA5BF5DC28D47579007304C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA5BF5DF28D47579007304C4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		FA8735F228FAB5BA00D3E660 /* CalendarMonthsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMonthsContainerView.swift; sourceTree = "<group>"; };
+		FA8735F528FAC75500D3E660 /* CalendarSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSettings.swift; sourceTree = "<group>"; };
 		FA9114BA28D9C43D004D8B7D /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		FA9114BB28D9C43D004D8B7D /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		FAC8B6D928E6E3440003EE95 /* CalendarDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayViewModel.swift; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 				FA4657AB28E05DCD0064973B /* CalendarDay */,
 				FA4657BC28E1718F0064973B /* CalendarMonth */,
 				FAC8B6E328E7423B0003EE95 /* CalendarMonths */,
+				FA8735F428FAC74100D3E660 /* CalendarSettings */,
 				FA4657B728E0BCD00064973B /* CalendarWeekday */,
 				FAC8B6DF28E6FB580003EE95 /* CalendarWeekdays */,
 			);
@@ -151,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				FA4657BA28E0BCF90064973B /* CalendarWeekdayView.swift */,
+				FA35D7D328FBF2D800FA8CFE /* CalendarWeekdayViewModel.swift */,
 			);
 			name = CalendarWeekday;
 			sourceTree = "<group>";
@@ -214,6 +220,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		FA8735F428FAC74100D3E660 /* CalendarSettings */ = {
+			isa = PBXGroup;
+			children = (
+				FA8735F528FAC75500D3E660 /* CalendarSettings.swift */,
+			);
+			name = CalendarSettings;
+			sourceTree = "<group>";
+		};
 		FAA752B028F7353300ADB0FB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				FAC8B6E028E72B500003EE95 /* CalendarWeekdaysView.swift */,
+				FA35D7D528FBF3DB00FA8CFE /* CalendarWeekdaysViewModel.swift */,
 			);
 			name = CalendarWeekdays;
 			sourceTree = "<group>";
@@ -237,7 +252,6 @@
 		FAC8B6E328E7423B0003EE95 /* CalendarMonths */ = {
 			isa = PBXGroup;
 			children = (
-				FA8735F228FAB5BA00D3E660 /* CalendarMonthsContainerView.swift */,
 				FAC8B6E428E742440003EE95 /* CalendarMonthsView.swift */,
 				FAC8B6E628E743870003EE95 /* CalendarMonthsViewModel.swift */,
 			);
@@ -385,6 +399,7 @@
 				FA4657B428E0B5670064973B /* CalendarViewModel.swift in Sources */,
 				FAFD8AE028F9B66C00CFD702 /* VSpaceableContainerView.swift in Sources */,
 				FAC8B6E728E743870003EE95 /* CalendarMonthsViewModel.swift in Sources */,
+				FA35D7D628FBF3DB00FA8CFE /* CalendarWeekdaysViewModel.swift in Sources */,
 				FA11A2DF28E44BDF009DB9D0 /* View.swift in Sources */,
 				FADF314128F7F44800B2447C /* VStretchableContainer.swift in Sources */,
 				FADF314228F7F44800B2447C /* VStretchableRow.swift in Sources */,
@@ -393,8 +408,8 @@
 				FA4657BB28E0BCF90064973B /* CalendarWeekdayView.swift in Sources */,
 				FAFD8ADE28F96FBF00CFD702 /* VSpaceable.swift in Sources */,
 				FA5BF5DB28D47576007304C4 /* ContentView.swift in Sources */,
-				FA8735F328FAB5BA00D3E660 /* CalendarMonthsContainerView.swift in Sources */,
 				FA5BF5D928D47576007304C4 /* RoutineJournal.swift in Sources */,
+				FA8735F628FAC75500D3E660 /* CalendarSettings.swift in Sources */,
 				FA5658B428ED6005007C0CD9 /* VStretchableContentView.swift in Sources */,
 				FA5658B228ED59FD007C0CD9 /* VStretchableContainerView.swift in Sources */,
 				FA3A529228F727C100AC39E4 /* VStretchable.swift in Sources */,
@@ -402,6 +417,7 @@
 				FADF313F28F7F44800B2447C /* VStretchableContent.swift in Sources */,
 				FADF314028F7F44800B2447C /* VStretchableTranslation.swift in Sources */,
 				FA4657BE28E1719F0064973B /* CalendarMonthView.swift in Sources */,
+				FA35D7D428FBF2D800FA8CFE /* CalendarWeekdayViewModel.swift in Sources */,
 				FA4657AD28E05DD90064973B /* CalendarDayView.swift in Sources */,
 				FA2A224C28E1DD3F00A641CD /* CalendarDay.swift in Sources */,
 			);
