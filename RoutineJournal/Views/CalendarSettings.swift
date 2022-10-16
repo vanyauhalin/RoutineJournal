@@ -1,5 +1,6 @@
 import Foundation
 
+// swiftlint:disable:next convenience_type
 struct CalendarSettings {
   static let calendar = Calendar.current
   static let today = Date.now
