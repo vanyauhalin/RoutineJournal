@@ -6,15 +6,19 @@ class CalendarMonthsViewModel: ObservableObject {
   var monthsContainer: VStretchable
   var monthContainer: VSpaceable
 
+  private var previousMonthSelection = -1
+  @Published var monthSelection = Int.zero {
+    willSet {
+      previousMonthSelection = monthSelection
+    }
+  }
+
   @Published private(set) var months: [CalendarMonthViewModel]
-  @Published var monthSelection: Int
 
   init() {
     let month = CalendarMonthViewModel(
       calendarMonth: .init(anchor: Settings.today)
     )
-    let months = [month]
-
     self.monthsContainer = .init(
       rowHeight: CalendarDayView.width,
       rowCount: month.weekCount,
@@ -25,13 +29,24 @@ class CalendarMonthsViewModel: ObservableObject {
       columnWidth: CalendarDayView.width,
       columnCount: Settings.weekdaySymbols.count
     )
-    self.months = months
-    self.monthSelection = months.startIndex
+    self.months = [month]
 
     loadPreviousMonth()
     loadNextMonth()
   }
+}
 
+extension CalendarMonthsViewModel {
+  private enum Direction {
+    case previous
+    case next
+  }
+  private var direction: Direction {
+    monthSelection > previousMonthSelection ? .next : .previous
+  }
+}
+
+extension CalendarMonthsViewModel {
   private func loadPreviousMonth() {
     guard
       let selected = Optional(months[monthSelection]),
@@ -54,13 +69,13 @@ class CalendarMonthsViewModel: ObservableObject {
   }
 
   func loadMonth() {
-    switch monthSelection {
-      case .zero:
+    switch direction {
+      case .previous:
+        guard monthSelection == .zero else { return }
         loadPreviousMonth()
-      case months.count - 1:
+      case .next:
+        guard monthSelection == months.count - 1 else { return }
         loadNextMonth()
-      default:
-        break
     }
   }
 }
