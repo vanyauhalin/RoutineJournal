@@ -13,6 +13,8 @@
 		FA2A224C28E1DD3F00A641CD /* CalendarDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2A224B28E1DD3F00A641CD /* CalendarDay.swift */; };
 		FA35D7D428FBF2D800FA8CFE /* CalendarWeekdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35D7D328FBF2D800FA8CFE /* CalendarWeekdayViewModel.swift */; };
 		FA35D7D628FBF3DB00FA8CFE /* CalendarWeekdaysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35D7D528FBF3DB00FA8CFE /* CalendarWeekdaysViewModel.swift */; };
+		FA35D7D928FBFAA200FA8CFE /* LayoutSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35D7D828FBFAA200FA8CFE /* LayoutSettingsView.swift */; };
+		FA35D7DD28FBFB0400FA8CFE /* LayoutSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35D7DC28FBFB0400FA8CFE /* LayoutSettings.swift */; };
 		FA3A529228F727C100AC39E4 /* VStretchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A529128F727C100AC39E4 /* VStretchable.swift */; };
 		FA4657AA28E05B800064973B /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4657A928E05B800064973B /* CalendarView.swift */; };
 		FA4657AD28E05DD90064973B /* CalendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4657AC28E05DD90064973B /* CalendarDayView.swift */; };
@@ -38,7 +40,6 @@
 		FADF314128F7F44800B2447C /* VStretchableContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF313D28F7F44800B2447C /* VStretchableContainer.swift */; };
 		FADF314228F7F44800B2447C /* VStretchableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF313E28F7F44800B2447C /* VStretchableRow.swift */; };
 		FAFD8ADE28F96FBF00CFD702 /* VSpaceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD8ADD28F96FBF00CFD702 /* VSpaceable.swift */; };
-		FAFD8AE028F9B66C00CFD702 /* VSpaceableContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD8ADF28F9B66C00CFD702 /* VSpaceableContainerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,8 @@
 		FA2A224B28E1DD3F00A641CD /* CalendarDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDay.swift; sourceTree = "<group>"; };
 		FA35D7D328FBF2D800FA8CFE /* CalendarWeekdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWeekdayViewModel.swift; sourceTree = "<group>"; };
 		FA35D7D528FBF3DB00FA8CFE /* CalendarWeekdaysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWeekdaysViewModel.swift; sourceTree = "<group>"; };
+		FA35D7D828FBFAA200FA8CFE /* LayoutSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutSettingsView.swift; sourceTree = "<group>"; };
+		FA35D7DC28FBFB0400FA8CFE /* LayoutSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutSettings.swift; sourceTree = "<group>"; };
 		FA3A529128F727C100AC39E4 /* VStretchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStretchable.swift; sourceTree = "<group>"; };
 		FA4657A928E05B800064973B /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		FA4657AC28E05DD90064973B /* CalendarDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayView.swift; sourceTree = "<group>"; };
@@ -76,7 +79,6 @@
 		FADF313D28F7F44800B2447C /* VStretchableContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStretchableContainer.swift; sourceTree = "<group>"; };
 		FADF313E28F7F44800B2447C /* VStretchableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStretchableRow.swift; sourceTree = "<group>"; };
 		FAFD8ADD28F96FBF00CFD702 /* VSpaceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSpaceable.swift; sourceTree = "<group>"; };
-		FAFD8ADF28F9B66C00CFD702 /* VSpaceableContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSpaceableContainerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,10 +114,19 @@
 			isa = PBXGroup;
 			children = (
 				FA11A2DE28E44BDF009DB9D0 /* View.swift */,
-				FAFD8ADC28F96C0700CFD702 /* VSpaceable */,
+				FAFD8ADD28F96FBF00CFD702 /* VSpaceable.swift */,
 				FA5658AE28ED584E007C0CD9 /* VStretchable */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		FA35D7D728FBFA5500FA8CFE /* LayoutSettings */ = {
+			isa = PBXGroup;
+			children = (
+				FA35D7DC28FBFB0400FA8CFE /* LayoutSettings.swift */,
+				FA35D7D828FBFAA200FA8CFE /* LayoutSettingsView.swift */,
+			);
+			name = LayoutSettings;
 			sourceTree = "<group>";
 		};
 		FA3A528D28F7276E00AC39E4 /* Views */ = {
@@ -263,17 +274,9 @@
 			children = (
 				FA5BF5DA28D47576007304C4 /* ContentView.swift */,
 				FA4657A828E05B710064973B /* Calendar */,
+				FA35D7D728FBFA5500FA8CFE /* LayoutSettings */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		FAFD8ADC28F96C0700CFD702 /* VSpaceable */ = {
-			isa = PBXGroup;
-			children = (
-				FAFD8ADD28F96FBF00CFD702 /* VSpaceable.swift */,
-				FAFD8ADF28F9B66C00CFD702 /* VSpaceableContainerView.swift */,
-			);
-			name = VSpaceable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,12 +400,12 @@
 				FA11A2E328E58615009DB9D0 /* CalendarMonthViewModel.swift in Sources */,
 				FAC8B6E528E742440003EE95 /* CalendarMonthsView.swift in Sources */,
 				FA4657B428E0B5670064973B /* CalendarViewModel.swift in Sources */,
-				FAFD8AE028F9B66C00CFD702 /* VSpaceableContainerView.swift in Sources */,
 				FAC8B6E728E743870003EE95 /* CalendarMonthsViewModel.swift in Sources */,
 				FA35D7D628FBF3DB00FA8CFE /* CalendarWeekdaysViewModel.swift in Sources */,
 				FA11A2DF28E44BDF009DB9D0 /* View.swift in Sources */,
 				FADF314128F7F44800B2447C /* VStretchableContainer.swift in Sources */,
 				FADF314228F7F44800B2447C /* VStretchableRow.swift in Sources */,
+				FA35D7DD28FBFB0400FA8CFE /* LayoutSettings.swift in Sources */,
 				FAC8B6E128E72B500003EE95 /* CalendarWeekdaysView.swift in Sources */,
 				FA4657AA28E05B800064973B /* CalendarView.swift in Sources */,
 				FA4657BB28E0BCF90064973B /* CalendarWeekdayView.swift in Sources */,
@@ -414,6 +417,7 @@
 				FA5658B228ED59FD007C0CD9 /* VStretchableContainerView.swift in Sources */,
 				FA3A529228F727C100AC39E4 /* VStretchable.swift in Sources */,
 				FAC8B6DA28E6E3440003EE95 /* CalendarDayViewModel.swift in Sources */,
+				FA35D7D928FBFAA200FA8CFE /* LayoutSettingsView.swift in Sources */,
 				FADF313F28F7F44800B2447C /* VStretchableContent.swift in Sources */,
 				FADF314028F7F44800B2447C /* VStretchableTranslation.swift in Sources */,
 				FA4657BE28E1719F0064973B /* CalendarMonthView.swift in Sources */,
