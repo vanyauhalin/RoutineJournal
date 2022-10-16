@@ -216,9 +216,9 @@
 			children = (
 				FA5BF5D828D47576007304C4 /* RoutineJournal.swift */,
 				FA5BF5DC28D47579007304C4 /* Assets.xcassets */,
+				FAE70D0728D5CC26002BF76C /* Modules */,
 				FA5BF5DE28D47579007304C4 /* Preview Content */,
 				FA11A2DD28E44BC9009DB9D0 /* Utilities */,
-				FAE70D0728D5CC26002BF76C /* Views */,
 			);
 			path = RoutineJournal;
 			sourceTree = "<group>";
@@ -269,14 +269,14 @@
 			name = CalendarMonths;
 			sourceTree = "<group>";
 		};
-		FAE70D0728D5CC26002BF76C /* Views */ = {
+		FAE70D0728D5CC26002BF76C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 				FA5BF5DA28D47576007304C4 /* ContentView.swift */,
 				FA4657A828E05B710064973B /* Calendar */,
 				FA35D7D728FBFA5500FA8CFE /* LayoutSettings */,
 			);
-			path = Views;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
