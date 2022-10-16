@@ -2,12 +2,13 @@ import SwiftUI
 
 struct CalendarMonthView<Content>: View where Content: View {
   @ObservedObject var viewModel: CalendarMonthViewModel
+  let columns: [GridItem]
   @ViewBuilder var content: (CalendarDayViewModel) -> Content
 
   var body: some View {
-    LazyVGrid(columns: viewModel.columns, spacing: .zero) {
-      ForEach(viewModel.dayViewModels, id: \.day.date) { dayViewModel in
-        content(dayViewModel)
+    LazyVGrid(columns: columns, spacing: .zero) {
+      ForEach(viewModel.days, id: \.calendarDay.date) { day in
+        content(day)
       }
     }
   }

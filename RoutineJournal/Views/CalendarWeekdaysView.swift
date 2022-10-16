@@ -1,18 +1,24 @@
 import SwiftUI
 
 struct CalendarWeekdaysView<Content>: View where Content: View {
-  let weekdaySymbols: [String]
-  @ViewBuilder var content: (String) -> Content
+  let viewModel: CalendarWeekdaysViewModel
+  @ViewBuilder var content: (CalendarWeekdayViewModel) -> Content
 
   var body: some View {
     HStack {
-      Spacer()
-      ForEach(weekdaySymbols, id: \.self) { weekdaySymbol in
-        Spacer()
-        content(weekdaySymbol)
-        Spacer()
+      ForEach(
+        Array(viewModel.weekdays.enumerated()),
+        id: \.offset
+      ) { index, weekday in
+        if index != .zero {
+          Spacer()
+        }
+        content(weekday)
+        if index != viewModel.weekdays.count - 1 {
+          Spacer()
+        }
       }
-      Spacer()
     }
+    .padding([.horizontal])
   }
 }

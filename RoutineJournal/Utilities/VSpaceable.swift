@@ -1,39 +1,24 @@
 import SwiftUI
 
 class VSpaceable {
-  let container: Container
-  let column: Column
+  var containerWidth = CGFloat.zero
+
+  private let columnWidth: CGFloat
+  private let columnCount: Int
+  private var columnSpacing: CGFloat {
+    (containerWidth - columnWidth * CGFloat(columnCount))
+    / CGFloat(columnCount - 1)
+  }
+  private var column: GridItem {
+    .init(spacing: columnSpacing)
+  }
 
   var columns: [GridItem] {
-    Array(repeating: .init(spacing: column.spacing), count: column.count)
+    Array(repeating: column, count: columnCount)
   }
 
-  init(columnWidth width: CGFloat, columnCount count: Int) {
-    self.container = Container()
-    self.column = Column(container: self.container, width: width, count: count)
-  }
-}
-
-extension VSpaceable {
-  class Container {
-    var width = CGFloat.zero
-  }
-}
-
-extension VSpaceable {
-  class Column {
-    let container: Container
-    let width: CGFloat
-    let count: Int
-
-    var spacing: CGFloat {
-      return (container.width - width * CGFloat(count)) / CGFloat(count - 1)
-    }
-
-    init(container: Container, width: CGFloat, count: Int) {
-      self.container = container
-      self.width = width
-      self.count = count
-    }
+  init(columnWidth: CGFloat, columnCount: Int) {
+    self.columnWidth = columnWidth
+    self.columnCount = columnCount
   }
 }

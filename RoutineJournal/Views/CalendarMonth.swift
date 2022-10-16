@@ -10,8 +10,8 @@ class CalendarMonth {
 }
 
 extension CalendarMonth {
-  var firstDay: Date? {
-    return Settings.calendar.date(
+  private var firstDay: Date? {
+    Settings.calendar.date(
       from: Settings.calendar.dateComponents(
         [.year, .month],
         from: Settings.calendar.startOfDay(for: anchor)
@@ -19,96 +19,89 @@ extension CalendarMonth {
     )
   }
 
-  var lastDay: Date? {
-    if let unwrappedFirstDay = firstDay {
-      return Settings.calendar.date(
-        byAdding: DateComponents(month: 1, day: -1),
-        to: unwrappedFirstDay
-      )
-    }
-    return nil
+  private var lastDay: Date? {
+    guard let firstDay = firstDay else { return nil }
+    return Settings.calendar.date(
+      byAdding: DateComponents(month: 1, day: -1),
+      to: firstDay
+    )
   }
-}
 
-extension CalendarMonth {
   var firstWeekday: Int? {
-    if let unwrappedFirstDay = firstDay {
-      return Settings.calendar
-        .dateComponents(
-          [.weekday],
-          from: Settings.calendar.startOfDay(for: unwrappedFirstDay)
-        )
-        .weekday
-    }
-    return nil
+    guard let firstDay = firstDay else { return nil }
+    return Settings.calendar
+      .dateComponents(
+        [.weekday],
+        from: Settings.calendar.startOfDay(for: firstDay)
+      )
+      .weekday
   }
 
   var lastWeekday: Int? {
-    if let unwrappedLastDay = lastDay {
-      return Settings.calendar
-        .dateComponents(
-          [.weekday],
-          from: Settings.calendar.startOfDay(for: unwrappedLastDay)
-        )
-        .weekday
+    guard let lastDay = lastDay else { return nil }
+    return Settings.calendar
+      .dateComponents(
+        [.weekday],
+        from: Settings.calendar.startOfDay(for: lastDay)
+      )
+      .weekday
+  }
+
+  private var days: [Date] {
+    guard
+      let firstDay = firstDay,
+      let firstDayNumber = Settings.calendar
+        .dateComponents([.day], from: firstDay)
+        .day,
+      let lastDay = lastDay,
+      let lastDayNumber = Settings.calendar
+        .dateComponents([.day], from: lastDay)
+        .day
+    else {
+      return []
     }
-    return nil
+    return ((firstDayNumber - 1)..<lastDayNumber).compactMap { number in
+      Settings.calendar.date(
+        byAdding: .day,
+        value: number,
+        to: firstDay
+      )
+    }
   }
 }
 
 extension CalendarMonth {
-  func previousMonth() -> CalendarMonth? {
-    if
-      let unwrappedFirstDay = firstDay,
+  var calendarDays: [CalendarDay] {
+    days.map { day in
+      .init(date: day)
+    }
+  }
+
+  func previousCalendarMonth() -> CalendarMonth? {
+    guard
+      let firstDay = firstDay,
       let previousMonthAnchor = Settings.calendar.date(
         byAdding: .month,
         value: -1,
-        to: unwrappedFirstDay
+        to: firstDay
       )
-    {
-      return CalendarMonth(anchor: previousMonthAnchor)
+    else {
+      return nil
     }
-    return nil
+    return CalendarMonth(anchor: previousMonthAnchor)
   }
 
-  func nextMonth() -> CalendarMonth? {
-    if
-      let unwrappedFirstDay = firstDay,
+  func nextCalendarMonth() -> CalendarMonth? {
+    guard
+      let firstDay = firstDay,
       let nextMonthAnchor = Settings.calendar.date(
         byAdding: .month,
         value: 1,
-        to: unwrappedFirstDay
+        to: firstDay
       )
-    {
-      return CalendarMonth(anchor: nextMonthAnchor)
+    else {
+      return nil
     }
-    return nil
-  }
-}
-
-extension CalendarMonth {
-  var days: [CalendarDay] {
-    if
-      let unwrappedFirstDay = firstDay,
-      let firstDayNumber = Settings.calendar
-        .dateComponents([.day], from: unwrappedFirstDay)
-        .day,
-      let unwrappedLastDay = lastDay,
-      let lastDayNumber = Settings.calendar
-        .dateComponents([.day], from: unwrappedLastDay)
-        .day
-    {
-      return ((firstDayNumber - 1)..<lastDayNumber).compactMap { number in
-        if let day = Settings.calendar.date(
-          byAdding: .day,
-          value: number,
-          to: unwrappedFirstDay
-        ) {
-          return CalendarDay(Settings.calendar, date: day)
-        }
-        return nil
-      }
-    }
-    return []
+    return CalendarMonth(anchor: nextMonthAnchor)
   }
 }

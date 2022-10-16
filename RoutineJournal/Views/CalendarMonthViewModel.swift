@@ -2,63 +2,68 @@ import SwiftUI
 
 class CalendarMonthViewModel: ObservableObject {
   private typealias Settings = CalendarSettings
+  let calendarMonth: CalendarMonth
 
-  let month: CalendarMonth
-  let columns: [GridItem]
-
-  init(month: CalendarMonth, columns: [GridItem]) {
-    self.month = month
-    self.columns = columns
+  init(calendarMonth: CalendarMonth) {
+    self.calendarMonth = calendarMonth
   }
 }
 
 extension CalendarMonthViewModel {
-  private var previousDays: [CalendarDay] {
-    if
-      let firstWeekday = month.firstWeekday,
-      let previousDays = month.previousMonth()?.days
-    {
-      let dayCount = firstWeekday >= Settings.firstWeekday
-      ? firstWeekday - Settings.firstWeekday
-      : columns.count - (Settings.firstWeekday - firstWeekday)
-      return Array(previousDays[(previousDays.count - dayCount)...])
+  private var previousCalendarDays: [CalendarDay] {
+    guard
+      let firstWeekday = calendarMonth.firstWeekday,
+      let calendarDays = calendarMonth.previousCalendarMonth()?.calendarDays
+    else {
+      return []
     }
-    return []
+
+    let dayCount = firstWeekday >= Settings.firstWeekday
+    ? firstWeekday - Settings.firstWeekday
+    : Settings.weekdayCount - (Settings.firstWeekday - firstWeekday)
+    return Array(calendarDays[(calendarDays.count - dayCount)...])
   }
 
-  private var nextDays: [CalendarDay] {
-    if
-      let lastWeekday = month.lastWeekday,
-      let nextDays = month.nextMonth()?.days
-    {
-      let dayCount = lastWeekday >= Settings.firstWeekday
-      ? columns.count - (lastWeekday - Settings.firstWeekday + 1)
-      : Settings.firstWeekday - (lastWeekday + 1)
-      return Array(nextDays[..<dayCount])
+  private var nextCalendarDays: [CalendarDay] {
+    guard
+      let lastWeekday = calendarMonth.lastWeekday,
+      let calendarDays = calendarMonth.nextCalendarMonth()?.calendarDays
+    else {
+      return []
     }
-    return []
+
+    let dayCount = lastWeekday >= Settings.firstWeekday
+    ? Settings.weekdayCount - (lastWeekday - Settings.firstWeekday + 1)
+    : Settings.firstWeekday - (lastWeekday + 1)
+    return Array(calendarDays[..<dayCount])
   }
 
-  var dayViewModels: [CalendarDayViewModel] {
-    return Array(previousDays + month.days + nextDays).map { day in
-      CalendarDayViewModel(day: day)
+  var days: [CalendarDayViewModel] {
+    Array(
+      previousCalendarDays
+      + calendarMonth.calendarDays
+      + nextCalendarDays
+    ).map { calendarDay in
+      .init(calendarDay: calendarDay)
     }
   }
 }
 
 extension CalendarMonthViewModel {
   var weekCount: Int {
-    dayViewModels.count / columns.count
+    days.count / Settings.weekdayCount
   }
 
-  func weekIndex() -> Int {
-    if
-      let index = dayViewModels.firstIndex(where: { dayViewModel in
-        dayViewModel.day.current
+  func weekIndex() -> Int? {
+    guard
+      let index = days.firstIndex(where: { day in
+        day.calendarDay.current
       })
-    {
-      return Int(Float((index + 1) / columns.count).rounded(.up))
+    else {
+      return nil
     }
-    return 0
+
+    let rounded = (Float(index + 1) / Float(Settings.weekdayCount)).rounded(.up)
+    return Int(rounded) - 1
   }
 }

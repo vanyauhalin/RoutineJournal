@@ -5,7 +5,7 @@ struct CalendarDayView: View {
   let viewModel: CalendarDayViewModel
 
   var body: some View {
-    if viewModel.day.current {
+    if viewModel.calendarDay.current {
       Text(viewModel.represent)
         .font(.callout)
         .fontWeight(.medium)

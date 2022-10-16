@@ -6,19 +6,19 @@ class CalendarDayViewModel {
     formatter.dateFormat = "dd"
     return formatter
   }()
-  let day: CalendarDay
 
-  init(day: CalendarDay) {
-    self.day = day
-  }
-}
-
-extension CalendarDayViewModel {
+  let calendarDay: CalendarDay
   var represent: String {
-    let formatted = CalendarDayViewModel.formatter.string(from: day.date)
+    let formatted = CalendarDayViewModel
+      .formatter
+      .string(from: calendarDay.date)
     if let firstCharacter = formatted.first, firstCharacter == "0" {
       return formatted.last?.description ?? formatted
     }
     return formatted
+  }
+
+  init(calendarDay: CalendarDay) {
+    self.calendarDay = calendarDay
   }
 }

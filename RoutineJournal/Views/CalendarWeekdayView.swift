@@ -1,11 +1,11 @@
 import SwiftUI
 
 struct CalendarWeekdayView: View {
-  var weekdaySymbol: String
+  let viewModel: CalendarWeekdayViewModel
 
   var body: some View {
-    Text(weekdaySymbol)
-      .font(.callout)
+    Text(viewModel.weekdaySymbol)
+      .font(.caption)
       .frame(width: 28, alignment: .center)
   }
 }

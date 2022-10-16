@@ -1,13 +1,16 @@
 import Foundation
 
 class CalendarDay {
-  let current: Bool
-  let date: Date
+  private typealias Settings = CalendarSettings
 
-  init(_ calendar: Calendar, date: Date) {
-    self.current = calendar
-      .compare(date, to: Date.now, toGranularity: .day)
+  let date: Date
+  var current: Bool {
+    Settings.calendar
+      .compare(date, to: Settings.today, toGranularity: .day)
       .rawValue == 0
+  }
+
+  init(date: Date) {
     self.date = date
   }
 }

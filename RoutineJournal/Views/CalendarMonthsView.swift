@@ -1,29 +1,53 @@
 import SwiftUI
 
 struct CalendarMonthsView<Content>: View where Content: View {
-  @ObservedObject var months: CalendarMonthsViewModel
-  @ViewBuilder let content: (CalendarMonthViewModel) -> Content
+  @ObservedObject var viewModel: CalendarMonthsViewModel
+  @ViewBuilder let content: (CalendarMonthViewModel, [GridItem]) -> Content
 
   var body: some View {
-    CalendarMonthsContainerView(viewModel: months) { container in
-      VStretchableContainerView(viewModel: container) {
-        TabView(selection: $months.monthSelection) {
+    CalendarMonthsCoordinateReaderView(viewModel: viewModel) {
+      VStretchableContainerView(viewModel: viewModel.monthsContainer) {
+        TabView(selection: $viewModel.monthSelection) {
           ForEach(
-            Array(months.list.enumerated()),
+            Array(viewModel.months.enumerated()),
             id: \.offset
-          ) { index, monthViewModel in
-            VStretchableContentView(viewModel: container) {
-              content(monthViewModel)
-                .tag(index)
-                .padding([.horizontal])
-                .onDisappear {
-                  months.load()
-                }
+          ) { index, month in
+            // TODO: solve the columns spacing problem and remove ZStack.
+            ZStack {
+              VStretchableContentView(viewModel: viewModel.monthsContainer) {
+                content(month, viewModel.monthContainer.columns)
+                  .tag(index)
+                  .padding([.horizontal])
+                  .onDisappear {
+                    viewModel.loadMonth()
+                  }
+              }
             }
           }
         }
-        .id(months.list.count)
+        .id(viewModel.months.count)
         .tabViewStyle(.page(indexDisplayMode: .never))
+      }
+    }
+  }
+}
+
+extension CalendarMonthsView {
+  struct CalendarMonthsCoordinateReaderView<Content>: View where Content: View {
+    @ObservedObject var viewModel: CalendarMonthsViewModel
+    @ViewBuilder let content: () -> Content
+
+    var body: some View {
+      ZStack {
+        ZStack {
+          VSpaceableContainerView(viewModel: viewModel.monthContainer) {
+            Color.clear
+          }
+        }
+        .padding()
+        .frame(width: UIScreen.main.bounds.width, height: 0)
+        .hidden()
+        content()
       }
     }
   }

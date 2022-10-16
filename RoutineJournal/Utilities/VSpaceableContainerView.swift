@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct VSpaceableContainerView<Content>: View where Content: View {
-  let spaceable: VSpaceable
+  let viewModel: VSpaceable
   @ViewBuilder let content: () -> Content
 
   var body: some View {
@@ -9,7 +9,7 @@ struct VSpaceableContainerView<Content>: View where Content: View {
       content()
     }
     .readSize { size in
-      spaceable.container.width = size.width
+      viewModel.containerWidth = size.width
     }
   }
 }

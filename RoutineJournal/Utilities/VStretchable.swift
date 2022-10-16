@@ -9,11 +9,11 @@ class VStretchable: ObservableObject {
   @Published var containerHeight = CGFloat.zero
   @Published var contentCenterOffset = CGFloat.zero
 
-  init(height: CGFloat, count: Int, selection: Int) {
+  init(rowHeight: CGFloat, rowCount: Int, rowSelection: Int) {
     self.row = VStretchableRow(
-      height: height,
-      count: count,
-      selection: selection
+      height: rowHeight,
+      count: rowCount,
+      selection: rowSelection
     )
     self.container = VStretchableContainer(
       row: self.row

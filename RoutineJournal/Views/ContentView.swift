@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-  let calendarViewModel = CalendarViewModel(Calendar.current, today: Date.now)
+  var calendarViewModel = CalendarViewModel()
 
   var body: some View {
     VStack {
