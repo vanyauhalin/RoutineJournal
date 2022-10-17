@@ -10,6 +10,7 @@ struct CalendarMonthsContainerView {
 struct CalendarMonthsView<Content>: View where Content: View {
   @ObservedObject var viewModel: CalendarMonthsViewModel
   @ViewBuilder let content: (CalendarMonthViewModel, [GridItem]) -> Content
+  @State private var disappeared = -1
 
   var body: some View {
     VStretchableContainerView(viewModel: viewModel.monthsContainer) {
@@ -23,7 +24,9 @@ struct CalendarMonthsView<Content>: View where Content: View {
               .tag(index)
               .padding([.horizontal])
               .onDisappear {
+                guard disappeared != viewModel.monthSelection else { return }
                 viewModel.loadMonth()
+                disappeared = viewModel.monthSelection
               }
           }
         }
