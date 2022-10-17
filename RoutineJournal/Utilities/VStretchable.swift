@@ -7,7 +7,7 @@ class VStretchable: ObservableObject {
   private let gesture: VStretchableGesture
 
   @Published var containerHeight = CGFloat.zero
-  @Published var contentCenterOffset = CGFloat.zero
+  @Published var contentOffset = CGFloat.zero
 
   init(rowHeight: CGFloat, rowCount: Int, rowSelection: Int) {
     self.row = .init(
@@ -22,8 +22,8 @@ class VStretchable: ObservableObject {
     self.container.willSetHeight { containerHeight in
       self.containerHeight = containerHeight
     }
-    self.content.willSetOffset { contentCenterOffset in
-      self.contentCenterOffset = contentCenterOffset
+    self.content.willSetOffset { contentOffset in
+      self.contentOffset = contentOffset
     }
 
     self.handleCloseStabilization()

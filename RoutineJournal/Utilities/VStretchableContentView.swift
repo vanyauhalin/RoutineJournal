@@ -6,6 +6,6 @@ struct VStretchableContentView<Content>: View where Content: View {
 
   var body: some View {
     content()
-      .offset(y: viewModel.contentCenterOffset)
+      .offset(y: viewModel.contentOffset)
   }
 }
