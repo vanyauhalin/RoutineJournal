@@ -26,6 +26,7 @@ struct CalendarMonthsView<Content>: View where Content: View {
               .onDisappear {
                 guard disappeared != viewModel.monthSelection else { return }
                 viewModel.loadMonth()
+                viewModel.updateHeight()
                 disappeared = viewModel.monthSelection
               }
           }

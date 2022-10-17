@@ -2,7 +2,7 @@ import SwiftUI
 
 class VStretchableRow {
   let height: CGFloat
-  let count: Int
+  var count: Int
   let selection: Int
 
   var last: Int {

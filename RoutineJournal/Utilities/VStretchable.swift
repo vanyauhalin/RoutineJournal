@@ -142,3 +142,12 @@ extension VStretchable {
     content.close()
   }
 }
+
+extension VStretchable {
+  func set(rowCount: Int) {
+    row.count = rowCount
+    withAnimation {
+      handleOpenStabilization()
+    }
+  }
+}

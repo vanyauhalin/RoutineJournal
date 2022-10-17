@@ -79,3 +79,10 @@ extension CalendarMonthsViewModel {
     }
   }
 }
+
+extension CalendarMonthsViewModel {
+  func updateHeight() {
+    guard let selected = Optional(months[monthSelection]) else { return }
+    monthsContainer.set(rowCount: selected.weekCount)
+  }
+}
