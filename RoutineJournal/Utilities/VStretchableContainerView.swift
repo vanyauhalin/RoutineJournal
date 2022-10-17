@@ -8,7 +8,10 @@ struct VStretchableContainerView<Content>: View where Content: View {
     content()
       .frame(height: viewModel.containerHeight)
       .gesture(
-        DragGesture()
+        DragGesture(
+          minimumDistance: viewModel.containerNaturalized ? 10 : .zero,
+          coordinateSpace: .local
+        )
           .onChanged { value in
             withAnimation {
               viewModel.onChange(height: value.translation.height)

@@ -4,10 +4,15 @@ class VStretchableContainer {
   private let row: VStretchableRow
 
   private var willSetHeightCallback: ((CGFloat) -> Void)?
+  private var didSetHeightCallback: (() -> Void)?
   var height = CGFloat.zero {
     willSet {
       guard let callback = willSetHeightCallback else { return }
       callback(newValue)
+    }
+    didSet {
+      guard let callback = didSetHeightCallback else { return }
+      callback()
     }
   }
 
@@ -32,6 +37,9 @@ extension VStretchableContainer {
   var closed: Bool {
     height == minimumHeight
   }
+  var naturalized: Bool {
+    height == naturalMaximumHeight
+  }
   var opened: Bool {
     height == maximumHeight
   }
@@ -40,6 +48,9 @@ extension VStretchableContainer {
 extension VStretchableContainer {
   func willSetHeight(_ callback: @escaping (CGFloat) -> Void) {
     self.willSetHeightCallback = callback
+  }
+  func didSetHeight(_ callback: @escaping () -> Void) {
+    self.didSetHeightCallback = callback
   }
   func crossedThreshold() -> Bool {
     height >= thresholdHeight

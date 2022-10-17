@@ -7,6 +7,7 @@ class VStretchable: ObservableObject {
   private let gesture: VStretchableGesture
 
   @Published var containerHeight = CGFloat.zero
+  @Published var containerNaturalized = false
   @Published var contentOffset = CGFloat.zero
 
   init(rowHeight: CGFloat, rowCount: Int, rowSelection: Int) {
@@ -21,6 +22,11 @@ class VStretchable: ObservableObject {
 
     self.container.willSetHeight { containerHeight in
       self.containerHeight = containerHeight
+    }
+    self.container.didSetHeight {
+      // `container.naturalized` is used only here,
+      // so the callback is called via `container.didSetHeight`.
+      self.containerNaturalized = self.container.naturalized
     }
     self.content.willSetOffset { contentOffset in
       self.contentOffset = contentOffset
