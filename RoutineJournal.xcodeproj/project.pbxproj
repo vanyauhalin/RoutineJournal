@@ -31,6 +31,14 @@
 		FA8735F628FAC75500D3E660 /* CalendarSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8735F528FAC75500D3E660 /* CalendarSettings.swift */; };
 		FA9114BC28D9C43D004D8B7D /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FA9114BA28D9C43D004D8B7D /* .swiftlint.yml */; };
 		FA9114BD28D9C43D004D8B7D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FA9114BB28D9C43D004D8B7D /* .gitignore */; };
+		FAC04BA42902ACD000E4B00E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC04BA32902ACCF00E4B00E /* Color.swift */; };
+		FAC04BA72902C61800E4B00E /* JournalEventTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC04BA62902C61800E4B00E /* JournalEventTheme.swift */; };
+		FAC04BA92902C8F300E4B00E /* JournalEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC04BA82902C8F300E4B00E /* JournalEventView.swift */; };
+		FAC04BAE2902F31800E4B00E /* JournalEventIconIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC04BAD2902F31800E4B00E /* JournalEventIconIconView.swift */; };
+		FAC04BB12902F57400E4B00E /* JournalEventTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC04BB02902F57400E4B00E /* JournalEventTitleView.swift */; };
+		FAC04BB42902F5CD00E4B00E /* JournalEventDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC04BB32902F5CD00E4B00E /* JournalEventDescriptionView.swift */; };
+		FAC04BB72902FC5A00E4B00E /* JournalEventLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC04BB62902FC5A00E4B00E /* JournalEventLabelView.swift */; };
+		FAC04BB92903039000E4B00E /* JournalEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC04BB82903039000E4B00E /* JournalEvent.swift */; };
 		FAC8B6DA28E6E3440003EE95 /* CalendarDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC8B6D928E6E3440003EE95 /* CalendarDayViewModel.swift */; };
 		FAC8B6E128E72B500003EE95 /* CalendarWeekdaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC8B6E028E72B500003EE95 /* CalendarWeekdaysView.swift */; };
 		FAC8B6E528E742440003EE95 /* CalendarMonthsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC8B6E428E742440003EE95 /* CalendarMonthsView.swift */; };
@@ -70,6 +78,14 @@
 		FA8735F528FAC75500D3E660 /* CalendarSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSettings.swift; sourceTree = "<group>"; };
 		FA9114BA28D9C43D004D8B7D /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		FA9114BB28D9C43D004D8B7D /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		FAC04BA32902ACCF00E4B00E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		FAC04BA62902C61800E4B00E /* JournalEventTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEventTheme.swift; sourceTree = "<group>"; };
+		FAC04BA82902C8F300E4B00E /* JournalEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEventView.swift; sourceTree = "<group>"; };
+		FAC04BAD2902F31800E4B00E /* JournalEventIconIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEventIconIconView.swift; sourceTree = "<group>"; };
+		FAC04BB02902F57400E4B00E /* JournalEventTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEventTitleView.swift; sourceTree = "<group>"; };
+		FAC04BB32902F5CD00E4B00E /* JournalEventDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEventDescriptionView.swift; sourceTree = "<group>"; };
+		FAC04BB62902FC5A00E4B00E /* JournalEventLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEventLabelView.swift; sourceTree = "<group>"; };
+		FAC04BB82903039000E4B00E /* JournalEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEvent.swift; sourceTree = "<group>"; };
 		FAC8B6D928E6E3440003EE95 /* CalendarDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayViewModel.swift; sourceTree = "<group>"; };
 		FAC8B6E028E72B500003EE95 /* CalendarWeekdaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWeekdaysView.swift; sourceTree = "<group>"; };
 		FAC8B6E428E742440003EE95 /* CalendarMonthsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMonthsView.swift; sourceTree = "<group>"; };
@@ -113,6 +129,7 @@
 		FA11A2DD28E44BC9009DB9D0 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				FAC04BA32902ACCF00E4B00E /* Color.swift */,
 				FA11A2DE28E44BDF009DB9D0 /* View.swift */,
 				FAFD8ADD28F96FBF00CFD702 /* VSpaceable.swift */,
 				FA5658AE28ED584E007C0CD9 /* VStretchable */,
@@ -240,6 +257,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		FA6ED54829030B1C00A352F0 /* JournalEventTheme */ = {
+			isa = PBXGroup;
+			children = (
+				FAC04BA62902C61800E4B00E /* JournalEventTheme.swift */,
+			);
+			name = JournalEventTheme;
+			sourceTree = "<group>";
+		};
 		FA8735F428FAC74100D3E660 /* CalendarSettings */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +283,52 @@
 				FADF313C28F7F44800B2447C /* VStretchableGesture.swift */,
 			);
 			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		FAC04BA52902AF3B00E4B00E /* JournalEvent */ = {
+			isa = PBXGroup;
+			children = (
+				FAC04BB82903039000E4B00E /* JournalEvent.swift */,
+				FAC04BA82902C8F300E4B00E /* JournalEventView.swift */,
+				FAC04BB22902F5AF00E4B00E /* JournalEventDescription */,
+				FAC04BAC2902F2FF00E4B00E /* JournalEventIcon */,
+				FAC04BB52902FC4B00E4B00E /* JournalEventLabel */,
+				FA6ED54829030B1C00A352F0 /* JournalEventTheme */,
+				FAC04BAF2902F56100E4B00E /* JournalEventTitle */,
+			);
+			name = JournalEvent;
+			sourceTree = "<group>";
+		};
+		FAC04BAC2902F2FF00E4B00E /* JournalEventIcon */ = {
+			isa = PBXGroup;
+			children = (
+				FAC04BAD2902F31800E4B00E /* JournalEventIconIconView.swift */,
+			);
+			name = JournalEventIcon;
+			sourceTree = "<group>";
+		};
+		FAC04BAF2902F56100E4B00E /* JournalEventTitle */ = {
+			isa = PBXGroup;
+			children = (
+				FAC04BB02902F57400E4B00E /* JournalEventTitleView.swift */,
+			);
+			name = JournalEventTitle;
+			sourceTree = "<group>";
+		};
+		FAC04BB22902F5AF00E4B00E /* JournalEventDescription */ = {
+			isa = PBXGroup;
+			children = (
+				FAC04BB32902F5CD00E4B00E /* JournalEventDescriptionView.swift */,
+			);
+			name = JournalEventDescription;
+			sourceTree = "<group>";
+		};
+		FAC04BB52902FC4B00E4B00E /* JournalEventLabel */ = {
+			isa = PBXGroup;
+			children = (
+				FAC04BB62902FC5A00E4B00E /* JournalEventLabelView.swift */,
+			);
+			name = JournalEventLabel;
 			sourceTree = "<group>";
 		};
 		FAC8B6DF28E6FB580003EE95 /* CalendarWeekdays */ = {
@@ -282,6 +353,7 @@
 			isa = PBXGroup;
 			children = (
 				FA4657A828E05B710064973B /* Calendar */,
+				FAC04BA52902AF3B00E4B00E /* JournalEvent */,
 				FA35D7D728FBFA5500FA8CFE /* LayoutSettings */,
 			);
 			path = Modules;
@@ -407,13 +479,18 @@
 				FA4657C028E172F20064973B /* CalendarMonth.swift in Sources */,
 				FA11A2E328E58615009DB9D0 /* CalendarMonthViewModel.swift in Sources */,
 				FAC8B6E528E742440003EE95 /* CalendarMonthsView.swift in Sources */,
+				FAC04BB92903039000E4B00E /* JournalEvent.swift in Sources */,
+				FAC04BAE2902F31800E4B00E /* JournalEventIconIconView.swift in Sources */,
+				FAC04BB42902F5CD00E4B00E /* JournalEventDescriptionView.swift in Sources */,
 				FA4657B428E0B5670064973B /* CalendarViewModel.swift in Sources */,
 				FAC8B6E728E743870003EE95 /* CalendarMonthsViewModel.swift in Sources */,
 				FA35D7D628FBF3DB00FA8CFE /* CalendarWeekdaysViewModel.swift in Sources */,
 				FA11A2DF28E44BDF009DB9D0 /* View.swift in Sources */,
 				FADF314128F7F44800B2447C /* VStretchableContainer.swift in Sources */,
 				FADF314228F7F44800B2447C /* VStretchableRow.swift in Sources */,
+				FAC04BA92902C8F300E4B00E /* JournalEventView.swift in Sources */,
 				FA35D7DD28FBFB0400FA8CFE /* LayoutSettings.swift in Sources */,
+				FAC04BA72902C61800E4B00E /* JournalEventTheme.swift in Sources */,
 				FAC8B6E128E72B500003EE95 /* CalendarWeekdaysView.swift in Sources */,
 				FA4657AA28E05B800064973B /* CalendarView.swift in Sources */,
 				FA4657BB28E0BCF90064973B /* CalendarWeekdayView.swift in Sources */,
@@ -421,10 +498,12 @@
 				FA5BF5DB28D47576007304C4 /* ContentView.swift in Sources */,
 				FA5BF5D928D47576007304C4 /* RoutineJournal.swift in Sources */,
 				FA8735F628FAC75500D3E660 /* CalendarSettings.swift in Sources */,
+				FAC04BA42902ACD000E4B00E /* Color.swift in Sources */,
 				FA5658B428ED6005007C0CD9 /* VStretchableContentView.swift in Sources */,
 				FA5658B228ED59FD007C0CD9 /* VStretchableContainerView.swift in Sources */,
 				FA3A529228F727C100AC39E4 /* VStretchable.swift in Sources */,
 				FAC8B6DA28E6E3440003EE95 /* CalendarDayViewModel.swift in Sources */,
+				FAC04BB72902FC5A00E4B00E /* JournalEventLabelView.swift in Sources */,
 				FA35D7D928FBFAA200FA8CFE /* LayoutSettingsView.swift in Sources */,
 				FADF313F28F7F44800B2447C /* VStretchableContent.swift in Sources */,
 				FADF314028F7F44800B2447C /* VStretchableGesture.swift in Sources */,
@@ -432,6 +511,7 @@
 				FA35D7D428FBF2D800FA8CFE /* CalendarWeekdayViewModel.swift in Sources */,
 				FA4657AD28E05DD90064973B /* CalendarDayView.swift in Sources */,
 				FA2A224C28E1DD3F00A641CD /* CalendarDay.swift in Sources */,
+				FAC04BB12902F57400E4B00E /* JournalEventTitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
