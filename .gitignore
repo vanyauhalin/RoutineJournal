@@ -1,1 +1,4 @@
+*.xcodeproj
+*.xcworkspace
+Derived
 Pods
