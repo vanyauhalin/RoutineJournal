@@ -1,4 +1,9 @@
+#!/bin/sh
+
+set -e
+
 BIN=${PWD}/Pods/SwiftLint/swiftlint
+
 if which $BIN >/dev/null; then
   $BIN
 else

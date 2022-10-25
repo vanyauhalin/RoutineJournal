@@ -14,8 +14,7 @@ let project = Project(
       scripts: [
         .pre(
           script: "sh ${PWD}/scripts/swiftlint.sh",
-          name: "SwiftLint",
-          basedOnDependencyAnalysis: true
+          name: "SwiftLint"
         )
       ]
     )
