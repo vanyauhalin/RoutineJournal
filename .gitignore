@@ -1,1 +1,8 @@
+*.xcodeproj
+!*.xcodeproj/project.pbxproj
+
+*.xcworkspace
+!*.xcworkspace/contents.xcworkspacedata
+
+Derived
 Pods
