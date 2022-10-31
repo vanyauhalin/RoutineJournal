@@ -1,5 +1,5 @@
 # RoutineJournal
 
 ```sh
-tuist generate -n && pod install && xed RoutineJournal.xcworkspace
+sh scripts/install.sh
 ```

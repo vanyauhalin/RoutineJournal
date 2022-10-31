@@ -1,22 +1,34 @@
 import ProjectDescription
 
+let projectName = "RoutineJournal"
+let projectOrganizationName = "my.vanyauhalin"
 let project = Project(
-  name: "RoutineJournal",
+  name: projectName,
+  organizationName: projectOrganizationName,
   targets: [
+    .configureAppTarget(name: "App")
+  ]
+)
+
+extension Target {
+  static func configureAppTarget(name: String) -> Target {
     .init(
-      name: "RoutineJournal",
+      name: projectName,
       platform: .iOS,
       product: .app,
-      bundleId: "com.vanyauhalin.RoutineJournal",
+      bundleId: "\(projectOrganizationName).\(projectName)",
       deploymentTarget: .iOS(targetVersion: "15.4", devices: .iphone),
-      sources: ["Sources/**"],
-      resources: ["Resources/**"],
+      infoPlist: .extendingDefault(with: [
+        "UILaunchScreen": [:]
+      ]),
+      sources: ["Projects/\(name)/Sources/**/*.swift"],
+      resources: ["Projects/\(name)/Resources/**"],
       scripts: [
         .pre(
-          script: "sh ${PWD}/scripts/swiftlint.sh",
+          script: "sh scripts/swiftlint.sh",
           name: "SwiftLint"
         )
       ]
     )
-  ]
-)
+  }
+}

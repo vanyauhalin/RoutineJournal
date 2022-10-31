@@ -2,10 +2,19 @@
 
 set -e
 
-BIN=${PWD}/Pods/SwiftLint/swiftlint
+lint_paths=${PWD}/$1
 
-if which $BIN >/dev/null; then
-  $BIN
+swiftlint() {
+	/usr/bin/xcrun \
+		--sdk macosx \
+		swift run \
+			--package-path ${PWD}/Tuist/Dependencies/SwiftPackageManager \
+			--skip-build \
+			swiftlint $1
+}
+
+if command -v $swiftlint > /dev/null; then
+	swiftlint $lint_paths
 else
-  echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
+	echo "warning: SwiftLint not installed"
 fi
