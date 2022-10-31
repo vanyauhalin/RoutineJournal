@@ -1,7 +1,8 @@
 # Based on https://github.com/raywenderlich/swift-style-guide
 
 excluded:
-  - ${PWD}/Pods
+  - ${PWD}/Derived
+  - ${PWD}/Tuist/Dependencies
 
 disabled_rules:
   - discarded_notification_center_observer
