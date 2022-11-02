@@ -3,13 +3,9 @@
 set -e
 
 tuist fetch
-
+tuist generate
 /usr/bin/xcrun \
 	--sdk macosx \
 	swift build \
-		--package-path Tuist/Dependencies/SwiftPackageManager \
+		--package-path $PWD/Tuist/Dependencies/SwiftPackageManager \
 		--product swiftlint
-
-tuist generate -n
-
-xed RoutineJournal.xcworkspace
