@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct JournalEventLabelView<Title, Icon>: View where Title: View, Icon: View {
+struct JEventLabelView<Title, Icon>: View where Title: View, Icon: View {
   @ViewBuilder let title: () -> Title
   @ViewBuilder let icon: () -> Icon
 
@@ -12,12 +12,12 @@ struct JournalEventLabelView<Title, Icon>: View where Title: View, Icon: View {
     } icon: {
       icon()
     }
-    .labelStyle(JournalEventLabelStyle())
+    .labelStyle(JEventLabelStyle())
   }
 }
 
-extension JournalEventLabelView {
-  struct JournalEventLabelStyle: LabelStyle {
+extension JEventLabelView {
+  struct JEventLabelStyle: LabelStyle {
     func makeBody(configuration: Configuration) -> some View {
       HStack(spacing: 8) {
         configuration.icon

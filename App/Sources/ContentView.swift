@@ -1,3 +1,5 @@
+import RoutineJournalJCategory
+import RoutineJournalJEvent
 import SwiftUI
 
 struct ContentView: View {
@@ -5,16 +7,23 @@ struct ContentView: View {
     NavigationView {
       ContentViewToolbar {
         VStack(spacing: 8) {
-          JournalEventView(
-            journalEvent: JournalEvent(
-              title: "Flight from London to Paris",
-              description: "Almost missed my flight",
-              systemImage: "airplane",
-              startDate: "9:00",
-              endDate: "10:00",
-              theme: .indigo
-            )
-          )
+          JEventView(event: JEvent(
+            category: JCategory(
+              title: "Travel",
+              colorTheme: .amber,
+              icon: .airplane
+            ),
+            title: "Flight from London to Paris",
+            notes: "Almost missed my flight",
+            startDate: Date.now,
+            endDate: ({
+              return Calendar.current.date(
+                byAdding: .hour,
+                value: 1,
+                to: Date.now
+              )!
+            })()
+          ))
           Spacer()
         }
         .navigationTitle("Routine")
@@ -28,7 +37,7 @@ struct ContentViewToolbar<Content>: View where Content: View {
   var toolbarDate: String = {
     let formatter = DateFormatter()
     formatter.dateFormat = "EEEE, MMM d"
-    return formatter.string(from: CalendarSettings.today)
+    return formatter.string(from: Date.now)
   }()
   @ViewBuilder let content: () -> Content
 
