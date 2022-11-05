@@ -3,6 +3,7 @@
 set -e
 
 project_directory=$(realpath "$(dirname $0)/..")
+lint_path=$1
 
 swiftlint() {
 	/usr/bin/xcrun \
@@ -12,11 +13,12 @@ swiftlint() {
 				$project_directory/Tuist/Dependencies/SwiftPackageManager \
 			--skip-build \
 			swiftlint lint \
-				--config $project_directory/.swiftlint.yml
+				--config $project_directory/.swiftlint.yml \
+				$1
 }
 
 if command -v $swiftlint > /dev/null; then
-	swiftlint
+	swiftlint $lint_path
 else
 	echo "warning: SwiftLint not installed"
 fi

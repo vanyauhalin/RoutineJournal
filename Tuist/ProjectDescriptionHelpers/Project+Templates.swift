@@ -1,80 +1,55 @@
 import Foundation
 import ProjectDescription
 
-public extension Project {
-  static func configure(
-    name: String? = nil,
-    packages: [Package] = [],
-    targets: [Target]
-  ) -> Project {
-    Project(
-      name: "\(Project.name)\(name ?? "")",
-      organizationName: Project.organizationName,
-      packages: packages,
-      targets: targets
-    )
-  }
-}
-
 extension Project {
-  static let name = "RoutineJournal"
-  static let organizationName = "my.vanyauhalin"
+  static let root = FileManager.default.currentDirectoryPath
+  static let namePrefix = "RoutineJournal"
+  static let organizationNamePrefix = "my.vanyauhalin"
 }
 
-public extension Target {
-  static func configureApp(name: String) -> Target {
-    Target(
-      name: configureName(),
-      platform: .iOS,
-      product: .app,
-      bundleId: configureBundleId(),
-      deploymentTarget: .configure(),
-      infoPlist: .configure(),
-      sources: .configure(name: name),
-      resources: .configure(name: name),
-      scripts: [
-        .configureSwiftLint()
-      ]
-    )
+public extension String {
+  static func name() -> String{
+    Project.namePrefix
   }
 
-  static func configureFramework(
-    name: String,
-    dependencies: [TargetDependency] = []
-  ) -> Target {
-    Target(
-      name: configureName(name: name),
-      platform: .iOS,
-      product: .framework,
-      bundleId: configureBundleId(name: name),
-      deploymentTarget: .configure(),
-      infoPlist: .configure(),
-      sources: .configure(name: name),
-      scripts: [
-        .configureSwiftLint()
-      ],
-      dependencies: dependencies
-    )
+  static func name(by name: String) -> String {
+    "\(Project.namePrefix)\(name)"
+  }
+
+  static func nameTests(by name: String) -> String {
+    "\(Project.namePrefix)\(name)Tests"
+  }
+
+  static func organizationName() -> String {
+    Project.organizationNamePrefix
+  }
+
+  static func bundleId() -> String {
+    "\(Project.organizationNamePrefix).\(Project.namePrefix)"
+  }
+
+  static func bundleId(by name: String) -> String {
+    "\(Project.organizationNamePrefix).\(Project.namePrefix)\(name)"
+  }
+
+  static func bundleIdTests(by name: String) -> String {
+    "\(Project.organizationNamePrefix).\(Project.namePrefix)\(name)Tests"
   }
 }
 
-extension Target {
-  static func configureName(name: String? = nil) -> String {
-    "\(Project.name)\(name ?? "")"
-  }
-
-  static func configureBundleId(name: String? = nil) -> String {
-    "\(Project.organizationName).\(Project.name)\(name ?? "")"
+public extension ProjectDescription.Platform {
+  static func configure() -> Platform {
+    .iOS
   }
 }
 
-extension ProjectDescription.DeploymentTarget {
+public extension ProjectDescription.DeploymentTarget {
   static func configure() -> ProjectDescription.DeploymentTarget {
     .iOS(targetVersion: "15.4", devices: .iphone)
   }
 }
 
-extension ProjectDescription.InfoPlist {
+public extension ProjectDescription.InfoPlist {
   static func configure() -> ProjectDescription.InfoPlist {
     .extendingDefault(with: [
       "UILaunchScreen": [:]
@@ -82,25 +57,42 @@ extension ProjectDescription.InfoPlist {
   }
 }
 
-extension SourceFilesList {
-  static func configure(name: String) -> SourceFilesList {
-    ["\(FileManager.default.currentDirectoryPath)/\(name)/Sources/**/*.swift"]
+public extension SourceFilesList {
+  static func configure() -> SourceFilesList {
+    SourceFilesList.paths([.relativeToManifest("Sources/**/*.swift")])
+  }
+
+  static func tests() -> SourceFilesList {
+    SourceFilesList.paths([.relativeToManifest("Tests/**/*.swift")])
   }
 }
 
-extension ResourceFileElements {
-  static func configure(name: String) -> ResourceFileElements {
-    ["\(FileManager.default.currentDirectoryPath)/\(name)/Resources/**"]
+public extension ResourceFileElements {
+  static func configure() -> ResourceFileElements {
+    ResourceFileElements(resources: [
+      ResourceFileElement.glob(pattern: .relativeToManifest("Resources/**"))
+    ])
   }
 }
 
-extension ProjectDescription.TargetScript {
-  static func configureSwiftLint() ->
+public extension ProjectDescription.TargetScript {
+  static func lintSources(by name: String) ->
   ProjectDescription.TargetScript {
     .pre(
       script: "sh "
-        + "\(FileManager.default.currentDirectoryPath)/scripts/swiftlint.sh",
-      name: "SwiftLint"
+        + "\(Project.root)/scripts/swiftlint.sh "
+        + "\(Project.root)/\(name)/Sources",
+      name: "Lint Sources"
+    )
+  }
+
+  static func lintTests(by name: String) ->
+  ProjectDescription.TargetScript {
+    .pre(
+      script: "sh "
+        + "\(Project.root)/scripts/swiftlint.sh "
+        + "\(Project.root)/\(name)/Tests",
+      name: "Lint Sources"
     )
   }
 }

@@ -3,6 +3,9 @@ import ProjectDescription
 let workspace = Workspace(
   name: "RoutineJournal",
   projects: [
-    "App"
+    "App",
+    "JCategory",
+    "JEvent",
+    "UI"
   ]
 )
