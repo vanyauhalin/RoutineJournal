@@ -11,7 +11,8 @@ class JEventViewModel {
 
 extension JEventViewModel {
   var colorPalette: ColorPalette {
-    ColorPalette.select(by: event.category.colorTheme)
+    ColorPalette.select(by: .blue)
+    // ColorPalette.select(by: event.category.colorTheme)
   }
   var titleForegroundColor: Color {
     colorPalette.color900

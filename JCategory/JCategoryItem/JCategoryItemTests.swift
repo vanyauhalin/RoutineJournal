@@ -91,13 +91,13 @@ class JCategoryItemTests: XCTestCase {
       notes: "Category item notes"
     )
     try? DataProvider.add(categoryItem: item)
-    try? item.update(category: JCategory(
+    let category = JCategory(
       title: "Another Category Title",
       icon: Icon(name: .cart, type: .system),
       colorTheme: .blue
-    ))
-    let founded = try? DataProvider.findCategoryItem(by: item._id)
-    XCTAssertEqual(item.category?._id, founded?.category?._id)
+    )
+    try? item.update(category: category)
+    XCTAssertEqual(item.category?._id, category._id)
   }
 
   func test_updateCategoryItemTitle() {
@@ -111,9 +111,9 @@ class JCategoryItemTests: XCTestCase {
       notes: "Category item notes"
     )
     try? DataProvider.add(categoryItem: item)
-    try? item.update(title: "New Category Item Title")
-    let founded = try? DataProvider.findCategoryItem(by: item._id)
-    XCTAssertEqual(item.title, "New Category Item Title")
+    let title = "New Category Item Title"
+    try? item.update(title: title)
+    XCTAssertEqual(item.title, title)
   }
 
   func test_updateCategoryItemNotes() {
@@ -127,9 +127,9 @@ class JCategoryItemTests: XCTestCase {
       notes: "Category item notes"
     )
     try? DataProvider.add(categoryItem: item)
-    try? item.update(notes: "New category item notes")
-    let founded = try? DataProvider.findCategoryItem(by: item._id)
-    XCTAssertEqual(item.notes, "New category item notes")
+    let notes = "New category item notes"
+    try? item.update(notes: notes)
+    XCTAssertEqual(item.notes, notes)
   }
 
   func test_removeCategoryItemNotes() {
@@ -144,7 +144,6 @@ class JCategoryItemTests: XCTestCase {
     )
     try? DataProvider.add(categoryItem: item)
     try? item.removeNotes()
-    let founded = try? DataProvider.findCategoryItem(by: item._id)
     XCTAssertNil(item.notes)
   }
 }
