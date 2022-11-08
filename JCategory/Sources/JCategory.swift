@@ -1,25 +1,35 @@
+import RealmSwift
+import RoutineJournalCore
 import RoutineJournalUI
 
-public class JCategory {
-  public private(set) var title: String
-  public private(set) var colorTheme: ColorTheme
-  public private(set) var icon: Icon
+public class JCategory: Object {
+  @Persisted(primaryKey: true) public private(set) var _id: ObjectId
+  @Persisted public private(set) var title: String
+  @Persisted public private(set) var icon: Icon?
+  @Persisted public private(set) var colorTheme: ColorTheme
 
-  public init(title: String, colorTheme: ColorTheme, icon: Icon) {
+  public convenience init(title: String, icon: Icon, colorTheme: ColorTheme) {
+    self.init()
     self.title = title
-    self.colorTheme = colorTheme
     self.icon = icon
-  }
-
-  public func update(title: String) {
-    self.title = title
-  }
-
-  public func select(colorTheme: ColorTheme) {
     self.colorTheme = colorTheme
   }
 
-  public func select(icon: Icon) {
-    self.icon = icon
+  public func update(title: String) throws {
+    return try DataProvider.write { _ in
+      self.title = title
+    }
+  }
+
+  public func select(icon: Icon) throws {
+    return try DataProvider.write { _ in
+      self.icon = icon
+    }
+  }
+
+  public func select(colorTheme: ColorTheme) throws {
+    return try DataProvider.write { _ in
+      self.colorTheme = colorTheme
+    }
   }
 }

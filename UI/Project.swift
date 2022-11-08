@@ -15,6 +15,28 @@ let project = Project(
       sources: .configure(),
       scripts: [
         .lintSources(by: "UI")
+      ],
+      dependencies: [
+        .project(
+          target: .name(by: "Core"),
+          path: .relativeToRoot("Core")
+        )
+      ]
+    ),
+    Target(
+      name: .nameTests(by: "UI"),
+      platform: .configure(),
+      product: .unitTests,
+      bundleId: .bundleIdTests(by: "UI"),
+      deploymentTarget: .configure(),
+      infoPlist: .configure(),
+      sources: .tests(),
+      scripts: [
+        .lintTests(by: "UI")
+      ],
+      dependencies: [
+        .target(name: .name(by: "UI")),
+        .xctest
       ]
     )
   ]

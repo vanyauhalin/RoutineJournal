@@ -19,10 +19,6 @@ let project = Project(
       ],
       dependencies: [
         .project(
-          target: .name(by: "JCategory"),
-          path: .relativeToRoot("JCategory")
-        ),
-        .project(
           target: .name(by: "JEvent"),
           path: .relativeToRoot("JEvent")
         )
