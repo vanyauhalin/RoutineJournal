@@ -71,9 +71,9 @@ class JCategoryTests: XCTestCase {
       colorTheme: .amber
     )
     try? DataProvider.add(category: category)
-    try? category.update(title: "New Category Title")
-    let founded = try? DataProvider.findCategory(by: category._id)
-    XCTAssertEqual(category.title, founded?.title)
+    let title = "New Category Title"
+    try? category.update(title: title)
+    XCTAssertEqual(category.title, title)
   }
 
   func test_selectCategoryIcon() {
@@ -83,9 +83,9 @@ class JCategoryTests: XCTestCase {
       colorTheme: .amber
     )
     try? DataProvider.add(category: category)
-    try? category.select(icon: Icon(name: .cart, type: .system))
-    let founded = try? DataProvider.findCategory(by: category._id)
-    XCTAssertEqual(category.icon?._id, founded?.icon?._id)
+    let icon = Icon(name: .cart, type: .system)
+    try? category.select(icon: icon)
+    XCTAssertEqual(category.icon?._id, icon._id)
   }
 
   func test_selectCategoryColorTheme() {
@@ -95,8 +95,8 @@ class JCategoryTests: XCTestCase {
       colorTheme: .amber
     )
     try? DataProvider.add(category: category)
-    try? category.select(colorTheme: .blue)
-    let founded = try? DataProvider.findCategory(by: category._id)
-    XCTAssertEqual(category.colorTheme, founded?.colorTheme)
+    let colorTheme = ColorTheme.blue
+    try? category.select(colorTheme: colorTheme)
+    XCTAssertEqual(category.colorTheme, colorTheme)
   }
 }
