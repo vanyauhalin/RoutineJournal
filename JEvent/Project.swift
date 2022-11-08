@@ -14,7 +14,7 @@ let project = Project(
       infoPlist: .configure(),
       sources: .configure(),
       scripts: [
-        .lintSources(by: "JEvent")
+        .lintProject(by: "JEvent")
       ],
       dependencies: [
         .project(
@@ -31,9 +31,6 @@ let project = Project(
       deploymentTarget: .configure(),
       infoPlist: .configure(),
       sources: .tests(),
-      scripts: [
-        .lintTests(by: "JEvent")
-      ],
       dependencies: [
         .target(name: .name(by: "JEvent")),
         .xctest

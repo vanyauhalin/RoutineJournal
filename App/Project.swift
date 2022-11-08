@@ -15,7 +15,7 @@ let project = Project(
       sources: .configure(),
       resources: .configure(),
       scripts: [
-        .lintSources(by: "App")
+        .lintProject(by: "App")
       ],
       dependencies: [
         .project(

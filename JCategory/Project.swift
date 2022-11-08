@@ -14,7 +14,7 @@ let project = Project(
       infoPlist: .configure(),
       sources: .configure(),
       scripts: [
-        .lintSources(by: "JCategory")
+        .lintProject(by: "JCategory")
       ],
       dependencies: [
         .project(
@@ -31,9 +31,6 @@ let project = Project(
       deploymentTarget: .configure(),
       infoPlist: .configure(),
       sources: .tests(),
-      scripts: [
-        .lintTests(by: "JCategory")
-      ],
       dependencies: [
         .target(name: .name(by: "JCategory")),
         .xctest
