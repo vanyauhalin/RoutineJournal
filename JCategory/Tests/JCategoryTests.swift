@@ -1,47 +1,102 @@
+import RoutineJournalCore
 @testable import RoutineJournalJCategory
 import RoutineJournalUI
 import XCTest
 
 class JCategoryTests: XCTestCase {
-  func test_updateTitle() {
-    let category = JCategory(
-      title: "Title",
-      colorTheme: .amber,
-      icon: .airplane
-    )
-    category.update(title: "New Title")
-    XCTAssertEqual(
-      category.title,
-      "New Title",
-      "Title hasn't been updated"
-    )
+  override func setUp() {
+    super.setUp()
+    DataProvider.useMemory(self.name)
   }
 
-  func test_selectColorTheme() {
-    let category = JCategory(
-      title: "Title",
-      colorTheme: .amber,
-      icon: .airplane
-    )
-    category.select(colorTheme: .blue)
-    XCTAssertEqual(
-      category.colorTheme.name,
-      ColorThemeName.blue.rawValue,
-      "Color theme hasn't been selected"
-    )
+  override func tearDown() {
+    super.tearDown()
+    try? DataProvider.write { realm in
+      realm.deleteAll()
+    }
   }
 
-  func test_selectIcon() {
+  func test_categoryInitialization() {
+    let icon = Icon(name: .airplane, type: .system)
     let category = JCategory(
-      title: "Title",
-      colorTheme: .amber,
-      icon: .airplane
+      title: "Category Title",
+      icon: icon,
+      colorTheme: .amber
     )
-    category.select(icon: .cart)
-    XCTAssertEqual(
-      category.icon.name,
-      IconName.cart.rawValue,
-      "Icon hasn't been selected"
+    XCTAssertNotNil(category._id)
+    XCTAssertEqual(category.title, "Category Title")
+    XCTAssertEqual(category.icon?._id, icon._id)
+    XCTAssertEqual(category.colorTheme, .amber)
+  }
+
+  func test_addACategoryToTheDatabase() {
+    let category = JCategory(
+      title: "Category Title",
+      icon: Icon(name: .airplane, type: .system),
+      colorTheme: .amber
     )
+    try? DataProvider.add(category: category)
+    XCTAssertFalse(category.isInvalidated)
+  }
+
+  func test_findACategoryInTheDatabase() {
+    let category = JCategory(
+      title: "Category Title",
+      icon: Icon(name: .airplane, type: .system),
+      colorTheme: .amber
+    )
+    try? DataProvider.add(category: category)
+    let founded = try? DataProvider.findCategory(by: category._id)
+    XCTAssertEqual(category._id, founded?._id)
+    XCTAssertEqual(category.title, founded?.title)
+    XCTAssertEqual(category.icon?._id, founded?.icon?._id)
+    XCTAssertEqual(category.colorTheme, founded?.colorTheme)
+  }
+
+  func test_deleteACategoryFromTheDatabase() {
+    let category = JCategory(
+      title: "Category Title",
+      icon: Icon(name: .airplane, type: .system),
+      colorTheme: .amber
+    )
+    try? DataProvider.add(category: category)
+    try? DataProvider.delete(category: category)
+    XCTAssert(category.isInvalidated)
+  }
+
+  func test_updateCategoryTitle() {
+    let category = JCategory(
+      title: "Category Title",
+      icon: Icon(name: .airplane, type: .system),
+      colorTheme: .amber
+    )
+    try? DataProvider.add(category: category)
+    try? category.update(title: "New Category Title")
+    let founded = try? DataProvider.findCategory(by: category._id)
+    XCTAssertEqual(category.title, founded?.title)
+  }
+
+  func test_selectCategoryIcon() {
+    let category = JCategory(
+      title: "Category Title",
+      icon: Icon(name: .airplane, type: .system),
+      colorTheme: .amber
+    )
+    try? DataProvider.add(category: category)
+    try? category.select(icon: Icon(name: .cart, type: .system))
+    let founded = try? DataProvider.findCategory(by: category._id)
+    XCTAssertEqual(category.icon?._id, founded?.icon?._id)
+  }
+
+  func test_selectCategoryColorTheme() {
+    let category = JCategory(
+      title: "Category Title",
+      icon: Icon(name: .airplane, type: .system),
+      colorTheme: .amber
+    )
+    try? DataProvider.add(category: category)
+    try? category.select(colorTheme: .blue)
+    let founded = try? DataProvider.findCategory(by: category._id)
+    XCTAssertEqual(category.colorTheme, founded?.colorTheme)
   }
 }

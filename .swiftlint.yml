@@ -87,6 +87,8 @@ function_body_length:
 
 identifier_name:
   min_length: 2
+  excluded:
+    - "_id"
 
 indentation_width:
   indentation_width: 2
