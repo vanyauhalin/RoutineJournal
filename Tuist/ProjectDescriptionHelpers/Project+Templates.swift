@@ -59,11 +59,17 @@ public extension ProjectDescription.InfoPlist {
 
 public extension SourceFilesList {
   static func configure() -> SourceFilesList {
-    SourceFilesList.paths([.relativeToManifest("Sources/**/*.swift")])
+    SourceFilesList(globs: [.glob(
+      .relativeToManifest("**/*.swift"),
+      excluding: [
+        "**/*Tests.swift",
+        "Project.swift"
+      ]
+    )])
   }
 
   static func tests() -> SourceFilesList {
-    SourceFilesList.paths([.relativeToManifest("Tests/**/*.swift")])
+    SourceFilesList.paths([.relativeToManifest("**/*Tests.swift")])
   }
 }
 
@@ -76,23 +82,12 @@ public extension ResourceFileElements {
 }
 
 public extension ProjectDescription.TargetScript {
-  static func lintSources(by name: String) ->
-  ProjectDescription.TargetScript {
+  static func lintProject(by name: String) -> ProjectDescription.TargetScript {
     .pre(
       script: "sh "
         + "\(Project.root)/scripts/swiftlint.sh "
-        + "\(Project.root)/\(name)/Sources",
-      name: "Lint Sources"
-    )
-  }
-
-  static func lintTests(by name: String) ->
-  ProjectDescription.TargetScript {
-    .pre(
-      script: "sh "
-        + "\(Project.root)/scripts/swiftlint.sh "
-        + "\(Project.root)/\(name)/Tests",
-      name: "Lint Sources"
+        + "\(Project.root)/\(name)",
+      name: "Lint Project"
     )
   }
 }

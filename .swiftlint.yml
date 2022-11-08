@@ -1,7 +1,7 @@
 # Based on https://github.com/raywenderlich/swift-style-guide
 
 excluded:
-  - ${PWD}/Derived
+  - ${PWD}/*/Derived
   - ${PWD}/Tuist/Dependencies
 
 disabled_rules:

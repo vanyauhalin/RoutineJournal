@@ -19,7 +19,9 @@ let project = Project(
       deploymentTarget: .configure(),
       infoPlist: .configure(),
       sources: .configure(),
-      scripts: [.lintSources(by: "Core")],
+      scripts: [
+        .lintProject(by: "Core")
+      ],
       dependencies: [
         .package(product: "RealmSwift")
       ]
