@@ -2,25 +2,24 @@ import ProjectDescription
 import ProjectDescriptionHelpers
 
 let project = Project(
-  name: .name(),
+  name: .name(by: "Timeline"),
   organizationName: .organizationName(),
   targets: [
     Target(
-      name: .name(),
+      name: .name(by: "Timeline"),
       platform: .configure(),
-      product: .app,
-      bundleId: .bundleId(),
+      product: .framework,
+      bundleId: .bundleId(by: "Timeline"),
       deploymentTarget: .configure(),
       infoPlist: .configure(),
       sources: .configure(),
-      resources: .configure(),
       scripts: [
-        .lintProject(by: "App")
+        .lintProject(by: "Timeline")
       ],
       dependencies: [
         .project(
-          target: .name(by: "Timeline"),
-          path: .relativeToRoot("Timeline")
+          target: .name(by: "JEvent"),
+          path: .relativeToRoot("JEvent")
         )
       ]
     )

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct JEventNotesPreview: View {
+struct TimelineItemNotesPreview: View {
   let notes: String
   let foregroundColor: Color
 

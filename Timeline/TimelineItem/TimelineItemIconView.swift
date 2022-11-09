@@ -1,7 +1,7 @@
 import RoutineJournalUI
 import SwiftUI
 
-struct JEventIconView: View {
+struct TimelineItemIconView: View {
   let icon: Icon
   let foregroundColor: Color
   let backgroundColor: Color
@@ -9,15 +9,18 @@ struct JEventIconView: View {
   var body: some View {
     Image(systemName: icon.name.rawValue)
       .foregroundColor(foregroundColor)
-      .frame(width: JEventIconView.width, height: JEventIconView.height)
+      .frame(
+        width: TimelineItemIconView.width,
+        height: TimelineItemIconView.height
+      )
       .background(
-        RoundedRectangle(cornerRadius: JEventIconView.cornerRadius)
+        RoundedRectangle(cornerRadius: TimelineItemIconView.cornerRadius)
           .foregroundColor(backgroundColor)
       )
   }
 }
 
-extension JEventIconView {
+extension TimelineItemIconView {
   static let width: CGFloat = 28
   static let height: CGFloat = 28
   static let cornerRadius: CGFloat = 7

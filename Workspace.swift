@@ -7,6 +7,7 @@ let workspace = Workspace(
     "Core",
     "JCategory",
     "JEvent",
+    "Timeline",
     "UI"
   ]
 )
