@@ -40,7 +40,7 @@ class JCategoryItemTests: XCTestCase {
       title: "Category Item Title",
       notes: "Category item notes"
     )
-    try? DataProvider.add(categoryItem: item)
+    try? item.add()
     XCTAssertFalse(item.isInvalidated)
   }
 
@@ -54,8 +54,8 @@ class JCategoryItemTests: XCTestCase {
       title: "Category Item Title",
       notes: "Category item notes"
     )
-    try? DataProvider.add(categoryItem: item)
-    try? DataProvider.delete(categoryItem: item)
+    try? item.add()
+    try? item.delete()
     XCTAssert(item.isInvalidated)
   }
 
@@ -69,7 +69,7 @@ class JCategoryItemTests: XCTestCase {
       title: "Category Item Title",
       notes: "Category item notes"
     )
-    try? DataProvider.add(categoryItem: item)
+    try? item.add()
     let category = JCategory(
       title: "Another Category Title",
       icon: Icon(name: .cart, type: .system),
@@ -89,7 +89,7 @@ class JCategoryItemTests: XCTestCase {
       title: "Category Item Title",
       notes: "Category item notes"
     )
-    try? DataProvider.add(categoryItem: item)
+    try? item.add()
     let title = "New Category Item Title"
     try? item.update(title: title)
     XCTAssertEqual(item.title, title)
@@ -105,7 +105,7 @@ class JCategoryItemTests: XCTestCase {
       title: "Category Item Title",
       notes: "Category item notes"
     )
-    try? DataProvider.add(categoryItem: item)
+    try? item.add()
     let notes = "New category item notes"
     try? item.update(notes: notes)
     XCTAssertEqual(item.notes, notes)
@@ -121,7 +121,7 @@ class JCategoryItemTests: XCTestCase {
       title: "Category Item Title",
       notes: "Category item notes"
     )
-    try? DataProvider.add(categoryItem: item)
+    try? item.add()
     try? item.removeNotes()
     XCTAssertNil(item.notes)
   }

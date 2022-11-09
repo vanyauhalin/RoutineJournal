@@ -35,22 +35,8 @@ class JCategoryTests: XCTestCase {
       icon: Icon(name: .airplane, type: .system),
       colorTheme: .amber
     )
-    try? DataProvider.add(category: category)
+    try? category.add()
     XCTAssertFalse(category.isInvalidated)
-  }
-
-  func test_findACategoryInTheDatabase() {
-    let category = JCategory(
-      title: "Category Title",
-      icon: Icon(name: .airplane, type: .system),
-      colorTheme: .amber
-    )
-    try? DataProvider.add(category: category)
-    let founded = try? DataProvider.findCategory(by: category._id)
-    XCTAssertEqual(category._id, founded?._id)
-    XCTAssertEqual(category.title, founded?.title)
-    XCTAssertEqual(category.icon?._id, founded?.icon?._id)
-    XCTAssertEqual(category.colorTheme, founded?.colorTheme)
   }
 
   func test_deleteACategoryFromTheDatabase() {
@@ -59,8 +45,8 @@ class JCategoryTests: XCTestCase {
       icon: Icon(name: .airplane, type: .system),
       colorTheme: .amber
     )
-    try? DataProvider.add(category: category)
-    try? DataProvider.delete(category: category)
+    try? category.add()
+    try? category.delete()
     XCTAssert(category.isInvalidated)
   }
 
@@ -70,7 +56,7 @@ class JCategoryTests: XCTestCase {
       icon: Icon(name: .airplane, type: .system),
       colorTheme: .amber
     )
-    try? DataProvider.add(category: category)
+    try? category.add()
     let title = "New Category Title"
     try? category.update(title: title)
     XCTAssertEqual(category.title, title)
@@ -82,7 +68,7 @@ class JCategoryTests: XCTestCase {
       icon: Icon(name: .airplane, type: .system),
       colorTheme: .amber
     )
-    try? DataProvider.add(category: category)
+    try? category.add()
     let icon = Icon(name: .cart, type: .system)
     try? category.select(icon: icon)
     XCTAssertEqual(category.icon?._id, icon._id)
@@ -94,7 +80,7 @@ class JCategoryTests: XCTestCase {
       icon: Icon(name: .airplane, type: .system),
       colorTheme: .amber
     )
-    try? DataProvider.add(category: category)
+    try? category.add()
     let colorTheme = ColorTheme.blue
     try? category.select(colorTheme: colorTheme)
     XCTAssertEqual(category.colorTheme, colorTheme)
