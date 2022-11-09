@@ -1,18 +1,18 @@
+import RoutineJournalJEvent
 import RoutineJournalUI
 import SwiftUI
 
-class JEventViewModel {
-  let event: JEvent
+public class TimelineJEventViewModel {
+  public let event: JEvent
 
-  init(event: JEvent) {
+  public init(event: JEvent) {
     self.event = event
   }
 }
 
-extension JEventViewModel {
+public extension TimelineJEventViewModel {
   var colorPalette: ColorPalette {
-    ColorPalette.select(by: .blue)
-    // ColorPalette.select(by: event.category.colorTheme)
+    ColorPalette.select(by: event.category?.colorTheme ?? .neutral)
   }
   var titleForegroundColor: Color {
     colorPalette.color900

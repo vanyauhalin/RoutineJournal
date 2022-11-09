@@ -2,7 +2,6 @@ import RealmSwift
 import RoutineJournalCore
 
 open class JCategoryItem: Object {
-  @Persisted(primaryKey: true) public private(set) var _id: ObjectId
   @Persisted public private(set) var category: JCategory?
   @Persisted public private(set) var title: String
   @Persisted public private(set) var notes: String?

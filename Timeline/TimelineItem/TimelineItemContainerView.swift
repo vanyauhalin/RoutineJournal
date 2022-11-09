@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct JEventContainerView<Content>: View where Content: View {
+struct TimelineItemContainerView<Content>: View where Content: View {
   let backgroundColor: Color
   @ViewBuilder let content: () -> Content
 

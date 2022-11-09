@@ -36,7 +36,6 @@ class JEventTests: XCTestCase {
       endDate: endDate
     )
     XCTAssertNotNil(event._id)
-    XCTAssertNotNil(event.calendarItem?._id)
     XCTAssertEqual(event.startTime, startDate.timeIntervalSince1970)
     XCTAssertEqual(event.endTime, endDate?.timeIntervalSince1970)
   }
@@ -72,7 +71,6 @@ class JEventTests: XCTestCase {
     try? DataProvider.add(event: event)
     let founded = try? DataProvider.findEvent(by: event._id)
     XCTAssertEqual(event._id, founded?._id)
-    XCTAssertEqual(event.calendarItem?._id, founded?.calendarItem?._id)
     XCTAssertEqual(event.startTime, founded?.startTime)
     XCTAssertEqual(event.endTime, founded?.endTime)
   }
@@ -125,6 +123,6 @@ class JEventTests: XCTestCase {
       XCTAssertEqual(event.endTime, newEndDate.timeIntervalSince1970)
       return
     }
-    XCTFail("Error creating new endDate")
+    XCTFail("Error creating new end date")
   }
 }

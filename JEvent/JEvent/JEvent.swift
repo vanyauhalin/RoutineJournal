@@ -3,9 +3,8 @@ import RealmSwift
 import RoutineJournalCore
 import RoutineJournalJCategory
 
-public class JEvent: Object {
+public class JEvent: JCategoryItem {
   @Persisted(primaryKey: true) public private(set) var _id: ObjectId
-  @Persisted public private(set) var calendarItem: JCategoryItem?
   @Persisted public private(set) var startTime: TimeInterval
   @Persisted public private(set) var endTime: TimeInterval?
 
@@ -26,12 +25,7 @@ public class JEvent: Object {
     startDate: Date,
     endDate: Date? = nil
   ) {
-    self.init()
-    self.calendarItem = JCategoryItem(
-      category: category,
-      title: title,
-      notes: notes
-    )
+    self.init(category: category, title: title, notes: notes)
     self.startTime = startDate.timeIntervalSince1970
     self.endTime = endDate?.timeIntervalSince1970
   }

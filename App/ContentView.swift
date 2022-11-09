@@ -1,5 +1,8 @@
+import RoutineJournalCore
 import RoutineJournalJCategory
 import RoutineJournalJEvent
+import RoutineJournalTimeline
+import RoutineJournalUI
 import SwiftUI
 
 struct ContentView: View {
@@ -7,23 +10,27 @@ struct ContentView: View {
     NavigationView {
       ContentViewToolbar {
         VStack(spacing: 8) {
-          // JEventView(event: JEvent(
-          //   category: JCategory(
-          //     title: "Travel",
-          //     colorTheme: .amber,
-          //     icon: .airplane
-          //   ),
-          //   title: "Flight from London to Paris",
-          //   notes: "Almost missed my flight",
-          //   startDate: Date.now,
-          //   endDate: ({
-          //     return Calendar.current.date(
-          //       byAdding: .hour,
-          //       value: 1,
-          //       to: Date.now
-          //     )!
-          //   })()
-          // ))
+          TimelineJEventView(
+            viewModel: TimelineJEventViewModel(
+              event: JEvent(
+                category: JCategory(
+                  title: "Travel",
+                  icon: Icon(name: .airplane, type: .system),
+                  colorTheme: .indigo
+                ),
+                title: "Flight from London to Paris",
+                notes: "Almost missed my flight",
+                startDate: Date.now,
+                endDate: ({
+                  return Calendar.current.date(
+                    byAdding: .hour,
+                    value: 1,
+                    to: Date.now
+                  )!
+                })()
+              )
+            )
+          )
           Spacer()
         }
         .navigationTitle("Routine")

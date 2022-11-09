@@ -22,15 +22,12 @@ class JCategoryItemTests: XCTestCase {
       icon: Icon(name: .airplane, type: .system),
       colorTheme: .amber
     )
-    let item = JCategoryItem(
-      category: category,
-      title: "Category Item Title",
-      notes: "Category item notes"
-    )
-    XCTAssertNotNil(item._id)
+    let title = "Category Item Title"
+    let notes = "Category item notes"
+    let item = JCategoryItem(category: category, title: title, notes: notes)
     XCTAssertEqual(item.category?._id, category._id)
-    XCTAssertEqual(item.title, "Category Item Title")
-    XCTAssertEqual(item.notes, "Category item notes")
+    XCTAssertEqual(item.title, title)
+    XCTAssertEqual(item.notes, notes)
   }
 
   func test_addCategoryItemToTheDatabase() {
@@ -45,24 +42,6 @@ class JCategoryItemTests: XCTestCase {
     )
     try? DataProvider.add(categoryItem: item)
     XCTAssertFalse(item.isInvalidated)
-  }
-
-  func test_findCategoryItemInTheDatabase() {
-    let item = JCategoryItem(
-      category: JCategory(
-        title: "Category Title",
-        icon: Icon(name: .airplane, type: .system),
-        colorTheme: .amber
-      ),
-      title: "Category Item Title",
-      notes: "Category item notes"
-    )
-    try? DataProvider.add(categoryItem: item)
-    let founded = try? DataProvider.findCategoryItem(by: item._id)
-    XCTAssertEqual(item._id, founded?._id)
-    XCTAssertEqual(item.category?._id, founded?.category?._id)
-    XCTAssertEqual(item.title, founded?.title)
-    XCTAssertEqual(item.notes, founded?.notes)
   }
 
   func test_deleteCategoryItemFromTheDatabase() {

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct JEventTitleView: View {
+struct TimelineItemTitleView: View {
   let title: String
   let foregroundColor: Color
 

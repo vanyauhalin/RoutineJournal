@@ -1,10 +1,10 @@
 import SwiftUI
 
-struct JEventTimeView: View {
+struct TimelineItemTimeView: View {
   let date: Date
   let foregroundColor: Color
   var time: String {
-    JEventTimeView.timeFormatter.string(from: date)
+    TimelineItemTimeView.timeFormatter.string(from: date)
   }
 
   var body: some View {
@@ -14,7 +14,7 @@ struct JEventTimeView: View {
   }
 }
 
-extension JEventTimeView {
+extension TimelineItemTimeView {
   static let timeFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateFormat = "hh:mm"
