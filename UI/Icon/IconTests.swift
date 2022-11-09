@@ -24,23 +24,14 @@ class IconTests: XCTestCase {
 
   func test_addAnIconToTheDatabase() {
     let icon = Icon(name: .airplane, type: .system)
-    try? DataProvider.add(icon: icon)
+    try? icon.add()
     XCTAssertFalse(icon.isInvalidated)
-  }
-
-  func test_findAnIconInTheDatabase() {
-    let icon = Icon(name: .airplane, type: .system)
-    try? DataProvider.add(icon: icon)
-    let founded = try? DataProvider.findIcon(by: icon._id)
-    XCTAssertEqual(icon._id, founded?._id)
-    XCTAssertEqual(icon.name, founded?.name)
-    XCTAssertEqual(icon.type, founded?.type)
   }
 
   func test_deleteAnIconFromTheDatabase() {
     let icon = Icon(name: .airplane, type: .system)
-    try? DataProvider.add(icon: icon)
-    try? DataProvider.delete(icon: icon)
+    try? icon.add()
+    try? icon.delete()
     XCTAssert(icon.isInvalidated)
   }
 }

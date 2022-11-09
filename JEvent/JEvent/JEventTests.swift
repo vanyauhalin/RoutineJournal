@@ -52,27 +52,8 @@ class JEventTests: XCTestCase {
       startDate: Date.now,
       endDate: Date.now
     )
-    try? DataProvider.add(event: event)
+    try? event.add()
     XCTAssertFalse(event.isInvalidated)
-  }
-
-  func test_findAnEventToTheDatabase() {
-    let event = JEvent(
-      category: JCategory(
-        title: "Category Title",
-        icon: Icon(name: .airplane, type: .system),
-        colorTheme: .amber
-      ),
-      title: "Event Title",
-      notes: "Event notes",
-      startDate: Date.now,
-      endDate: Date.now
-    )
-    try? DataProvider.add(event: event)
-    let founded = try? DataProvider.findEvent(by: event._id)
-    XCTAssertEqual(event._id, founded?._id)
-    XCTAssertEqual(event.startTime, founded?.startTime)
-    XCTAssertEqual(event.endTime, founded?.endTime)
   }
 
   func test_deleteAnEventToTheDatabase() {
@@ -87,8 +68,8 @@ class JEventTests: XCTestCase {
       startDate: Date.now,
       endDate: Date.now
     )
-    try? DataProvider.add(event: event)
-    try? DataProvider.delete(event: event)
+    try? event.add()
+    try? event.delete()
     XCTAssert(event.isInvalidated)
   }
 
@@ -110,7 +91,7 @@ class JEventTests: XCTestCase {
       startDate: startDate,
       endDate: endDate
     )
-    try? DataProvider.add(event: event)
+    try? event.add()
     if
       let endDate = endDate,
       let newEndDate = Calendar.current.date(
