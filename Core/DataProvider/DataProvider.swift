@@ -2,32 +2,34 @@ import Realm
 import RealmSwift
 
 public enum DataProvider {
-  enum DataProviderError: Error {
+  private enum DataProviderError: Error {
+    case write(Error)
     case add(Error)
-    case find(Error)
     case delete(Error)
   }
 
-  public static func useMemory(_ identifier: String) {
-    Realm.Configuration.defaultConfiguration.inMemoryIdentifier = identifier
+  public static var configuration = Realm.Configuration()
+
+  public static func realm() throws -> Realm {
+    try Realm(configuration: configuration)
   }
 
   public static func write(action: (Realm) -> Void)
   throws {
     do {
-      let realm = try Realm()
+      let realm = try realm()
       try realm.write {
         action(realm)
       }
     } catch let error {
-      throw error
+      throw DataProviderError.write(error)
     }
   }
 
   public static func add<Object>(_ object: Object)
   throws where Object: RealmSwift.Object {
     do {
-      try DataProvider.write { realm in
+      try write { realm in
         realm.add(object)
       }
     } catch let error {
@@ -38,7 +40,7 @@ public enum DataProvider {
   public static func delete<Object>(_ object: Object)
   throws where Object: ObjectBase {
     do {
-      try DataProvider.write { realm in
+      try write { realm in
         realm.delete(object)
       }
     } catch let error {
@@ -46,3 +48,11 @@ public enum DataProvider {
     }
   }
 }
+
+#if DEBUG
+public extension DataProvider {
+  static func useMemory(_ identifier: String) {
+    configuration.inMemoryIdentifier = identifier
+  }
+}
+#endif
