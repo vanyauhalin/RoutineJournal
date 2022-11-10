@@ -1,3 +1,4 @@
+import RealmSwift
 import RoutineJournalCore
 import RoutineJournalJCategory
 import RoutineJournalJEvent
@@ -6,31 +7,15 @@ import RoutineJournalUI
 import SwiftUI
 
 struct ContentView: View {
+  @ObservedResults(JEvent.self) var events
+
   var body: some View {
     NavigationView {
       ContentViewToolbar {
         VStack(spacing: 8) {
-          TimelineJEventView(
-            viewModel: TimelineJEventViewModel(
-              event: JEvent(
-                category: JCategory(
-                  title: "Travel",
-                  icon: Icon(name: .airplane, type: .system),
-                  colorTheme: .indigo
-                ),
-                title: "Flight from London to Paris",
-                notes: "Almost missed my flight",
-                startDate: Date.now,
-                endDate: ({
-                  return Calendar.current.date(
-                    byAdding: .hour,
-                    value: 1,
-                    to: Date.now
-                  )!
-                })()
-              )
-            )
-          )
+          ForEach(events) { event in
+            TimelineJEventView(viewModel: TimelineJEventViewModel(event: event))
+          }
           Spacer()
         }
         .navigationTitle("Routine")

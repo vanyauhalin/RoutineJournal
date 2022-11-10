@@ -7,6 +7,8 @@ excluded:
 disabled_rules:
   - discarded_notification_center_observer
   - notification_center_detachment
+  # https://github.com/realm/SwiftLint/issues/3720
+  - opening_brace
   - orphaned_doc_comment
   - todo
   - unused_capture_list
