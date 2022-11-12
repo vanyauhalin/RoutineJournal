@@ -1,3 +1,4 @@
+import RoutineJournalUI
 import SwiftUI
 
 public struct TimelineJEventView: View {
@@ -42,7 +43,7 @@ public struct TimelineJEventView: View {
             let category = viewModel.event.category,
             let icon = category.icon
           {
-            TimelineItemIconView(
+            IconView(
               icon: icon,
               foregroundColor: viewModel.iconForegroundColor,
               backgroundColor: viewModel.iconBackgroundColor
