@@ -6,7 +6,7 @@ public struct TimelineJEventView: View {
 
   public var body: some View {
     TimelineItemContainerView(backgroundColor: viewModel.backgroundColor) {
-      Label(
+      LabelStacked(
         title: {
           HStack(spacing: .zero) {
             VStack(alignment: .leading, spacing: .zero) {
