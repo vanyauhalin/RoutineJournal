@@ -2,7 +2,7 @@ import RealmSwift
 import RoutineJournalCore
 import RoutineJournalUI
 
-public class JCategory: Object {
+public class JCategory: Object, ObjectKeyIdentifiable {
   @Persisted(primaryKey: true) public private(set) var _id: ObjectId
   @Persisted public private(set) var title: String
   @Persisted public private(set) var icon: Icon?
