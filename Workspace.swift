@@ -1,13 +1,9 @@
 import ProjectDescription
+import ProjectDescriptionHelpers
 
 let workspace = Workspace(
-  name: "RoutineJournal",
+  name: .name(),
   projects: [
-    "App",
-    "Core",
-    "JCategory",
-    "JEvent",
-    "Timeline",
-    "UI"
+    "\(String.name())*"
   ]
 )
