@@ -82,11 +82,20 @@ public extension ResourceFileElements {
 }
 
 public extension ProjectDescription.TargetScript {
+  static func lintProject() -> ProjectDescription.TargetScript {
+    .pre(
+      script: "sh "
+        + "\(Project.root)/scripts/swiftlint.sh "
+        + "\(Project.root)/\(Project.namePrefix)",
+      name: "Lint Project"
+    )
+  }
+
   static func lintProject(by name: String) -> ProjectDescription.TargetScript {
     .pre(
       script: "sh "
         + "\(Project.root)/scripts/swiftlint.sh "
-        + "\(Project.root)/\(name)",
+        + "\(Project.root)/\(Project.namePrefix)\(name)",
       name: "Lint Project"
     )
   }
