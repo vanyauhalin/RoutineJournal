@@ -16,6 +16,10 @@ public extension String {
     "\(Project.namePrefix)\(name)"
   }
 
+  static func nameResources(by name: String) -> String {
+    "\(Project.namePrefix)\(name)Resources"
+  }
+
   static func nameTests(by name: String) -> String {
     "\(Project.namePrefix)\(name)Tests"
   }
@@ -25,15 +29,19 @@ public extension String {
   }
 
   static func bundleId() -> String {
-    "\(Project.organizationNamePrefix).\(Project.namePrefix)"
+    "\(Project.organizationNamePrefix).\(String.name())"
   }
 
   static func bundleId(by name: String) -> String {
-    "\(Project.organizationNamePrefix).\(Project.namePrefix)\(name)"
+    "\(Project.organizationNamePrefix).\(String.name(by: name))"
+  }
+
+  static func bundleIdResources(by name: String) -> String {
+    "\(Project.organizationNamePrefix).\(String.nameResources(by: name))"
   }
 
   static func bundleIdTests(by name: String) -> String {
-    "\(Project.organizationNamePrefix).\(Project.namePrefix)\(name)Tests"
+    "\(Project.organizationNamePrefix).\(String.nameTests(by: name))"
   }
 }
 

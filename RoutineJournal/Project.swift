@@ -13,7 +13,6 @@ let project = Project(
       deploymentTarget: .configure(),
       infoPlist: .configure(),
       sources: .configure(),
-      resources: .configure(),
       scripts: [
         .lintProject()
       ],

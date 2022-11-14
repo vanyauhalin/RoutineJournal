@@ -17,11 +17,21 @@ let project = Project(
         .lintProject(by: "UI")
       ],
       dependencies: [
+        .target(name: .nameResources(by: "UI")),
         .project(
           target: .name(by: "Core"),
           path: .relativeToRoot(.name(by: "Core"))
         )
       ]
+    ),
+    Target(
+      name: .nameResources(by: "UI"),
+      platform: .configure(),
+      product: .bundle,
+      bundleId: .bundleIdResources(by: "UI"),
+      deploymentTarget: .configure(),
+      infoPlist: .configure(),
+      resources: .configure()
     ),
     Target(
       name: .nameTests(by: "UI"),
