@@ -2,24 +2,35 @@ import ProjectDescription
 import ProjectDescriptionHelpers
 
 let project = Project(
-  name: .name(by: "Timeline"),
-  organizationName: .organizationName(),
+  name: "RoutineJournalTimeline",
   targets: [
     Target(
-      name: .name(by: "Timeline"),
-      platform: .configure(),
+      name: "RoutineJournalTimeline",
+      platform: .iOS,
       product: .framework,
-      bundleId: .bundleId(by: "Timeline"),
-      deploymentTarget: .configure(),
-      infoPlist: .configure(),
-      sources: .configure(),
+      bundleId: "my.vanyauhalin.RoutineJournalTimeline",
+      deploymentTarget: .iOS(targetVersion: "15.4", devices: .iphone),
+      infoPlist: .extendingDefault(with: [
+        "UILaunchScreen": [:]
+      ]),
+      sources: .relative("**/*.swift", excluding: [
+        "Project.swift"
+      ]),
       scripts: [
-        .lintProject(by: "Timeline")
+        .make("lint-timeline")
       ],
       dependencies: [
         .project(
-          target: .name(by: "Event"),
-          path: .relativeToRoot(.name(by: "Event"))
+          target: "RoutineJournalCore",
+          path: .relativeToRoot("RoutineJournalCore")
+        ),
+        .project(
+          target: "RoutineJournalIcon",
+          path: .relativeToRoot("RoutineJournalIcon")
+        ),
+        .project(
+          target: "RoutineJournalUI",
+          path: .relativeToRoot("RoutineJournalUI")
         )
       ]
     )

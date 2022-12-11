@@ -2,39 +2,42 @@ import ProjectDescription
 import ProjectDescriptionHelpers
 
 let project = Project(
-  name: .name(by: "UI"),
-  organizationName: .organizationName(),
+  name: "RoutineJournalUI",
   targets: [
     Target(
-      name: .name(by: "UI"),
-      platform: .configure(),
+      name: "RoutineJournalUI",
+      platform: .iOS,
       product: .framework,
-      bundleId: .bundleId(by: "UI"),
-      deploymentTarget: .configure(),
-      infoPlist: .configure(),
-      sources: .configure(),
+      bundleId: "my.vanyauhalin.RoutineJournalUI",
+      deploymentTarget: .iOS(targetVersion: "15.4", devices: .iphone),
+      infoPlist: .extendingDefault(with: [
+        "UILaunchScreen": [:]
+      ]),
+      sources: .relative("**/*.swift", excluding: [
+        "**/*Tests.swift",
+        "Project.swift"
+      ]),
       scripts: [
-        .lintProject(by: "UI")
+        .make("lint-ui")
       ],
       dependencies: [
+        .target(name: "RoutineJournalUIResources"),
         .project(
-          target: .name(by: "Core"),
-          path: .relativeToRoot(.name(by: "Core"))
+          target: "RoutineJournalCore",
+          path: .relativeToRoot("RoutineJournalCore")
         )
       ]
     ),
     Target(
-      name: .nameTests(by: "UI"),
-      platform: .configure(),
-      product: .unitTests,
-      bundleId: .bundleIdTests(by: "UI"),
-      deploymentTarget: .configure(),
-      infoPlist: .configure(),
-      sources: .tests(),
-      dependencies: [
-        .target(name: .name(by: "UI")),
-        .xctest
-      ]
+      name: "RoutineJournalUIResources",
+      platform: .iOS,
+      product: .bundle,
+      bundleId: "my.vanyauhalin.RoutineJournalUIResources",
+      deploymentTarget: .iOS(targetVersion: "15.4", devices: .iphone),
+      infoPlist: .extendingDefault(with: [
+        "UILaunchScreen": [:]
+      ]),
+      resources: "Resources/**"
     )
   ]
 )

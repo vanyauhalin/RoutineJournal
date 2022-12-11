@@ -2,8 +2,8 @@ import ProjectDescription
 import ProjectDescriptionHelpers
 
 let workspace = Workspace(
-  name: .name(),
+  name: "RoutineJournal",
   projects: [
-    "\(String.name())*"
+    "RoutineJournal*"
   ]
 )

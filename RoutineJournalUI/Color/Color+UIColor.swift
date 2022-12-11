@@ -1,5 +1,5 @@
 import SwiftUI
 
-public extension Color {
-  static let placeholderText = Color(UIColor.placeholderText)
+extension Color {
+  public static let placeholderText = Color(UIColor.placeholderText)
 }

@@ -1,6 +1,5 @@
-import RoutineJournalCategory
 import RoutineJournalCore
-import RoutineJournalEvent
+import RoutineJournalHome
 import RoutineJournalUI
 import SwiftUI
 
@@ -8,21 +7,16 @@ import SwiftUI
 struct RoutineJournal: App {
   var body: some Scene {
     WindowGroup {
-      ContentView()
+      DataProvider.ExamplesView(Self.name) {
+        HomeView
+          .render(Date.now)
+      }
     }
   }
 
-  #if ADD_EXAMPLE_DATA
-  init() {
-    do {
-      try DataProvider.write { realm in
-        realm.add(IconConfiguration.exampleData())
-        realm.add(CategoryConfiguration.exampleData())
-        realm.add(EventConfiguration.exampleData())
-      }
-    } catch {
-      //
-    }
-  }
-  #endif
+  // #if ADD_EXAMPLES
+  // init() {
+  //   try? DataProvider.addExamples()
+  // }
+  // #endif
 }

@@ -2,3 +2,4 @@
 *.xcworkspace
 Derived
 Tuist/Dependencies
+xcodebuild.log
