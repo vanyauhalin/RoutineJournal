@@ -58,7 +58,7 @@ public struct EventFormCategorySearchResultsView: SwiftUI.View {
 
 struct EventFormCategorySearchResultsView_Previews: PreviewProvider {
   static var previews: some View {
-    DataProvider.ExamplesView(self.name) {
+    PreviewData(self.name) {
       PreviewSheet { toggle in
         if
           let objects = try? DataProvider

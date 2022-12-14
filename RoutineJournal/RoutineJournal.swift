@@ -7,7 +7,7 @@ import SwiftUI
 struct RoutineJournal: App {
   var body: some Scene {
     WindowGroup {
-      DataProvider.ExamplesView(Self.name) {
+      PreviewData(Self.name) {
         HomeView
           .render(Date.now)
       }

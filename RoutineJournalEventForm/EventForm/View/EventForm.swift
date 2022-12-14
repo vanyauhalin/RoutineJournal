@@ -69,7 +69,7 @@ public struct EventForm: SwiftUI.View {
 
 struct EventForm_Previews: PreviewProvider {
   static var previews: some View {
-    DataProvider.ExamplesView(self.name) {
+    PreviewData(self.name) {
       PreviewSheet { toggle in
         EventForm
           .render()
