@@ -68,26 +68,15 @@ public struct EventForm: SwiftUI.View {
 }
 
 struct EventForm_Previews: PreviewProvider {
-  struct PreviewContainer: View {
-    @State private var showing = false
-
-    var body: some View {
-      Button("show") {
-        showing.toggle()
-      }
-      .sheet(isPresented: $showing) {
+  static var previews: some View {
+    PreviewData(self.name) {
+      PreviewSheet { toggle in
         EventForm
           .render()
           .onAdd { _ in
-            showing.toggle()
+            toggle()
           }
       }
-    }
-  }
-
-  static var previews: some View {
-    DataProvider.ExamplesView(self.name) {
-      PreviewContainer()
     }
   }
 }

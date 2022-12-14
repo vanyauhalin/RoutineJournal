@@ -1,3 +1,4 @@
+import RoutineJournalUI
 import SwiftUI
 
 public struct EventFormNotesField: SwiftUI.View {
@@ -30,13 +31,10 @@ struct EventFormNotesField_Previews: PreviewProvider {
     @State private var notes = ""
 
     var body: some View {
-      Form {
-        Section {
+      PreviewBinding($notes) {
+        Form {
           EventFormNotesField
             .render($notes)
-        }
-        Section {
-          Text(notes)
         }
       }
     }

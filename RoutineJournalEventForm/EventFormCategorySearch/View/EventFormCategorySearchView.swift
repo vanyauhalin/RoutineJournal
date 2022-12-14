@@ -67,24 +67,12 @@ public struct EventFormCategorySearchView: SwiftUI.View {
 }
 
 struct EventFormCategorySearchView_Previews: PreviewProvider {
-  struct PreviewContainer: View {
-    @State private var isPresented = false
-    @State private var object: CategoryObject?
-
-    var body: some View {
-      Button("show") {
-        isPresented.toggle()
-      }
-      .sheet(isPresented: $isPresented) {
-        EventFormCategorySearchView
-          .render($object)
-      }
-    }
-  }
-
   static var previews: some View {
-    DataProvider.ExamplesView(self.name) {
-      PreviewContainer()
+    PreviewData(self.name) {
+      PreviewSheet { _ in
+        EventFormCategorySearchView
+          .render(Binding.constant(nil))
+      }
     }
   }
 }

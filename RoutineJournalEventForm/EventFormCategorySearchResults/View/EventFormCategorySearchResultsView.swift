@@ -57,31 +57,21 @@ public struct EventFormCategorySearchResultsView: SwiftUI.View {
 }
 
 struct EventFormCategorySearchResultsView_Previews: PreviewProvider {
-  struct PreviewContainer: View {
-    @State private var showing = false
-    // False positive.
-    // swiftlint:disable:next unused_declaration
-    let objects = try? DataProvider.realm().objects(CategoryObject.self)
-
-    var body: some View {
-      Button("show") {
-        showing.toggle()
-      }
-      .sheet(isPresented: $showing) {
-        if let objects {
+  static var previews: some View {
+    PreviewData(self.name) {
+      PreviewSheet { toggle in
+        if
+          let objects = try? DataProvider
+            .realm()
+            .objects(CategoryObject.self)
+        {
           EventFormCategorySearchResultsView
             .render(objects)
             .onSelect { _ in
-              showing.toggle()
+              toggle()
             }
         }
       }
-    }
-  }
-
-  static var previews: some View {
-    DataProvider.ExamplesView(self.name) {
-      PreviewContainer()
     }
   }
 }

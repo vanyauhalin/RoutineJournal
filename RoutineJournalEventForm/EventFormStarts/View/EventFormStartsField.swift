@@ -1,3 +1,4 @@
+import RoutineJournalUI
 import SwiftUI
 
 public struct EventFormStartsField: SwiftUI.View {
@@ -29,13 +30,10 @@ struct EventFormStartsField_Previews: PreviewProvider {
     @State private var date = Date.now
 
     var body: some View {
-      Form {
-        Section {
+      PreviewBinding($date) {
+        Form {
           EventFormStartsField
             .render($date)
-        }
-        Section {
-          Text(date.description)
         }
       }
     }
