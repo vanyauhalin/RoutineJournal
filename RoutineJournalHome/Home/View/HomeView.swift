@@ -68,7 +68,7 @@ public struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
   static var previews: some View {
-    DataProvider.ExamplesView(self.name) {
+    PreviewData(self.name) {
       HomeView
         .render(Date.now)
     }
