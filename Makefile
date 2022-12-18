@@ -95,8 +95,8 @@ lint:
 		lint-home \
 		lint-icon \
 		lint-timeline \
-		lint-ui \
-		lint-tuist
+		lint-tuist \
+		lint-ui
 
 lint-app:
 	@$(call lint,RoutineJournal)
