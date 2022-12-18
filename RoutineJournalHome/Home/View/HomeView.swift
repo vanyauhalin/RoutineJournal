@@ -1,6 +1,7 @@
 // swiftlint:disable closure_body_length
 import RoutineJournalEventForm
 import RoutineJournalTimeline
+import RoutineJournalUI
 import SwiftUI
 
 public struct HomeView: View {

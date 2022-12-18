@@ -18,12 +18,20 @@ let project = Project(
       ],
       dependencies: [
         .project(
+          target: "RoutineJournalCore",
+          path: .relativeToRoot("RoutineJournalCore")
+        ),
+        .project(
           target: "RoutineJournalEventForm",
           path: .relativeToRoot("RoutineJournalEventForm")
         ),
         .project(
           target: "RoutineJournalTimeline",
           path: .relativeToRoot("RoutineJournalTimeline")
+        ),
+        .project(
+          target: "RoutineJournalUI",
+          path: .relativeToRoot("RoutineJournalUI")
         )
       ]
     )
