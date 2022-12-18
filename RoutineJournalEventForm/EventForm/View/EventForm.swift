@@ -1,4 +1,3 @@
-import RoutineJournalCore
 import RoutineJournalUI
 import SwiftUI
 
