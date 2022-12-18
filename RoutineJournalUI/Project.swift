@@ -14,7 +14,6 @@ let project = Project(
         "UILaunchScreen": [:]
       ]),
       sources: .relative("**/*.swift", excluding: [
-        "**/*Tests.swift",
         "Project.swift"
       ]),
       scripts: [
