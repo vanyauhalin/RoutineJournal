@@ -1,5 +1,6 @@
 .PHONY: \
 	analyze \
+	claen \
 	help \
 	install \
 	lint \
@@ -38,6 +39,7 @@ help:
 	@echo ""
 	@echo "Commands:"
 	@echo "  analyze  Analyze projects via SwiftLint"
+	@echo "  clean    Clean generated Tuist files except for dependencies"
 	@echo "  help     Show this message"
 	@echo "  install  Install dependencies and generate workspace via Tuist"
 	@echo "  lint     Lint projects and Tuist directory via SwiftLint"
@@ -58,6 +60,17 @@ analyze:
 				swiftlint analyze \
 					--config $(root).swiftlint.yml \
 					--compiler-log-path $(root)xcodebuild.log
+
+clean:
+	@rm -f $(root)xcodebuild.log
+	@find $(root)* \
+		-name "Derived" \
+		-maxdepth 1 \
+		| xargs rm -rf
+	@find $(root)* \
+		-name "RoutineJournal*.xc*" \
+		-maxdepth 1 \
+		| xargs rm -rf
 
 install:
 	@if ! command -v tuist > /dev/null; then \
@@ -82,8 +95,8 @@ lint:
 		lint-home \
 		lint-icon \
 		lint-timeline \
-		lint-ui \
-		lint-tuist
+		lint-tuist \
+		lint-ui
 
 lint-app:
 	@$(call lint,RoutineJournal)
