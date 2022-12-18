@@ -1,31 +1,19 @@
-.PHONY: \
-	analyze \
-	claen \
-	help \
-	install \
-	lint \
-	lint-app \
-	lint-core \
-	lint-event-form \
-	lint-home \
-	lint-icon \
-	lint-timeline \
-	lint-tuist \
-	lint-ui
+.PHONY: analyze claen help install lint
 
-root := $(dir $(abspath $(MAKEFILE_LIST)))
-package := $(root)Tuist/Dependencies/SwiftPackageManager
+define absolute
+	$(root)$(1)
+endef
 
 define lint
 	if \
 		! xcrun \
 			--sdk macosx \
 			swift run \
-				--package-path $(package) \
+				--package-path $(package_path) \
 				--skip-build \
 					swiftlint lint \
-						--config $(root).swiftlint.yml \
-						$(root)$(1) \
+						--config $(call absolute,.swiftlint.yml) \
+						$(1) \
 		2> /dev/null; \
 	then \
 		echo \
@@ -34,40 +22,55 @@ define lint
 	fi
 endef
 
+root := $(dir $(abspath $(MAKEFILE_LIST)))
+package_path := $(call absolute,Tuist/Dependencies/SwiftPackageManager)
+project :=
+
 help:
 	@echo "Welcome to RoutineJournal. <3"
 	@echo ""
-	@echo "Commands:"
+	@echo "Usage:"
+	@echo "  $$ make <subcommand>"
+	@echo "  $$ make <subcommand> [argument=value]"
+	@echo ""
+	@echo "Subcommands:"
 	@echo "  analyze  Analyze projects via SwiftLint"
 	@echo "  clean    Clean generated Tuist files except for dependencies"
 	@echo "  help     Show this message"
 	@echo "  install  Install dependencies and generate workspace via Tuist"
 	@echo "  lint     Lint projects and Tuist directory via SwiftLint"
+	@echo ""
+	@echo "Arguments:"
+	@echo "  project  Specify a project for the lint command"
+	@echo ""
+	@echo "Examples:"
+	@echo "  $$ make help"
+	@echo "  $$ make lint project=RoutineJournal"
 
 analyze:
 	@tuist generate -n
 	@xcodebuild \
-		-workspace $(root)RoutineJournal.xcworkspace \
+		-workspace $(call absolute,RoutineJournal.xcworkspace) \
 		-scheme RoutineJournal \
 		CODE_SIGN_IDENTITY="" \
 		CODE_SIGNING_REQUIRED=NO \
-		> $(root)xcodebuild.log
+		> $(call absolute,xcodebuild.log)
 	@xcrun \
 		--sdk macosx \
 		swift run \
 			--package-path $(package) \
 			--skip-build \
 				swiftlint analyze \
-					--config $(root).swiftlint.yml \
-					--compiler-log-path $(root)xcodebuild.log
+					--config $(call absolute,.swiftlint.yml) \
+					--compiler-log-path $(call absolute,xcodebuild.log)
 
 clean:
-	@rm -f $(root)xcodebuild.log
-	@find $(root)* \
+	@rm -f $(call absolute,xcodebuild.log)
+	@find $(call absolute,*) \
 		-name "Derived" \
 		-maxdepth 1 \
 		| xargs rm -rf
-	@find $(root)* \
+	@find $(call absolute,*) \
 		-name "RoutineJournal*.xc*" \
 		-maxdepth 1 \
 		| xargs rm -rf
@@ -84,40 +87,21 @@ install:
 	@xcrun \
 		--sdk macosx \
 		swift build \
-			--package-path $(package) \
+			--package-path $(package_path) \
 			--product swiftlint
 
 lint:
-	@make \
-		lint-app \
-		lint-core \
-		lint-event-form \
-		lint-home \
-		lint-icon \
-		lint-timeline \
-		lint-tuist \
-		lint-ui
-
-lint-app:
-	@$(call lint,RoutineJournal)
-
-lint-core:
-	@$(call lint,RoutineJournalCore)
-
-lint-event-form:
-	@$(call lint,RoutineJournalEventForm)
-
-lint-home:
-	@$(call lint,RoutineJournalHome)
-
-lint-icon:
-	@$(call lint,RoutineJournalIcon)
-
-lint-timeline:
-	@$(call lint,RoutineJournalTimeline)
-
-lint-tuist:
-	@$(call lint,Tuist)
-
-lint-ui:
-	@$(call lint,RoutineJournalUI)
+ifdef project
+	@$(call lint,$(call absolute,$(project)))
+else
+	@for \
+		project_path in \
+		$$(find $(call absolute,*) \
+			-name "RoutineJournal*" \
+			! -name "RoutineJournal*.xc*" \
+			-maxdepth 0); \
+	do \
+		$(call lint,$$project_path); \
+	done
+	@$(call lint,$(call absolute,Tuist))
+endif
