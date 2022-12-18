@@ -4,37 +4,34 @@ import SwiftUI
 public struct PreviewBinding<Value, Content>: View
 where Value: CustomStringConvertible, Content: View {
   public var value: Binding<Value?>
-  public var content: Content
+  public let position: PreviewContainerPosition
+  public var content: () -> Content
 
   public var body: some View {
-    ZStack {
-      content
-      HStack {
-        VStack(alignment: .leading) {
-          Spacer()
-          Text(value.wrappedValue?.description ?? "")
-            .opacity(0.3)
-        }
-        Spacer()
-      }
-      .edgesIgnoringSafeArea(.all)
+    PreviewContainer(position: position, content: content) {
+      Text(value.wrappedValue?.description ?? "")
+        .opacity(0.3)
     }
   }
 
   public init(
     _ value: Binding<Value?>,
-    @ViewBuilder content: () -> Content
+    position: PreviewContainerPosition = (.bottom, .leading),
+    content: @escaping () -> Content
   ) {
     self.value = value
-    self.content = content()
+    self.position = position
+    self.content = content
   }
 
   public init(
     _ value: Binding<Value>,
-    @ViewBuilder content: () -> Content
+    position: PreviewContainerPosition = (.bottom, .leading),
+    content: @escaping () -> Content
   ) {
     self.value = Binding.constant(Optional(value.wrappedValue))
-    self.content = content()
+    self.position = position
+    self.content = content
   }
 }
 
