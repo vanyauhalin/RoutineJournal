@@ -17,6 +17,14 @@ extension SourceFilesList {
   }
 }
 
+extension ProjectDescription.ResourceFileElements {
+  public static func relative(_ path: String) -> ResourceFileElements {
+    ResourceFileElements(resources: [
+      ResourceFileElement.glob(pattern: .relativeToManifest(path))
+    ])
+  }
+}
+
 extension ProjectDescription.TargetScript {
   public static func make(_ command: String) -> Self {
     .pre(

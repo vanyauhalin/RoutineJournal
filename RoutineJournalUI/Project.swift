@@ -28,7 +28,7 @@ let project = Project(
       product: .bundle,
       bundleId: "my.vanyauhalin.RoutineJournalUIResources",
       deploymentTarget: .iOS(targetVersion: "15.4", devices: .iphone),
-      resources: "Resources/**"
+      resources: .relative("Resources/**")
     )
   ]
 )
