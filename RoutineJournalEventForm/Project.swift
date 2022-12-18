@@ -10,28 +10,14 @@ let project = Project(
       product: .framework,
       bundleId: "my.vanyauhalin.RoutineJournalEventForm",
       deploymentTarget: .iOS(targetVersion: "15.4", devices: .iphone),
-      infoPlist: .extendingDefault(with: [
-        "UILaunchScreen": [:]
-      ]),
-      sources: .relative("**/*.swift", excluding: [
-        "Project.swift"
-      ]),
+      sources: .relative("**/*.swift"),
       scripts: [
-        .make("lint-event-form")
+        .lint("RoutineJournalEventForm")
       ],
       dependencies: [
-        .project(
-          target: "RoutineJournalCore",
-          path: .relativeToRoot("RoutineJournalCore")
-        ),
-        .project(
-          target: "RoutineJournalIcon",
-          path: .relativeToRoot("RoutineJournalIcon")
-        ),
-        .project(
-          target: "RoutineJournalUI",
-          path: .relativeToRoot("RoutineJournalUI")
-        )
+        .project("RoutineJournalCore"),
+        .project("RoutineJournalIcon"),
+        .project("RoutineJournalUI")
       ]
     )
   ]

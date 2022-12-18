@@ -10,21 +10,13 @@ let project = Project(
       product: .framework,
       bundleId: "my.vanyauhalin.RoutineJournalUI",
       deploymentTarget: .iOS(targetVersion: "15.4", devices: .iphone),
-      infoPlist: .extendingDefault(with: [
-        "UILaunchScreen": [:]
-      ]),
-      sources: .relative("**/*.swift", excluding: [
-        "Project.swift"
-      ]),
+      sources: .relative("**/*.swift"),
       scripts: [
-        .make("lint-ui")
+        .lint("RoutineJournalUI")
       ],
       dependencies: [
         .target(name: "RoutineJournalUIResources"),
-        .project(
-          target: "RoutineJournalCore",
-          path: .relativeToRoot("RoutineJournalCore")
-        )
+        .project("RoutineJournalCore")
       ]
     ),
     Target(
@@ -33,10 +25,7 @@ let project = Project(
       product: .bundle,
       bundleId: "my.vanyauhalin.RoutineJournalUIResources",
       deploymentTarget: .iOS(targetVersion: "15.4", devices: .iphone),
-      infoPlist: .extendingDefault(with: [
-        "UILaunchScreen": [:]
-      ]),
-      resources: "Resources/**"
+      resources: .relative("Resources/**")
     )
   ]
 )

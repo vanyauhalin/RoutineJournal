@@ -17,11 +17,10 @@ let project = Project(
       bundleId: "my.vanyauhalin.RoutineJournalCore",
       deploymentTarget: .iOS(targetVersion: "15.4", devices: .iphone),
       sources: .relative("**/*.swift", excluding: [
-        "**/*Tests.swift",
-        "Project.swift"
+        "**/*Tests.swift"
       ]),
       scripts: [
-        .make("lint-core")
+        .lint("RoutineJournalCore")
       ],
       dependencies: [
         .package(product: "RealmSwift")

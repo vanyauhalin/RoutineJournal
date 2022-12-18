@@ -10,29 +10,15 @@ let project = Project(
       product: .framework,
       bundleId: "my.vanyauhalin.RoutineJournalHome",
       deploymentTarget: .iOS(targetVersion: "15.4", devices: .iphone),
-      sources: .relative("**/*.swift", excluding: [
-        "Project.swift"
-      ]),
+      sources: .relative("**/*.swift"),
       scripts: [
-        .make("lint-home")
+        .lint("RoutineJournalHome")
       ],
       dependencies: [
-        .project(
-          target: "RoutineJournalCore",
-          path: .relativeToRoot("RoutineJournalCore")
-        ),
-        .project(
-          target: "RoutineJournalEventForm",
-          path: .relativeToRoot("RoutineJournalEventForm")
-        ),
-        .project(
-          target: "RoutineJournalTimeline",
-          path: .relativeToRoot("RoutineJournalTimeline")
-        ),
-        .project(
-          target: "RoutineJournalUI",
-          path: .relativeToRoot("RoutineJournalUI")
-        )
+        .project("RoutineJournalCore"),
+        .project("RoutineJournalEventForm"),
+        .project("RoutineJournalTimeline"),
+        .project("RoutineJournalUI")
       ]
     )
   ]

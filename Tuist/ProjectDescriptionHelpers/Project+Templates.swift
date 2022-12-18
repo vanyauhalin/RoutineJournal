@@ -1,21 +1,47 @@
 import Foundation
 import ProjectDescription
 
-let root = FileManager.default.currentDirectoryPath
+private let root = FileManager.default.currentDirectoryPath
 
 extension SourceFilesList {
-  public static func relative(_ path: String, excluding: [Path] = []) -> Self {
+  public static func relative(
+    _ path: String,
+    excluding: [Path] = []
+  ) -> SourceFilesList {
     SourceFilesList(globs: [
-      .glob(.relativeToManifest(path), excluding: excluding)
+      .glob(
+        .relativeToManifest(path),
+        excluding: excluding + ["Project.swift"]
+      )
+    ])
+  }
+}
+
+extension ProjectDescription.ResourceFileElements {
+  public static func relative(_ path: String) -> ResourceFileElements {
+    ResourceFileElements(resources: [
+      ResourceFileElement.glob(pattern: .relativeToManifest(path))
     ])
   }
 }
 
 extension ProjectDescription.TargetScript {
-  public static func make(_ command: String) -> Self {
+  private static let makefile = "\(root)/Makefile"
+
+  public static func make(_ subcommand: String) -> TargetScript {
     .pre(
-      script: "make -f \(root)/Makefile \(command)",
-      name: "make \(command)"
+      script: "make -f \(makefile) \(subcommand)",
+      name: "make \(subcommand)"
     )
+  }
+
+  public static func lint(_ project: String) -> TargetScript {
+    .make("lint project=\(project)")
+  }
+}
+
+extension ProjectDescription.TargetDependency {
+  public static func project(_ target: String) -> TargetDependency {
+    .project(target: target, path: .relativeToRoot(target))
   }
 }

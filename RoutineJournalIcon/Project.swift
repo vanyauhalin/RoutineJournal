@@ -10,21 +10,13 @@ let project = Project(
       product: .framework,
       bundleId: "my.vanyauhalin.RoutineJournalIcon",
       deploymentTarget: .iOS(targetVersion: "15.4", devices: .iphone),
-      sources: .relative("**/*.swift", excluding: [
-        "Project.swift"
-      ]),
+      sources: .relative("**/*.swift"),
       scripts: [
-        .make("lint-icon")
+        .lint("RoutineJournalIcon")
       ],
       dependencies: [
-        .project(
-          target: "RoutineJournalCore",
-          path: .relativeToRoot("RoutineJournalCore")
-        ),
-        .project(
-          target: "RoutineJournalUI",
-          path: .relativeToRoot("RoutineJournalUI")
-        )
+        .project("RoutineJournalCore"),
+        .project("RoutineJournalUI")
       ]
     )
   ]
