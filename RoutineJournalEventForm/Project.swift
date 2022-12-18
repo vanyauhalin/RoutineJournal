@@ -14,7 +14,6 @@ let project = Project(
         "UILaunchScreen": [:]
       ]),
       sources: .relative("**/*.swift", excluding: [
-        "**/*Tests.swift",
         "Project.swift"
       ]),
       scripts: [
@@ -33,17 +32,6 @@ let project = Project(
           target: "RoutineJournalUI",
           path: .relativeToRoot("RoutineJournalUI")
         )
-      ]
-    ),
-    Target(
-      name: "RoutineJournalEventFormTests",
-      platform: .iOS,
-      product: .unitTests,
-      bundleId: "my.vanyauhalin.RoutineJournalEventFormTests",
-      sources: .relative("**/*Tests.swift"),
-      dependencies: [
-        .target(name: "RoutineJournalEventForm"),
-        .xctest
       ]
     )
   ]
