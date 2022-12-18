@@ -18,7 +18,6 @@ public struct PreviewData<Content>: View where Content: View {
           try? DataProvider.deleteExamples()
         }
       }
-      .opacity(0.3)
     }
   }
 

@@ -44,7 +44,7 @@ where Content: View, Mirror: View {
   }
 
   public init(
-    position: PreviewContainerPosition = (.top, .leading),
+    position: PreviewContainerPosition,
     @ViewBuilder content: () -> Content,
     @ViewBuilder mirror: () -> Mirror
   ) {
@@ -57,6 +57,7 @@ where Content: View, Mirror: View {
 struct PreviewContainer_Previews: PreviewProvider {
   static var previews: some View {
     PreviewContainer(
+      position: (.top, .leading),
       content: {
         Text("content")
       },
