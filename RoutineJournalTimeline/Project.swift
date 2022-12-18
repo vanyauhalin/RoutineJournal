@@ -15,18 +15,9 @@ let project = Project(
         .make("lint-timeline")
       ],
       dependencies: [
-        .project(
-          target: "RoutineJournalCore",
-          path: .relativeToRoot("RoutineJournalCore")
-        ),
-        .project(
-          target: "RoutineJournalIcon",
-          path: .relativeToRoot("RoutineJournalIcon")
-        ),
-        .project(
-          target: "RoutineJournalUI",
-          path: .relativeToRoot("RoutineJournalUI")
-        )
+        .project("RoutineJournalCore"),
+        .project("RoutineJournalIcon"),
+        .project("RoutineJournalUI")
       ]
     )
   ]

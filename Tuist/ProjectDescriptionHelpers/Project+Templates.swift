@@ -33,3 +33,9 @@ extension ProjectDescription.TargetScript {
     )
   }
 }
+
+extension ProjectDescription.TargetDependency {
+  public static func project(_ target: String) -> TargetDependency {
+    .project(target: target, path: .relativeToRoot(target))
+  }
+}

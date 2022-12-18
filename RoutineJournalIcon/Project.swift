@@ -15,14 +15,8 @@ let project = Project(
         .make("lint-icon")
       ],
       dependencies: [
-        .project(
-          target: "RoutineJournalCore",
-          path: .relativeToRoot("RoutineJournalCore")
-        ),
-        .project(
-          target: "RoutineJournalUI",
-          path: .relativeToRoot("RoutineJournalUI")
-        )
+        .project("RoutineJournalCore"),
+        .project("RoutineJournalUI")
       ]
     )
   ]

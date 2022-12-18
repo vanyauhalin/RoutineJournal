@@ -19,18 +19,8 @@ let project = Project(
         .make("lint-app")
       ],
       dependencies: [
-        .project(
-          target: "RoutineJournalCore",
-          path: .relativeToRoot("RoutineJournalCore")
-        ),
-        .project(
-          target: "RoutineJournalHome",
-          path: .relativeToRoot("RoutineJournalHome")
-        ),
-        .project(
-          target: "RoutineJournalUI",
-          path: .relativeToRoot("RoutineJournalUI")
-        )
+        .project("RoutineJournalHome"),
+        .project("RoutineJournalUI")
       ]
     )
   ]

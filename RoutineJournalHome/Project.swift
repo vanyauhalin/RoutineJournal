@@ -15,22 +15,10 @@ let project = Project(
         .make("lint-home")
       ],
       dependencies: [
-        .project(
-          target: "RoutineJournalCore",
-          path: .relativeToRoot("RoutineJournalCore")
-        ),
-        .project(
-          target: "RoutineJournalEventForm",
-          path: .relativeToRoot("RoutineJournalEventForm")
-        ),
-        .project(
-          target: "RoutineJournalTimeline",
-          path: .relativeToRoot("RoutineJournalTimeline")
-        ),
-        .project(
-          target: "RoutineJournalUI",
-          path: .relativeToRoot("RoutineJournalUI")
-        )
+        .project("RoutineJournalCore"),
+        .project("RoutineJournalEventForm"),
+        .project("RoutineJournalTimeline"),
+        .project("RoutineJournalUI")
       ]
     )
   ]
