@@ -10,9 +10,7 @@ let project = Project(
       product: .framework,
       bundleId: "my.vanyauhalin.RoutineJournalHome",
       deploymentTarget: .iOS(targetVersion: "15.4", devices: .iphone),
-      sources: .relative("**/*.swift", excluding: [
-        "Project.swift"
-      ]),
+      sources: .relative("**/*.swift"),
       scripts: [
         .make("lint-home")
       ],

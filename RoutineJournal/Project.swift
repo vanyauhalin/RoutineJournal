@@ -14,9 +14,7 @@ let project = Project(
       infoPlist: .extendingDefault(with: [
         "UILaunchScreen": [:]
       ]),
-      sources: .relative("**/*.swift", excluding: [
-        "Project.swift"
-      ]),
+      sources: .relative("**/*.swift"),
       scripts: [
         .make("lint-app")
       ],

@@ -4,9 +4,15 @@ import ProjectDescription
 let root = FileManager.default.currentDirectoryPath
 
 extension SourceFilesList {
-  public static func relative(_ path: String, excluding: [Path] = []) -> Self {
+  public static func relative(
+    _ path: String,
+    excluding: [Path] = []
+  ) -> SourceFilesList {
     SourceFilesList(globs: [
-      .glob(.relativeToManifest(path), excluding: excluding)
+      .glob(
+        .relativeToManifest(path),
+        excluding: excluding + ["Project.swift"]
+      )
     ])
   }
 }
