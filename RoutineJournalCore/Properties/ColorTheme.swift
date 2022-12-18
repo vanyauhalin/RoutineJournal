@@ -23,4 +23,8 @@ public enum ColorTheme: String, PersistableEnum {
   case violet
   case yellow
   case zinc
+
+  public static var `default`: ColorTheme {
+    .neutral
+  }
 }
