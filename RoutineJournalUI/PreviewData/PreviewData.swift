@@ -5,30 +5,31 @@ import RoutineJournalCore
 import SwiftUI
 
 public struct PreviewData<Content>: View where Content: View {
-  public let content: Content
+  public let position: PreviewContainerPosition
+  public let content: () -> Content
 
   public var body: some View {
-    ZStack {
-      content
+    PreviewContainer(position: position, content: content) {
       HStack {
-        VStack(alignment: .leading) {
-          Button("add") {
-            try? DataProvider.addExamples()
-          }
-          Button("delete") {
-            try? DataProvider.deleteExamples()
-          }
-          Spacer()
+        Button("add") {
+          try? DataProvider.addExamples()
         }
-        Spacer()
+        Button("delete") {
+          try? DataProvider.deleteExamples()
+        }
       }
-      .edgesIgnoringSafeArea(.all)
+      .opacity(0.3)
     }
   }
 
-  public init(_ identifier: String, @ViewBuilder content: () -> Content) {
+  public init(
+    _ identifier: String,
+    position: PreviewContainerPosition = (.top, .leading),
+    content: @escaping () -> Content
+  ) {
     DataProvider.useMemory(identifier)
-    self.content = content()
+    self.position = position
+    self.content = content
   }
 }
 
