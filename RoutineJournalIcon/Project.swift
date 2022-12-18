@@ -11,7 +11,6 @@ let project = Project(
       bundleId: "my.vanyauhalin.RoutineJournalIcon",
       deploymentTarget: .iOS(targetVersion: "15.4", devices: .iphone),
       sources: .relative("**/*.swift", excluding: [
-        "**/*Tests.swift",
         "Project.swift"
       ]),
       scripts: [
