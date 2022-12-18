@@ -1,4 +1,4 @@
-.PHONY: analyze claen help install lint
+.PHONY: analyze clean help install lint
 
 define absolute
 	$(root)$(1)
