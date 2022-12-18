@@ -12,7 +12,7 @@ let project = Project(
       deploymentTarget: .iOS(targetVersion: "15.4", devices: .iphone),
       sources: .relative("**/*.swift"),
       scripts: [
-        .make("lint-icon")
+        .lint("RoutineJournalIcon")
       ],
       dependencies: [
         .project("RoutineJournalCore"),

@@ -20,7 +20,7 @@ let project = Project(
         "**/*Tests.swift"
       ]),
       scripts: [
-        .make("lint-core")
+        .lint("RoutineJournalCore")
       ],
       dependencies: [
         .package(product: "RealmSwift")

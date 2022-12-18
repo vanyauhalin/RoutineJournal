@@ -16,7 +16,7 @@ let project = Project(
       ]),
       sources: .relative("**/*.swift"),
       scripts: [
-        .make("lint-app")
+        .lint("RoutineJournal")
       ],
       dependencies: [
         .project("RoutineJournalHome"),

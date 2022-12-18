@@ -1,7 +1,7 @@
 import Foundation
 import ProjectDescription
 
-let root = FileManager.default.currentDirectoryPath
+private let root = FileManager.default.currentDirectoryPath
 
 extension SourceFilesList {
   public static func relative(
@@ -26,11 +26,17 @@ extension ProjectDescription.ResourceFileElements {
 }
 
 extension ProjectDescription.TargetScript {
-  public static func make(_ command: String) -> Self {
+  private static let makefile = "\(root)/Makefile"
+
+  public static func make(_ subcommand: String) -> TargetScript {
     .pre(
-      script: "make -f \(root)/Makefile \(command)",
-      name: "make \(command)"
+      script: "make -f \(makefile) \(subcommand)",
+      name: "make \(subcommand)"
     )
+  }
+
+  public static func lint(_ project: String) -> TargetScript {
+    .make("lint project=\(project)")
   }
 }
 
