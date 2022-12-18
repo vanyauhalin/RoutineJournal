@@ -27,4 +27,8 @@ public enum ColorTheme: String, PersistableEnum {
   public static var `default`: ColorTheme {
     .neutral
   }
+
+  public var name: String {
+    self.rawValue.capitalized()
+  }
 }
