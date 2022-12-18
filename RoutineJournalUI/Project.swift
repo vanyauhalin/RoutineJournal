@@ -10,9 +10,6 @@ let project = Project(
       product: .framework,
       bundleId: "my.vanyauhalin.RoutineJournalUI",
       deploymentTarget: .iOS(targetVersion: "15.4", devices: .iphone),
-      infoPlist: .extendingDefault(with: [
-        "UILaunchScreen": [:]
-      ]),
       sources: .relative("**/*.swift", excluding: [
         "Project.swift"
       ]),
@@ -33,9 +30,6 @@ let project = Project(
       product: .bundle,
       bundleId: "my.vanyauhalin.RoutineJournalUIResources",
       deploymentTarget: .iOS(targetVersion: "15.4", devices: .iphone),
-      infoPlist: .extendingDefault(with: [
-        "UILaunchScreen": [:]
-      ]),
       resources: "Resources/**"
     )
   ]
