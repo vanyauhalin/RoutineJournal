@@ -23,13 +23,7 @@ where Label: View, Content: View {
       }
     )
     .background {
-      Button(
-        action: {},
-        label: {
-          NavigationLink.EmptyView()
-        }
-      )
-      .buttonStyle(.plain)
+      NavigationLink.EmptyView()
     }
   }
 
