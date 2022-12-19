@@ -40,7 +40,6 @@ only_rules:
   - discouraged_assert
   - discouraged_none_name
   - discouraged_object_literal
-  - discouraged_optional_boolean
   - discouraged_optional_collection
   - duplicate_enum_cases
   - duplicate_imports
@@ -238,7 +237,6 @@ discouraged_object_literal:
   severity: error
   image_literal: true
   color_literal: true
-discouraged_optional_boolean: error
 discouraged_optional_collection: error
 duplicate_enum_cases: error
 duplicate_imports: error
