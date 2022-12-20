@@ -11,6 +11,9 @@ public final class IconModel: Identifiable {
   public var id: ObjectIdentifier {
     ObjectIdentifier(icon._id)
   }
+  public var systemName: String {
+    icon.name.rawValue
+  }
   public var colors: Colors {
     Colors.create(from: colorTheme) { palette in
       Colors(

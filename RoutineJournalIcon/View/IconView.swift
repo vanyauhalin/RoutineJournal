@@ -19,7 +19,7 @@ public struct IconView: SwiftUI.View {
   }
 
   public var body: some SwiftUI.View {
-    Image(systemName: model.icon.name.rawValue)
+    Image(systemName: model.systemName)
       .foregroundColor(model.colors.foregroundColor)
       .frame(width: width, height: height)
       .background(
