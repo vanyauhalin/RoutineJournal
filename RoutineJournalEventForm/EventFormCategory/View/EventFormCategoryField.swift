@@ -1,5 +1,5 @@
 import RoutineJournalCore
-import RoutineJournalIcon
+import RoutineJournalIconView
 import RoutineJournalUI
 import SwiftUI
 
