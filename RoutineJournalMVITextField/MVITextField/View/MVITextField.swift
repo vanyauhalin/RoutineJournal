@@ -38,21 +38,7 @@ struct MVITextField_Previews: PreviewProvider {
     }
   }
 
-  struct PreviewContainer: View {
-    @State private var text = String.default
-
-    var body: some View {
-      PreviewBinding($text) {
-        Form {
-          ExampleField
-            .render()
-            .text($text)
-        }
-      }
-    }
-  }
-
   static var previews: some View {
-    PreviewContainer()
+    MVITextFieldPreview<ExampleFieldModel>()
   }
 }
