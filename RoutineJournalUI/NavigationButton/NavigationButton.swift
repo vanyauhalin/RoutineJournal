@@ -38,31 +38,54 @@ where Label: View, Content: View {
   }
 }
 
+extension NavigationButton where Label == Text {
+  public init<Title>(
+    _ title: Title,
+    action: @escaping () -> Void,
+    @ViewBuilder content: () -> Content
+  ) where Title: StringProtocol {
+    self.action = action
+    self.label = Text(title)
+    self.content = content()
+  }
+}
+
 struct NavigationButton_Previews: PreviewProvider {
   struct PreviewContainer: View {
-    @State private var previewIndex = 0
+    @State private var counter = 0
+    @State private var selection = 0
 
     var body: some View {
-      NavigationView {
-        Form {
-          if #available(iOS 16.0, *) {
-            Picker(
-              selection: $previewIndex,
-              label: Text("Label")
-            ) {
-              Text("?")
+      PreviewBinding($counter) {
+        NavigationView {
+          Form {
+            if #available(iOS 16.0, *) {
+              Picker("Picker", selection: $selection) {
+                Text("?")
+              }
+              .pickerStyle(.navigationLink)
             }
-            .pickerStyle(.navigationLink)
+            NavigationButton(
+              action: {
+                counter += 1
+              },
+              label: {
+                Text("Button With View Label")
+              },
+              content: {
+                Text("?")
+              }
+            )
+            NavigationButton(
+              "Button With String Title",
+              action: {
+                counter -= 1
+              },
+              content: {
+                Text("?")
+              }
+            )
           }
-          NavigationButton(
-            action: {},
-            label: {
-              Text("Label")
-            },
-            content: {
-              Text("?")
-            }
-          )
         }
       }
     }
