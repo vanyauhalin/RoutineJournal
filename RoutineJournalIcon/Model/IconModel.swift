@@ -32,4 +32,16 @@ public final class IconModel: Identifiable {
     self.colorTheme = colorTheme
     self.size = size
   }
+
+  public func reinit(
+    icon: IconObject? = nil,
+    colorTheme: ColorTheme? = nil,
+    size: Size? = nil
+  ) -> Model {
+    Model(
+      icon: icon ?? self.icon,
+      colorTheme: colorTheme ?? self.colorTheme,
+      size: size ?? self.size
+    )
+  }
 }
