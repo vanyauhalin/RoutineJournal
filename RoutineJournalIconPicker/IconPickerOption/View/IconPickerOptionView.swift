@@ -1,5 +1,5 @@
 import RoutineJournalCore
-import RoutineJournalIcon
+import RoutineJournalIconView
 import RoutineJournalUI
 import SwiftUI
 
@@ -19,7 +19,8 @@ public struct IconPickerOptionView: SwiftUI.View {
       label: {
         if model.selectedIcon {
           IconView
-            .render(model.icon)
+            .render()
+            .icon(model.icon)
             .colorTheme(model.colorTheme)
             .background {
               RoundedRectangle(cornerRadius: 7)
@@ -28,7 +29,8 @@ public struct IconPickerOptionView: SwiftUI.View {
             }
         } else {
           IconView
-            .render(model.icon)
+            .render()
+            .icon(model.icon)
             .colorTheme(model.colorTheme)
         }
       }

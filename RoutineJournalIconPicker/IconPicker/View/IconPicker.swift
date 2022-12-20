@@ -1,5 +1,5 @@
 import RoutineJournalCore
-import RoutineJournalIcon
+import RoutineJournalIconView
 import RoutineJournalUI
 import SwiftUI
 
@@ -19,7 +19,8 @@ public struct IconPicker: SwiftUI.View {
       },
       content: {
         IconView
-          .render(model.selectionIcon.wrappedValue)
+          .render()
+          .icon(model.selectionIcon.wrappedValue)
           .colorTheme(model.colorTheme)
       }
     )

@@ -6,8 +6,8 @@ public struct IconView: SwiftUI.View {
   public typealias View = IconView
 
   private let model: Model
-
   @ScaledMetric private var scale = 1
+
   public var width: Double {
     model.size.width * scale
   }
@@ -19,7 +19,7 @@ public struct IconView: SwiftUI.View {
   }
 
   public var body: some SwiftUI.View {
-    Image(systemName: model.object.name.rawValue)
+    Image(systemName: model.systemName)
       .foregroundColor(model.colors.foregroundColor)
       .frame(width: width, height: height)
       .background(
@@ -32,18 +32,23 @@ public struct IconView: SwiftUI.View {
     self.model = model
   }
 
-  public static func render(_ object: IconObject) -> View {
-    let model = Model(from: object)
+  public static func render() -> View {
+    let model = Model()
     return View(model: model)
   }
 
-  public func size(_ size: Model.Size) -> View {
-    model.update(size: size)
+  public func icon(_ icon: IconObject) -> View {
+    let model = model.reinit(icon: icon)
     return View(model: model)
   }
 
   public func colorTheme(_ colorTheme: ColorTheme) -> View {
-    model.update(colorTheme: colorTheme)
+    let model = model.reinit(colorTheme: colorTheme)
+    return View(model: model)
+  }
+
+  public func size(_ size: Model.Size) -> View {
+    let model = model.reinit(size: size)
     return View(model: model)
   }
 }
@@ -51,8 +56,9 @@ public struct IconView: SwiftUI.View {
 struct IconView_Previews: PreviewProvider {
   static var previews: some View {
     IconView
-      .render(IconObject(name: .airplane, type: .system))
-      .size(.medium)
+      .render()
+      .icon(.default)
       .colorTheme(.indigo)
+      .size(.medium)
   }
 }

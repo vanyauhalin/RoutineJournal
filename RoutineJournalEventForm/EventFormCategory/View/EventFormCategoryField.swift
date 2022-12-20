@@ -1,5 +1,5 @@
 import RoutineJournalCore
-import RoutineJournalIcon
+import RoutineJournalIconView
 import RoutineJournalUI
 import SwiftUI
 
@@ -27,7 +27,8 @@ public struct EventFormCategoryField: SwiftUI.View {
           let colorTheme = model.colorTheme
         {
           IconView
-            .render(icon)
+            .render()
+            .icon(icon)
             .colorTheme(colorTheme)
         }
       }
