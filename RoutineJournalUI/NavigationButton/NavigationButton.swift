@@ -14,8 +14,10 @@ where Label: View, Content: View {
       label: {
         HStack(spacing: .zero) {
           label
+            .foregroundColor(.label)
           Spacer(minLength: 8)
           content
+            .foregroundColor(.systemGray)
           NavigationLink.EmptyView()
             .fixedSize(horizontal: true, vertical: true)
             .hidden()
