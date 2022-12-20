@@ -11,7 +11,7 @@ public final class IconModel: Identifiable, Colorable {
 
   public init(
     from object: IconObject,
-    size: Size = Size.medium,
+    size: Size = .default,
     colorTheme: ColorTheme = .neutral
   ) {
     self.id = ObjectIdentifier(object._id)
