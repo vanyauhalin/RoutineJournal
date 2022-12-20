@@ -39,7 +39,8 @@ public struct TimelineItemView: SwiftUI.View {
           icon: {
             if let icon = model.object.category?.icon {
               IconView
-                .render(icon)
+                .render()
+                .icon(icon)
                 .colorTheme(model.colorTheme)
             }
           }

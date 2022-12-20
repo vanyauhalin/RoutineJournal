@@ -26,7 +26,8 @@ public struct EventFormCategorySearchResultsView: SwiftUI.View {
             icon: {
               if let icon = object.icon {
                 IconView
-                  .render(icon)
+                  .render()
+                  .icon(icon)
                   .colorTheme(object.colorTheme)
               }
             }
