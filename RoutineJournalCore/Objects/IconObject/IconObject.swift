@@ -1,5 +1,9 @@
 import RealmSwift
 
+public enum IconCollection: String, PersistableEnum {
+  case transportation
+}
+
 public enum IconName: String, PersistableEnum {
   case airplane = "airplane"
   case cart = "cart.fill"
@@ -25,10 +29,15 @@ public final class IconObject: Object, ObjectKeyIdentifiable {
   @Persisted(primaryKey: true) public var _id: ObjectId
   @Persisted public var name = IconName.questionmark
   @Persisted public var type = IconType.system
+  @Persisted public var collection = IconCollection.transportation
 
   public convenience init(name: IconName, type: IconType) {
     self.init()
     self.name = name
     self.type = type
+  }
+
+  public static func objects() -> Results<IconObject>? {
+    try? DataProvider.realm().objects(IconObject.self)
   }
 }
