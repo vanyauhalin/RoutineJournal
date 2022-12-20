@@ -19,7 +19,7 @@ public struct IconView: SwiftUI.View {
   }
 
   public var body: some SwiftUI.View {
-    Image(systemName: model.object.name.rawValue)
+    Image(systemName: model.icon.name.rawValue)
       .foregroundColor(model.colors.foregroundColor)
       .frame(width: width, height: height)
       .background(
@@ -32,8 +32,8 @@ public struct IconView: SwiftUI.View {
     self.model = model
   }
 
-  public static func render(_ object: IconObject) -> View {
-    let model = Model(from: object)
+  public static func render(_ icon: IconObject) -> View {
+    let model = Model(icon: icon)
     return View(model: model)
   }
 

@@ -5,17 +5,17 @@ public final class IconModel: Identifiable, Colorable {
   public typealias Model = IconModel
 
   public let id: ObjectIdentifier
-  public let object: IconObject
+  public let icon: IconObject
   public var size: Size
   public var colors: Colors
 
   public init(
-    from object: IconObject,
+    icon: IconObject = .default,
     size: Size = .default,
     colorTheme: ColorTheme = .neutral
   ) {
-    self.id = ObjectIdentifier(object._id)
-    self.object = object
+    self.id = ObjectIdentifier(icon._id)
+    self.icon = icon
     self.size = size
     self.colors = Model.colors(by: colorTheme)
   }
