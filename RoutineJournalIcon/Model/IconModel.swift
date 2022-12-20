@@ -6,7 +6,7 @@ public final class IconModel: Identifiable {
 
   public let icon: IconObject
   public let colorTheme: ColorTheme
-  public var size: Size
+  public let size: Size
 
   public var id: ObjectIdentifier {
     ObjectIdentifier(icon._id)
@@ -27,10 +27,6 @@ public final class IconModel: Identifiable {
   ) {
     self.icon = icon
     self.colorTheme = colorTheme
-    self.size = size
-  }
-
-  public func update(size: Size) {
     self.size = size
   }
 }

@@ -38,7 +38,7 @@ public struct IconView: SwiftUI.View {
   }
 
   public func size(_ size: Model.Size) -> View {
-    model.update(size: size)
+    // model.update(size: size)
     return View(model: model)
   }
 
