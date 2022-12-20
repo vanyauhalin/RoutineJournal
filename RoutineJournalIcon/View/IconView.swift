@@ -43,7 +43,7 @@ public struct IconView: SwiftUI.View {
   }
 
   public func colorTheme(_ colorTheme: ColorTheme) -> View {
-    model.update(colorTheme: colorTheme)
+    // model.update(colorTheme: colorTheme)
     return View(model: model)
   }
 }
