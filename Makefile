@@ -58,7 +58,7 @@ analyze:
 	@xcrun \
 		--sdk macosx \
 		swift run \
-			--package-path $(package) \
+			--package-path $(package_path) \
 			--skip-build \
 				swiftlint analyze \
 					--config $(call absolute,.swiftlint.yml) \
