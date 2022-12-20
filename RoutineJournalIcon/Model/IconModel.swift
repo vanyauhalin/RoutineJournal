@@ -4,11 +4,13 @@ import RoutineJournalUI
 public final class IconModel: Identifiable {
   public typealias Model = IconModel
 
-  public let id: ObjectIdentifier
   public let icon: IconObject
   public let colorTheme: ColorTheme
   public var size: Size
 
+  public var id: ObjectIdentifier {
+    ObjectIdentifier(icon._id)
+  }
   public var colors: Colors {
     Colors.create(from: colorTheme) { palette in
       Colors(
@@ -23,7 +25,6 @@ public final class IconModel: Identifiable {
     colorTheme: ColorTheme = .default,
     size: Size = .default
   ) {
-    self.id = ObjectIdentifier(icon._id)
     self.icon = icon
     self.colorTheme = colorTheme
     self.size = size
