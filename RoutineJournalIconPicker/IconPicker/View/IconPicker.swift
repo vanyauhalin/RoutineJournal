@@ -8,7 +8,8 @@ public struct IconPicker: SwiftUI.View {
   public typealias Model = IconPickerModel
   public typealias View = IconPicker
 
-  @ObservedObject private var model: Model
+  @ObservedObject
+  private var model: Model
   private let intent: Intent
 
   public var body: some SwiftUI.View {
@@ -59,7 +60,8 @@ public struct IconPicker: SwiftUI.View {
 
 struct IconPickerView_Previews: PreviewProvider {
   struct PreviewContainer: View {
-    @State private var icon = IconObject.default
+    @State
+    private var icon = IconObject.default
 
     var body: some View {
       PreviewBinding($icon) {

@@ -5,7 +5,8 @@ public final class IconPickerModel: ObservableObject {
   public typealias Model = IconPickerModel
 
   public let title = "Icon"
-  @Published public var showingExplorer = false
+  @Published
+  public var showingExplorer = false
 
   public let selectionIcon: Binding<IconObject>
   public let colorTheme: ColorTheme
