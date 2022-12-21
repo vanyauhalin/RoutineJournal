@@ -4,7 +4,8 @@ import SwiftUI
 public final class IconPickerExplorerModel: ObservableObject {
   public typealias Model = IconPickerExplorerModel
 
-  @Published public var query = String.default
+  @Published
+  public var query = String.default
 
   public let navigationTitle: String
   public let selectionIcon: Binding<IconObject>

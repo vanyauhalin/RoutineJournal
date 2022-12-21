@@ -6,8 +6,10 @@ public struct IconPickerExplorerView: SwiftUI.View {
   public typealias Model = IconPickerExplorerModel
   public typealias View = IconPickerExplorerView
 
-  @Environment(\.dismiss) private var dismiss
-  @ObservedObject private var model: Model
+  @Environment(\.dismiss)
+  private var dismiss
+  @ObservedObject
+  private var model: Model
 
   public var body: some SwiftUI.View {
     NavigationView {
@@ -62,7 +64,8 @@ public struct IconPickerExplorerView: SwiftUI.View {
 
 struct IconPickerExplorerView_Previews: PreviewProvider {
   struct PreviewContainer: View {
-    @State private var icon = IconObject.default
+    @State
+    private var icon = IconObject.default
 
     var body: some View {
       PreviewBinding($icon) {
