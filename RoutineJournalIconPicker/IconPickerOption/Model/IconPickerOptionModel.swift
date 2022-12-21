@@ -41,11 +41,7 @@ public final class IconPickerOptionModel {
     )
   }
 
-  public func update(iconSelection icon: IconObject) {
-    iconSelection.wrappedValue = icon
-  }
-
   public func select() {
-    update(iconSelection: icon)
+    iconSelection.wrappedValue = icon
   }
 }
