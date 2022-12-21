@@ -1,4 +1,4 @@
-import RoutineJournalHome
+import RoutineJournalHomeView
 import RoutineJournalUI
 import SwiftUI
 

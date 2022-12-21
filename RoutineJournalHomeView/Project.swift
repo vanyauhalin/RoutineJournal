@@ -2,17 +2,17 @@ import ProjectDescription
 import ProjectDescriptionHelpers
 
 let project = Project(
-  name: "RoutineJournalHome",
+  name: "RoutineJournalHomeView",
   targets: [
     Target(
-      name: "RoutineJournalHome",
+      name: "RoutineJournalHomeView",
       platform: .iOS,
       product: .framework,
-      bundleId: "my.vanyauhalin.RoutineJournalHome",
+      bundleId: "my.vanyauhalin.RoutineJournalHomeView",
       deploymentTarget: .iOS(targetVersion: "15.4", devices: .iphone),
       sources: .relative("**/*.swift"),
       scripts: [
-        .lint("RoutineJournalHome")
+        .lint("RoutineJournalHomeView")
       ],
       dependencies: [
         .project("RoutineJournalCategoryForm"),

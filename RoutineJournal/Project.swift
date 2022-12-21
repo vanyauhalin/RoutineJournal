@@ -19,7 +19,7 @@ let project = Project(
         .lint("RoutineJournal")
       ],
       dependencies: [
-        .project("RoutineJournalHome"),
+        .project("RoutineJournalHomeView"),
         .project("RoutineJournalUI")
       ]
     )
