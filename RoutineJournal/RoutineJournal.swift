@@ -8,7 +8,7 @@ struct RoutineJournal: App {
     WindowGroup {
       PreviewData(Self.name) {
         HomeView
-          .render(Date.now)
+          .render()
       }
     }
   }
