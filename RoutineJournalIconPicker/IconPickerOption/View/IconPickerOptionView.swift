@@ -17,22 +17,18 @@ public struct IconPickerOptionView: SwiftUI.View {
         intent.onSelect()
       },
       label: {
-        if model.selectedIcon {
-          IconView
-            .render()
-            .icon(model.icon)
-            .colorTheme(model.colorTheme)
-            .background {
-              RoundedRectangle(cornerRadius: 7)
-                .frame(width: 28 + 8, height: 28 + 8)
-                .foregroundColor(model.colors.backgroundColor)
-            }
-        } else {
-          IconView
-            .render()
-            .icon(model.icon)
-            .colorTheme(model.colorTheme)
-        }
+        IconView
+          .render()
+          .icon(model.icon)
+          .colorTheme(model.colorTheme)
+          .if(model.selectedIcon) { view in
+            view
+              .background {
+                RoundedRectangle(cornerRadius: 7)
+                  .frame(width: 28 + 8, height: 28 + 8)
+                  .foregroundColor(model.colors.backgroundColor)
+              }
+          }
       }
     )
     .buttonStyle(.plain)
