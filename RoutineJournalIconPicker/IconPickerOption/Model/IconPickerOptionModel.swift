@@ -22,7 +22,7 @@ public final class IconPickerOptionModel {
   public init(
     icon: IconObject = .default,
     iconSelection: Binding<IconObject> = .constant(.default),
-    colorTheme: ColorTheme = .neutral
+    colorTheme: ColorTheme = .default
   ) {
     self.icon = icon
     self.iconSelection = iconSelection
