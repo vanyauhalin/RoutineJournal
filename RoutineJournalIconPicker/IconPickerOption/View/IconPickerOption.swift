@@ -3,10 +3,10 @@ import RoutineJournalIconView
 import RoutineJournalUI
 import SwiftUI
 
-public struct IconPickerOptionView: SwiftUI.View {
+public struct IconPickerOption: SwiftUI.View {
   public typealias Intent = IconPickerOptionIntent
   public typealias Model = IconPickerOptionModel
-  public typealias View = IconPickerOptionView
+  public typealias View = IconPickerOption
 
   private let model: Model
   private let intent: Intent
@@ -70,7 +70,7 @@ public struct IconPickerOptionView: SwiftUI.View {
   }
 }
 
-struct IconPickerOptionView_Previews: PreviewProvider {
+struct IconPickerOption_Previews: PreviewProvider {
   struct PreviewContainer: View {
     @State
     private var icon: IconObject
@@ -81,7 +81,7 @@ struct IconPickerOptionView_Previews: PreviewProvider {
     var body: some View {
       PreviewBinding($icon) {
         PreviewSheet { toggle in
-          IconPickerOptionView
+          IconPickerOption
             .render()
             .icon(first)
             .selection($icon)
@@ -89,7 +89,7 @@ struct IconPickerOptionView_Previews: PreviewProvider {
             .onSelect {
               toggle()
             }
-          IconPickerOptionView
+          IconPickerOption
             .render()
             .icon(last)
             .selection($icon)

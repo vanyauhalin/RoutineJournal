@@ -29,7 +29,7 @@ public struct IconPickerOptionsView: SwiftUI.View {
           LazyVGrid(columns: columns, spacing: spacing) {
             if let icons = model.icons {
               ForEach(icons) { icon in
-                IconPickerOptionView
+                IconPickerOption
                   .render()
                   .icon(icon)
                   .selection(model.selectionIcon)
