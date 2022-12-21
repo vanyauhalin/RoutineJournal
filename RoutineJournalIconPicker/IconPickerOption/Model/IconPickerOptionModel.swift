@@ -6,21 +6,21 @@ public final class IconPickerOptionModel: Colorable {
   public typealias Model = IconPickerOptionModel
 
   public let icon: IconObject
-  public let selectionIcon: Binding<IconObject>
+  public let iconSelection: Binding<IconObject>
   public let colorTheme: ColorTheme
   public var colors: Colors
 
   public var selectedIcon: Bool {
-    icon == selectionIcon.wrappedValue
+    icon == iconSelection.wrappedValue
   }
 
   public init(
     icon: IconObject = .default,
-    selectionIcon: Binding<IconObject> = Binding.constant(.default),
+    iconSelection: Binding<IconObject> = Binding.constant(.default),
     colorTheme: ColorTheme = .neutral
   ) {
     self.icon = icon
-    self.selectionIcon = selectionIcon
+    self.iconSelection = iconSelection
     self.colorTheme = colorTheme
     self.colors = Model.colors(by: colorTheme)
   }
@@ -33,21 +33,21 @@ public final class IconPickerOptionModel: Colorable {
 
   public func reinit(
     icon: IconObject? = nil,
-    selectionIcon: Binding<IconObject>? = nil,
+    iconSelection: Binding<IconObject>? = nil,
     colorTheme: ColorTheme? = nil
   ) -> Model {
     Model(
       icon: icon ?? self.icon,
-      selectionIcon: selectionIcon ?? self.selectionIcon,
+      iconSelection: iconSelection ?? self.iconSelection,
       colorTheme: colorTheme ?? self.colorTheme
     )
   }
 
-  public func update(selectionIcon icon: IconObject) {
-    selectionIcon.wrappedValue = icon
+  public func update(iconSelection icon: IconObject) {
+    iconSelection.wrappedValue = icon
   }
 
   public func select() {
-    update(selectionIcon: icon)
+    update(iconSelection: icon)
   }
 }

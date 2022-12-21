@@ -56,7 +56,7 @@ public struct IconPickerOptionView: SwiftUI.View {
   }
 
   public func selection(_ icon: Binding<IconObject>) -> View {
-    let model = model.reinit(selectionIcon: icon)
+    let model = model.reinit(iconSelection: icon)
     let intent = intent.reinit(model: model)
     return View(model: model, intent: intent)
   }
