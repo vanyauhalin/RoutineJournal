@@ -8,27 +8,27 @@ public final class IconPickerExplorerModel: ObservableObject {
   public var query = String.default
 
   public let navigationTitle: String
-  public let selectionIcon: Binding<IconObject>
+  public let iconSelection: Binding<IconObject>
   public let colorTheme: ColorTheme
 
   public init(
     navigationTitle: String = .default,
-    selectionIcon: Binding<IconObject> = .constant(.default),
+    iconSelection: Binding<IconObject> = .constant(.default),
     colorTheme: ColorTheme = .default
   ) {
     self.navigationTitle = navigationTitle
-    self.selectionIcon = selectionIcon
+    self.iconSelection = iconSelection
     self.colorTheme = colorTheme
   }
 
   public func reinit(
     navigationTitle: String? = nil,
-    selectionIcon: Binding<IconObject>? = nil,
+    iconSelection: Binding<IconObject>? = nil,
     colorTheme: ColorTheme? = nil
   ) -> Model {
     Model(
       navigationTitle: navigationTitle ?? self.navigationTitle,
-      selectionIcon: selectionIcon ?? self.selectionIcon,
+      iconSelection: iconSelection ?? self.iconSelection,
       colorTheme: colorTheme ?? self.colorTheme
     )
   }

@@ -15,7 +15,7 @@ public struct IconPickerExplorerView: SwiftUI.View {
     NavigationView {
       IconPickerOptionsView
         .render()
-        .selection(model.selectionIcon)
+        .selection(model.iconSelection)
         .colorTheme(model.colorTheme)
         .query($model.query)
         .onSelect {
@@ -52,7 +52,7 @@ public struct IconPickerExplorerView: SwiftUI.View {
   }
 
   public func selection(_ icon: Binding<IconObject>) -> View {
-    let model = model.reinit(selectionIcon: icon)
+    let model = model.reinit(iconSelection: icon)
     return View(model: model)
   }
 
