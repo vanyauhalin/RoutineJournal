@@ -24,6 +24,10 @@ public final class EventObject: CategoryItemObject {
     self.endTime = endDate.timeIntervalSince1970
   }
 
+  public static func objects() -> Results<EventObject>? {
+    try? DataProvider.realm().objects(EventObject.self)
+  }
+
   public func update(endDate: Date) throws {
     try DataProvider.write { _ in
       self.endTime = endDate.timeIntervalSince1970
