@@ -26,7 +26,7 @@ public struct IconPicker: SwiftUI.View {
       }
     )
     .sheet(isPresented: $model.showingExplorer) {
-      IconPickerExplorerView
+      IconPickerExplorer
         .render()
         .navigationTitle(model.title)
         .selection(model.iconSelection)

@@ -2,9 +2,9 @@ import RoutineJournalCore
 import RoutineJournalUI
 import SwiftUI
 
-public struct IconPickerExplorerView: SwiftUI.View {
+public struct IconPickerExplorer: SwiftUI.View {
   public typealias Model = IconPickerExplorerModel
-  public typealias View = IconPickerExplorerView
+  public typealias View = IconPickerExplorer
 
   @Environment(\.dismiss)
   private var dismiss
@@ -62,7 +62,7 @@ public struct IconPickerExplorerView: SwiftUI.View {
   }
 }
 
-struct IconPickerExplorerView_Previews: PreviewProvider {
+struct IconPickerExplorer_Previews: PreviewProvider {
   struct PreviewContainer: View {
     @State
     private var icon = IconObject.default
@@ -70,7 +70,7 @@ struct IconPickerExplorerView_Previews: PreviewProvider {
     var body: some View {
       PreviewBinding($icon) {
         PreviewSheet { _ in
-          IconPickerExplorerView
+          IconPickerExplorer
             .render()
             .navigationTitle("Icon")
             .selection($icon)
