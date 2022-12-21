@@ -21,7 +21,7 @@ public struct IconPicker: SwiftUI.View {
       content: {
         IconView
           .render()
-          .icon(model.selectionIcon.wrappedValue)
+          .icon(model.iconSelection.wrappedValue)
           .colorTheme(model.colorTheme)
       }
     )
@@ -29,7 +29,7 @@ public struct IconPicker: SwiftUI.View {
       IconPickerExplorerView
         .render()
         .navigationTitle(model.title)
-        .selection(model.selectionIcon)
+        .selection(model.iconSelection)
         .colorTheme(model.colorTheme)
     }
   }
@@ -46,7 +46,7 @@ public struct IconPicker: SwiftUI.View {
   }
 
   public func selection(_ icon: Binding<IconObject>) -> View {
-    let model = model.reinit(selectionIcon: icon)
+    let model = model.reinit(iconSelection: icon)
     let intent = intent.reinit(model: model)
     return View(model: model, intent: intent)
   }
