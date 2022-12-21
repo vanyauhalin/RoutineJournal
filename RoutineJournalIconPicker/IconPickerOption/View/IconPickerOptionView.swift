@@ -72,7 +72,8 @@ public struct IconPickerOptionView: SwiftUI.View {
 
 struct IconPickerOptionView_Previews: PreviewProvider {
   struct PreviewContainer: View {
-    @State private var icon: IconObject
+    @State
+    private var icon: IconObject
 
     let first: IconObject
     let last: IconObject
