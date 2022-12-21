@@ -11,6 +11,10 @@ public final class IconPickerModel: ObservableObject {
   public let iconSelection: Binding<IconObject>
   public let colorTheme: ColorTheme
 
+  public var icon: IconObject {
+    iconSelection.wrappedValue
+  }
+
   public init(
     iconSelection: Binding<IconObject> = .constant(.default),
     colorTheme: ColorTheme = .default

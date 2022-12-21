@@ -21,7 +21,7 @@ public struct IconPicker: SwiftUI.View {
       content: {
         IconView
           .render()
-          .icon(model.iconSelection.wrappedValue)
+          .icon(model.icon)
           .colorTheme(model.colorTheme)
       }
     )
