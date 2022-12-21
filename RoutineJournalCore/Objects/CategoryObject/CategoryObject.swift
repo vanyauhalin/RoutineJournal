@@ -17,6 +17,10 @@ public final class CategoryObject: Object, ObjectKeyIdentifiable {
     self.colorTheme = colorTheme
   }
 
+  public static func objects() -> Results<CategoryObject>? {
+    try? DataProvider.realm().objects(CategoryObject.self)
+  }
+
   public func update(title: String) throws {
     try DataProvider.write { _ in
       self.title = title
