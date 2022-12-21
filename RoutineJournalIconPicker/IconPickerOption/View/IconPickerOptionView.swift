@@ -21,7 +21,7 @@ public struct IconPickerOptionView: SwiftUI.View {
           .render()
           .icon(model.icon)
           .colorTheme(model.colorTheme)
-          .if(model.selectedIcon) { view in
+          .if(model.iconSelected) { view in
             view
               .background {
                 RoundedRectangle(cornerRadius: 7)

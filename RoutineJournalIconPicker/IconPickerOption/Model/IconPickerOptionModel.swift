@@ -10,7 +10,7 @@ public final class IconPickerOptionModel: Colorable {
   public let colorTheme: ColorTheme
   public var colors: Colors
 
-  public var selectedIcon: Bool {
+  public var iconSelected: Bool {
     icon == iconSelection.wrappedValue
   }
 
