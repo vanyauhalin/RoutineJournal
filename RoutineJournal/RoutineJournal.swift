@@ -1,4 +1,4 @@
-import RoutineJournalHome
+import RoutineJournalHomeView
 import RoutineJournalUI
 import SwiftUI
 
@@ -8,7 +8,7 @@ struct RoutineJournal: App {
     WindowGroup {
       PreviewData(Self.name) {
         HomeView
-          .render(Date.now)
+          .render()
       }
     }
   }
