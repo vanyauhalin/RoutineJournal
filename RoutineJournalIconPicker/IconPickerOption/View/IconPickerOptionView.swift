@@ -26,7 +26,7 @@ public struct IconPickerOptionView: SwiftUI.View {
               .background {
                 RoundedRectangle(cornerRadius: 7)
                   .frame(width: 28 + 8, height: 28 + 8)
-                  .foregroundColor(model.colors.backgroundColor)
+                  .foregroundColor(model.backgroundColor)
               }
           }
       }
