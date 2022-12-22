@@ -5,12 +5,10 @@ import RoutineJournalUI
 import SwiftUI
 
 public struct IconPickerExplorer:
-  SwiftUI.View,
   MVIconSelectionModifier,
   MVColorThemeModifier
 {
   public typealias Model = IconPickerExplorerModel
-  public typealias View = IconPickerExplorer
 
   @Environment(\.dismiss)
   private var dismiss
@@ -18,7 +16,7 @@ public struct IconPickerExplorer:
   @ObservedObject
   public var model: Model
 
-  public var body: some SwiftUI.View {
+  public var body: some View {
     NavigationView {
       IconPickerOptions()
         .selection(model.iconSelection)
