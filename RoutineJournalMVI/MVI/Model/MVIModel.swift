@@ -1,11 +1,3 @@
-public protocol MVIModel: AnyObject {
-  init()
+import RoutineJournalMV
 
-  func reinit() -> Self
-}
-
-extension MVIModel {
-  public func reinit() -> Self {
-    self
-  }
-}
+public protocol MVIModel: MVModel {}
