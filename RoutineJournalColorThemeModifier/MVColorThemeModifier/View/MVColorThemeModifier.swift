@@ -1,5 +1,5 @@
 import RoutineJournalCore
-import RoutineJournalMV
+import RoutineJournalMVI
 
 public protocol MVColorThemeModifier: MVView, ColorThemeModifier {}
 
