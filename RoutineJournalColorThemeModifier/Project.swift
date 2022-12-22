@@ -15,7 +15,6 @@ let project = Project(
         .lint("RoutineJournalColorThemeModifier")
       ],
       dependencies: [
-        .project("RoutineJournalMV"),
         .project("RoutineJournalMVI"),
         .project("RoutineJournalUI")
       ]
