@@ -2,7 +2,10 @@ import RoutineJournalColorThemeModifier
 import RoutineJournalCore
 import SwiftUI
 
-public final class IconPickerModel: ObservableObject, ColorThemeModifierModel {
+public final class IconPickerModel:
+  ObservableObject,
+  MVIColorThemeModifierModel
+{
   public typealias Model = IconPickerModel
 
   public static let title = "Icon"

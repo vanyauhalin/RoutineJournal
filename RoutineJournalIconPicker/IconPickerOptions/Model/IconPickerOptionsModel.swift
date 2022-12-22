@@ -6,7 +6,7 @@ import SwiftUI
 
 public final class IconPickerOptionsModel:
   ObservableObject,
-  ColorThemeModifierModel
+  MVIColorThemeModifierModel
 {
   public typealias Model = IconPickerOptionsModel
 

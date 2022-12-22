@@ -1,13 +1,13 @@
 import RoutineJournalCore
 import RoutineJournalMVI
 
-public protocol ColorThemeMVIModifier: MVIView {
+public protocol MVIColorThemeModifier: MVIView {
   func colorTheme(_ colorTheme: ColorTheme) -> Self
 }
 
-extension ColorThemeMVIModifier where
-  Model: ColorThemeMVIModifierModel,
-  Intent: ColorThemeMVIModifierIntent,
+extension MVIColorThemeModifier where
+  Model: MVIColorThemeModifierModel,
+  Intent: MVIColorThemeModifierIntent,
   Intent.Model == Model
 {
   public func colorTheme(_ colorTheme: ColorTheme) -> Self {

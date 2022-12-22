@@ -3,7 +3,7 @@ import RoutineJournalCore
 import RoutineJournalUI
 import SwiftUI
 
-public final class IconPickerOptionModel: ColorThemeModifierModel {
+public final class IconPickerOptionModel: MVIColorThemeModifierModel {
   public typealias Model = IconPickerOptionModel
 
   public static let cornerRadius: Double = 7

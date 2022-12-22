@@ -4,7 +4,7 @@ import RoutineJournalIconView
 import RoutineJournalUI
 import SwiftUI
 
-public struct IconPickerOption: SwiftUI.View, ColorThemeModifier {
+public struct IconPickerOption: SwiftUI.View, MVIColorThemeModifier {
   public typealias Intent = IconPickerOptionIntent
   public typealias Model = IconPickerOptionModel
   public typealias View = IconPickerOption
