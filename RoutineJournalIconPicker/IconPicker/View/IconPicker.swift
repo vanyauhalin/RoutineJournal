@@ -5,20 +5,15 @@ import RoutineJournalIconView
 import RoutineJournalUI
 import SwiftUI
 
-public struct IconPicker:
-  SwiftUI.View,
-  MVIIconSelectionModifier,
-  MVIColorThemeModifier
-{
+public struct IconPicker: MVIIconSelectionModifier, MVIColorThemeModifier {
   public typealias Intent = IconPickerIntent
   public typealias Model = IconPickerModel
-  public typealias View = IconPicker
 
   @ObservedObject
   public var model: Model
   public var intent: Intent
 
-  public var body: some SwiftUI.View {
+  public var body: some View {
     NavigationButton(
       Model.title,
       action: {

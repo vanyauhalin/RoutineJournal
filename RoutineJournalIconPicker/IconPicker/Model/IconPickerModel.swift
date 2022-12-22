@@ -8,8 +8,6 @@ public final class IconPickerModel:
   MVIIconSelectionModifierModel,
   MVIColorThemeModifierModel
 {
-  public typealias Model = IconPickerModel
-
   public static let title = "Icon"
 
   @Published
