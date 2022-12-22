@@ -3,6 +3,7 @@ import RoutineJournalCore
 import RoutineJournalIconModifier
 import RoutineJournalIconSelectionModifier
 import RoutineJournalIconView
+import RoutineJournalSelectModifier
 import RoutineJournalUI
 import SwiftUI
 
@@ -10,7 +11,8 @@ public struct IconPickerOption:
   SwiftUI.View,
   MVIIconModifier,
   MVIIconSelectionModifier,
-  MVIColorThemeModifier
+  MVIColorThemeModifier,
+  MVISelectModifier
 {
   public typealias Intent = IconPickerOptionIntent
   public typealias Model = IconPickerOptionModel
@@ -57,12 +59,6 @@ public struct IconPickerOption:
   public static func render() -> View {
     let model = Model()
     let intent = Intent(model: model)
-    return View(model: model, intent: intent)
-  }
-
-  public func onSelect(perform action: @escaping () -> Void) -> View {
-    let model = model.reinit()
-    let intent = intent.reinit(model: model, selectAction: action)
     return View(model: model, intent: intent)
   }
 }
