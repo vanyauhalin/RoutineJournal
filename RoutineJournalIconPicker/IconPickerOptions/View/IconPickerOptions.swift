@@ -7,7 +7,6 @@ import RoutineJournalUI
 import SwiftUI
 
 public struct IconPickerOptions:
-  SwiftUI.View,
   MVIIconSelectionModifier,
   MVIColorThemeModifier,
   MVIQueryModifier,
@@ -15,7 +14,6 @@ public struct IconPickerOptions:
 {
   public typealias Intent = IconPickerOptionsIntent
   public typealias Model = IconPickerOptionsModel
-  public typealias View = IconPickerOptions
 
   @ScaledMetric
   private var scale = 1
@@ -34,7 +32,7 @@ public struct IconPickerOptions:
     [GridItem(.adaptive(minimum: width), spacing: spacing)]
   }
 
-  public var body: some SwiftUI.View {
+  public var body: some View {
     List {
       ForEach(model.collections, id: \.self.0) { title, icons in
         Section(title) {

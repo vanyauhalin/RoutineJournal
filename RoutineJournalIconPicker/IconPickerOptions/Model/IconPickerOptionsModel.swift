@@ -14,8 +14,6 @@ public final class IconPickerOptionsModel:
   MVIQueryModifierModel,
   MVISelectModifierModel
 {
-  public typealias Model = IconPickerOptionsModel
-
   public static let width: Double = 28
   public static let spacing: Double = 8
 
