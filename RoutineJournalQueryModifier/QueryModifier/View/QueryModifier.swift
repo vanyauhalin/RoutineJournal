@@ -1,5 +1,5 @@
 import SwiftUI
 
-public protocol QueryModifier: AnyObject {
+public protocol QueryModifier {
   func query(_ query: Binding<String>) -> Self
 }
