@@ -14,8 +14,6 @@ public final class IconPickerOptionsModel:
   MVIQueryModifierModel,
   MVISelectModifierModel
 {
-  public typealias Model = IconPickerOptionsModel
-
   public static let width: Double = 28
   public static let spacing: Double = 8
 
@@ -52,18 +50,6 @@ public final class IconPickerOptionsModel:
     self.subscribe()
   }
 
-  public init(
-    iconSelection: Binding<IconObject> = .constant(.default),
-    colorTheme: ColorTheme = .default,
-    query: Binding<String> = .constant(.default)
-  ) {
-    self.icons = IconObject.objects()
-    self.iconSelection = iconSelection
-    self.colorTheme = colorTheme
-    self.query = query
-    self.subscribe()
-  }
-
   private func subscribe() {
     icons?
       .objectWillChange
@@ -71,17 +57,5 @@ public final class IconPickerOptionsModel:
         self?.objectWillChange.send()
       }
       .store(in: &subscriptions)
-  }
-
-  public func reinit(
-    iconSelection: Binding<IconObject>? = nil,
-    colorTheme: ColorTheme? = nil,
-    query: Binding<String>? = nil
-  ) -> Model {
-    Model(
-      iconSelection: iconSelection ?? self.iconSelection,
-      colorTheme: colorTheme ?? self.colorTheme,
-      query: query ?? self.query
-    )
   }
 }

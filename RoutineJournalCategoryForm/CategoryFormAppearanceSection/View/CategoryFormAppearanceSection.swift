@@ -32,8 +32,7 @@ public struct CategoryFormAppearanceSection: SwiftUI.View {
       ColorThemePicker
         .render()
         .selection(model.selectionColorTheme)
-      IconPicker
-        .render()
+      IconPicker()
         .selection(model.selectionIcon)
         .colorTheme(model.colorTheme)
     }

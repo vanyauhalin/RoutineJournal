@@ -8,8 +8,6 @@ public final class IconPickerModel:
   MVIIconSelectionModifierModel,
   MVIColorThemeModifierModel
 {
-  public typealias Model = IconPickerModel
-
   public static let title = "Icon"
 
   @Published
@@ -25,24 +23,6 @@ public final class IconPickerModel:
   public init() {
     self.iconSelection = .constant(.default)
     self.colorTheme = .default
-  }
-
-  public init(
-    iconSelection: Binding<IconObject> = .constant(.default),
-    colorTheme: ColorTheme = .default
-  ) {
-    self.iconSelection = iconSelection
-    self.colorTheme = colorTheme
-  }
-
-  public func reinit(
-    iconSelection: Binding<IconObject>? = nil,
-    colorTheme: ColorTheme? = nil
-  ) -> Model {
-    Model(
-      iconSelection: iconSelection ?? self.iconSelection,
-      colorTheme: colorTheme ?? self.colorTheme
-    )
   }
 
   public func showExplorer() {

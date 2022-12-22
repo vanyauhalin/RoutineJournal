@@ -5,12 +5,10 @@ import RoutineJournalUI
 import SwiftUI
 
 public struct IconPickerExplorer:
-  SwiftUI.View,
   MVIconSelectionModifier,
   MVColorThemeModifier
 {
   public typealias Model = IconPickerExplorerModel
-  public typealias View = IconPickerExplorer
 
   @Environment(\.dismiss)
   private var dismiss
@@ -18,10 +16,9 @@ public struct IconPickerExplorer:
   @ObservedObject
   public var model: Model
 
-  public var body: some SwiftUI.View {
+  public var body: some View {
     NavigationView {
-      IconPickerOptions
-        .render()
+      IconPickerOptions()
         .selection(model.iconSelection)
         .colorTheme(model.colorTheme)
         .query($model.query)
@@ -47,15 +44,6 @@ public struct IconPickerExplorer:
   public init() {
     self.model = Model()
   }
-
-  public init(model: Model) {
-    self.model = model
-  }
-
-  public static func render() -> View {
-    let model = Model()
-    return View(model: model)
-  }
 }
 
 struct IconPickerExplorer_Previews: PreviewProvider {
@@ -66,8 +54,7 @@ struct IconPickerExplorer_Previews: PreviewProvider {
     var body: some View {
       PreviewBinding($icon) {
         PreviewSheet { _ in
-          IconPickerExplorer
-            .render()
+          IconPickerExplorer()
             .selection($icon)
             .colorTheme(.indigo)
         }

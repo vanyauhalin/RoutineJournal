@@ -12,8 +12,6 @@ public final class IconPickerOptionModel:
   MVIColorThemeModifierModel,
   MVISelectModifierModel
 {
-  public typealias Model = IconPickerOptionModel
-
   public static let cornerRadius: Double = 7
   public static let width: Double = 28 + 8
   public static let height: Double = 28 + 8
@@ -36,28 +34,6 @@ public final class IconPickerOptionModel:
     self.icon = .default
     self.iconSelection = .constant(.default)
     self.colorTheme = .default
-  }
-
-  public init(
-    icon: IconObject = .default,
-    iconSelection: Binding<IconObject> = .constant(.default),
-    colorTheme: ColorTheme = .default
-  ) {
-    self.icon = icon
-    self.iconSelection = iconSelection
-    self.colorTheme = colorTheme
-  }
-
-  public func reinit(
-    icon: IconObject? = nil,
-    iconSelection: Binding<IconObject>? = nil,
-    colorTheme: ColorTheme? = nil
-  ) -> Model {
-    Model(
-      icon: icon ?? self.icon,
-      iconSelection: iconSelection ?? self.iconSelection,
-      colorTheme: colorTheme ?? self.colorTheme
-    )
   }
 
   public func select() {
