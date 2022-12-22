@@ -3,12 +3,14 @@ import RealmSwift
 import RoutineJournalColorThemeModifier
 import RoutineJournalCore
 import RoutineJournalIconSelectionModifier
+import RoutineJournalQueryModifier
 import SwiftUI
 
 public final class IconPickerOptionsModel:
   ObservableObject,
   MVIIconSelectionModifierModel,
-  MVIColorThemeModifierModel
+  MVIColorThemeModifierModel,
+  MVIQueryModifierModel
 {
   public typealias Model = IconPickerOptionsModel
 
@@ -21,7 +23,7 @@ public final class IconPickerOptionsModel:
   public var icons: Results<IconObject>?
   public var iconSelection: Binding<IconObject>
   public var colorTheme: ColorTheme
-  public let query: Binding<String>
+  public var query: Binding<String>
 
   public var collections: [(String, Results<IconObject>)] {
     guard let icons else { return [] }
