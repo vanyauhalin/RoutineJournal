@@ -8,10 +8,13 @@ public struct IconPickerOptionsView: SwiftUI.View {
   public typealias Model = IconPickerOptionsModel
   public typealias View = IconPickerOptionsView
 
-  @ObservedObject private var model: Model
+  @ScaledMetric
+  private var scale = 1
+
+  @ObservedObject
+  private var model: Model
   private let intent: Intent
 
-  @ScaledMetric private var scale = 1
   public var width: Double {
     Model.width * scale
   }
@@ -84,7 +87,8 @@ public struct IconPickerOptionsView: SwiftUI.View {
 
 struct IconPickerOptionsView_Previews: PreviewProvider {
   struct PreviewContainer: View {
-    @State private var icon = IconObject.default
+    @State
+    private var icon = IconObject.default
 
     var body: some View {
       PreviewBinding($icon) {

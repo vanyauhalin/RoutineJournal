@@ -11,7 +11,8 @@ public final class IconPickerOptionsModel: ObservableObject {
 
   private var subscriptions = Set<AnyCancellable>()
 
-  @Published public var icons: Results<IconObject>?
+  @Published
+  public var icons: Results<IconObject>?
   public let selectionIcon: Binding<IconObject>
   public let colorTheme: ColorTheme
   public let query: Binding<String>
@@ -34,8 +35,8 @@ public final class IconPickerOptionsModel: ObservableObject {
   ) {
     self.icons = IconObject.objects()
     self.selectionIcon = selectionIcon
-    self.query = query
     self.colorTheme = colorTheme
+    self.query = query
     self.subscribe()
   }
 
