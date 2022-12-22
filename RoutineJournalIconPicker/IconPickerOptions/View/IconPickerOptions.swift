@@ -1,13 +1,15 @@
 import RoutineJournalColorThemeModifier
 import RoutineJournalCore
 import RoutineJournalIconSelectionModifier
+import RoutineJournalQueryModifier
 import RoutineJournalUI
 import SwiftUI
 
 public struct IconPickerOptions:
   SwiftUI.View,
   MVIIconSelectionModifier,
-  MVIColorThemeModifier
+  MVIColorThemeModifier,
+  MVIQueryModifier
 {
   public typealias Intent = IconPickerOptionsIntent
   public typealias Model = IconPickerOptionsModel
@@ -70,12 +72,6 @@ public struct IconPickerOptions:
     return View(model: model, intent: intent)
   }
 
-  public func query(_ query: Binding<String>) -> View {
-    let model = model.reinit(query: query)
-    let intent = intent.reinit()
-    return View(model: model, intent: intent)
-  }
-
   public func onSelect(perform action: @escaping () -> Void) -> View {
     let model = model.reinit()
     let intent = intent.reinit(selectAction: action)
@@ -87,17 +83,22 @@ struct IconPickerOptions_Previews: PreviewProvider {
   struct PreviewContainer: View {
     @State
     private var icon = IconObject.default
+    @State
+    private var query = String.default
 
     var body: some View {
       PreviewBinding($icon) {
-        PreviewSheet { toggle in
-          IconPickerOptions
-            .render()
-            .selection($icon)
-            .colorTheme(.indigo)
-            .onSelect {
-              toggle()
-            }
+        PreviewBinding($query, position: (.bottom, .trailing)) {
+          PreviewSheet { toggle in
+            IconPickerOptions
+              .render()
+              .selection($icon)
+              .colorTheme(.indigo)
+              .query($query)
+              .onSelect {
+                toggle()
+              }
+          }
         }
       }
     }
