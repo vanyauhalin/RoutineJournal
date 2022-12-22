@@ -2,13 +2,15 @@ import RoutineJournalColorThemeModifier
 import RoutineJournalCore
 import RoutineJournalIconModifier
 import RoutineJournalIconSelectionModifier
+import RoutineJournalSelectModifier
 import RoutineJournalUI
 import SwiftUI
 
 public final class IconPickerOptionModel:
   MVIIconModifierModel,
   MVIIconSelectionModifierModel,
-  MVIColorThemeModifierModel
+  MVIColorThemeModifierModel,
+  MVISelectModifierModel
 {
   public typealias Model = IconPickerOptionModel
 

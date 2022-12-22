@@ -1,18 +1,20 @@
 import RoutineJournalColorThemeModifier
 import RoutineJournalIconModifier
 import RoutineJournalIconSelectionModifier
+import RoutineJournalSelectModifier
 
 public final class IconPickerOptionIntent:
   MVIIconModifierIntent,
   MVIIconSelectionModifierIntent,
-  MVIColorThemeModifierIntent
+  MVIColorThemeModifierIntent,
+  MVISelectModifierIntent
 {
   public typealias Intent = IconPickerOptionIntent
   public typealias Model = IconPickerOptionModel
 
   public weak var model: Model?
 
-  public let selectAction: () -> Void
+  public var selectAction: () -> Void
 
   public init() {
     self.selectAction = {}
