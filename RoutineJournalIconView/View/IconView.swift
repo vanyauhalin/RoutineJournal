@@ -22,11 +22,11 @@ public struct IconView: SwiftUI.View {
 
   public var body: some SwiftUI.View {
     Image(systemName: model.systemName)
-      .foregroundColor(model.colors.foregroundColor)
+      .foregroundColor(model.foregroundColor)
       .frame(width: width, height: height)
       .background(
         RoundedRectangle(cornerRadius: cornerRadius)
-          .foregroundColor(model.colors.backgroundColor)
+          .foregroundColor(model.backgroundColor)
       )
   }
 

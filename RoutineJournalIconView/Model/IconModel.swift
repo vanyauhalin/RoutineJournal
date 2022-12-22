@@ -1,5 +1,6 @@
 import RoutineJournalCore
 import RoutineJournalUI
+import SwiftUI
 
 public final class IconModel: Identifiable {
   public typealias Model = IconModel
@@ -17,13 +18,14 @@ public final class IconModel: Identifiable {
   public var systemName: String {
     icon.name.rawValue
   }
-  public var colors: Colors {
-    Colors.create(from: colorTheme) { palette in
-      Colors(
-        foregroundColor: .white,
-        backgroundColor: palette.color600
-      )
-    }
+  public var colorPalette: ColorPalette {
+    ColorPalette.select(by: colorTheme)
+  }
+  public var foregroundColor: Color {
+    .white
+  }
+  public var backgroundColor: Color {
+    colorPalette.color600
   }
 
   public init(
