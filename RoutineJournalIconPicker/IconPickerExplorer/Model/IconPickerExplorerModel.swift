@@ -22,22 +22,4 @@ public final class IconPickerExplorerModel:
     self.iconSelection = .constant(.default)
     self.colorTheme = .default
   }
-
-  public init(
-    iconSelection: Binding<IconObject> = .constant(.default),
-    colorTheme: ColorTheme = .default
-  ) {
-    self.iconSelection = iconSelection
-    self.colorTheme = colorTheme
-  }
-
-  public func reinit(
-    iconSelection: Binding<IconObject>? = nil,
-    colorTheme: ColorTheme? = nil
-  ) -> Model {
-    Model(
-      iconSelection: iconSelection ?? self.iconSelection,
-      colorTheme: colorTheme ?? self.colorTheme
-    )
-  }
 }
