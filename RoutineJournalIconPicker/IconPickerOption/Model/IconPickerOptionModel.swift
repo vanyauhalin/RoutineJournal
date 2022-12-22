@@ -1,16 +1,20 @@
 import RoutineJournalColorThemeModifier
 import RoutineJournalCore
+import RoutineJournalIconModifier
 import RoutineJournalUI
 import SwiftUI
 
-public final class IconPickerOptionModel: MVIColorThemeModifierModel {
+public final class IconPickerOptionModel:
+  MVIIconModifierModel,
+  MVIColorThemeModifierModel
+{
   public typealias Model = IconPickerOptionModel
 
   public static let cornerRadius: Double = 7
   public static let width: Double = 28 + 8
   public static let height: Double = 28 + 8
 
-  public let icon: IconObject
+  public var icon: IconObject
   public let iconSelection: Binding<IconObject>
   public var colorTheme: ColorTheme
 
