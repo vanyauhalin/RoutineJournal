@@ -5,17 +5,19 @@ public struct IconView: SwiftUI.View {
   public typealias Model = IconModel
   public typealias View = IconView
 
+  @ScaledMetric
+  private var scale = 1
+
   private let model: Model
-  @ScaledMetric private var scale = 1
 
   public var width: Double {
-    model.size.width * scale
+    Model.width * scale
   }
   public var height: Double {
-    model.size.height * scale
+    Model.height * scale
   }
   public var cornerRadius: Double {
-    model.size.cornerRadius * scale
+    Model.cornerRadius * scale
   }
 
   public var body: some SwiftUI.View {
@@ -46,11 +48,6 @@ public struct IconView: SwiftUI.View {
     let model = model.reinit(colorTheme: colorTheme)
     return View(model: model)
   }
-
-  public func size(_ size: Model.Size) -> View {
-    let model = model.reinit(size: size)
-    return View(model: model)
-  }
 }
 
 struct IconView_Previews: PreviewProvider {
@@ -59,6 +56,5 @@ struct IconView_Previews: PreviewProvider {
       .render()
       .icon(.default)
       .colorTheme(.indigo)
-      .size(.medium)
   }
 }
