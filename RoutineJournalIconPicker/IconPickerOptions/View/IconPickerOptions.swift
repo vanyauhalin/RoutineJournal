@@ -61,17 +61,6 @@ public struct IconPickerOptions:
     self.model = model
     self.intent = intent
   }
-
-  public init(model: Model, intent: Intent) {
-    self.model = model
-    self.intent = intent
-  }
-
-  public static func render() -> View {
-    let model = Model()
-    let intent = Intent()
-    return View(model: model, intent: intent)
-  }
 }
 
 struct IconPickerOptions_Previews: PreviewProvider {
@@ -85,8 +74,7 @@ struct IconPickerOptions_Previews: PreviewProvider {
       PreviewBinding($icon) {
         PreviewBinding($query, position: (.bottom, .trailing)) {
           PreviewSheet { toggle in
-            IconPickerOptions
-              .render()
+            IconPickerOptions()
               .selection($icon)
               .colorTheme(.indigo)
               .query($query)

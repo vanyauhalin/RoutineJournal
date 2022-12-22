@@ -20,8 +20,7 @@ public struct IconPickerExplorer:
 
   public var body: some SwiftUI.View {
     NavigationView {
-      IconPickerOptions
-        .render()
+      IconPickerOptions()
         .selection(model.iconSelection)
         .colorTheme(model.colorTheme)
         .query($model.query)
