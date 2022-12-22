@@ -1,9 +1,7 @@
 import RoutineJournalCore
 import RoutineJournalMV
 
-public protocol MVColorThemeModifier: MVView {
-  func colorTheme(_ colorTheme: ColorTheme) -> Self
-}
+public protocol MVColorThemeModifier: MVView, ColorThemeModifier {}
 
 extension MVColorThemeModifier where Model: MVColorThemeModifierModel {
   public func colorTheme(_ colorTheme: ColorTheme) -> Self {
