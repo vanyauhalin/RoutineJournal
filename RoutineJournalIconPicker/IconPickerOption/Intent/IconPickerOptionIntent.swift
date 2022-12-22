@@ -1,8 +1,10 @@
 import RoutineJournalColorThemeModifier
 import RoutineJournalIconModifier
+import RoutineJournalIconSelectionModifier
 
 public final class IconPickerOptionIntent:
   MVIIconModifierIntent,
+  MVIIconSelectionModifierIntent,
   MVIColorThemeModifierIntent
 {
   public typealias Intent = IconPickerOptionIntent

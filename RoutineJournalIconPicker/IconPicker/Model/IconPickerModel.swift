@@ -1,9 +1,11 @@
 import RoutineJournalColorThemeModifier
 import RoutineJournalCore
+import RoutineJournalIconSelectionModifier
 import SwiftUI
 
 public final class IconPickerModel:
   ObservableObject,
+  MVIIconSelectionModifierModel,
   MVIColorThemeModifierModel
 {
   public typealias Model = IconPickerModel
@@ -13,7 +15,7 @@ public final class IconPickerModel:
   @Published
   public var showingExplorer = false
 
-  public let iconSelection: Binding<IconObject>
+  public var iconSelection: Binding<IconObject>
   public var colorTheme: ColorTheme
 
   public var icon: IconObject {
