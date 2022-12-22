@@ -1,8 +1,9 @@
+import RoutineJournalColorThemeModifier
 import RoutineJournalCore
 import RoutineJournalUI
 import SwiftUI
 
-public final class IconPickerOptionModel {
+public final class IconPickerOptionModel: ColorThemeModifierModel {
   public typealias Model = IconPickerOptionModel
 
   public static let cornerRadius: Double = 7
@@ -11,7 +12,7 @@ public final class IconPickerOptionModel {
 
   public let icon: IconObject
   public let iconSelection: Binding<IconObject>
-  public let colorTheme: ColorTheme
+  public var colorTheme: ColorTheme
 
   public var iconSelected: Bool {
     icon == iconSelection.wrappedValue
@@ -21,6 +22,12 @@ public final class IconPickerOptionModel {
   }
   public var backgroundColor: Color {
     colorPalette.color200
+  }
+
+  public init() {
+    self.icon = .default
+    self.iconSelection = .constant(.default)
+    self.colorTheme = .default
   }
 
   public init(
