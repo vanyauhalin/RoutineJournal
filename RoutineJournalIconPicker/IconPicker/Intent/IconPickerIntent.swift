@@ -1,6 +1,6 @@
 import RoutineJournalColorThemeModifier
 
-public final class IconPickerIntent: ColorThemeModifierIntent {
+public final class IconPickerIntent: MVIColorThemeModifierIntent {
   public typealias Model = IconPickerModel
 
   public weak var model: Model?

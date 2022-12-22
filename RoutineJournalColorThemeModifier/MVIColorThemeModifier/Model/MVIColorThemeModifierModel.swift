@@ -1,13 +1,13 @@
 import RoutineJournalCore
 import RoutineJournalMVI
 
-public protocol ColorThemeModifierModel: MVIModel {
+public protocol MVIColorThemeModifierModel: MVIModel {
   var colorTheme: ColorTheme { get set }
 
   func reinit(colorTheme: ColorTheme) -> Self
 }
 
-extension ColorThemeModifierModel {
+extension MVIColorThemeModifierModel {
   public func reinit(colorTheme: ColorTheme) -> Self {
     self.colorTheme = colorTheme
     return self

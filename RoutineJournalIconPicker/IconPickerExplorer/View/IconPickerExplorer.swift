@@ -3,7 +3,7 @@ import RoutineJournalCore
 import RoutineJournalUI
 import SwiftUI
 
-public struct IconPickerExplorer: SwiftUI.View, ColorThemeMVModifier {
+public struct IconPickerExplorer: SwiftUI.View, MVColorThemeModifier {
   public typealias Model = IconPickerExplorerModel
   public typealias View = IconPickerExplorer
 
