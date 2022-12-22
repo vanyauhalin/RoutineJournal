@@ -17,15 +17,21 @@ public final class IconPickerOptionsModel: ObservableObject {
   public let colorTheme: ColorTheme
   public let query: Binding<String>
 
-  public var collections: [(String, Results<IconObject>?)] {
-    IconCollection.allCases.map { collection in
-      (
-        collection.rawValue,
-        icons?.where { icon in
-          icon.collection == collection
-        }
-      )
-    }
+  public var collections: [(String, Results<IconObject>)] {
+    guard let icons else { return [] }
+    return IconCollection
+      .allCases
+      .map { collection in
+        (
+          collection.rawValue,
+          icons.where { icon in
+            icon.collection == collection
+          }
+        )
+      }
+      .filter { _, icons in
+        !icons.isEmpty
+      }
   }
 
   public init(

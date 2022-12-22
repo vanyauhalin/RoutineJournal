@@ -3,10 +3,10 @@ import RoutineJournalIconView
 import RoutineJournalUI
 import SwiftUI
 
-public struct IconPickerOptionsView: SwiftUI.View {
+public struct IconPickerOptions: SwiftUI.View {
   public typealias Intent = IconPickerOptionsIntent
   public typealias Model = IconPickerOptionsModel
-  public typealias View = IconPickerOptionsView
+  public typealias View = IconPickerOptions
 
   @ScaledMetric
   private var scale = 1
@@ -30,17 +30,15 @@ public struct IconPickerOptionsView: SwiftUI.View {
       ForEach(model.collections, id: \.self.0) { title, icons in
         Section(title) {
           LazyVGrid(columns: columns, spacing: spacing) {
-            if let icons = model.icons {
-              ForEach(icons) { icon in
-                IconPickerOption
-                  .render()
-                  .icon(icon)
-                  .selection(model.selectionIcon)
-                  .colorTheme(model.colorTheme)
-                  .onSelect {
-                    intent.onSelect()
-                  }
-              }
+            ForEach(icons) { icon in
+              IconPickerOption
+                .render()
+                .icon(icon)
+                .selection(model.selectionIcon)
+                .colorTheme(model.colorTheme)
+                .onSelect {
+                  intent.onSelect()
+                }
             }
           }
         }
@@ -85,7 +83,7 @@ public struct IconPickerOptionsView: SwiftUI.View {
   }
 }
 
-struct IconPickerOptionsView_Previews: PreviewProvider {
+struct IconPickerOptions_Previews: PreviewProvider {
   struct PreviewContainer: View {
     @State
     private var icon = IconObject.default
@@ -93,7 +91,7 @@ struct IconPickerOptionsView_Previews: PreviewProvider {
     var body: some View {
       PreviewBinding($icon) {
         PreviewSheet { toggle in
-          IconPickerOptionsView
+          IconPickerOptions
             .render()
             .selection($icon)
             .colorTheme(.indigo)
