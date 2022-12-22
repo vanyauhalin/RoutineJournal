@@ -4,13 +4,15 @@ import RoutineJournalColorThemeModifier
 import RoutineJournalCore
 import RoutineJournalIconSelectionModifier
 import RoutineJournalQueryModifier
+import RoutineJournalSelectModifier
 import SwiftUI
 
 public final class IconPickerOptionsModel:
   ObservableObject,
   MVIIconSelectionModifierModel,
   MVIColorThemeModifierModel,
-  MVIQueryModifierModel
+  MVIQueryModifierModel,
+  MVISelectModifierModel
 {
   public typealias Model = IconPickerOptionsModel
 
