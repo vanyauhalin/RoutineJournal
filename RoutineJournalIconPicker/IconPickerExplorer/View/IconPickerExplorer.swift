@@ -21,7 +21,7 @@ public struct IconPickerExplorer: SwiftUI.View {
         .onSelect {
           dismiss()
         }
-        .navigationTitle(model.navigationTitle)
+        .navigationTitle(Model.title)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
           ToolbarItem(placement: .navigationBarTrailing) {
@@ -46,11 +46,6 @@ public struct IconPickerExplorer: SwiftUI.View {
     return View(model: model)
   }
 
-  public func navigationTitle(_ navigationTitle: String) -> View {
-    let model = model.reinit(navigationTitle: navigationTitle)
-    return View(model: model)
-  }
-
   public func selection(_ icon: Binding<IconObject>) -> View {
     let model = model.reinit(iconSelection: icon)
     return View(model: model)
@@ -72,7 +67,6 @@ struct IconPickerExplorer_Previews: PreviewProvider {
         PreviewSheet { _ in
           IconPickerExplorer
             .render()
-            .navigationTitle("Icon")
             .selection($icon)
             .colorTheme(.indigo)
         }
