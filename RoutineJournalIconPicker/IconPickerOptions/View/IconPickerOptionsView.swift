@@ -12,14 +12,14 @@ public struct IconPickerOptionsView: SwiftUI.View {
   private let intent: Intent
 
   @ScaledMetric private var scale = 1
-  public var spacing: Double {
-    model.size.spacing * scale
+  public var width: Double {
+    Model.width * scale
   }
-  public var minimum: Double {
-    model.size.minimum * scale
+  public var spacing: Double {
+    Model.spacing * scale
   }
   public var columns: [GridItem] {
-    [GridItem(.adaptive(minimum: minimum), spacing: spacing)]
+    [GridItem(.adaptive(minimum: width), spacing: spacing)]
   }
 
   public var body: some SwiftUI.View {
@@ -75,12 +75,6 @@ public struct IconPickerOptionsView: SwiftUI.View {
     return View(model: model, intent: intent)
   }
 
-  public func size(_ size: Model.Size) -> View {
-    let model = model.reinit(size: size)
-    let intent = intent.reinit()
-    return View(model: model, intent: intent)
-  }
-
   public func onSelect(perform action: @escaping () -> Void) -> View {
     let model = model.reinit()
     let intent = intent.reinit(selectAction: action)
@@ -99,7 +93,6 @@ struct IconPickerOptionsView_Previews: PreviewProvider {
             .render()
             .selection($icon)
             .colorTheme(.indigo)
-            .size(.default)
             .onSelect {
               toggle()
             }
