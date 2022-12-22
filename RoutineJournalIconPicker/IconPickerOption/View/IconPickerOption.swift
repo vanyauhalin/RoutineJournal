@@ -3,10 +3,10 @@ import RoutineJournalIconView
 import RoutineJournalUI
 import SwiftUI
 
-public struct IconPickerOptionView: SwiftUI.View {
+public struct IconPickerOption: SwiftUI.View {
   public typealias Intent = IconPickerOptionIntent
   public typealias Model = IconPickerOptionModel
-  public typealias View = IconPickerOptionView
+  public typealias View = IconPickerOption
 
   private let model: Model
   private let intent: Intent
@@ -17,22 +17,18 @@ public struct IconPickerOptionView: SwiftUI.View {
         intent.onSelect()
       },
       label: {
-        if model.selectedIcon {
-          IconView
-            .render()
-            .icon(model.icon)
-            .colorTheme(model.colorTheme)
-            .background {
-              RoundedRectangle(cornerRadius: 7)
-                .frame(width: 28 + 8, height: 28 + 8)
-                .foregroundColor(model.colors.backgroundColor)
-            }
-        } else {
-          IconView
-            .render()
-            .icon(model.icon)
-            .colorTheme(model.colorTheme)
-        }
+        IconView
+          .render()
+          .icon(model.icon)
+          .colorTheme(model.colorTheme)
+          .if(model.iconSelected) { view in
+            view
+              .background {
+                RoundedRectangle(cornerRadius: Model.cornerRadius)
+                  .frame(width: Model.width, height: Model.height)
+                  .foregroundColor(model.backgroundColor)
+              }
+          }
       }
     )
     .buttonStyle(.plain)
@@ -56,7 +52,7 @@ public struct IconPickerOptionView: SwiftUI.View {
   }
 
   public func selection(_ icon: Binding<IconObject>) -> View {
-    let model = model.reinit(selectionIcon: icon)
+    let model = model.reinit(iconSelection: icon)
     let intent = intent.reinit(model: model)
     return View(model: model, intent: intent)
   }
@@ -74,9 +70,10 @@ public struct IconPickerOptionView: SwiftUI.View {
   }
 }
 
-struct IconPickerOptionView_Previews: PreviewProvider {
+struct IconPickerOption_Previews: PreviewProvider {
   struct PreviewContainer: View {
-    @State private var icon: IconObject
+    @State
+    private var icon: IconObject
 
     let first: IconObject
     let last: IconObject
@@ -84,7 +81,7 @@ struct IconPickerOptionView_Previews: PreviewProvider {
     var body: some View {
       PreviewBinding($icon) {
         PreviewSheet { toggle in
-          IconPickerOptionView
+          IconPickerOption
             .render()
             .icon(first)
             .selection($icon)
@@ -92,7 +89,7 @@ struct IconPickerOptionView_Previews: PreviewProvider {
             .onSelect {
               toggle()
             }
-          IconPickerOptionView
+          IconPickerOption
             .render()
             .icon(last)
             .selection($icon)

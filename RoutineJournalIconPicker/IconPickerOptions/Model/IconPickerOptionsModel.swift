@@ -6,36 +6,43 @@ import SwiftUI
 public final class IconPickerOptionsModel: ObservableObject {
   public typealias Model = IconPickerOptionsModel
 
+  public static let width: Double = 28
+  public static let spacing: Double = 8
+
   private var subscriptions = Set<AnyCancellable>()
 
-  @Published public var icons: Results<IconObject>?
-  public let selectionIcon: Binding<IconObject>
+  @Published
+  public var icons: Results<IconObject>?
+  public let iconSelection: Binding<IconObject>
   public let colorTheme: ColorTheme
   public let query: Binding<String>
-  public let size: Size
 
-  public var collections: [(String, Results<IconObject>?)] {
-    IconCollection.allCases.map { collection in
-      (
-        collection.rawValue,
-        icons?.where { icon in
-          icon.collection == collection
-        }
-      )
-    }
+  public var collections: [(String, Results<IconObject>)] {
+    guard let icons else { return [] }
+    return IconCollection
+      .allCases
+      .map { collection in
+        (
+          collection.rawValue,
+          icons.where { icon in
+            icon.collection == collection
+          }
+        )
+      }
+      .filter { _, icons in
+        !icons.isEmpty
+      }
   }
 
   public init(
-    selectionIcon: Binding<IconObject> = .constant(.default),
+    iconSelection: Binding<IconObject> = .constant(.default),
     colorTheme: ColorTheme = .default,
-    query: Binding<String> = .constant(.default),
-    size: Size = .default
+    query: Binding<String> = .constant(.default)
   ) {
     self.icons = IconObject.objects()
-    self.selectionIcon = selectionIcon
-    self.query = query
+    self.iconSelection = iconSelection
     self.colorTheme = colorTheme
-    self.size = size
+    self.query = query
     self.subscribe()
   }
 
@@ -49,16 +56,14 @@ public final class IconPickerOptionsModel: ObservableObject {
   }
 
   public func reinit(
-    selectionIcon: Binding<IconObject>? = nil,
+    iconSelection: Binding<IconObject>? = nil,
     colorTheme: ColorTheme? = nil,
-    query: Binding<String>? = nil,
-    size: Size? = nil
+    query: Binding<String>? = nil
   ) -> Model {
     Model(
-      selectionIcon: selectionIcon ?? self.selectionIcon,
+      iconSelection: iconSelection ?? self.iconSelection,
       colorTheme: colorTheme ?? self.colorTheme,
-      query: query ?? self.query,
-      size: size ?? self.size
+      query: query ?? self.query
     )
   }
 }

@@ -4,34 +4,37 @@ import SwiftUI
 public final class IconPickerModel: ObservableObject {
   public typealias Model = IconPickerModel
 
-  public let title = "Icon"
-  public let selectionIcon: Binding<IconObject>
+  public static let title = "Icon"
+
+  @Published
+  public var showingExplorer = false
+
+  public let iconSelection: Binding<IconObject>
   public let colorTheme: ColorTheme
-  @Published public var explorerShowing: Bool
+
+  public var icon: IconObject {
+    iconSelection.wrappedValue
+  }
 
   public init(
-    selectionIcon: Binding<IconObject> = .constant(.default),
-    colorTheme: ColorTheme = .default,
-    explorerShowing: Bool = false
+    iconSelection: Binding<IconObject> = .constant(.default),
+    colorTheme: ColorTheme = .default
   ) {
-    self.selectionIcon = selectionIcon
+    self.iconSelection = iconSelection
     self.colorTheme = colorTheme
-    self.explorerShowing = explorerShowing
   }
 
   public func reinit(
-    selectionIcon: Binding<IconObject>? = nil,
-    colorTheme: ColorTheme? = nil,
-    explorerShowing: Bool? = nil
+    iconSelection: Binding<IconObject>? = nil,
+    colorTheme: ColorTheme? = nil
   ) -> Model {
     Model(
-      selectionIcon: selectionIcon ?? self.selectionIcon,
-      colorTheme: colorTheme ?? self.colorTheme,
-      explorerShowing: explorerShowing ?? self.explorerShowing
+      iconSelection: iconSelection ?? self.iconSelection,
+      colorTheme: colorTheme ?? self.colorTheme
     )
   }
 
   public func showExplorer() {
-    explorerShowing = true
+    showingExplorer = true
   }
 }

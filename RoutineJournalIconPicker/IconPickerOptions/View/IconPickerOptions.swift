@@ -1,25 +1,27 @@
 import RoutineJournalCore
-import RoutineJournalIconView
 import RoutineJournalUI
 import SwiftUI
 
-public struct IconPickerOptionsView: SwiftUI.View {
+public struct IconPickerOptions: SwiftUI.View {
   public typealias Intent = IconPickerOptionsIntent
   public typealias Model = IconPickerOptionsModel
-  public typealias View = IconPickerOptionsView
+  public typealias View = IconPickerOptions
 
-  @ObservedObject private var model: Model
+  @ScaledMetric
+  private var scale = 1
+
+  @ObservedObject
+  private var model: Model
   private let intent: Intent
 
-  @ScaledMetric private var scale = 1
-  public var spacing: Double {
-    model.size.spacing * scale
+  public var width: Double {
+    Model.width * scale
   }
-  public var minimum: Double {
-    model.size.minimum * scale
+  public var spacing: Double {
+    Model.spacing * scale
   }
   public var columns: [GridItem] {
-    [GridItem(.adaptive(minimum: minimum), spacing: spacing)]
+    [GridItem(.adaptive(minimum: width), spacing: spacing)]
   }
 
   public var body: some SwiftUI.View {
@@ -27,17 +29,15 @@ public struct IconPickerOptionsView: SwiftUI.View {
       ForEach(model.collections, id: \.self.0) { title, icons in
         Section(title) {
           LazyVGrid(columns: columns, spacing: spacing) {
-            if let icons = model.icons {
-              ForEach(icons) { icon in
-                IconPickerOptionView
-                  .render()
-                  .icon(icon)
-                  .selection(model.selectionIcon)
-                  .colorTheme(model.colorTheme)
-                  .onSelect {
-                    intent.onSelect()
-                  }
-              }
+            ForEach(icons) { icon in
+              IconPickerOption
+                .render()
+                .icon(icon)
+                .selection(model.iconSelection)
+                .colorTheme(model.colorTheme)
+                .onSelect {
+                  intent.onSelect()
+                }
             }
           }
         }
@@ -58,7 +58,7 @@ public struct IconPickerOptionsView: SwiftUI.View {
   }
 
   public func selection(_ icon: Binding<IconObject>) -> View {
-    let model = model.reinit(selectionIcon: icon)
+    let model = model.reinit(iconSelection: icon)
     let intent = intent.reinit()
     return View(model: model, intent: intent)
   }
@@ -75,12 +75,6 @@ public struct IconPickerOptionsView: SwiftUI.View {
     return View(model: model, intent: intent)
   }
 
-  public func size(_ size: Model.Size) -> View {
-    let model = model.reinit(size: size)
-    let intent = intent.reinit()
-    return View(model: model, intent: intent)
-  }
-
   public func onSelect(perform action: @escaping () -> Void) -> View {
     let model = model.reinit()
     let intent = intent.reinit(selectAction: action)
@@ -88,18 +82,18 @@ public struct IconPickerOptionsView: SwiftUI.View {
   }
 }
 
-struct IconPickerOptionsView_Previews: PreviewProvider {
+struct IconPickerOptions_Previews: PreviewProvider {
   struct PreviewContainer: View {
-    @State private var icon = IconObject.default
+    @State
+    private var icon = IconObject.default
 
     var body: some View {
       PreviewBinding($icon) {
         PreviewSheet { toggle in
-          IconPickerOptionsView
+          IconPickerOptions
             .render()
             .selection($icon)
             .colorTheme(.indigo)
-            .size(.default)
             .onSelect {
               toggle()
             }

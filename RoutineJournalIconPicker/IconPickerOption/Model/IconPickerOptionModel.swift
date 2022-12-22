@@ -2,52 +2,50 @@ import RoutineJournalCore
 import RoutineJournalUI
 import SwiftUI
 
-public final class IconPickerOptionModel: Colorable {
+public final class IconPickerOptionModel {
   public typealias Model = IconPickerOptionModel
 
-  public let icon: IconObject
-  public let selectionIcon: Binding<IconObject>
-  public let colorTheme: ColorTheme
-  public var colors: Colors
+  public static let cornerRadius: Double = 7
+  public static let width: Double = 28 + 8
+  public static let height: Double = 28 + 8
 
-  public var selectedIcon: Bool {
-    icon == selectionIcon.wrappedValue
+  public let icon: IconObject
+  public let iconSelection: Binding<IconObject>
+  public let colorTheme: ColorTheme
+
+  public var iconSelected: Bool {
+    icon == iconSelection.wrappedValue
+  }
+  public var colorPalette: ColorPalette {
+    ColorPalette.select(by: colorTheme)
+  }
+  public var backgroundColor: Color {
+    colorPalette.color200
   }
 
   public init(
     icon: IconObject = .default,
-    selectionIcon: Binding<IconObject> = Binding.constant(.default),
-    colorTheme: ColorTheme = .neutral
+    iconSelection: Binding<IconObject> = .constant(.default),
+    colorTheme: ColorTheme = .default
   ) {
     self.icon = icon
-    self.selectionIcon = selectionIcon
+    self.iconSelection = iconSelection
     self.colorTheme = colorTheme
-    self.colors = Model.colors(by: colorTheme)
-  }
-
-  public static func colors(by colorTheme: ColorTheme) -> Colors {
-    Colors.create(from: colorTheme) { palette in
-      Colors(backgroundColor: palette.color200)
-    }
   }
 
   public func reinit(
     icon: IconObject? = nil,
-    selectionIcon: Binding<IconObject>? = nil,
+    iconSelection: Binding<IconObject>? = nil,
     colorTheme: ColorTheme? = nil
   ) -> Model {
     Model(
       icon: icon ?? self.icon,
-      selectionIcon: selectionIcon ?? self.selectionIcon,
+      iconSelection: iconSelection ?? self.iconSelection,
       colorTheme: colorTheme ?? self.colorTheme
     )
   }
 
-  public func update(selectionIcon icon: IconObject) {
-    selectionIcon.wrappedValue = icon
-  }
-
   public func select() {
-    update(selectionIcon: icon)
+    iconSelection.wrappedValue = icon
   }
 }

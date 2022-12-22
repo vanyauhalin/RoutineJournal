@@ -2,24 +2,26 @@ import RoutineJournalCore
 import RoutineJournalUI
 import SwiftUI
 
-public struct IconPickerExplorerView: SwiftUI.View {
+public struct IconPickerExplorer: SwiftUI.View {
   public typealias Model = IconPickerExplorerModel
-  public typealias View = IconPickerExplorerView
+  public typealias View = IconPickerExplorer
 
-  @Environment(\.dismiss) private var dismiss
-  @ObservedObject private var model: Model
+  @Environment(\.dismiss)
+  private var dismiss
+  @ObservedObject
+  private var model: Model
 
   public var body: some SwiftUI.View {
     NavigationView {
-      IconPickerOptionsView
+      IconPickerOptions
         .render()
-        .selection(model.selectionIcon)
+        .selection(model.iconSelection)
         .colorTheme(model.colorTheme)
         .query($model.query)
         .onSelect {
           dismiss()
         }
-        .navigationTitle(model.navigationTitle)
+        .navigationTitle(Model.title)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
           ToolbarItem(placement: .navigationBarTrailing) {
@@ -44,13 +46,8 @@ public struct IconPickerExplorerView: SwiftUI.View {
     return View(model: model)
   }
 
-  public func navigationTitle(_ navigationTitle: String) -> View {
-    let model = model.reinit(navigationTitle: navigationTitle)
-    return View(model: model)
-  }
-
   public func selection(_ icon: Binding<IconObject>) -> View {
-    let model = model.reinit(selectionIcon: icon)
+    let model = model.reinit(iconSelection: icon)
     return View(model: model)
   }
 
@@ -60,16 +57,16 @@ public struct IconPickerExplorerView: SwiftUI.View {
   }
 }
 
-struct IconPickerExplorerView_Previews: PreviewProvider {
+struct IconPickerExplorer_Previews: PreviewProvider {
   struct PreviewContainer: View {
-    @State private var icon = IconObject.default
+    @State
+    private var icon = IconObject.default
 
     var body: some View {
       PreviewBinding($icon) {
         PreviewSheet { _ in
-          IconPickerExplorerView
+          IconPickerExplorer
             .render()
-            .navigationTitle("Icon")
             .selection($icon)
             .colorTheme(.indigo)
         }
