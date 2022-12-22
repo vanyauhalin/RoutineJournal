@@ -8,7 +8,6 @@ import RoutineJournalUI
 import SwiftUI
 
 public struct IconPickerOption:
-  SwiftUI.View,
   MVIIconModifier,
   MVIIconSelectionModifier,
   MVIColorThemeModifier,
@@ -16,12 +15,11 @@ public struct IconPickerOption:
 {
   public typealias Intent = IconPickerOptionIntent
   public typealias Model = IconPickerOptionModel
-  public typealias View = IconPickerOption
 
   public var model: Model
   public var intent: Intent
 
-  public var body: some SwiftUI.View {
+  public var body: some View {
     Button(
       action: {
         intent.onSelect()
