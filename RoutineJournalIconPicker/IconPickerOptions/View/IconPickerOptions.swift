@@ -40,8 +40,7 @@ public struct IconPickerOptions:
         Section(title) {
           LazyVGrid(columns: columns, spacing: spacing) {
             ForEach(icons) { icon in
-              IconPickerOption
-                .render()
+              IconPickerOption()
                 .icon(icon)
                 .selection(model.iconSelection)
                 .colorTheme(model.colorTheme)
