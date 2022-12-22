@@ -9,7 +9,6 @@ public final class IconPickerOptionIntent:
   MVIColorThemeModifierIntent,
   MVISelectModifierIntent
 {
-  public typealias Intent = IconPickerOptionIntent
   public typealias Model = IconPickerOptionModel
 
   public weak var model: Model?
@@ -18,24 +17,6 @@ public final class IconPickerOptionIntent:
 
   public init() {
     self.selectAction = {}
-  }
-
-  public init(
-    model: Model,
-    selectAction: @escaping () -> Void = {}
-  ) {
-    self.model = model
-    self.selectAction = selectAction
-  }
-
-  public func reinit(
-    model: Model,
-    selectAction: (() -> Void)? = nil
-  ) -> Intent {
-    Intent(
-      model: model,
-      selectAction: selectAction ?? self.selectAction
-    )
   }
 
   public func onSelect() {
