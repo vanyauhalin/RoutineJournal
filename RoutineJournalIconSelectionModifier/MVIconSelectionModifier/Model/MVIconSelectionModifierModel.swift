@@ -1,6 +1,6 @@
 import RoutineJournalMVI
 
 public protocol MVIconSelectionModifierModel:
-  MVView,
+  MVModel,
   IconSelectionModifierModel
 {}
