@@ -1,9 +1,14 @@
 import RoutineJournalColorThemeModifier
 import RoutineJournalCore
+import RoutineJournalIconSelectionModifier
 import RoutineJournalUI
 import SwiftUI
 
-public struct IconPickerExplorer: SwiftUI.View, MVColorThemeModifier {
+public struct IconPickerExplorer:
+  SwiftUI.View,
+  MVIconSelectionModifier,
+  MVColorThemeModifier
+{
   public typealias Model = IconPickerExplorerModel
   public typealias View = IconPickerExplorer
 
@@ -51,16 +56,6 @@ public struct IconPickerExplorer: SwiftUI.View, MVColorThemeModifier {
     let model = Model()
     return View(model: model)
   }
-
-  public func selection(_ icon: Binding<IconObject>) -> View {
-    let model = model.reinit(iconSelection: icon)
-    return View(model: model)
-  }
-
-  // public func colorTheme(_ colorTheme: ColorTheme) -> View {
-  //   let model = model.reinit(colorTheme: colorTheme)
-  //   return View(model: model)
-  // }
 }
 
 struct IconPickerExplorer_Previews: PreviewProvider {
