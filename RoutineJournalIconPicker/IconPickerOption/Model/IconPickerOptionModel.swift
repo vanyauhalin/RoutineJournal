@@ -1,11 +1,13 @@
 import RoutineJournalColorThemeModifier
 import RoutineJournalCore
 import RoutineJournalIconModifier
+import RoutineJournalIconSelectionModifier
 import RoutineJournalUI
 import SwiftUI
 
 public final class IconPickerOptionModel:
   MVIIconModifierModel,
+  MVIIconSelectionModifierModel,
   MVIColorThemeModifierModel
 {
   public typealias Model = IconPickerOptionModel
@@ -15,7 +17,7 @@ public final class IconPickerOptionModel:
   public static let height: Double = 28 + 8
 
   public var icon: IconObject
-  public let iconSelection: Binding<IconObject>
+  public var iconSelection: Binding<IconObject>
   public var colorTheme: ColorTheme
 
   public var iconSelected: Bool {
