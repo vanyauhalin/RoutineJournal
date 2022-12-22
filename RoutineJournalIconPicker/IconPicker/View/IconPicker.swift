@@ -32,8 +32,7 @@ public struct IconPicker:
       }
     )
     .sheet(isPresented: $model.showingExplorer) {
-      IconPickerExplorer
-        .render()
+      IconPickerExplorer()
         .selection(model.iconSelection)
         .colorTheme(model.colorTheme)
     }
