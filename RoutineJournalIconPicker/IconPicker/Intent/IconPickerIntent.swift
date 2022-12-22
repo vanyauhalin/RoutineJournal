@@ -1,16 +1,11 @@
-public final class IconPickerIntent {
-  public typealias Intent = IconPickerIntent
+import RoutineJournalColorThemeModifier
+
+public final class IconPickerIntent: ColorThemeModifierIntent {
   public typealias Model = IconPickerModel
 
-  private weak var model: Model?
+  public weak var model: Model?
 
-  public init(model: Model) {
-    self.model = model
-  }
-
-  public func reinit(model: Model) -> Intent {
-    Intent(model: model)
-  }
+  public init() {}
 
   public func onPress() {
     model?.showExplorer()

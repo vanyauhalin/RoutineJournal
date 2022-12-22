@@ -1,15 +1,17 @@
+import RoutineJournalColorThemeModifier
 import RoutineJournalCore
 import RoutineJournalUI
 import SwiftUI
 
-public struct IconPickerExplorer: SwiftUI.View {
+public struct IconPickerExplorer: SwiftUI.View, ColorThemeMVModifier {
   public typealias Model = IconPickerExplorerModel
   public typealias View = IconPickerExplorer
 
   @Environment(\.dismiss)
   private var dismiss
+
   @ObservedObject
-  private var model: Model
+  public var model: Model
 
   public var body: some SwiftUI.View {
     NavigationView {
@@ -37,6 +39,10 @@ public struct IconPickerExplorer: SwiftUI.View {
     )
   }
 
+  public init() {
+    self.model = Model()
+  }
+
   public init(model: Model) {
     self.model = model
   }
@@ -51,10 +57,10 @@ public struct IconPickerExplorer: SwiftUI.View {
     return View(model: model)
   }
 
-  public func colorTheme(_ colorTheme: ColorTheme) -> View {
-    let model = model.reinit(colorTheme: colorTheme)
-    return View(model: model)
-  }
+  // public func colorTheme(_ colorTheme: ColorTheme) -> View {
+  //   let model = model.reinit(colorTheme: colorTheme)
+  //   return View(model: model)
+  // }
 }
 
 struct IconPickerExplorer_Previews: PreviewProvider {

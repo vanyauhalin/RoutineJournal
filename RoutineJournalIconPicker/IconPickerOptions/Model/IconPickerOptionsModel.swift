@@ -1,9 +1,13 @@
+import RoutineJournalColorThemeModifier
 import Combine
 import RealmSwift
 import RoutineJournalCore
 import SwiftUI
 
-public final class IconPickerOptionsModel: ObservableObject {
+public final class IconPickerOptionsModel:
+  ObservableObject,
+  ColorThemeModifierModel
+{
   public typealias Model = IconPickerOptionsModel
 
   public static let width: Double = 28
@@ -14,7 +18,7 @@ public final class IconPickerOptionsModel: ObservableObject {
   @Published
   public var icons: Results<IconObject>?
   public let iconSelection: Binding<IconObject>
-  public let colorTheme: ColorTheme
+  public var colorTheme: ColorTheme
   public let query: Binding<String>
 
   public var collections: [(String, Results<IconObject>)] {
@@ -32,6 +36,14 @@ public final class IconPickerOptionsModel: ObservableObject {
       .filter { _, icons in
         !icons.isEmpty
       }
+  }
+
+  public init() {
+    self.icons = IconObject.objects()
+    self.iconSelection = .constant(.default)
+    self.colorTheme = .default
+    self.query = .constant(.default)
+    self.subscribe()
   }
 
   public init(

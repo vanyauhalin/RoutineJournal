@@ -1,10 +1,16 @@
-public final class IconPickerOptionIntent {
+import RoutineJournalColorThemeModifier
+
+public final class IconPickerOptionIntent: ColorThemeModifierIntent {
   public typealias Intent = IconPickerOptionIntent
   public typealias Model = IconPickerOptionModel
 
-  private weak var model: Model?
+  public weak var model: Model?
 
   public let selectAction: () -> Void
+
+  public init() {
+    self.selectAction = {}
+  }
 
   public init(
     model: Model,

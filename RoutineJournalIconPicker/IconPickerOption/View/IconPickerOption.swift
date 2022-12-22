@@ -1,15 +1,16 @@
+import RoutineJournalColorThemeModifier
 import RoutineJournalCore
 import RoutineJournalIconView
 import RoutineJournalUI
 import SwiftUI
 
-public struct IconPickerOption: SwiftUI.View {
+public struct IconPickerOption: SwiftUI.View, ColorThemeModifier {
   public typealias Intent = IconPickerOptionIntent
   public typealias Model = IconPickerOptionModel
   public typealias View = IconPickerOption
 
-  private let model: Model
-  private let intent: Intent
+  public var model: Model
+  public var intent: Intent
 
   public var body: some SwiftUI.View {
     Button(
@@ -34,6 +35,13 @@ public struct IconPickerOption: SwiftUI.View {
     .buttonStyle(.plain)
   }
 
+  public init() {
+    let model = Model()
+    let intent = Intent(model: model)
+    self.model = model
+    self.intent = intent
+  }
+
   public init(model: Model, intent: Intent) {
     self.model = model
     self.intent = intent
@@ -53,12 +61,6 @@ public struct IconPickerOption: SwiftUI.View {
 
   public func selection(_ icon: Binding<IconObject>) -> View {
     let model = model.reinit(iconSelection: icon)
-    let intent = intent.reinit(model: model)
-    return View(model: model, intent: intent)
-  }
-
-  public func colorTheme(_ colorTheme: ColorTheme) -> View {
-    let model = model.reinit(colorTheme: colorTheme)
     let intent = intent.reinit(model: model)
     return View(model: model, intent: intent)
   }

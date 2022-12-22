@@ -1,7 +1,11 @@
+import RoutineJournalColorThemeModifier
 import RoutineJournalCore
 import SwiftUI
 
-public final class IconPickerExplorerModel: ObservableObject {
+public final class IconPickerExplorerModel:
+  ObservableObject,
+  ColorThemeModifierModel
+{
   public typealias Model = IconPickerExplorerModel
 
   public static let title = IconPickerModel.title
@@ -10,7 +14,12 @@ public final class IconPickerExplorerModel: ObservableObject {
   public var query = String.default
 
   public let iconSelection: Binding<IconObject>
-  public let colorTheme: ColorTheme
+  public var colorTheme: ColorTheme
+
+  public init() {
+    self.iconSelection = .constant(.default)
+    self.colorTheme = .default
+  }
 
   public init(
     iconSelection: Binding<IconObject> = .constant(.default),
