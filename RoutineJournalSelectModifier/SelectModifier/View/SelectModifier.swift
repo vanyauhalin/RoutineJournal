@@ -1,3 +1,3 @@
 public protocol SelectModifier {
-  func onSelect(perform action: () -> Void) -> Self
+  func onSelect(perform action: @escaping () -> Void) -> Self
 }
