@@ -1,9 +1,7 @@
 import RoutineJournalCore
 import RoutineJournalMVI
 
-public protocol MVIColorThemeModifier: MVIView {
-  func colorTheme(_ colorTheme: ColorTheme) -> Self
-}
+public protocol MVIColorThemeModifier: MVIView, ColorThemeModifier {}
 
 extension MVIColorThemeModifier where
   Model: MVIColorThemeModifierModel,
