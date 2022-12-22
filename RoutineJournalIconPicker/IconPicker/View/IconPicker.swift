@@ -44,12 +44,6 @@ public struct IconPicker:
     self.model = model
     self.intent = intent
   }
-
-  public static func render() -> View {
-    let model = Model()
-    let intent = Intent(model: model)
-    return View(model: model, intent: intent)
-  }
 }
 
 struct IconPickerView_Previews: PreviewProvider {
@@ -61,8 +55,7 @@ struct IconPickerView_Previews: PreviewProvider {
       PreviewBinding($icon) {
         NavigationView {
           Form {
-            IconPicker
-              .render()
+            IconPicker()
               .selection($icon)
               .colorTheme(.indigo)
           }
