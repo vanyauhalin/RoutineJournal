@@ -4,7 +4,8 @@ import SwiftUI
 public final class IconPickerModel: ObservableObject {
   public typealias Model = IconPickerModel
 
-  public let title = "Icon"
+  public static let title = "Icon"
+
   @Published
   public var showingExplorer = false
 

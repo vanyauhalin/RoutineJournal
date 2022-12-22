@@ -14,7 +14,7 @@ public struct IconPicker: SwiftUI.View {
 
   public var body: some SwiftUI.View {
     NavigationButton(
-      model.title,
+      Model.title,
       action: {
         intent.onPress()
       },
@@ -28,7 +28,7 @@ public struct IconPicker: SwiftUI.View {
     .sheet(isPresented: $model.showingExplorer) {
       IconPickerExplorer
         .render()
-        .navigationTitle(model.title)
+        .navigationTitle(Model.title)
         .selection(model.iconSelection)
         .colorTheme(model.colorTheme)
     }
