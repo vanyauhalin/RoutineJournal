@@ -38,28 +38,6 @@ public final class IconPickerOptionModel:
     self.colorTheme = .default
   }
 
-  public init(
-    icon: IconObject = .default,
-    iconSelection: Binding<IconObject> = .constant(.default),
-    colorTheme: ColorTheme = .default
-  ) {
-    self.icon = icon
-    self.iconSelection = iconSelection
-    self.colorTheme = colorTheme
-  }
-
-  public func reinit(
-    icon: IconObject? = nil,
-    iconSelection: Binding<IconObject>? = nil,
-    colorTheme: ColorTheme? = nil
-  ) -> Model {
-    Model(
-      icon: icon ?? self.icon,
-      iconSelection: iconSelection ?? self.iconSelection,
-      colorTheme: colorTheme ?? self.colorTheme
-    )
-  }
-
   public func select() {
     iconSelection.wrappedValue = icon
   }
