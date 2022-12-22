@@ -33,7 +33,7 @@ public struct IconPickerOptions: SwiftUI.View {
               IconPickerOption
                 .render()
                 .icon(icon)
-                .selection(model.selectionIcon)
+                .selection(model.iconSelection)
                 .colorTheme(model.colorTheme)
                 .onSelect {
                   intent.onSelect()
@@ -58,7 +58,7 @@ public struct IconPickerOptions: SwiftUI.View {
   }
 
   public func selection(_ icon: Binding<IconObject>) -> View {
-    let model = model.reinit(selectionIcon: icon)
+    let model = model.reinit(iconSelection: icon)
     let intent = intent.reinit()
     return View(model: model, intent: intent)
   }

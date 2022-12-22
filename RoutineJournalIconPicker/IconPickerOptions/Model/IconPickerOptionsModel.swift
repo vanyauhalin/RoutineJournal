@@ -13,7 +13,7 @@ public final class IconPickerOptionsModel: ObservableObject {
 
   @Published
   public var icons: Results<IconObject>?
-  public let selectionIcon: Binding<IconObject>
+  public let iconSelection: Binding<IconObject>
   public let colorTheme: ColorTheme
   public let query: Binding<String>
 
@@ -35,12 +35,12 @@ public final class IconPickerOptionsModel: ObservableObject {
   }
 
   public init(
-    selectionIcon: Binding<IconObject> = .constant(.default),
+    iconSelection: Binding<IconObject> = .constant(.default),
     colorTheme: ColorTheme = .default,
     query: Binding<String> = .constant(.default)
   ) {
     self.icons = IconObject.objects()
-    self.selectionIcon = selectionIcon
+    self.iconSelection = iconSelection
     self.colorTheme = colorTheme
     self.query = query
     self.subscribe()
@@ -56,12 +56,12 @@ public final class IconPickerOptionsModel: ObservableObject {
   }
 
   public func reinit(
-    selectionIcon: Binding<IconObject>? = nil,
+    iconSelection: Binding<IconObject>? = nil,
     colorTheme: ColorTheme? = nil,
     query: Binding<String>? = nil
   ) -> Model {
     Model(
-      selectionIcon: selectionIcon ?? self.selectionIcon,
+      iconSelection: iconSelection ?? self.iconSelection,
       colorTheme: colorTheme ?? self.colorTheme,
       query: query ?? self.query
     )
