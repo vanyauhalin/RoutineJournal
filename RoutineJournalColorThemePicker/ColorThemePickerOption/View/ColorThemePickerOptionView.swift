@@ -12,9 +12,9 @@ public struct ColorThemePickerOptionView: SwiftUI.View {
   public var spacing: Double {
     switch optionPosition {
       case .destination:
-        return model.size.destinationSpacing
+        return Model.destinationSpacing
       case .label:
-        return model.size.labelSpacing
+        return Model.labelSpacing
     }
   }
 
@@ -38,11 +38,6 @@ public struct ColorThemePickerOptionView: SwiftUI.View {
 
   public func colorTheme(_ colorTheme: ColorTheme) -> View {
     let model = model.reinit(colorTheme: colorTheme)
-    return View(model: model)
-  }
-
-  public func size(_ size: Model.Size) -> View {
-    let model = model.reinit(size: size)
     return View(model: model)
   }
 }
