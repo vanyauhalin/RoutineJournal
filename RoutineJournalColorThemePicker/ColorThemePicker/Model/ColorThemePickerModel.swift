@@ -1,6 +1,5 @@
 import RoutineJournalColorThemeSelectionModifier
 import RoutineJournalCore
-import RoutineJournalUI
 import SwiftUI
 
 public final class ColorThemePickerModel: MVColorThemeSelectionModifierModel {
