@@ -17,7 +17,7 @@ public struct ColorThemePickerDecoratorView: SwiftUI.View, MVColorThemeModifier 
   public var body: some SwiftUI.View {
     Circle()
       .frame(width: width)
-      .foregroundColor(model.colors.foregroundColor)
+      .foregroundColor(model.foregroundColor)
   }
 
   public init() {
