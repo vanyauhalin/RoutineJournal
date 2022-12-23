@@ -1,12 +1,14 @@
+import RoutineJournalColorThemeModifier
 import RoutineJournalCore
 import SwiftUI
 
-public struct ColorThemePickerDecoratorView: SwiftUI.View {
+public struct ColorThemePickerDecoratorView: SwiftUI.View, MVColorThemeModifier {
   public typealias Model = ColorThemePickerDecoratorModel
   public typealias View = ColorThemePickerDecoratorView
 
-  private let model: Model
   @ScaledMetric private var scale = 1
+
+  public var model: Model
 
   public var width: Double {
     Model.width * scale
@@ -18,17 +20,16 @@ public struct ColorThemePickerDecoratorView: SwiftUI.View {
       .foregroundColor(model.colors.foregroundColor)
   }
 
+  public init() {
+    self.model = Model()
+  }
+
   public init(model: Model) {
     self.model = model
   }
 
   public static func render() -> View {
     let model = Model()
-    return View(model: model)
-  }
-
-  public func colorTheme(_ colorTheme: ColorTheme) -> View {
-    let model = model.reinit(colorTheme: colorTheme)
     return View(model: model)
   }
 }

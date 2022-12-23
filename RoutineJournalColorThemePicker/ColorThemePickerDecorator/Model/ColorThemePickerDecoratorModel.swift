@@ -1,13 +1,20 @@
+import RoutineJournalColorThemeModifier
 import RoutineJournalCore
 import RoutineJournalUI
 
-public final class ColorThemePickerDecoratorModel {
+public final class ColorThemePickerDecoratorModel: MVColorThemeModifierModel {
   public typealias Model = ColorThemePickerDecoratorModel
 
   public static let width: Double = 11
 
-  public let colorTheme: ColorTheme
+  public var colorTheme: ColorTheme
   public var colors: Colors
+
+  public init() {
+    let colorTheme = ColorTheme.default
+    self.colorTheme = colorTheme
+    self.colors = Model.colors(by: colorTheme)
+  }
 
   public init(colorTheme: ColorTheme = .default) {
     self.colorTheme = colorTheme
@@ -18,9 +25,5 @@ public final class ColorThemePickerDecoratorModel {
     Colors.create(from: colorTheme) { palette in
       Colors(foregroundColor: palette.color600)
     }
-  }
-
-  public func reinit(colorTheme: ColorTheme? = nil) -> Model {
-    Model(colorTheme: colorTheme ?? self.colorTheme)
   }
 }
