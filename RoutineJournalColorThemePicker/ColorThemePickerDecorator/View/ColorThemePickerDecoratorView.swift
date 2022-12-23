@@ -1,5 +1,4 @@
 import RoutineJournalColorThemeModifier
-import RoutineJournalCore
 import SwiftUI
 
 public struct ColorThemePickerDecoratorView: MVColorThemeModifier {
