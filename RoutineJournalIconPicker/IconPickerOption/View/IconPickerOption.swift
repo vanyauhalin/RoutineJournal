@@ -25,8 +25,7 @@ public struct IconPickerOption:
         intent.onSelect()
       },
       label: {
-        IconView
-          .render()
+        IconView()
           .icon(model.icon)
           .colorTheme(model.colorTheme)
           .if(model.iconSelected) { view in

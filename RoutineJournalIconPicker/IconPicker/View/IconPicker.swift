@@ -20,8 +20,7 @@ public struct IconPicker: MVIIconSelectionModifier, MVIColorThemeModifier {
         intent.onPress()
       },
       content: {
-        IconView
-          .render()
+        IconView()
           .icon(model.icon)
           .colorTheme(model.colorTheme)
       }
