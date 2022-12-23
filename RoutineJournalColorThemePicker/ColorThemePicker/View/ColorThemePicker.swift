@@ -27,7 +27,8 @@ public struct ColorThemePicker: MVColorThemeSelectionModifier {
 
 struct ColorThemePicker_Previews: PreviewProvider {
   struct PreviewContainer: View {
-    @State private var colorTheme = ColorTheme.indigo
+    @State
+    private var colorTheme = ColorTheme.indigo
 
     var body: some View {
       NavigationView {
