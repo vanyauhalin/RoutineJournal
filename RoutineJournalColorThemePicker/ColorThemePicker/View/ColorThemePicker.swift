@@ -3,13 +3,12 @@ import RoutineJournalCore
 import RoutineJournalUI
 import SwiftUI
 
-public struct ColorThemePicker: SwiftUI.View, MVColorThemeSelectionModifier {
+public struct ColorThemePicker: MVColorThemeSelectionModifier {
   public typealias Model = ColorThemePickerModel
-  public typealias View = ColorThemePicker
 
   public var model: Model
 
-  public var body: some SwiftUI.View {
+  public var body: some View {
     NavigationPicker(Model.title, selection: model.colorThemeSelection) {
       ColorTheme.allCases.map { colorTheme in
         NavigationPicker.Option(id: colorTheme) {
