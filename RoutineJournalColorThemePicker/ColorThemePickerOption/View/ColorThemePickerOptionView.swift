@@ -32,25 +32,14 @@ public struct ColorThemePickerOptionView: SwiftUI.View, MVColorThemeModifier {
   public init() {
     self.model = Model()
   }
-
-  public init(model: Model) {
-    self.model = model
-  }
-
-  public static func render() -> View {
-    let model = Model()
-    return View(model: model)
-  }
 }
 
 struct ColorThemePickerOptionView_Previews: PreviewProvider {
   static var previews: some View {
     List {
-      ColorThemePickerOptionView
-        .render()
+      ColorThemePickerOptionView()
         .colorTheme(.indigo)
-      ColorThemePickerOptionView
-        .render()
+      ColorThemePickerOptionView()
         .colorTheme(.indigo)
         .environment(\.navigationPickerOptionPosition, .label)
     }

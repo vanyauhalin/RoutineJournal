@@ -13,12 +13,4 @@ public final class ColorThemePickerOptionModel: MVColorThemeModifierModel {
   public init() {
     self.colorTheme = .default
   }
-
-  public init(colorTheme: ColorTheme = .default) {
-    self.colorTheme = colorTheme
-  }
-
-  public func reinit(colorTheme: ColorTheme? = nil) -> Model {
-    Model(colorTheme: colorTheme ?? self.colorTheme)
-  }
 }
