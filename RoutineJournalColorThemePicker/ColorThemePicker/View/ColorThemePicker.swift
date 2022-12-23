@@ -12,7 +12,7 @@ public struct ColorThemePicker: MVColorThemeSelectionModifier {
     NavigationPicker(Model.title, selection: model.colorThemeSelection) {
       ColorTheme.allCases.map { colorTheme in
         NavigationPicker.Option(id: colorTheme) {
-          ColorThemePickerOptionView()
+          ColorThemePickerOption()
             .colorTheme(colorTheme)
         }
       }

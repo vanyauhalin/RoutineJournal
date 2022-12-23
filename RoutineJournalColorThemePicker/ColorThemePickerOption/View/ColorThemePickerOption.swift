@@ -1,7 +1,7 @@
 import RoutineJournalColorThemeModifier
 import SwiftUI
 
-public struct ColorThemePickerOptionView: MVColorThemeModifier {
+public struct ColorThemePickerOption: MVColorThemeModifier {
   public typealias Model = ColorThemePickerOptionModel
 
   @ScaledMetric
@@ -34,12 +34,12 @@ public struct ColorThemePickerOptionView: MVColorThemeModifier {
   }
 }
 
-struct ColorThemePickerOptionView_Previews: PreviewProvider {
+struct ColorThemePickerOption_Previews: PreviewProvider {
   static var previews: some View {
     List {
-      ColorThemePickerOptionView()
+      ColorThemePickerOption()
         .colorTheme(.indigo)
-      ColorThemePickerOptionView()
+      ColorThemePickerOption()
         .colorTheme(.indigo)
         .environment(\.navigationPickerOptionPosition, .label)
     }
