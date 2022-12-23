@@ -4,8 +4,6 @@ import RoutineJournalUI
 import SwiftUI
 
 public final class ColorThemePickerDecoratorModel: MVColorThemeModifierModel {
-  public typealias Model = ColorThemePickerDecoratorModel
-
   public static let width: Double = 11
 
   public var colorTheme: ColorTheme
