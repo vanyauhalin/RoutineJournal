@@ -24,15 +24,6 @@ public struct ColorThemePicker: SwiftUI.View, MVColorThemeSelectionModifier {
   public init() {
     self.model = Model()
   }
-
-  public init(model: Model) {
-    self.model = model
-  }
-
-  public static func render() -> View {
-    let model = Model()
-    return View(model: model)
-  }
 }
 
 struct ColorThemePicker_Previews: PreviewProvider {
@@ -42,8 +33,7 @@ struct ColorThemePicker_Previews: PreviewProvider {
     var body: some View {
       NavigationView {
         Form {
-          ColorThemePicker
-            .render()
+          ColorThemePicker()
             .selection($colorTheme)
         }
       }

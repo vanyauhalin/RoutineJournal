@@ -29,8 +29,7 @@ public struct CategoryFormAppearanceSection: SwiftUI.View {
             .round([.topLeft, .topRight], radius: 7)
             .foregroundColor(.white)
         )
-      ColorThemePicker
-        .render()
+      ColorThemePicker()
         .selection(model.selectionColorTheme)
       IconPicker()
         .selection(model.selectionIcon)

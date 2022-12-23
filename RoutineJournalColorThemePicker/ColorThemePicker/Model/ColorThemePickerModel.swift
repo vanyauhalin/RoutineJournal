@@ -12,8 +12,4 @@ public final class ColorThemePickerModel: MVColorThemeSelectionModifierModel {
   public init() {
     self.colorThemeSelection = .constant(.default)
   }
-
-  public init(colorThemeSelection: Binding<ColorTheme> = .constant(.default)) {
-    self.colorThemeSelection = colorThemeSelection
-  }
 }
