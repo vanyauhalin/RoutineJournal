@@ -20,8 +20,4 @@ public final class ColorThemePickerDecoratorModel: MVColorThemeModifierModel {
   public init() {
     self.colorTheme = .default
   }
-
-  public init(colorTheme: ColorTheme = .default) {
-    self.colorTheme = colorTheme
-  }
 }

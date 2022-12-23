@@ -24,8 +24,7 @@ public struct ColorThemePickerOptionView: MVColorThemeModifier {
 
   public var body: some View {
     HStack(spacing: spacing) {
-      ColorThemePickerDecoratorView
-        .render()
+      ColorThemePickerDecoratorView()
         .colorTheme(model.colorTheme)
       Text(model.colorTheme.name)
     }
