@@ -3,9 +3,8 @@ import RoutineJournalCore
 import RoutineJournalIconModifier
 import SwiftUI
 
-public struct IconView: SwiftUI.View, MVIconModifier, MVColorThemeModifier {
+public struct IconView: MVIconModifier, MVColorThemeModifier {
   public typealias Model = IconModel
-  public typealias View = IconView
 
   @ScaledMetric
   private var scale = 1
@@ -22,7 +21,7 @@ public struct IconView: SwiftUI.View, MVIconModifier, MVColorThemeModifier {
     Model.cornerRadius * scale
   }
 
-  public var body: some SwiftUI.View {
+  public var body: some View {
     Image(systemName: model.systemName)
       .foregroundColor(model.foregroundColor)
       .frame(width: width, height: height)

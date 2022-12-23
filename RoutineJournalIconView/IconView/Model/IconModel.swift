@@ -9,8 +9,6 @@ public final class IconModel:
   MVIconModifierModel,
   MVColorThemeModifierModel
 {
-  public typealias Model = IconModel
-
   public static let width: Double = 28
   public static let height: Double = 28
   public static let cornerRadius: Double = 7
