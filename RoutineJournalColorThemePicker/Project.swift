@@ -16,6 +16,7 @@ let project = Project(
       ],
       dependencies: [
         .project("RoutineJournalColorThemeSelectionModifier"),
+        .project("RoutineJournalColorThemeModifier"),
         .project("RoutineJournalCore"),
         .project("RoutineJournalUI")
       ]
