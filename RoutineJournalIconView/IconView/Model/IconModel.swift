@@ -38,22 +38,4 @@ public final class IconModel:
     self.icon = .default
     self.colorTheme = .default
   }
-
-  public init(
-    icon: IconObject = .default,
-    colorTheme: ColorTheme = .default
-  ) {
-    self.icon = icon
-    self.colorTheme = colorTheme
-  }
-
-  public func reinit(
-    icon: IconObject? = nil,
-    colorTheme: ColorTheme? = nil
-  ) -> Model {
-    Model(
-      icon: icon ?? self.icon,
-      colorTheme: colorTheme ?? self.colorTheme
-    )
-  }
 }

@@ -26,8 +26,7 @@ public struct EventFormCategoryField: SwiftUI.View {
           let icon = model.icon,
           let colorTheme = model.colorTheme
         {
-          IconView
-            .render()
+          IconView()
             .icon(icon)
             .colorTheme(colorTheme)
         }

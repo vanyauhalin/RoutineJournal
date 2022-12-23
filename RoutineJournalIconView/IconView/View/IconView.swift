@@ -35,21 +35,11 @@ public struct IconView: SwiftUI.View, MVIconModifier, MVColorThemeModifier {
   public init() {
     self.model = Model()
   }
-
-  public init(model: Model) {
-    self.model = model
-  }
-
-  public static func render() -> View {
-    let model = Model()
-    return View(model: model)
-  }
 }
 
 struct IconView_Previews: PreviewProvider {
   static var previews: some View {
-    IconView
-      .render()
+    IconView()
       .icon(.default)
       .colorTheme(.indigo)
   }
