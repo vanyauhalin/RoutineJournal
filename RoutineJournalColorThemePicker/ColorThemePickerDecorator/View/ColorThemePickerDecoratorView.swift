@@ -5,7 +5,8 @@ import SwiftUI
 public struct ColorThemePickerDecoratorView: MVColorThemeModifier {
   public typealias Model = ColorThemePickerDecoratorModel
 
-  @ScaledMetric private var scale = 1
+  @ScaledMetric
+  private var scale = 1
 
   public var model: Model
 
