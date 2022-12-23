@@ -5,8 +5,11 @@ import SwiftUI
 public struct ColorThemePickerOptionView: MVColorThemeModifier {
   public typealias Model = ColorThemePickerOptionModel
 
-  @Environment(\.navigationPickerOptionPosition) private var optionPosition
-  @ScaledMetric private var scale = 1
+  @ScaledMetric
+  private var scale = 1
+
+  @Environment(\.navigationPickerOptionPosition)
+  private var optionPosition
 
   public var model: Model
 
