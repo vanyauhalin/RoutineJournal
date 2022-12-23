@@ -10,7 +10,7 @@ public struct ColorThemePicker: SwiftUI.View, MVColorThemeSelectionModifier {
   public var model: Model
 
   public var body: some SwiftUI.View {
-    NavigationPicker(model.title, selection: model.colorThemeSelection) {
+    NavigationPicker(Model.title, selection: model.colorThemeSelection) {
       ColorTheme.allCases.map { colorTheme in
         NavigationPicker.Option(id: colorTheme) {
           ColorThemePickerOptionView
