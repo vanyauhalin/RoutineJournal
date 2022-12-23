@@ -15,9 +15,9 @@ public struct ColorThemePickerOption: MVColorThemeModifier {
   public var spacing: Double {
     switch optionPosition {
       case .destination:
-        return Model.destinationSpacing
+        return Model.destinationSpacing * scale
       case .label:
-        return Model.labelSpacing
+        return Model.labelSpacing * scale
     }
   }
 
