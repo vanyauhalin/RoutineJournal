@@ -2,9 +2,8 @@ import RoutineJournalColorThemeModifier
 import RoutineJournalCore
 import SwiftUI
 
-public struct ColorThemePickerOptionView: SwiftUI.View, MVColorThemeModifier {
+public struct ColorThemePickerOptionView: MVColorThemeModifier {
   public typealias Model = ColorThemePickerOptionModel
-  public typealias View = ColorThemePickerOptionView
 
   @Environment(\.navigationPickerOptionPosition) private var optionPosition
   @ScaledMetric private var scale = 1
@@ -20,7 +19,7 @@ public struct ColorThemePickerOptionView: SwiftUI.View, MVColorThemeModifier {
     }
   }
 
-  public var body: some SwiftUI.View {
+  public var body: some View {
     HStack(spacing: spacing) {
       ColorThemePickerDecoratorView
         .render()
