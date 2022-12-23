@@ -1,9 +1,14 @@
+import RoutineJournalColorThemeModifier
 import RoutineJournalCore
 import RoutineJournalIconModifier
 import RoutineJournalUI
 import SwiftUI
 
-public final class IconModel: Identifiable, MVIconModifierModel {
+public final class IconModel:
+  Identifiable,
+  MVIconModifierModel,
+  MVColorThemeModifierModel
+{
   public typealias Model = IconModel
 
   public static let width: Double = 28
@@ -11,7 +16,7 @@ public final class IconModel: Identifiable, MVIconModifierModel {
   public static let cornerRadius: Double = 7
 
   public var icon: IconObject
-  public let colorTheme: ColorTheme
+  public var colorTheme: ColorTheme
 
   public var id: ObjectIdentifier {
     ObjectIdentifier(icon._id)

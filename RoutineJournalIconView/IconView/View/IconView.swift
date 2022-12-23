@@ -1,8 +1,9 @@
+import RoutineJournalColorThemeModifier
 import RoutineJournalCore
 import RoutineJournalIconModifier
 import SwiftUI
 
-public struct IconView: SwiftUI.View, MVIconModifier {
+public struct IconView: SwiftUI.View, MVIconModifier, MVColorThemeModifier {
   public typealias Model = IconModel
   public typealias View = IconView
 
@@ -41,11 +42,6 @@ public struct IconView: SwiftUI.View, MVIconModifier {
 
   public static func render() -> View {
     let model = Model()
-    return View(model: model)
-  }
-
-  public func colorTheme(_ colorTheme: ColorTheme) -> View {
-    let model = model.reinit(colorTheme: colorTheme)
     return View(model: model)
   }
 }
