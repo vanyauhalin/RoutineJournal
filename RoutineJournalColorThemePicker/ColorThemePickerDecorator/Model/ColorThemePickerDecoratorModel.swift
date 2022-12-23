@@ -4,17 +4,14 @@ import RoutineJournalUI
 public final class ColorThemePickerDecoratorModel {
   public typealias Model = ColorThemePickerDecoratorModel
 
+  public static let width: Double = 11
+
   public let colorTheme: ColorTheme
   public var colors: Colors
-  public let size: Size
 
-  public init(
-    colorTheme: ColorTheme = .default,
-    size: Size = .default
-  ) {
+  public init(colorTheme: ColorTheme = .default) {
     self.colorTheme = colorTheme
     self.colors = Model.colors(by: colorTheme)
-    self.size = size
   }
 
   public static func colors(by colorTheme: ColorTheme) -> Colors {
@@ -23,13 +20,7 @@ public final class ColorThemePickerDecoratorModel {
     }
   }
 
-  public func reinit(
-    colorTheme: ColorTheme? = nil,
-    size: Size? = nil
-  ) -> Model {
-    Model(
-      colorTheme: colorTheme ?? self.colorTheme,
-      size: size ?? self.size
-    )
+  public func reinit(colorTheme: ColorTheme? = nil) -> Model {
+    Model(colorTheme: colorTheme ?? self.colorTheme)
   }
 }

@@ -9,7 +9,7 @@ public struct ColorThemePickerDecoratorView: SwiftUI.View {
   @ScaledMetric private var scale = 1
 
   public var width: Double {
-    model.size.width * scale
+    Model.width * scale
   }
 
   public var body: some SwiftUI.View {
@@ -29,11 +29,6 @@ public struct ColorThemePickerDecoratorView: SwiftUI.View {
 
   public func colorTheme(_ colorTheme: ColorTheme) -> View {
     let model = model.reinit(colorTheme: colorTheme)
-    return View(model: model)
-  }
-
-  public func size(_ size: Model.Size) -> View {
-    let model = model.reinit(size: size)
     return View(model: model)
   }
 }
