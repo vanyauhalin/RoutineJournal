@@ -1,27 +1,13 @@
+import RoutineJournalColorThemeModifier
 import RoutineJournalCore
-import RoutineJournalUI
 
-public final class ColorThemePickerOptionModel {
-  public typealias Model = ColorThemePickerOptionModel
+public final class ColorThemePickerOptionModel: MVColorThemeModifierModel {
+  public static let destinationSpacing: Double = 16
+  public static let labelSpacing: Double = 10
 
-  public let colorTheme: ColorTheme
-  public let size: Size
+  public var colorTheme: ColorTheme
 
-  public init(
-    colorTheme: ColorTheme = .default,
-    size: Size = .default
-  ) {
-    self.colorTheme = colorTheme
-    self.size = size
-  }
-
-  public func reinit(
-    colorTheme: ColorTheme? = nil,
-    size: Size? = nil
-  ) -> Model {
-    Model(
-      colorTheme: colorTheme ?? self.colorTheme,
-      size: size ?? self.size
-    )
+  public init() {
+    self.colorTheme = .default
   }
 }
