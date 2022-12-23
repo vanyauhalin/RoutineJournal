@@ -1,14 +1,15 @@
 import RoutineJournalCore
+import RoutineJournalIconModifier
 import SwiftUI
 
-public struct IconView: SwiftUI.View {
+public struct IconView: SwiftUI.View, MVIconModifier {
   public typealias Model = IconModel
   public typealias View = IconView
 
   @ScaledMetric
   private var scale = 1
 
-  private let model: Model
+  public var model: Model
 
   public var width: Double {
     Model.width * scale
@@ -30,17 +31,16 @@ public struct IconView: SwiftUI.View {
       )
   }
 
+  public init() {
+    self.model = Model()
+  }
+
   public init(model: Model) {
     self.model = model
   }
 
   public static func render() -> View {
     let model = Model()
-    return View(model: model)
-  }
-
-  public func icon(_ icon: IconObject) -> View {
-    let model = model.reinit(icon: icon)
     return View(model: model)
   }
 

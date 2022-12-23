@@ -1,15 +1,16 @@
 import RoutineJournalCore
+import RoutineJournalIconModifier
 import RoutineJournalUI
 import SwiftUI
 
-public final class IconModel: Identifiable {
+public final class IconModel: Identifiable, MVIconModifierModel {
   public typealias Model = IconModel
 
   public static let width: Double = 28
   public static let height: Double = 28
   public static let cornerRadius: Double = 7
 
-  public let icon: IconObject
+  public var icon: IconObject
   public let colorTheme: ColorTheme
 
   public var id: ObjectIdentifier {
@@ -26,6 +27,11 @@ public final class IconModel: Identifiable {
   }
   public var backgroundColor: Color {
     colorPalette.color600
+  }
+
+  public init() {
+    self.icon = .default
+    self.colorTheme = .default
   }
 
   public init(
