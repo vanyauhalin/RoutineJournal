@@ -1,15 +1,16 @@
+import RoutineJournalColorThemeSelectionModifier
 import RoutineJournalCore
 import RoutineJournalUI
 import SwiftUI
 
-public struct ColorThemePicker: SwiftUI.View {
+public struct ColorThemePicker: SwiftUI.View, MVColorThemeSelectionModifier {
   public typealias Model = ColorThemePickerModel
   public typealias View = ColorThemePicker
 
-  private let model: Model
+  public var model: Model
 
   public var body: some SwiftUI.View {
-    NavigationPicker(model.title, selection: model.selectionColorTheme) {
+    NavigationPicker(model.title, selection: model.colorThemeSelection) {
       ColorTheme.allCases.map { colorTheme in
         NavigationPicker.Option(id: colorTheme) {
           ColorThemePickerOptionView
@@ -20,17 +21,16 @@ public struct ColorThemePicker: SwiftUI.View {
     }
   }
 
+  public init() {
+    self.model = Model()
+  }
+
   public init(model: Model) {
     self.model = model
   }
 
   public static func render() -> View {
     let model = Model()
-    return View(model: model)
-  }
-
-  public func selection(_ colorTheme: Binding<ColorTheme>) -> View {
-    let model = model.reinit(selectionColorTheme: colorTheme)
     return View(model: model)
   }
 }
