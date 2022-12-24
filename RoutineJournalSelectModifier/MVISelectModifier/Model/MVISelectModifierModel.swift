@@ -1,3 +1,1 @@
-import RoutineJournalMVI
-
-public protocol MVISelectModifierModel: MVIModel, SelectModifierModel {}
+public protocol MVISelectModifierModel: SelectModifierModel {}
