@@ -1,12 +1,12 @@
 import RoutineJournalCore
 
-public protocol CategoryModifierModel: AnyObject {
+public protocol CategoryModifier: AnyObject {
   var category: CategoryObject? { get set }
 
   func reinit(category: CategoryObject?) -> Self
 }
 
-extension CategoryModifierModel {
+extension CategoryModifier {
   public func reinit(category: CategoryObject?) -> Self {
     self.category = category
     return self
