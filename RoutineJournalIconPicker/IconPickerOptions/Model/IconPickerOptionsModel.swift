@@ -11,7 +11,7 @@ public final class IconPickerOptionsModel:
   ObservableObject,
   MVIIconSelectionModifierModel,
   ColorThemeModifier,
-  MVIQueryModifierModel,
+  QueryModifier,
   MVISelectModifierModel
 {
   public static let width: Double = 28

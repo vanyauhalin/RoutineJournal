@@ -1,15 +1,10 @@
 import RoutineJournalCore
 import RoutineJournalIconSelectionModifier
-import RoutineJournalQueryModifier
 import RoutineJournalSelectModifier
 import RoutineJournalUI
 import SwiftUI
 
-public struct IconPickerOptions:
-  MVIIconSelectionModifier,
-  MVIQueryModifier,
-  MVISelectModifier
-{
+public struct IconPickerOptions: MVIIconSelectionModifier, MVISelectModifier {
   public typealias Intent = IconPickerOptionsIntent
   public typealias Model = IconPickerOptionsModel
 

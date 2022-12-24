@@ -1,10 +1,8 @@
 import RoutineJournalIconSelectionModifier
-import RoutineJournalQueryModifier
 import RoutineJournalSelectModifier
 
 public final class IconPickerOptionsIntent:
   MVIIconSelectionModifierIntent,
-  MVIQueryModifierIntent,
   MVISelectModifierIntent
 {
   public typealias Model = IconPickerOptionsModel
