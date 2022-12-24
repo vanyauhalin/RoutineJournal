@@ -6,7 +6,7 @@ import SwiftUI
 
 public final class IconModel:
   Identifiable,
-  MVIconModifierModel,
+  IconModifier,
   MVColorThemeModifierModel
 {
   public static let width: Double = 28
