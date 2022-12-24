@@ -1,5 +1,5 @@
 public protocol MVIIntent: AnyObject {
-  associatedtype Model: MVIModel
+  associatedtype Model: AnyObject
 
   var model: Model? { get set }
 
