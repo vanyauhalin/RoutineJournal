@@ -2,15 +2,13 @@ import RoutineJournalColorThemeModifier
 import RoutineJournalCore
 import RoutineJournalIconModifier
 import RoutineJournalIconSelectionModifier
-import RoutineJournalSelectModifier
 import RoutineJournalUI
 import SwiftUI
 
 public final class IconPickerOptionModel:
   IconModifier,
   IconSelectionModifier,
-  ColorThemeModifier,
-  MVISelectModifierModel
+  ColorThemeModifier
 {
   public static let cornerRadius: Double = 7
   public static let width: Double = 28 + 8

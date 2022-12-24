@@ -1,9 +1,9 @@
 import RoutineJournalCore
-import RoutineJournalSelectModifier
+import RoutineJournalMVI
 import RoutineJournalUI
 import SwiftUI
 
-public struct IconPickerOptions: MVISelectModifier {
+public struct IconPickerOptions: MVIView {
   public typealias Intent = IconPickerOptionsIntent
   public typealias Model = IconPickerOptionsModel
 

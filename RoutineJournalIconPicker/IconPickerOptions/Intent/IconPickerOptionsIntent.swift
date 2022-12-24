@@ -1,6 +1,6 @@
 import RoutineJournalSelectModifier
 
-public final class IconPickerOptionsIntent: MVISelectModifierIntent {
+public final class IconPickerOptionsIntent: SelectModifier {
   public typealias Model = IconPickerOptionsModel
 
   public weak var model: Model?

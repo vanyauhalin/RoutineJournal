@@ -4,15 +4,13 @@ import RoutineJournalColorThemeModifier
 import RoutineJournalCore
 import RoutineJournalIconSelectionModifier
 import RoutineJournalQueryModifier
-import RoutineJournalSelectModifier
 import SwiftUI
 
 public final class IconPickerOptionsModel:
   ObservableObject,
   IconSelectionModifier,
   ColorThemeModifier,
-  QueryModifier,
-  MVISelectModifierModel
+  QueryModifier
 {
   public static let width: Double = 28
   public static let spacing: Double = 8
