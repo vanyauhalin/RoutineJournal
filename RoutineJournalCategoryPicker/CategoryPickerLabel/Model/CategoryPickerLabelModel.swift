@@ -1,7 +1,7 @@
 import RoutineJournalCategoryModifier
 import RoutineJournalCore
 
-public final class CategoryPickerLabelModel: MVCategoryModifierModel {
+public final class CategoryPickerLabelModel: CategoryModifier {
   public static let destinationSpacing: Double = 16
   public static let labelSpacing: Double = 10
 

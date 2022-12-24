@@ -1,6 +1,6 @@
-import RoutineJournalCategorySelectionModifier
+import RoutineJournalMVI
 
-public final class CategoryPickerIntent: MVICategorySelectionModifierIntent {
+public final class CategoryPickerIntent: MVIIntent {
   public typealias Model = CategoryPickerModel
 
   public weak var model: Model?
@@ -11,4 +11,3 @@ public final class CategoryPickerIntent: MVICategorySelectionModifierIntent {
     model?.showExplorer()
   }
 }
-

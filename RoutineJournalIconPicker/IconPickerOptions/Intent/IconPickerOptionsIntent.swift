@@ -1,14 +1,6 @@
-import RoutineJournalColorThemeModifier
-import RoutineJournalIconSelectionModifier
-import RoutineJournalQueryModifier
 import RoutineJournalSelectModifier
 
-public final class IconPickerOptionsIntent:
-  MVIIconSelectionModifierIntent,
-  MVIColorThemeModifierIntent,
-  MVIQueryModifierIntent,
-  MVISelectModifierIntent
-{
+public final class IconPickerOptionsIntent: SelectModifier {
   public typealias Model = IconPickerOptionsModel
 
   public weak var model: Model?

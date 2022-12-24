@@ -1,12 +1,6 @@
-import RoutineJournalCategoryModifier
-import RoutineJournalCategorySelectionModifier
 import RoutineJournalSelectModifier
 
-public final class CategoryPickerOptionIntent:
-  MVICategoryModifierIntent,
-  MVICategorySelectionModifierIntent,
-  MVISelectModifierIntent
-{
+public final class CategoryPickerOptionIntent: SelectModifier {
   public typealias Model = CategoryPickerOptionModel
 
   public weak var model: Model?

@@ -1,9 +1,7 @@
-import RoutineJournalColorThemeModifier
-import RoutineJournalCore
-import RoutineJournalIconModifier
+import RoutineJournalMVI
 import SwiftUI
 
-public struct IconView: MVIconModifier, MVColorThemeModifier {
+public struct IconView: MVView {
   public typealias Model = IconModel
 
   @ScaledMetric

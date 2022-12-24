@@ -4,7 +4,7 @@ import SwiftUI
 
 public final class CategoryPickerExplorerModel:
   ObservableObject,
-  MVCategorySelectionModifierModel
+  CategorySelectionModifier
 {
   public static let title = CategoryPickerModel.title
 

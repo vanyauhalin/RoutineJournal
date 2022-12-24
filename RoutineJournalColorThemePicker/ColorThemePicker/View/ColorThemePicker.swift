@@ -1,9 +1,9 @@
-import RoutineJournalColorThemeSelectionModifier
 import RoutineJournalCore
+import RoutineJournalMVI
 import RoutineJournalUI
 import SwiftUI
 
-public struct ColorThemePicker: MVColorThemeSelectionModifier {
+public struct ColorThemePicker: MVView {
   public typealias Model = ColorThemePickerModel
 
   public var model: Model

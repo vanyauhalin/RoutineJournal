@@ -3,14 +3,12 @@ import RealmSwift
 import RoutineJournalCategorySelectionModifier
 import RoutineJournalCore
 import RoutineJournalQueryModifier
-import RoutineJournalSelectModifier
 import SwiftUI
 
 public final class CategoryPickerOptionsModel:
   ObservableObject,
-  MVICategorySelectionModifierModel,
-  MVIQueryModifierModel,
-  MVISelectModifierModel
+  CategorySelectionModifier,
+  QueryModifier
 {
   private var subscriptions = Set<AnyCancellable>()
 

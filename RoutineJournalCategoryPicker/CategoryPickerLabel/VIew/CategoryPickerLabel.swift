@@ -1,9 +1,9 @@
-import RoutineJournalCategoryModifier
 import RoutineJournalCore
 import RoutineJournalIconView
+import RoutineJournalMVI
 import SwiftUI
 
-public struct CategoryPickerLabel: MVCategoryModifier {
+public struct CategoryPickerLabel: MVView {
   public typealias Model = CategoryPickerLabelModel
 
   @Environment(\.navigationPickerOptionPosition)

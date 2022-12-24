@@ -1,17 +1,9 @@
-import RoutineJournalColorThemeModifier
 import RoutineJournalCore
-import RoutineJournalIconSelectionModifier
-import RoutineJournalQueryModifier
-import RoutineJournalSelectModifier
+import RoutineJournalMVI
 import RoutineJournalUI
 import SwiftUI
 
-public struct IconPickerOptions:
-  MVIIconSelectionModifier,
-  MVIColorThemeModifier,
-  MVIQueryModifier,
-  MVISelectModifier
-{
+public struct IconPickerOptions: MVIView {
   public typealias Intent = IconPickerOptionsIntent
   public typealias Model = IconPickerOptionsModel
 

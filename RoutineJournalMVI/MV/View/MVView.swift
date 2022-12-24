@@ -1,7 +1,7 @@
 import SwiftUI
 
 public protocol MVView: View {
-  associatedtype Model: MVModel
+  associatedtype Model: AnyObject
 
   var model: Model { get set }
 

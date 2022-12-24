@@ -1,13 +1,9 @@
-import RoutineJournalColorThemeModifier
 import RoutineJournalCore
-import RoutineJournalIconSelectionModifier
+import RoutineJournalMVI
 import RoutineJournalUI
 import SwiftUI
 
-public struct IconPickerExplorer:
-  MVIconSelectionModifier,
-  MVColorThemeModifier
-{
+public struct IconPickerExplorer: MVView {
   public typealias Model = IconPickerExplorerModel
 
   @Environment(\.dismiss)
