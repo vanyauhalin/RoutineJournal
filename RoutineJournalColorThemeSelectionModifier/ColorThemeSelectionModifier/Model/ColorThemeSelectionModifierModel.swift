@@ -1,13 +1,13 @@
 import RoutineJournalCore
 import SwiftUI
 
-public protocol ColorThemeSelectionModifierModel: AnyObject {
+public protocol ColorThemeSelectionModifier: AnyObject {
   var colorThemeSelection: Binding<ColorTheme> { get set }
 
   func reinit(colorThemeSelection: Binding<ColorTheme>) -> Self
 }
 
-extension ColorThemeSelectionModifierModel {
+extension ColorThemeSelectionModifier {
   public func reinit(colorThemeSelection: Binding<ColorTheme>) -> Self {
     self.colorThemeSelection = colorThemeSelection
     return self
