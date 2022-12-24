@@ -8,7 +8,7 @@ import SwiftUI
 
 public final class IconPickerOptionModel:
   IconModifier,
-  MVIIconSelectionModifierModel,
+  IconSelectionModifier,
   ColorThemeModifier,
   MVISelectModifierModel
 {

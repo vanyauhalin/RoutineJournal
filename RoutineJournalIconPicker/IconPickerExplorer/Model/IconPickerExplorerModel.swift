@@ -5,7 +5,7 @@ import SwiftUI
 
 public final class IconPickerExplorerModel:
   ObservableObject,
-  MVIconSelectionModifierModel,
+  IconSelectionModifier,
   ColorThemeModifier
 {
   public static let title = IconPickerModel.title

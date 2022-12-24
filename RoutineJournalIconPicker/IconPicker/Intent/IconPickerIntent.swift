@@ -1,6 +1,6 @@
-import RoutineJournalIconSelectionModifier
+import RoutineJournalMVI
 
-public final class IconPickerIntent: MVIIconSelectionModifierIntent {
+public final class IconPickerIntent: MVIIntent {
   public typealias Model = IconPickerModel
 
   public weak var model: Model?

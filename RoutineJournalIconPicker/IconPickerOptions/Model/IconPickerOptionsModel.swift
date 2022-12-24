@@ -9,7 +9,7 @@ import SwiftUI
 
 public final class IconPickerOptionsModel:
   ObservableObject,
-  MVIIconSelectionModifierModel,
+  IconSelectionModifier,
   ColorThemeModifier,
   QueryModifier,
   MVISelectModifierModel
