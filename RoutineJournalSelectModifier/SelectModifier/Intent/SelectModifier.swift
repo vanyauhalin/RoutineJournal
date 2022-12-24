@@ -1,12 +1,12 @@
 import RoutineJournalMVI
 
-public protocol MVISelectModifierIntent: MVIIntent {
+public protocol SelectModifier: MVIIntent {
   var selectAction: () -> Void { get set }
 
   func reinit(model: Model, selectAction: @escaping () -> Void) -> Self
 }
 
-extension MVISelectModifierIntent where Model: MVISelectModifierModel {
+extension SelectModifier {
   public func reinit(model: Model, selectAction: @escaping () -> Void) -> Self {
     let intent = reinit(model: model)
     intent.selectAction = selectAction
