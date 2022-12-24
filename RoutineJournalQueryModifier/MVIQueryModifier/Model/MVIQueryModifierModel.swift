@@ -1,7 +1,6 @@
-import RoutineJournalMVI
 import SwiftUI
 
-public protocol MVIQueryModifierModel: MVIModel, QueryModifierModel {}
+public protocol MVIQueryModifierModel: QueryModifierModel {}
 
 extension MVIQueryModifierModel {
   public func reinit(query: Binding<String>) -> Self {
