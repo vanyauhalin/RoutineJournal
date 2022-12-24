@@ -1,7 +1,7 @@
-import RoutineJournalColorThemeModifier
+import RoutineJournalMVI
 import SwiftUI
 
-public struct ColorThemePickerOption: MVColorThemeModifier {
+public struct ColorThemePickerOption: MVView {
   public typealias Model = ColorThemePickerOptionModel
 
   @ScaledMetric
