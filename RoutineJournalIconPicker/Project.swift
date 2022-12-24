@@ -20,6 +20,7 @@ let project = Project(
         .project("RoutineJournalIconModifier"),
         .project("RoutineJournalIconSelectionModifier"),
         .project("RoutineJournalIconView"),
+        .project("RoutineJournalMVI"),
         .project("RoutineJournalQueryModifier"),
         .project("RoutineJournalSelectModifier"),
         .project("RoutineJournalUI")
