@@ -5,7 +5,7 @@ import SwiftUI
 
 public final class CategoryPickerOptionModel:
   CategoryModifier,
-  MVICategorySelectionModifierModel
+  CategorySelectionModifier
 {
   public var category: CategoryObject?
   public var categorySelection: Binding<CategoryObject?>

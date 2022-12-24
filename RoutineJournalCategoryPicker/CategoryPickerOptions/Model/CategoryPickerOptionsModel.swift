@@ -7,7 +7,7 @@ import SwiftUI
 
 public final class CategoryPickerOptionsModel:
   ObservableObject,
-  MVICategorySelectionModifierModel,
+  CategorySelectionModifier,
   QueryModifier
 {
   private var subscriptions = Set<AnyCancellable>()

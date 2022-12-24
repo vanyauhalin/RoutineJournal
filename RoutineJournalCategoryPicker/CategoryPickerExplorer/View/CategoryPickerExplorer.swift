@@ -1,9 +1,9 @@
-import RoutineJournalCategorySelectionModifier
 import RoutineJournalCore
+import RoutineJournalMVI
 import RoutineJournalUI
 import SwiftUI
 
-public struct CategoryPickerExplorer: MVCategorySelectionModifier {
+public struct CategoryPickerExplorer: MVView {
   public typealias Model = CategoryPickerExplorerModel
 
   @Environment(\.dismiss)
