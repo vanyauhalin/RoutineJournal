@@ -1,9 +1,7 @@
-import RoutineJournalCategoryModifier
 import RoutineJournalCategorySelectionModifier
 import RoutineJournalSelectModifier
 
 public final class CategoryPickerOptionIntent:
-  MVICategoryModifierIntent,
   MVICategorySelectionModifierIntent,
   SelectModifier
 {

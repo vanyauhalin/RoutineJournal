@@ -4,7 +4,7 @@ import RoutineJournalCore
 import SwiftUI
 
 public final class CategoryPickerOptionModel:
-  MVICategoryModifierModel,
+  CategoryModifier,
   MVICategorySelectionModifierModel
 {
   public var category: CategoryObject?

@@ -1,14 +1,10 @@
-import RoutineJournalCategoryModifier
 import RoutineJournalCategorySelectionModifier
 import RoutineJournalCore
 import RoutineJournalIconView
 import RoutineJournalUI
 import SwiftUI
 
-public struct CategoryPickerOption:
-  MVICategoryModifier,
-  MVICategorySelectionModifier
-{
+public struct CategoryPickerOption: MVICategorySelectionModifier {
   public typealias Intent = CategoryPickerOptionIntent
   public typealias Model = CategoryPickerOptionModel
 
