@@ -7,7 +7,7 @@ import RoutineJournalUI
 import SwiftUI
 
 public final class IconPickerOptionModel:
-  MVIIconModifierModel,
+  IconModifier,
   MVIIconSelectionModifierModel,
   MVIColorThemeModifierModel,
   MVISelectModifierModel

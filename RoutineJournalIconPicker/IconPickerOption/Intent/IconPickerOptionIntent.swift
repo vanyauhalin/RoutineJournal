@@ -4,7 +4,6 @@ import RoutineJournalIconSelectionModifier
 import RoutineJournalSelectModifier
 
 public final class IconPickerOptionIntent:
-  MVIIconModifierIntent,
   MVIIconSelectionModifierIntent,
   MVIColorThemeModifierIntent,
   MVISelectModifierIntent
