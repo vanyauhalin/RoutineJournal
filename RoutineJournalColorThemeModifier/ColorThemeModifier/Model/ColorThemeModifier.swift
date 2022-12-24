@@ -1,12 +1,12 @@
 import RoutineJournalCore
 
-public protocol ColorThemeModifierModel: AnyObject {
+public protocol ColorThemeModifier: AnyObject {
   var colorTheme: ColorTheme { get set }
 
   func reinit(colorTheme: ColorTheme) -> Self
 }
 
-extension ColorThemeModifierModel {
+extension ColorThemeModifier {
   public func reinit(colorTheme: ColorTheme) -> Self {
     self.colorTheme = colorTheme
     return self
