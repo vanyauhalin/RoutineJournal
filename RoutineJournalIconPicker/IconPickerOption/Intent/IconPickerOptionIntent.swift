@@ -1,4 +1,3 @@
-import RoutineJournalIconModifier
 import RoutineJournalSelectModifier
 
 public final class IconPickerOptionIntent: SelectModifier {
