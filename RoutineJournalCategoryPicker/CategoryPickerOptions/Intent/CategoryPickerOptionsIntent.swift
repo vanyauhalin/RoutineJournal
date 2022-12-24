@@ -1,10 +1,8 @@
 import RoutineJournalCategorySelectionModifier
-import RoutineJournalQueryModifier
 import RoutineJournalSelectModifier
 
 public final class CategoryPickerOptionsIntent:
   MVICategorySelectionModifierIntent,
-  MVIQueryModifierIntent,
   MVISelectModifierIntent
 {
   public typealias Model = CategoryPickerOptionsModel
