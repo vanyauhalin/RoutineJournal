@@ -18,6 +18,7 @@ let project = Project(
         .project("RoutineJournalColorThemeModifier"),
         .project("RoutineJournalColorThemeSelectionModifier"),
         .project("RoutineJournalCore"),
+        .project("RoutineJournalMVI"),
         .project("RoutineJournalUI")
       ]
     )
