@@ -1,13 +1,11 @@
 import RoutineJournalCategoryModifier
 import RoutineJournalCategorySelectionModifier
-import RoutineJournalSelectModifier
 import RoutineJournalCore
 import SwiftUI
 
 public final class CategoryPickerOptionModel:
   MVICategoryModifierModel,
-  MVICategorySelectionModifierModel,
-  MVISelectModifierModel
+  MVICategorySelectionModifierModel
 {
   public var category: CategoryObject?
   public var categorySelection: Binding<CategoryObject?>
