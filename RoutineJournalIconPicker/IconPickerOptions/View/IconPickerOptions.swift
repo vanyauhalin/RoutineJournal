@@ -1,4 +1,3 @@
-import RoutineJournalColorThemeModifier
 import RoutineJournalCore
 import RoutineJournalIconSelectionModifier
 import RoutineJournalQueryModifier
@@ -8,7 +7,6 @@ import SwiftUI
 
 public struct IconPickerOptions:
   MVIIconSelectionModifier,
-  MVIColorThemeModifier,
   MVIQueryModifier,
   MVISelectModifier
 {

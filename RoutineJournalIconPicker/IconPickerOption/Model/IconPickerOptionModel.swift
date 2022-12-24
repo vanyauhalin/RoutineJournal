@@ -9,7 +9,7 @@ import SwiftUI
 public final class IconPickerOptionModel:
   IconModifier,
   MVIIconSelectionModifierModel,
-  MVIColorThemeModifierModel,
+  ColorThemeModifier,
   MVISelectModifierModel
 {
   public static let cornerRadius: Double = 7

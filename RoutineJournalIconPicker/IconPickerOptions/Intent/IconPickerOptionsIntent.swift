@@ -1,11 +1,9 @@
-import RoutineJournalColorThemeModifier
 import RoutineJournalIconSelectionModifier
 import RoutineJournalQueryModifier
 import RoutineJournalSelectModifier
 
 public final class IconPickerOptionsIntent:
   MVIIconSelectionModifierIntent,
-  MVIColorThemeModifierIntent,
   MVIQueryModifierIntent,
   MVISelectModifierIntent
 {

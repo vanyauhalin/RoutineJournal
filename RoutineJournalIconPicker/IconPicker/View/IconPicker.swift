@@ -1,11 +1,10 @@
-import RoutineJournalColorThemeModifier
 import RoutineJournalCore
 import RoutineJournalIconSelectionModifier
 import RoutineJournalIconView
 import RoutineJournalUI
 import SwiftUI
 
-public struct IconPicker: MVIIconSelectionModifier, MVIColorThemeModifier {
+public struct IconPicker: MVIIconSelectionModifier {
   public typealias Intent = IconPickerIntent
   public typealias Model = IconPickerModel
 
