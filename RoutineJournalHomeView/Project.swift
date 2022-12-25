@@ -15,11 +15,9 @@ let project = Project(
         .lint("RoutineJournalHomeView")
       ],
       dependencies: [
-        .project("RoutineJournalCategoryForm"),
         .project("RoutineJournalCore"),
         .project("RoutineJournalEventForm"),
         .project("RoutineJournalTimeline"),
-        .project("RoutineJournalMVI"),
         .project("RoutineJournalUI")
       ]
     )
