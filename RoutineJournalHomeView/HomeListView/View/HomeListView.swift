@@ -13,13 +13,8 @@ public struct HomeListView: ToolbarContent {
     }
   }
 
-  public init(model: Model) {
-    self.model = model
-  }
-
-  public static func render() -> View {
-    let model = Model()
-    return View(model: model)
+  public init() {
+    self.model = Model()
   }
 }
 
@@ -28,8 +23,7 @@ struct HomeListView_Previews: PreviewProvider {
     NavigationView {
       Text("content")
         .toolbar {
-          HomeListView
-            .render()
+          HomeListView()
         }
     }
   }
