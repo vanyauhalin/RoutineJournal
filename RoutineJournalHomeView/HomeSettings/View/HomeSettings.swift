@@ -1,9 +1,9 @@
 import RoutineJournalMVI
 import SwiftUI
 
-public struct HomeSettingView: MVView {
-  public typealias Model = HomeSettingModel
-  public typealias View = HomeSettingView
+public struct HomeSettings: MVView {
+  public typealias Model = HomeSettingsModel
+  public typealias View = HomeSettings
 
   public var model: Model
 
@@ -23,12 +23,12 @@ public struct HomeSettingView: MVView {
   }
 }
 
-struct HomeSettingView_Previews: PreviewProvider {
+struct HomeSettings_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
       Text("content")
         .background {
-          HomeSettingView()
+          HomeSettings()
         }
     }
   }
