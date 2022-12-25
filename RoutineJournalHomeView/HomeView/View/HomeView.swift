@@ -21,6 +21,7 @@ public struct HomeView: SwiftUI.View {
           }
           HomeEventForm()
           HomeToday()
+          HomeReport()
           HomeSettings()
         }
     }
