@@ -10,9 +10,15 @@ public struct HomeSettings: MVView {
     Color
       .clear
       .toolbar {
-        ToolbarItemGroup(placement: .navigationBarTrailing) {
-          Image(systemName: model.iconName)
-            .opacity(0.1)
+        ToolbarItemGroup(placement: .bottomBar) {
+          NavigationLink(
+            destination: {
+              EmptyView()
+            },
+            label: {
+              Text(Model.label)
+            }
+          )
         }
       }
   }

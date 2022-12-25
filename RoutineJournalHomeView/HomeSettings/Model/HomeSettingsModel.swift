@@ -1,5 +1,5 @@
 public final class HomeSettingsModel {
-  public let iconName = "gearshape"
+  public static let label = "Settings"
 
   public init() {}
 }
