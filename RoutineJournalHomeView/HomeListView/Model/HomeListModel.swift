@@ -1,5 +1,5 @@
 public final class HomeListModel {
-  public let iconName = "list.bullet.below.rectangle"
+  public static let systemName = "list.bullet.below.rectangle"
 
   public init() {}
 }

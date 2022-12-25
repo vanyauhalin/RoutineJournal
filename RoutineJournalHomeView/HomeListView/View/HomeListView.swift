@@ -8,7 +8,7 @@ public struct HomeListView: ToolbarContent {
 
   public var body: some ToolbarContent {
     ToolbarItemGroup(placement: .navigationBarTrailing) {
-      Image(systemName: model.iconName)
+      Image(systemName: Model.systemName)
         .opacity(0.1)
     }
   }
