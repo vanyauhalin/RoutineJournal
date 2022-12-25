@@ -2,15 +2,14 @@ import Combine
 import Foundation
 
 public final class HomeEventFormModel: ObservableObject {
-  public typealias Model = HomeEventFormModel
+  public static let systemName = "plus"
 
-  public let iconName = "plus"
-
-  @Published public var showing = false
+  @Published
+  public var showing = false
 
   public init() {}
 
-  public func reinit() -> Model {
-    Model()
+  public func show() {
+    showing = true
   }
 }
