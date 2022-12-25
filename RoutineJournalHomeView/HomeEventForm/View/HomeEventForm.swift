@@ -15,7 +15,7 @@ public struct HomeEventForm: ToolbarContent {
           model.show()
         },
         label: {
-          Image(systemName: model.iconName)
+          Image(systemName: Model.systemName)
         }
       )
       .sheet(isPresented: $model.showing) {

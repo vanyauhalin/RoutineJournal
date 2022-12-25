@@ -2,7 +2,7 @@ import Combine
 import Foundation
 
 public final class HomeEventFormModel: ObservableObject {
-  public let iconName = "plus"
+  public static let systemName = "plus"
 
   @Published
   public var showing = false
