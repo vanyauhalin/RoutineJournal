@@ -3,11 +3,10 @@ import SwiftUI
 
 public struct HomeSettings: MVView {
   public typealias Model = HomeSettingsModel
-  public typealias View = HomeSettings
 
   public var model: Model
 
-  public var body: some SwiftUI.View {
+  public var body: some View {
     Color
       .clear
       .toolbar {
