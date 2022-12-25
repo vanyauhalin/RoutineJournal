@@ -1,3 +1,4 @@
+import RoutineJournalCategoryLabel
 import RoutineJournalCore
 import RoutineJournalMVI
 import RoutineJournalUI
@@ -18,9 +19,9 @@ public struct CategoryPicker: MVIView {
         intent.onPress()
       },
       content: {
-        CategoryPickerLabel()
+        CategoryLabel()
           .category(model.category)
-          .environment(\.navigationPickerOptionPosition, .label)
+          .labelStyle(.close)
           .foregroundColor(.systemGray)
       }
     )
