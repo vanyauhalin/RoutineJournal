@@ -1,13 +1,12 @@
 import RoutineJournalUI
 import SwiftUI
 
-public struct HomeView: SwiftUI.View {
+public struct HomeView: View {
   public typealias Model = HomeModel
-  public typealias View = HomeView
 
   public let model: Model
 
-  public var body: some SwiftUI.View {
+  public var body: some View {
     NavigationView {
       HomeTimelineView
         .render()
