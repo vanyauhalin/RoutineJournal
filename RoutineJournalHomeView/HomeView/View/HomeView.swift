@@ -27,8 +27,6 @@ public struct HomeView: SwiftUI.View {
           HomeSettings()
           HomeCategoryForm
             .render()
-          HomeStatusView
-            .render()
           HomeEventForm
             .render()
         }
