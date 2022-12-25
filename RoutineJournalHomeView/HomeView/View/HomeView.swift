@@ -12,20 +12,14 @@ public struct HomeView: SwiftUI.View {
       HomeTimelineView
         .render()
         .navigationTitle(model.navigationTitle)
-        .background {
+        .toolbar {
           HomeListView
             .render()
-          Color
-            .clear
-            .toolbar {
-              ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Rectangle()
-                  .frame(width: 0, height: 0)
-                  .hidden()
-              }
-            }
-        }
-        .toolbar {
+          ToolbarItemGroup(placement: .navigationBarTrailing) {
+            Rectangle()
+              .frame(width: 0, height: 0)
+              .hidden()
+          }
           HomeEventForm()
           HomeSettings()
         }

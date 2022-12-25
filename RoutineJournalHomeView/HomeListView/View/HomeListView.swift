@@ -1,20 +1,16 @@
 import SwiftUI
 
-public struct HomeListView: SwiftUI.View {
+public struct HomeListView: ToolbarContent {
   public typealias Model = HomeListModel
   public typealias View = HomeListView
 
   private let model: Model
 
-  public var body: some SwiftUI.View {
-    Color
-      .clear
-      .toolbar {
-        ToolbarItemGroup(placement: .navigationBarTrailing) {
-          Image(systemName: model.iconName)
-            .opacity(0.1)
-        }
-      }
+  public var body: some ToolbarContent {
+    ToolbarItemGroup(placement: .navigationBarTrailing) {
+      Image(systemName: model.iconName)
+        .opacity(0.1)
+    }
   }
 
   public init(model: Model) {
@@ -31,7 +27,7 @@ struct HomeListView_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
       Text("content")
-        .background {
+        .toolbar {
           HomeListView
             .render()
         }
