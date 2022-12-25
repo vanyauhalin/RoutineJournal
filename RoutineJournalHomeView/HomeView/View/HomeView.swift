@@ -10,7 +10,7 @@ public struct HomeView: View {
     NavigationView {
       HomeTimelineView
         .render()
-        .navigationTitle(model.navigationTitle)
+        .navigationTitle(Model.title)
         .toolbar {
           HomeCalendar()
           ToolbarItemGroup(placement: .navigationBarTrailing) {

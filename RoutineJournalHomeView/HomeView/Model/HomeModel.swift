@@ -1,5 +1,5 @@
 public final class HomeModel {
-  public let navigationTitle = "Routine"
+  public static let title = "Routine"
 
   public init() {}
 }
