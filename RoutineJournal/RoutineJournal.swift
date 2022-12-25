@@ -7,8 +7,7 @@ struct RoutineJournal: App {
   var body: some Scene {
     WindowGroup {
       PreviewData(Self.name) {
-        HomeView
-          .render()
+        HomeView()
       }
     }
   }

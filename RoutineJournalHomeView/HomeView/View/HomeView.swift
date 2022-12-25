@@ -27,21 +27,15 @@ public struct HomeView: SwiftUI.View {
     }
   }
 
-  public init(model: Model) {
-    self.model = model
-  }
-
-  public static func render() -> View {
-    let model = Model()
-    return View(model: model)
+  public init() {
+    self.model = Model()
   }
 }
 
 struct HomeView_Previews: PreviewProvider {
   static var previews: some View {
     PreviewData(self.name) {
-      HomeView
-        .render()
+      HomeView()
     }
   }
 }
