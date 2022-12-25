@@ -1,6 +1,5 @@
 import RoutineJournalCategoryLabel
 import RoutineJournalCore
-import RoutineJournalIconView
 import RoutineJournalMVI
 import RoutineJournalUI
 import SwiftUI
