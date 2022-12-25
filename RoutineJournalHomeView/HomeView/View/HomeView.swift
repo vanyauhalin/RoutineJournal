@@ -24,8 +24,6 @@ public struct HomeView: SwiftUI.View {
                   .hidden()
               }
             }
-          HomeCategoryForm
-            .render()
           HomeEventForm
             .render()
         }
