@@ -26,8 +26,7 @@ public struct HomeView: SwiftUI.View {
             }
         }
         .toolbar {
-          HomeEventForm
-            .render()
+          HomeEventForm()
           HomeSettings()
         }
     }

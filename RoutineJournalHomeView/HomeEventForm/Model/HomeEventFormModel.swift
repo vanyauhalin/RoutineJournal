@@ -9,8 +9,4 @@ public final class HomeEventFormModel: ObservableObject {
   @Published public var showing = false
 
   public init() {}
-
-  public func reinit() -> Model {
-    Model()
-  }
 }
