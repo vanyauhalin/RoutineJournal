@@ -9,7 +9,7 @@ public struct HomeEventForm: ToolbarContent {
   public var model: Model
 
   public var body: some ToolbarContent {
-    ToolbarItem(placement: .bottomBar) {
+    ToolbarItem(placement: .navigationBarTrailing) {
       Button(
         action: {
           model.show()
