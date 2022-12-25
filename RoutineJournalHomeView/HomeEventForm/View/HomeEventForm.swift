@@ -5,13 +5,14 @@ import SwiftUI
 public struct HomeEventForm: ToolbarContent {
   public typealias Model = HomeEventFormModel
 
-  @ObservedObject private var model: Model
+  @ObservedObject
+  public var model: Model
 
   public var body: some ToolbarContent {
     ToolbarItem(placement: .bottomBar) {
       Button(
         action: {
-          model.showing.toggle()
+          model.show()
         },
         label: {
           Image(systemName: model.iconName)
