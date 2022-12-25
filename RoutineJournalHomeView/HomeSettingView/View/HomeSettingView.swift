@@ -21,15 +21,6 @@ public struct HomeSettingView: MVView {
   public init() {
     self.model = Model()
   }
-
-  public init(model: Model) {
-    self.model = model
-  }
-
-  public static func render() -> View {
-    let model = Model()
-    return View(model: model)
-  }
 }
 
 struct HomeSettingView_Previews: PreviewProvider {
@@ -37,8 +28,7 @@ struct HomeSettingView_Previews: PreviewProvider {
     NavigationView {
       Text("content")
         .background {
-          HomeSettingView
-            .render()
+          HomeSettingView()
         }
     }
   }

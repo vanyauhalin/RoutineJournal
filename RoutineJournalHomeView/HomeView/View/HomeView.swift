@@ -24,8 +24,7 @@ public struct HomeView: SwiftUI.View {
                   .hidden()
               }
             }
-          HomeSettingView
-            .render()
+          HomeSettingView()
           HomeCategoryForm
             .render()
           HomeStatusView
