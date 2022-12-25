@@ -1,5 +1,5 @@
+import RoutineJournalCategoryLabel
 import RoutineJournalCore
-import RoutineJournalIconView
 import RoutineJournalMVI
 import RoutineJournalUI
 import SwiftUI
@@ -17,9 +17,8 @@ public struct CategoryPickerOption: MVIView {
         intent.onSelect()
       },
       label: {
-        CategoryPickerLabel()
+        CategoryLabel()
           .category(model.category)
-          .environment(\.navigationPickerOptionPosition, .destination)
           .foregroundColor(.label)
           .if(model.categorySelected) { view in
             HStack(spacing: .zero) {
