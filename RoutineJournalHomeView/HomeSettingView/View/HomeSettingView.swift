@@ -1,10 +1,11 @@
+import RoutineJournalMVI
 import SwiftUI
 
-public struct HomeSettingView: SwiftUI.View {
+public struct HomeSettingView: MVView {
   public typealias Model = HomeSettingModel
   public typealias View = HomeSettingView
 
-  private let model: Model
+  public var model: Model
 
   public var body: some SwiftUI.View {
     Color
@@ -15,6 +16,10 @@ public struct HomeSettingView: SwiftUI.View {
             .opacity(0.1)
         }
       }
+  }
+
+  public init() {
+    self.model = Model()
   }
 
   public init(model: Model) {
