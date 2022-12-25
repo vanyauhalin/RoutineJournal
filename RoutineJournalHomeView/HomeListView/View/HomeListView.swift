@@ -2,7 +2,6 @@ import SwiftUI
 
 public struct HomeListView: ToolbarContent {
   public typealias Model = HomeListModel
-  public typealias View = HomeListView
 
   private let model: Model
 
