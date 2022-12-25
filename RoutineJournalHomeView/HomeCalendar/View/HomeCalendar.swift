@@ -1,7 +1,7 @@
 import SwiftUI
 
-public struct HomeListView: ToolbarContent {
-  public typealias Model = HomeListModel
+public struct HomeCalendar: ToolbarContent {
+  public typealias Model = HomeCalendarModel
 
   private let model: Model
 
@@ -17,12 +17,12 @@ public struct HomeListView: ToolbarContent {
   }
 }
 
-struct HomeListView_Previews: PreviewProvider {
+struct HomeCalendar_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
       Text("content")
         .toolbar {
-          HomeListView()
+          HomeCalendar()
         }
     }
   }

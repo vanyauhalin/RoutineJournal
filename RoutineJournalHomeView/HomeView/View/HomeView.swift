@@ -13,7 +13,7 @@ public struct HomeView: SwiftUI.View {
         .render()
         .navigationTitle(model.navigationTitle)
         .toolbar {
-          HomeListView()
+          HomeCalendar()
           ToolbarItemGroup(placement: .navigationBarTrailing) {
             Rectangle()
               .frame(width: 0, height: 0)
