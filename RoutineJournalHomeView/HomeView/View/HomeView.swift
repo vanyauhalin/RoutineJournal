@@ -24,11 +24,13 @@ public struct HomeView: SwiftUI.View {
                   .hidden()
               }
             }
-          HomeSettings()
           HomeCategoryForm
             .render()
           HomeEventForm
             .render()
+        }
+        .toolbar {
+          HomeSettings()
         }
     }
   }
