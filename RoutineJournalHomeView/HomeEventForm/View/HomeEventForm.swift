@@ -4,7 +4,6 @@ import SwiftUI
 
 public struct HomeEventForm: ToolbarContent {
   public typealias Model = HomeEventFormModel
-  public typealias View = HomeEventForm
 
   @ObservedObject private var model: Model
 
