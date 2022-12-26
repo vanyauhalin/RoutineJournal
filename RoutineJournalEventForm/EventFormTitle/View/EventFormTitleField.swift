@@ -26,12 +26,14 @@ struct EventFormTitleField_Previews: PreviewProvider {
     @State private var title = ""
 
     var body: some View {
-      PreviewBinding($title) {
+      PreviewContext { _ in
         Form {
           EventFormTitleField
             .render($title)
         }
       }
+      .id(EventFormTitleField_Previews.name)
+      .value(title.description)
     }
   }
 
