@@ -61,25 +61,24 @@ struct IconPickerOptions_Previews: PreviewProvider {
     private var query = String.default
 
     var body: some View {
-      PreviewBinding($icon) {
-        PreviewBinding($query, position: (.bottom, .trailing)) {
-          PreviewSheet { toggle in
-            IconPickerOptions()
-              .selection($icon)
-              .colorTheme(.indigo)
-              .query($query)
-              .onSelect {
-                toggle()
-              }
+      PreviewContext { context in
+        IconPickerOptions()
+          .selection($icon)
+          .colorTheme(.indigo)
+          .query($query)
+          .onSelect {
+            context.dismiss()
           }
-        }
       }
+      .id(IconPickerOptions_Previews.name)
+      .data()
+      .sheet()
+      .value(icon.name.rawValue)
+      .value(query)
     }
   }
 
   static var previews: some View {
-    PreviewData(self.name) {
-      PreviewContainer()
-    }
+    PreviewContainer()
   }
 }

@@ -45,7 +45,7 @@ struct IconPickerView_Previews: PreviewProvider {
     private var icon = IconObject.default
 
     var body: some View {
-      PreviewBinding($icon) {
+      PreviewContext { _ in
         NavigationView {
           Form {
             IconPicker()
@@ -54,12 +54,13 @@ struct IconPickerView_Previews: PreviewProvider {
           }
         }
       }
+      .id(IconPickerView_Previews.name)
+      .data()
+      .value(icon.name.rawValue)
     }
   }
 
   static var previews: some View {
-    PreviewData(self.name) {
-      PreviewContainer()
-    }
+    PreviewContainer()
   }
 }

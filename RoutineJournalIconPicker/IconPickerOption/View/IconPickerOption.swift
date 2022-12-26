@@ -50,24 +50,27 @@ struct IconPickerOption_Previews: PreviewProvider {
     let last: IconObject
 
     var body: some View {
-      PreviewBinding($icon) {
-        PreviewSheet { toggle in
+      PreviewContext { context in
+        VStack {
           IconPickerOption()
             .icon(first)
             .selection($icon)
             .colorTheme(.default)
             .onSelect {
-              toggle()
+              context.dismiss()
             }
           IconPickerOption()
             .icon(last)
             .selection($icon)
             .colorTheme(.indigo)
             .onSelect {
-              toggle()
+              context.dismiss()
             }
         }
       }
+      .id(IconPickerOption_Previews.name)
+      .sheet()
+      .value(icon.name.rawValue)
     }
 
     init() {
