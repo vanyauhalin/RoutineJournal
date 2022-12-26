@@ -49,22 +49,25 @@ struct CategoryPickerOption_Previews: PreviewProvider {
     let last: CategoryObject
 
     var body: some View {
-      PreviewBinding($category) {
-        PreviewSheet { toggle in
+      PreviewContext { context in
+        List {
           CategoryPickerOption()
             .category(first)
             .selection($category)
             .onSelect {
-              toggle()
+              context.dismiss()
             }
           CategoryPickerOption()
             .category(last)
             .selection($category)
             .onSelect {
-              toggle()
+              context.dismiss()
             }
         }
       }
+      .id(CategoryPickerOption_Previews.name)
+      .sheet()
+      .value(category?.title)
     }
 
     init() {

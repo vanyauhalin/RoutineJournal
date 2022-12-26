@@ -47,18 +47,18 @@ struct CategoryPickerExplorer_Previews: PreviewProvider {
     private var category: CategoryObject?
 
     var body: some View {
-      PreviewBinding($category) {
-        PreviewSheet { _ in
-          CategoryPickerExplorer()
-            .selection($category)
-        }
+      PreviewContext { _ in
+        CategoryPickerExplorer()
+          .selection($category)
       }
+      .id(CategoryPickerExplorer_Previews.name)
+      .data()
+      .sheet()
+      .value(category?.title)
     }
   }
 
   static var previews: some View {
-    PreviewData(self.name) {
-      PreviewContainer()
-    }
+    PreviewContainer()
   }
 }

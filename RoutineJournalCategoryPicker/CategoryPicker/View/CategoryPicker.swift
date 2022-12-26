@@ -45,7 +45,7 @@ struct CategoryPicker_Previews: PreviewProvider {
     private var category: CategoryObject?
 
     var body: some View {
-      PreviewBinding($category) {
+      PreviewContext { _ in
         NavigationView {
           Form {
             CategoryPicker()
@@ -53,12 +53,13 @@ struct CategoryPicker_Previews: PreviewProvider {
           }
         }
       }
+      .id(CategoryPicker_Previews.name)
+      .data()
+      .value(category?.title)
     }
   }
 
   static var previews: some View {
-    PreviewData(self.name) {
-      PreviewContainer()
-    }
+    PreviewContainer()
   }
 }
