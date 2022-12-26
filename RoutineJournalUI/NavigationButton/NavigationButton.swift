@@ -58,7 +58,7 @@ struct NavigationButton_Previews: PreviewProvider {
     @State private var selection = 0
 
     var body: some View {
-      PreviewBinding($counter) {
+      PreviewContext { _ in
         NavigationView {
           Form {
             if #available(iOS 16.0, *) {
@@ -90,6 +90,8 @@ struct NavigationButton_Previews: PreviewProvider {
           }
         }
       }
+      .id(NavigationButton_Previews.name)
+      .value(counter.description)
     }
   }
 
