@@ -48,19 +48,19 @@ struct IconPickerExplorer_Previews: PreviewProvider {
     private var icon = IconObject.default
 
     var body: some View {
-      PreviewBinding($icon) {
-        PreviewSheet { _ in
-          IconPickerExplorer()
-            .selection($icon)
-            .colorTheme(.indigo)
-        }
+      PreviewContext { _ in
+        IconPickerExplorer()
+          .selection($icon)
+          .colorTheme(.indigo)
       }
+      .id(IconPickerExplorer_Previews.name)
+      .data()
+      .sheet()
+      .value(icon.name.rawValue)
     }
   }
 
   static var previews: some View {
-    PreviewData(self.name) {
-      PreviewContainer()
-    }
+    PreviewContainer()
   }
 }

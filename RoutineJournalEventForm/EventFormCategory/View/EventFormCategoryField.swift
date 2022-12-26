@@ -62,12 +62,15 @@ struct EventFormCategoryField_Previews: PreviewProvider {
     )
 
     var body: some View {
-      PreviewBinding($object) {
+      PreviewContext { _ in
         Form {
           EventFormCategoryField
             .render($object)
         }
       }
+      .id(EventFormCategoryField_Previews.name)
+      .data()
+      .value(object?.title)
     }
   }
 

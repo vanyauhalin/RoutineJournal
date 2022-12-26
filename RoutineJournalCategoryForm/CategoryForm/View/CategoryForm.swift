@@ -58,11 +58,12 @@ public struct CategoryForm: SwiftUI.View {
 
 struct CategoryForm_Previews: PreviewProvider {
   static var previews: some View {
-    PreviewData(self.name) {
-      PreviewSheet { _ in
-        CategoryForm
-          .render()
-      }
+    PreviewContext { _ in
+      CategoryForm
+        .render()
     }
+    .id(name)
+    .data()
+    .sheet()
   }
 }

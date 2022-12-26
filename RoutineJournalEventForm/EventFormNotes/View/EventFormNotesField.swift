@@ -31,12 +31,14 @@ struct EventFormNotesField_Previews: PreviewProvider {
     @State private var notes = ""
 
     var body: some View {
-      PreviewBinding($notes) {
+      PreviewContext { _ in
         Form {
           EventFormNotesField
             .render($notes)
         }
       }
+      .id(EventFormNotesField_Previews.name)
+      .value(notes.description)
     }
   }
 

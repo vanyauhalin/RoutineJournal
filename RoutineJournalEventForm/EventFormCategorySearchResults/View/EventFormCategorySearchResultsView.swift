@@ -58,8 +58,8 @@ public struct EventFormCategorySearchResultsView: SwiftUI.View {
 
 struct EventFormCategorySearchResultsView_Previews: PreviewProvider {
   static var previews: some View {
-    PreviewData(self.name) {
-      PreviewSheet { toggle in
+    PreviewContext { context in
+      List {
         if
           let objects = try? DataProvider
             .realm()
@@ -68,10 +68,14 @@ struct EventFormCategorySearchResultsView_Previews: PreviewProvider {
           EventFormCategorySearchResultsView
             .render(objects)
             .onSelect { _ in
-              toggle()
+              context.dismiss()
             }
         }
       }
+      .listStyle(.plain)
     }
+    .id(name)
+    .data()
+    .sheet()
   }
 }

@@ -30,12 +30,14 @@ struct EventFormStartsField_Previews: PreviewProvider {
     @State private var date = Date.now
 
     var body: some View {
-      PreviewBinding($date) {
+      PreviewContext { _ in
         Form {
           EventFormStartsField
             .render($date)
         }
       }
+      .id(EventFormStartsField_Previews.name)
+      .value(date.description)
     }
   }
 

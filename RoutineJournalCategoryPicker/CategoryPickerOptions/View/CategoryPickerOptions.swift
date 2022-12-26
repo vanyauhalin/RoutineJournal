@@ -44,24 +44,23 @@ struct CategoryPickerOptions_Previews: PreviewProvider {
     private var query: String = .default
 
     var body: some View {
-      PreviewBinding($category) {
-        PreviewBinding($query, position: (.bottom, .trailing)) {
-          PreviewSheet { toggle in
-            CategoryPickerOptions()
-              .selection($category)
-              .query($query)
-              .onSelect {
-                toggle()
-              }
+      PreviewContext { context in
+        CategoryPickerOptions()
+          .selection($category)
+          .query($query)
+          .onSelect {
+            context.dismiss()
           }
-        }
       }
+      .id(CategoryPickerOptions_Previews.name)
+      .data()
+      .sheet()
+      .value(category?.title)
+      .value(query)
     }
   }
 
   static var previews: some View {
-    PreviewData(self.name) {
-      PreviewContainer()
-    }
+    PreviewContainer()
   }
 }

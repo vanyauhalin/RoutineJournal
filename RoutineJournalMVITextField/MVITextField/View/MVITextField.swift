@@ -1,5 +1,4 @@
 import RoutineJournalCore
-import RoutineJournalUI
 import SwiftUI
 
 public struct MVITextField<Model>: SwiftUI.View where Model: MVITextFieldModel {

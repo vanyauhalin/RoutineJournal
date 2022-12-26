@@ -63,20 +63,22 @@ struct CategoryFormAppearanceSection_Previews: PreviewProvider {
     @State private var icon = IconObject.default
 
     var body: some View {
-      NavigationView {
-        Form {
-          CategoryFormAppearanceSection
-            .render()
-            .selection($colorTheme)
-            .selection($icon)
+      PreviewContext { _ in
+        NavigationView {
+          Form {
+            CategoryFormAppearanceSection
+              .render()
+              .selection($colorTheme)
+              .selection($icon)
+          }
         }
       }
+      .id(CategoryFormAppearanceSection_Previews.name)
+      .data()
     }
   }
 
   static var previews: some View {
-    PreviewData(self.name) {
-      PreviewContainer()
-    }
+    PreviewContainer()
   }
 }

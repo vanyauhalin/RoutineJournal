@@ -6,9 +6,10 @@ import SwiftUI
 struct RoutineJournal: App {
   var body: some Scene {
     WindowGroup {
-      PreviewData(Self.name) {
+      PreviewContext { _ in
         HomeView()
       }
+      .data()
     }
   }
 

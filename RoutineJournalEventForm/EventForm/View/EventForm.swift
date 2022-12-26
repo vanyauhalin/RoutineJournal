@@ -68,14 +68,15 @@ public struct EventForm: SwiftUI.View {
 
 struct EventForm_Previews: PreviewProvider {
   static var previews: some View {
-    PreviewData(self.name) {
-      PreviewSheet { toggle in
-        EventForm
-          .render()
-          .onAdd { _ in
-            toggle()
-          }
-      }
+    PreviewContext { context in
+      EventForm
+        .render()
+        .onAdd { _ in
+          context.dismiss()
+        }
     }
+    .id(name)
+    .data()
+    .sheet()
   }
 }

@@ -68,11 +68,12 @@ public struct EventFormCategorySearchView: SwiftUI.View {
 
 struct EventFormCategorySearchView_Previews: PreviewProvider {
   static var previews: some View {
-    PreviewData(self.name) {
-      PreviewSheet { _ in
-        EventFormCategorySearchView
-          .render(Binding.constant(nil))
-      }
+    PreviewContext { _ in
+      EventFormCategorySearchView
+        .render(Binding.constant(nil))
     }
+    .id(name)
+    .data()
+    .sheet()
   }
 }
