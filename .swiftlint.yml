@@ -16,7 +16,6 @@ only_rules:
   - block_based_kvo
   - class_delegate_protocol
   - closing_brace
-  - closure_body_length
   - closure_end_indentation
   - closure_parameter_position
   - closure_spacing
@@ -197,9 +196,6 @@ array_init: error
 block_based_kvo: error
 class_delegate_protocol: warning
 closing_brace: warning
-closure_body_length:
-  warning: 30
-  error: 40
 closure_end_indentation: warning
 closure_parameter_position: warning
 closure_spacing: warning
