@@ -25,6 +25,15 @@ public struct RoundedCorners: Shape {
   }
 }
 
+extension View {
+  public func round(
+    _ corners: UIRectCorner = .allCorners,
+    radius: Double
+  ) -> some View {
+    clipShape(RoundedCorners(corners: corners, radius: radius))
+  }
+}
+
 struct RoundedCorner_Previews: PreviewProvider {
   static var previews: some View {
     Rectangle()
