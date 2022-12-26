@@ -34,9 +34,11 @@ public struct HomeTimelineView: SwiftUI.View {
 
 struct HomeTimelineView_Previews: PreviewProvider {
   static var previews: some View {
-    PreviewData(self.name) {
+    PreviewContext { _ in
       HomeTimelineView
         .render()
     }
+    .id(name)
+    .data()
   }
 }
