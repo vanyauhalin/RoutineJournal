@@ -116,7 +116,7 @@ struct PreviewContext_Previews: PreviewProvider {
     var body: some View {
       PreviewContext { context in
         VStack {
-          Button("increment: \(counter)") {
+          Button("increment") {
             counter += 1
           }
           Button("dismiss") {
@@ -128,7 +128,7 @@ struct PreviewContext_Previews: PreviewProvider {
       .position(.top, .leading)
       .data()
       .sheet()
-      .value("\(counter.description) (PreviewContainer.counter)")
+      .value("\(counter) (PreviewContainer.counter)")
       .value("\(model.count) (\(model.type.description()))")
     }
   }
