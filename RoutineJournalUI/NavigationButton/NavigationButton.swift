@@ -80,8 +80,10 @@ extension NavigationButton where Content == EmptyView {
 
 struct NavigationButton_Previews: PreviewProvider {
   struct PreviewContainer: View {
-    @State private var counter = 0
-    @State private var selection = 0
+    @State
+    private var counter = 0
+    @State
+    private var selection = 0
 
     var body: some View {
       PreviewContext { _ in
