@@ -1,11 +1,6 @@
 #if DEBUG
-import Combine
-import Foundation
-
 extension PreviewContext {
   public final class Model {
-    private var subscriptions = Set<AnyCancellable>()
-
     public var identifier: String
     public var position: Position
     public var modifiers: Set<Modifier>
