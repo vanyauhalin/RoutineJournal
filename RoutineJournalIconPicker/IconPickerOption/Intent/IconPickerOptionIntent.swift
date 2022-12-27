@@ -4,7 +4,6 @@ public final class IconPickerOptionIntent: SelectModifier {
   public typealias Model = IconPickerOptionModel
 
   public weak var model: Model?
-
   public var selectAction: () -> Void
 
   public init() {
