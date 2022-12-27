@@ -5,6 +5,7 @@ where Label: View, Content: View {
   public let action: () -> Void
   public let label: Label
   public let content: Content
+  public let withContent: Bool
 
   public var body: some View {
     Button(
@@ -12,12 +13,23 @@ where Label: View, Content: View {
         action()
       },
       label: {
-        HStack(spacing: .zero) {
+        HStack {
           label
             .foregroundColor(.label)
-          Spacer(minLength: 8)
-          content
-            .foregroundColor(.systemGray)
+            .if(withContent) { view in
+              HStack(spacing: .zero) {
+                view
+                Spacer()
+                content
+                  .foregroundColor(.systemGray)
+              }
+            }
+            .if(!withContent) { view in
+              HStack(spacing: .zero) {
+                view
+                Spacer(minLength: .zero)
+              }
+            }
           NavigationLink.EmptyView()
             .fixedSize(horizontal: true, vertical: true)
             .hidden()
@@ -37,6 +49,7 @@ where Label: View, Content: View {
     self.action = action
     self.label = label()
     self.content = content()
+    self.withContent = true
   }
 }
 
@@ -49,6 +62,19 @@ extension NavigationButton where Label == Text {
     self.action = action
     self.label = Text(title)
     self.content = content()
+    self.withContent = true
+  }
+}
+
+extension NavigationButton where Content == EmptyView {
+  public init(
+    action: @escaping () -> Void,
+    @ViewBuilder label: () -> Label
+  ) {
+    self.action = action
+    self.label = label()
+    self.content = EmptyView()
+    self.withContent = false
   }
 }
 
@@ -72,19 +98,27 @@ struct NavigationButton_Previews: PreviewProvider {
                 counter += 1
               },
               label: {
-                Text("Button With View Label")
+                Text("View Label")
               },
               content: {
                 Text("?")
               }
             )
             NavigationButton(
-              "Button With String Title",
+              "String Title",
               action: {
                 counter -= 1
               },
               content: {
                 Text("?")
+              }
+            )
+            NavigationButton(
+              action: {
+                counter += 2
+              },
+              label: {
+                Text("View Label Without Content")
               }
             )
           }
