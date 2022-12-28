@@ -15,7 +15,8 @@ let project = Project(
         .lint("RoutineJournalMVITextField")
       ],
       dependencies: [
-        .project("RoutineJournalCore")
+        .project("RoutineJournalCore"),
+        .project("RoutineJournalFoundation")
       ]
     )
   ]
