@@ -9,8 +9,4 @@ public final class CategoryPickerOptionsIntent: OnSelectModifier {
   public init() {
     self.actionOnSelect = {}
   }
-
-  public func onSelect() {
-    actionOnSelect()
-  }
 }
