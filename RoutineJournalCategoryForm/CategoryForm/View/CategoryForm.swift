@@ -1,16 +1,20 @@
 import RoutineJournalAppearanceSection
+import RoutineJournalMVI
 import RoutineJournalNameField
 import RoutineJournalUI
 import SwiftUI
 
-public struct CategoryForm: SwiftUI.View {
+public struct CategoryForm: MVIView {
   public typealias Intent = CategoryFormIntent
   public typealias Model = CategoryFormModel
   public typealias View = CategoryForm
 
-  @Environment(\.dismiss) private var dismiss
-  @ObservedObject private var model: Model
-  private let intent: Intent
+  @Environment(\.dismiss)
+  private var dismiss
+
+  @ObservedObject
+  public var model: Model
+  public var intent: Intent
 
   public var body: some SwiftUI.View {
     NavigationView {
@@ -21,7 +25,7 @@ public struct CategoryForm: SwiftUI.View {
           .selection($model.colorTheme)
           .selection($model.icon)
       }
-      .navigationTitle(model.navigationTitle)
+      .navigationTitle(Model.title)
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
         ToolbarItem(placement: .cancellationAction) {
@@ -40,23 +44,18 @@ public struct CategoryForm: SwiftUI.View {
     }
   }
 
-  public init(model: Model, intent: Intent) {
-    self.model = model
-    self.intent = intent
-  }
-
-  public static func render() -> View {
+  public init() {
     let model = Model()
     let intent = Intent(model: model)
-    return View(model: model, intent: intent)
+    self.model = model
+    self.intent = intent
   }
 }
 
 struct CategoryForm_Previews: PreviewProvider {
   static var previews: some View {
     PreviewContext { _ in
-      CategoryForm
-        .render()
+      CategoryForm()
     }
     .id(name)
     .data()
