@@ -1,6 +1,7 @@
 import RoutineJournalColorThemePicker
 import RoutineJournalCore
 import RoutineJournalIconPicker
+import RoutineJournalNameField
 import RoutineJournalTimeline
 import RoutineJournalUI
 import SwiftUI
@@ -17,8 +18,7 @@ public struct CategoryForm: SwiftUI.View {
   public var body: some SwiftUI.View {
     NavigationView {
       Form {
-        CategoryFormNameField
-          .render()
+        NameField()
           .text($model.name)
         CategoryFormAppearanceSection
           .render()
