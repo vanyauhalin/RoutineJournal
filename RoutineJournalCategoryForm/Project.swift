@@ -15,12 +15,10 @@ let project = Project(
         .lint("RoutineJournalCategoryForm")
       ],
       dependencies: [
-        .project("RoutineJournalColorThemePicker"),
+        .project("RoutineJournalAppearanceSection"),
         .project("RoutineJournalCore"),
         .project("RoutineJournalFoundation"),
-        .project("RoutineJournalIconPicker"),
         .project("RoutineJournalNameField"),
-        .project("RoutineJournalTimeline"),
         .project("RoutineJournalUI")
       ]
     )
