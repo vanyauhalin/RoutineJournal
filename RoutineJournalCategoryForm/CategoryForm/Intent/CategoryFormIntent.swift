@@ -6,9 +6,7 @@ public final class CategoryFormIntent: OnCancelModifier, OnConfirmModifier {
 
   public weak var model: Model?
   public var actionOnCancel: (() -> Void)?
-  public var actionOnConfirm: () -> Void
+  public var actionOnConfirm: (() -> Void)?
 
-  public init() {
-    self.actionOnConfirm = {}
-  }
+  public init() {}
 }
