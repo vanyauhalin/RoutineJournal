@@ -1,7 +1,7 @@
 import RoutineJournalMVI
 
 public protocol OnSelectModifier: MVIIntent {
-  var actionOnSelect: () -> Void { get set }
+  var actionOnSelect: (() -> Void)? { get set }
 
   func reinit(model: Model, actionOnSelect: @escaping () -> Void) -> Self
 
@@ -19,6 +19,6 @@ extension OnSelectModifier {
   }
 
   public func onSelect() {
-    actionOnSelect()
+    actionOnSelect?()
   }
 }
