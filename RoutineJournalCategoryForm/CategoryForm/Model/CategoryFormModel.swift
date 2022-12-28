@@ -12,13 +12,9 @@ public final class CategoryFormModel: ObservableObject {
   @Published
   public var colorTheme: ColorTheme
 
-  public init(
-    name: String = .default,
-    icon: IconObject = .default,
-    colorTheme: ColorTheme = .default
-  ) {
-    self.name = name
-    self.icon = icon
-    self.colorTheme = colorTheme
+  public init() {
+    self.name = .default
+    self.icon = .default
+    self.colorTheme = .default
   }
 }

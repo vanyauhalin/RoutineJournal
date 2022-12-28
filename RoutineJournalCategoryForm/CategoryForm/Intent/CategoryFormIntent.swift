@@ -7,10 +7,6 @@ public final class CategoryFormIntent: MVIIntent {
 
   public init() {}
 
-  public init(model: Model) {
-    self.model = model
-  }
-
   public func onCancel() {}
 
   public func onConfirm() {}

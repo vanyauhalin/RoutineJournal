@@ -50,24 +50,12 @@ public struct CategoryForm: MVIView {
     self.model = model
     self.intent = intent
   }
-
-  public init(model: Model, intent: Intent) {
-    self.model = model
-    self.intent = intent
-  }
-
-  public static func render() -> View {
-    let model = Model()
-    let intent = Intent(model: model)
-    return View(model: model, intent: intent)
-  }
 }
 
 struct CategoryForm_Previews: PreviewProvider {
   static var previews: some View {
     PreviewContext { _ in
-      CategoryForm
-        .render()
+      CategoryForm()
     }
     .id(name)
     .data()
