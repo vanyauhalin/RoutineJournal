@@ -8,8 +8,10 @@ public struct CategoryForm: SwiftUI.View {
   public typealias Model = CategoryFormModel
   public typealias View = CategoryForm
 
-  @Environment(\.dismiss) private var dismiss
-  @ObservedObject private var model: Model
+  @Environment(\.dismiss)
+  private var dismiss
+  @ObservedObject
+  private var model: Model
   private let intent: Intent
 
   public var body: some SwiftUI.View {
