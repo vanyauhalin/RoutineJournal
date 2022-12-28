@@ -9,8 +9,4 @@ public final class IconPickerOptionsIntent: OnSelectModifier {
   public init() {
     self.actionOnSelect = {}
   }
-
-  public func onSelect() {
-    actionOnSelect()
-  }
 }

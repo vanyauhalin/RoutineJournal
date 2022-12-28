@@ -4,6 +4,8 @@ public protocol OnSelectModifier: MVIIntent {
   var actionOnSelect: () -> Void { get set }
 
   func reinit(model: Model, actionOnSelect: @escaping () -> Void) -> Self
+
+  func onSelect()
 }
 
 extension OnSelectModifier {
@@ -14,5 +16,9 @@ extension OnSelectModifier {
     let intent = reinit(model: model)
     intent.actionOnSelect = actionOnSelect
     return intent
+  }
+
+  public func onSelect() {
+    actionOnSelect()
   }
 }
