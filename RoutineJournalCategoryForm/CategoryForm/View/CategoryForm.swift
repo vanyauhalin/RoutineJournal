@@ -7,7 +7,6 @@ import SwiftUI
 public struct CategoryForm: MVIView {
   public typealias Intent = CategoryFormIntent
   public typealias Model = CategoryFormModel
-  public typealias View = CategoryForm
 
   @Environment(\.dismiss)
   private var dismiss
@@ -16,7 +15,7 @@ public struct CategoryForm: MVIView {
   public var model: Model
   public var intent: Intent
 
-  public var body: some SwiftUI.View {
+  public var body: some View {
     NavigationView {
       Form {
         NameField()
