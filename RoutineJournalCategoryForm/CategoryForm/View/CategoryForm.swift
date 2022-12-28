@@ -21,7 +21,7 @@ public struct CategoryForm: SwiftUI.View {
           .selection($model.colorTheme)
           .selection($model.icon)
       }
-      .navigationTitle(model.navigationTitle)
+      .navigationTitle(Model.title)
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
         ToolbarItem(placement: .cancellationAction) {

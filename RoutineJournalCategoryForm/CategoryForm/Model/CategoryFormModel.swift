@@ -3,7 +3,7 @@ import RoutineJournalCore
 import RoutineJournalFoundation
 
 public final class CategoryFormModel: ObservableObject {
-  public let navigationTitle = "New Category"
+  public static let title = "New Category"
 
   @Published public var name: String
   @Published public var icon: IconObject
