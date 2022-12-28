@@ -1,9 +1,5 @@
 import RoutineJournalAppearanceSection
-import RoutineJournalColorThemePicker
-import RoutineJournalCore
-import RoutineJournalIconPicker
 import RoutineJournalNameField
-import RoutineJournalTimeline
 import RoutineJournalUI
 import SwiftUI
 
