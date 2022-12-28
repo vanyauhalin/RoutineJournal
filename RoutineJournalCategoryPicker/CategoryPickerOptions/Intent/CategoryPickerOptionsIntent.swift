@@ -1,16 +1,16 @@
-import RoutineJournalSelectModifier
+import RoutineJournalOnSelectModifier
 
-public final class CategoryPickerOptionsIntent: SelectModifier {
+public final class CategoryPickerOptionsIntent: OnSelectModifier {
   public typealias Model = CategoryPickerOptionsModel
 
   public weak var model: Model?
-  public var selectAction: () -> Void
+  public var actionOnSelect: () -> Void
 
   public init() {
-    self.selectAction = {}
+    self.actionOnSelect = {}
   }
 
   public func onSelect() {
-    selectAction()
+    actionOnSelect()
   }
 }
