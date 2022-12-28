@@ -1,3 +1,4 @@
+import RoutineJournalAppearanceSection
 import RoutineJournalColorThemePicker
 import RoutineJournalCore
 import RoutineJournalIconPicker
@@ -20,8 +21,7 @@ public struct CategoryForm: SwiftUI.View {
       Form {
         NameField()
           .text($model.name)
-        CategoryFormAppearanceSection
-          .render()
+        AppearanceSection()
           .selection($model.colorTheme)
           .selection($model.icon)
       }
