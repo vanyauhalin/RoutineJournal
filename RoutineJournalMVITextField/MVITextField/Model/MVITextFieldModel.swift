@@ -1,3 +1,4 @@
+import RoutineJournalFoundation
 import SwiftUI
 
 public protocol MVITextFieldModel: AnyObject {

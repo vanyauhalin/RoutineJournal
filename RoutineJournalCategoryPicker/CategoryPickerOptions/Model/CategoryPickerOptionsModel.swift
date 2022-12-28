@@ -2,6 +2,7 @@ import Combine
 import RealmSwift
 import RoutineJournalCategorySelectionModifier
 import RoutineJournalCore
+import RoutineJournalFoundation
 import RoutineJournalQueryModifier
 import SwiftUI
 

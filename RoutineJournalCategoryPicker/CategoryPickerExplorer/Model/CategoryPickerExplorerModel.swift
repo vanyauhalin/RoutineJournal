@@ -1,5 +1,6 @@
 import RoutineJournalCategorySelectionModifier
 import RoutineJournalCore
+import RoutineJournalFoundation
 import SwiftUI
 
 public final class CategoryPickerExplorerModel:

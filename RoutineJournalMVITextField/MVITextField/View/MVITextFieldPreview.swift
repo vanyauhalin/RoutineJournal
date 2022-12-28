@@ -1,5 +1,6 @@
 #if DEBUG
 import RoutineJournalCore
+import RoutineJournalFoundation
 import SwiftUI
 
 public struct MVITextFieldPreview<Model>: View where Model: MVITextFieldModel {

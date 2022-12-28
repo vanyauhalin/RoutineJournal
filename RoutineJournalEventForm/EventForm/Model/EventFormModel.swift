@@ -1,6 +1,7 @@
 import Combine
 import Foundation
 import RoutineJournalCore
+import RoutineJournalFoundation
 
 public final class EventFormModel: ObservableObject {
   @Published public var title: String
