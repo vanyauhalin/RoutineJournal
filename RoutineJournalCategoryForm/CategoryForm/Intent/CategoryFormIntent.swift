@@ -1,13 +1,15 @@
-import RoutineJournalMVI
+import RoutineJournalOnCancelModifier
+import RoutineJournalOnConfirmModifier
 
-public final class CategoryFormIntent: MVIIntent {
+public final class CategoryFormIntent: OnCancelModifier, OnConfirmModifier {
   public typealias Model = CategoryFormModel
 
   public weak var model: Model?
+  public var actionOnCancel: () -> Void
+  public var actionOnConfirm: () -> Void
 
-  public init() {}
-
-  public func onCancel() {}
-
-  public func onConfirm() {}
+  public init() {
+    self.actionOnCancel = {}
+    self.actionOnConfirm = {}
+  }
 }
