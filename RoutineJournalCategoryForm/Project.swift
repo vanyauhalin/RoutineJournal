@@ -19,7 +19,6 @@ let project = Project(
         .project("RoutineJournalCore"),
         .project("RoutineJournalFoundation"),
         .project("RoutineJournalIconPicker"),
-        .project("RoutineJournalMVITextField"),
         .project("RoutineJournalNameField"),
         .project("RoutineJournalTimeline"),
         .project("RoutineJournalUI")
