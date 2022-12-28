@@ -1,4 +1,5 @@
 import RealmSwift
+import RoutineJournalFoundation
 
 public enum ColorTheme: String, PersistableEnum {
   case amber

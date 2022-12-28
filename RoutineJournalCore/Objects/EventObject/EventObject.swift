@@ -1,5 +1,6 @@
 import Foundation
 import RealmSwift
+import RoutineJournalFoundation
 
 public final class EventObject: CategoryItemObject {
   @Persisted public var startTime = TimeInterval()
