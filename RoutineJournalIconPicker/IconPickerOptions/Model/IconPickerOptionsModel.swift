@@ -2,6 +2,7 @@ import Combine
 import RealmSwift
 import RoutineJournalColorThemeModifier
 import RoutineJournalCore
+import RoutineJournalFoundation
 import RoutineJournalIconSelectionModifier
 import RoutineJournalQueryModifier
 import SwiftUI

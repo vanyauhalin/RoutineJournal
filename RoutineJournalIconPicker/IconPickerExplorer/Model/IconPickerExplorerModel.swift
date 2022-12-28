@@ -1,5 +1,6 @@
 import RoutineJournalColorThemeModifier
 import RoutineJournalCore
+import RoutineJournalFoundation
 import RoutineJournalIconSelectionModifier
 import SwiftUI
 
