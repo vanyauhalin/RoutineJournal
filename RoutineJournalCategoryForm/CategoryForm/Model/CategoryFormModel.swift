@@ -1,5 +1,6 @@
 import Combine
 import RoutineJournalCore
+import RoutineJournalFoundation
 
 public final class CategoryFormModel: ObservableObject {
   public let navigationTitle = "New Category"
