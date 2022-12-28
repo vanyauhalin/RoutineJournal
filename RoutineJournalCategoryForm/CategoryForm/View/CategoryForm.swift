@@ -1,18 +1,20 @@
 import RoutineJournalAppearanceSection
+import RoutineJournalMVI
 import RoutineJournalNameField
 import RoutineJournalUI
 import SwiftUI
 
-public struct CategoryForm: SwiftUI.View {
+public struct CategoryForm: MVIView {
   public typealias Intent = CategoryFormIntent
   public typealias Model = CategoryFormModel
   public typealias View = CategoryForm
 
   @Environment(\.dismiss)
   private var dismiss
+
   @ObservedObject
-  private var model: Model
-  private let intent: Intent
+  public var model: Model
+  public var intent: Intent
 
   public var body: some SwiftUI.View {
     NavigationView {
@@ -40,6 +42,13 @@ public struct CategoryForm: SwiftUI.View {
         }
       }
     }
+  }
+
+  public init() {
+    let model = Model()
+    let intent = Intent(model: model)
+    self.model = model
+    self.intent = intent
   }
 
   public init(model: Model, intent: Intent) {

@@ -1,7 +1,11 @@
-public final class CategoryFormIntent {
+import RoutineJournalMVI
+
+public final class CategoryFormIntent: MVIIntent {
   public typealias Model = CategoryFormModel
 
-  private weak var model: Model?
+  public weak var model: Model?
+
+  public init() {}
 
   public init(model: Model) {
     self.model = model
