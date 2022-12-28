@@ -23,7 +23,8 @@ let project = Project(
         .lint("RoutineJournalCore")
       ],
       dependencies: [
-        .package(product: "RealmSwift")
+        .package(product: "RealmSwift"),
+        .project("RoutineJournalFoundation")
       ]
     ),
     Target(
