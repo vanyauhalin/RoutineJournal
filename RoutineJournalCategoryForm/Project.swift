@@ -21,6 +21,7 @@ let project = Project(
         .project("RoutineJournalMVI"),
         .project("RoutineJournalNameField"),
         .project("RoutineJournalOnCancelModifier"),
+        .project("RoutineJournalOnConfirmModifier"),
         .project("RoutineJournalUI")
       ]
     )
