@@ -1,6 +1,6 @@
-import RoutineJournalOnSelectModifier
+import RoutineJournalSelectionModifier
 
-public final class CategoryPickerOptionIntent: OnSelectModifier {
+public final class CategoryPickerOptionIntent: SelectionModifier {
   public typealias Model = CategoryPickerOptionModel
 
   public weak var model: Model?
