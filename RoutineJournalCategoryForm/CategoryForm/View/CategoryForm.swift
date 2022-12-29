@@ -9,9 +9,6 @@ public struct CategoryForm: MVIView {
   public typealias Intent = CategoryFormIntent
   public typealias Style = CategoryFormStyle
 
-  @Environment(\.dismiss)
-  private var dismiss
-
   @ObservedObject
   public var model: Model
   public var intent: Intent
@@ -31,13 +28,11 @@ public struct CategoryForm: MVIView {
         ToolbarItem(placement: .cancellationAction) {
           Button("Cancel") {
             intent.onCancel()
-            dismiss()
           }
         }
         ToolbarItem(placement: .confirmationAction) {
           Button("Add") {
             intent.onConfirm()
-            dismiss()
           }
         }
       }
@@ -64,6 +59,5 @@ struct CategoryForm_Previews: PreviewProvider {
     }
     .id(name)
     .data()
-    .sheet()
   }
 }
