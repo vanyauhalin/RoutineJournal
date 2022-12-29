@@ -2,8 +2,8 @@ import RoutineJournalUI
 import SwiftUI
 
 public struct EventForm: SwiftUI.View {
-  public typealias Intent = EventFormIntent
   public typealias Model = EventFormModel
+  public typealias Intent = EventFormIntent
   public typealias View = EventForm
 
   @Environment(\.dismiss) private var dismiss

@@ -5,8 +5,8 @@ import RoutineJournalUI
 import SwiftUI
 
 public struct EventFormCategorySearchResultsView: SwiftUI.View {
-  public typealias Intent = EventFormCategorySearchResultsIntent
   public typealias Model = EventFormCategorySearchResultsModel
+  public typealias Intent = EventFormCategorySearchResultsIntent
   public typealias View = EventFormCategorySearchResultsView
 
   private let model: Model

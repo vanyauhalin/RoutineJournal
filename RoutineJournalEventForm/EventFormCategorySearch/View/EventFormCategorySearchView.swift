@@ -3,8 +3,8 @@ import RoutineJournalUI
 import SwiftUI
 
 public struct EventFormCategorySearchView: SwiftUI.View {
-  public typealias Intent = EventFormCategorySearchIntent
   public typealias Model = EventFormCategorySearchModel
+  public typealias Intent = EventFormCategorySearchIntent
   public typealias View = EventFormCategorySearchView
 
   // @Environment(\.isSearching) private var isSearching

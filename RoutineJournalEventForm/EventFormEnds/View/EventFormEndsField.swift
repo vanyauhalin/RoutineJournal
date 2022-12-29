@@ -2,8 +2,8 @@ import RoutineJournalUI
 import SwiftUI
 
 public struct EventFormEndsField: SwiftUI.View {
-  public typealias Intent = EventFormEndsIntent
   public typealias Model = EventFormEndsModel
+  public typealias Intent = EventFormEndsIntent
   public typealias View = EventFormEndsField
 
   private let model: Model
