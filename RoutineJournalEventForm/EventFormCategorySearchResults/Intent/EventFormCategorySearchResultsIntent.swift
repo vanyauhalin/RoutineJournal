@@ -1,13 +1,13 @@
 import RoutineJournalCore
 
 public final class EventFormCategorySearchResultsIntent {
-  public var actionOnSelect: (CategoryObject) -> Void
+  public var selectionAction: (CategoryObject) -> Void
 
-  public init(actionOnSelect: @escaping (CategoryObject) -> Void = { _ in }) {
-    self.actionOnSelect = actionOnSelect
+  public init(selectionAction: @escaping (CategoryObject) -> Void = { _ in }) {
+    self.selectionAction = selectionAction
   }
 
   public func onSelect(object: CategoryObject) {
-    actionOnSelect(object)
+    selectionAction(object)
   }
 }

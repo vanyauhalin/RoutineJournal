@@ -51,7 +51,7 @@ public struct EventFormCategorySearchResultsView: SwiftUI.View {
     perform action: @escaping (CategoryObject) -> Void
   ) -> View {
     let model = Model(objects: model.objects)
-    let intent = Intent(actionOnSelect: action)
+    let intent = Intent(selectionAction: action)
     return View(model: model, intent: intent)
   }
 }
