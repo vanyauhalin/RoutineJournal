@@ -1,6 +1,6 @@
 import RoutineJournalMVI
 
-public protocol OnCancelModifier: MVIIntent {
+public protocol CancellationModifier: MVIIntent {
   var actionOnCancel: (() -> Void)? { get set }
 
   func reinit(model: Model, actionOnCancel: @escaping () -> Void) -> Self
@@ -8,7 +8,7 @@ public protocol OnCancelModifier: MVIIntent {
   func onCancel()
 }
 
-extension OnCancelModifier {
+extension CancellationModifier {
   public func reinit(
     model: Model,
     actionOnCancel: @escaping () -> Void
