@@ -5,8 +5,8 @@ import RoutineJournalUI
 import SwiftUI
 
 public struct CategoryForm: MVIView {
-  public typealias Intent = CategoryFormIntent
   public typealias Model = CategoryFormModel
+  public typealias Intent = CategoryFormIntent
 
   @Environment(\.dismiss)
   private var dismiss
