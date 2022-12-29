@@ -1,7 +1,10 @@
 import RoutineJournalCancellationModifier
-import RoutineJournalOnConfirmModifier
+import RoutineJournalConfirmationModifier
 
-public final class CategoryFormIntent: CancellationModifier, OnConfirmModifier {
+public final class CategoryFormIntent:
+  CancellationModifier,
+  ConfirmationModifier
+{
   public typealias Model = CategoryFormModel
 
   public weak var model: Model?
