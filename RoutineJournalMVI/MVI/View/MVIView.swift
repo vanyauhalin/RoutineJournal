@@ -1,8 +1,8 @@
 import SwiftUI
 
 public protocol MVIView: View {
-  associatedtype Intent: MVIIntent
   associatedtype Model: AnyObject
+  associatedtype Intent: MVIIntent
 
   var model: Model { get set }
   var intent: Intent { get set }
