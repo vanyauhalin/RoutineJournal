@@ -37,6 +37,6 @@ struct HomeView_Previews: PreviewProvider {
       HomeView()
     }
     .id(name)
-    .data()
+    .modifier(.data)
   }
 }
