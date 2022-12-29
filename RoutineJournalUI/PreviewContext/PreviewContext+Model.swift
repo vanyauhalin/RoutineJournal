@@ -12,6 +12,9 @@ extension PreviewContext {
     public var sheetApplied: Bool {
       modifiers.contains(.sheet)
     }
+    public var counterApplied: Bool {
+      modifiers.contains(.counter)
+    }
 
     public init() {
       self.identifier = "Unknown Preview Context"

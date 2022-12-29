@@ -24,6 +24,8 @@ public struct PreviewContext<Content>: View where Content: View {
           .if(model.dataApplied)
         Sheet(showing: $context.sheetShowing)
           .if(model.sheetApplied)
+        Counter(counter: $context.counter)
+          .if(model.counterApplied)
         Values(values: model.values)
       }
     }
@@ -72,6 +74,11 @@ public struct PreviewContext<Content>: View where Content: View {
     return reinit(model: model)
   }
 
+  public func counter() -> Self {
+    let model = model.reinit(modifier: .counter)
+    return reinit(model: model)
+  }
+
   public func value(_ value: String?) -> Self {
     let model = model.reinit(value: value)
     return reinit(model: model)
@@ -110,14 +117,14 @@ struct PreviewContext_Previews: PreviewProvider {
     @ObservedObject
     private var model = PreviewModel(type: CategoryObject.self)
 
-    @State
-    private var counter = 10
-
     var body: some View {
       PreviewContext { context in
         VStack {
           Button("increment") {
-            counter += 1
+            context.increment()
+          }
+          Button("decrement") {
+            context.decrement()
           }
           Button("dismiss") {
             context.dismiss()
@@ -128,7 +135,7 @@ struct PreviewContext_Previews: PreviewProvider {
       .position(.top, .leading)
       .data()
       .sheet()
-      .value("\(counter) (PreviewContainer.counter)")
+      .counter()
       .value("\(model.count) (\(model.type.description()))")
     }
   }
