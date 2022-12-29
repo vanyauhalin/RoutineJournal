@@ -58,6 +58,6 @@ struct CategoryForm_Previews: PreviewProvider {
       CategoryForm()
     }
     .id(name)
-    .data()
+    .modifier(.data)
   }
 }

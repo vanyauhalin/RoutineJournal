@@ -52,6 +52,6 @@ struct ListItemCategoryFormStyle_Previews: PreviewProvider {
       }
     }
     .id(name)
-    .data()
+    .modifier(.data)
   }
 }
