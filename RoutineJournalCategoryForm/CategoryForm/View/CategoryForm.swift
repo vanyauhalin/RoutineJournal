@@ -54,10 +54,17 @@ public struct CategoryForm: MVIView {
 
 struct CategoryForm_Previews: PreviewProvider {
   static var previews: some View {
-    PreviewContext { _ in
+    PreviewContext { context in
       CategoryForm()
+        .onCancel {
+          context.increment()
+        }
+        .onConfirm {
+          context.decrement()
+        }
     }
     .id(name)
-    .modifier(.data)
+    .position(.bottom, .leading)
+    .modifier([.data, .counter])
   }
 }
