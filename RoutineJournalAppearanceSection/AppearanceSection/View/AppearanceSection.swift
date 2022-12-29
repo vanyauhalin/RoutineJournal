@@ -60,7 +60,7 @@ struct AppearanceSection_Previews: PreviewProvider {
         }
       }
       .id(AppearanceSection_Previews.name)
-      .data()
+      .modifier(.data)
     }
   }
 
