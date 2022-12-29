@@ -5,8 +5,8 @@ import RoutineJournalUI
 import SwiftUI
 
 public struct IconPickerOption: MVIView {
-  public typealias Intent = IconPickerOptionIntent
   public typealias Model = IconPickerOptionModel
+  public typealias Intent = IconPickerOptionIntent
 
   public var model: Model
   public var intent: Intent

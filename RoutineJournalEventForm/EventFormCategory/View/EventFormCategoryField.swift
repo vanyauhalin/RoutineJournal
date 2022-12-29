@@ -4,8 +4,8 @@ import RoutineJournalUI
 import SwiftUI
 
 public struct EventFormCategoryField: SwiftUI.View {
-  public typealias Intent = EventFormCategoryIntent
   public typealias Model = EventFormCategoryModel
+  public typealias Intent = EventFormCategoryIntent
   public typealias View = EventFormCategoryField
 
   @ObservedObject private var model: Model
