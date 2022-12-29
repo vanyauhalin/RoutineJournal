@@ -7,6 +7,7 @@ import SwiftUI
 public struct CategoryForm: MVIView {
   public typealias Model = CategoryFormModel
   public typealias Intent = CategoryFormIntent
+  public typealias Style = CategoryFormStyle
 
   @Environment(\.dismiss)
   private var dismiss
@@ -48,6 +49,11 @@ public struct CategoryForm: MVIView {
     let intent = Intent(model: model)
     self.model = model
     self.intent = intent
+  }
+
+  public func style<Style>(_ style: Style) -> some View
+  where Style: CategoryFormStyle, Style.Content == Self {
+    style.body(content: self)
   }
 }
 
