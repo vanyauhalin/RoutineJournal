@@ -54,10 +54,8 @@ struct CategoryPickerOptions_Previews: PreviewProvider {
           }
       }
       .id(CategoryPickerOptions_Previews.name)
-      .data()
-      .sheet()
-      .value(category?.title)
-      .value(query)
+      .modifier([.data, .sheet])
+      .value([category?.title, query])
     }
   }
 

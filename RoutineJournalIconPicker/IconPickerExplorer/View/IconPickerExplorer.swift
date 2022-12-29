@@ -54,8 +54,7 @@ struct IconPickerExplorer_Previews: PreviewProvider {
           .colorTheme(.indigo)
       }
       .id(IconPickerExplorer_Previews.name)
-      .data()
-      .sheet()
+      .modifier([.data, .sheet])
       .value(icon.name.rawValue)
     }
   }

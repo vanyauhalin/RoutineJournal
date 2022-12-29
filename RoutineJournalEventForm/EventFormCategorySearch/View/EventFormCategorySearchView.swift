@@ -73,7 +73,6 @@ struct EventFormCategorySearchView_Previews: PreviewProvider {
         .render(Binding.constant(nil))
     }
     .id(name)
-    .data()
-    .sheet()
+    .modifier([.data, .sheet])
   }
 }

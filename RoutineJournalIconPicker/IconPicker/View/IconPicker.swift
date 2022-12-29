@@ -55,7 +55,7 @@ struct IconPickerView_Previews: PreviewProvider {
         }
       }
       .id(IconPickerView_Previews.name)
-      .data()
+      .modifier(.data)
       .value(icon.name.rawValue)
     }
   }

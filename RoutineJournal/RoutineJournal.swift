@@ -9,7 +9,7 @@ struct RoutineJournal: App {
       PreviewContext { _ in
         HomeView()
       }
-      .data()
+      .modifier(.data)
     }
   }
 

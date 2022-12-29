@@ -69,7 +69,7 @@ struct IconPickerOption_Previews: PreviewProvider {
         }
       }
       .id(IconPickerOption_Previews.name)
-      .sheet()
+      .modifier(.sheet)
       .value(icon.name.rawValue)
     }
 

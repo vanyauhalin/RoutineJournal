@@ -75,7 +75,6 @@ struct EventFormCategorySearchResultsView_Previews: PreviewProvider {
       .listStyle(.plain)
     }
     .id(name)
-    .data()
-    .sheet()
+    .modifier([.data, .sheet])
   }
 }

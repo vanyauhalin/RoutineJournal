@@ -76,7 +76,6 @@ struct EventForm_Previews: PreviewProvider {
         }
     }
     .id(name)
-    .data()
-    .sheet()
+    .modifier([.data, .sheet])
   }
 }

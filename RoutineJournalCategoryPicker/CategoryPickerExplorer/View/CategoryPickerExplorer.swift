@@ -52,8 +52,7 @@ struct CategoryPickerExplorer_Previews: PreviewProvider {
           .selection($category)
       }
       .id(CategoryPickerExplorer_Previews.name)
-      .data()
-      .sheet()
+      .modifier([.data, .sheet])
       .value(category?.title)
     }
   }

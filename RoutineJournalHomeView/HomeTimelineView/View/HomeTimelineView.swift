@@ -39,6 +39,6 @@ struct HomeTimelineView_Previews: PreviewProvider {
         .render()
     }
     .id(name)
-    .data()
+    .modifier(.data)
   }
 }

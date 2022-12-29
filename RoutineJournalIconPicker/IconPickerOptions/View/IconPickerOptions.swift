@@ -72,10 +72,8 @@ struct IconPickerOptions_Previews: PreviewProvider {
           }
       }
       .id(IconPickerOptions_Previews.name)
-      .data()
-      .sheet()
-      .value(icon.name.rawValue)
-      .value(query)
+      .modifier([.data, .sheet])
+      .value([icon.name.rawValue, query])
     }
   }
 
