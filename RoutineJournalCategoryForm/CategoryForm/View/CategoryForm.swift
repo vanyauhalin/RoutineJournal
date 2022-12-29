@@ -7,9 +7,7 @@ import SwiftUI
 public struct CategoryForm: MVIView {
   public typealias Model = CategoryFormModel
   public typealias Intent = CategoryFormIntent
-
-  @Environment(\.dismiss)
-  private var dismiss
+  public typealias Style = CategoryFormStyle
 
   @ObservedObject
   public var model: Model
@@ -30,13 +28,11 @@ public struct CategoryForm: MVIView {
         ToolbarItem(placement: .cancellationAction) {
           Button("Cancel") {
             intent.onCancel()
-            dismiss()
           }
         }
         ToolbarItem(placement: .confirmationAction) {
           Button("Add") {
             intent.onConfirm()
-            dismiss()
           }
         }
       }
@@ -49,6 +45,11 @@ public struct CategoryForm: MVIView {
     self.model = model
     self.intent = intent
   }
+
+  public func style<Style>(_ style: Style) -> some View
+  where Style: CategoryFormStyle, Style.Content == Self {
+    style.body(content: self)
+  }
 }
 
 struct CategoryForm_Previews: PreviewProvider {
@@ -58,6 +59,5 @@ struct CategoryForm_Previews: PreviewProvider {
     }
     .id(name)
     .data()
-    .sheet()
   }
 }
