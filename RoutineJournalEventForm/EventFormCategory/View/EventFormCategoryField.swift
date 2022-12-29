@@ -69,7 +69,7 @@ struct EventFormCategoryField_Previews: PreviewProvider {
         }
       }
       .id(EventFormCategoryField_Previews.name)
-      .data()
+      .modifier(.data)
       .value(object?.title)
     }
   }
