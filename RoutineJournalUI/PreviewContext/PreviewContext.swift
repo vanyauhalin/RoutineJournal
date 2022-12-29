@@ -64,23 +64,23 @@ public struct PreviewContext<Content>: View where Content: View {
     return reinit(model: model)
   }
 
-  public func data() -> Self {
-    let model = model.reinit(modifier: .data)
+  public func modifier(_ modifier: Modifier) -> Self {
+    let model = model.reinit(modifier: modifier)
     return reinit(model: model)
   }
 
-  public func sheet() -> Self {
-    let model = model.reinit(modifier: .sheet)
-    return reinit(model: model)
-  }
-
-  public func counter() -> Self {
-    let model = model.reinit(modifier: .counter)
+  public func modifier(_ modifiers: [Modifier]) -> Self {
+    let model = model.reinit(modifiers: modifiers)
     return reinit(model: model)
   }
 
   public func value(_ value: String?) -> Self {
     let model = model.reinit(value: value)
+    return reinit(model: model)
+  }
+
+  public func value(_ values: [String?]) -> Self {
+    let model = model.reinit(values: values)
     return reinit(model: model)
   }
 }
@@ -133,9 +133,7 @@ struct PreviewContext_Previews: PreviewProvider {
       }
       .id(PreviewContext_Previews.name)
       .position(.top, .leading)
-      .data()
-      .sheet()
-      .counter()
+      .modifier([.counter, .data, .sheet])
       .value("\(model.count) (\(model.type.description()))")
     }
   }

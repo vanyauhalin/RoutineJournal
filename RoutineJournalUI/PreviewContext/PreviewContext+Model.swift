@@ -38,8 +38,22 @@ extension PreviewContext {
       return self
     }
 
+    public func reinit(modifiers: [Modifier]) -> Self {
+      modifiers.forEach { modifier in
+        self.modifiers.insert(modifier)
+      }
+      return self
+    }
+
     public func reinit(value: String?) -> Self {
       values.append(value)
+      return self
+    }
+
+    public func reinit(values: [String?]) -> Self {
+      values.forEach { value in
+        self.values.append(value)
+      }
       return self
     }
   }
