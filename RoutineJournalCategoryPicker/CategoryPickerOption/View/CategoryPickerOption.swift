@@ -5,8 +5,8 @@ import RoutineJournalUI
 import SwiftUI
 
 public struct CategoryPickerOption: MVIView {
-  public typealias Intent = CategoryPickerOptionIntent
   public typealias Model = CategoryPickerOptionModel
+  public typealias Intent = CategoryPickerOptionIntent
 
   public var model: Model
   public var intent: Intent
