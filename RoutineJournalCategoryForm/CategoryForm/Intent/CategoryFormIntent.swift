@@ -9,7 +9,7 @@ public final class CategoryFormIntent:
 
   public weak var model: Model?
   public var cancellationAction: (() -> Void)?
-  public var actionOnConfirm: (() -> Void)?
+  public var confirmationAction: (() -> Void)?
 
   public init() {}
 }
