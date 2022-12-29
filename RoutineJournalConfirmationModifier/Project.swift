@@ -2,17 +2,17 @@ import ProjectDescription
 import ProjectDescriptionHelpers
 
 let project = Project(
-  name: "RoutineJournalOnConfirmModifier",
+  name: "RoutineJournalConfirmationModifier",
   targets: [
     Target(
-      name: "RoutineJournalOnConfirmModifier",
+      name: "RoutineJournalConfirmationModifier",
       platform: .iOS,
       product: .framework,
-      bundleId: "my.vanyauhalin.RoutineJournalOnConfirmModifier",
+      bundleId: "my.vanyauhalin.RoutineJournalConfirmationModifier",
       deploymentTarget: .iOS(targetVersion: "15.4", devices: .iphone),
       sources: .relative("**/*.swift"),
       scripts: [
-        .lint("RoutineJournalOnConfirmModifier")
+        .lint("RoutineJournalConfirmationModifier")
       ],
       dependencies: [
         .project("RoutineJournalMVI")

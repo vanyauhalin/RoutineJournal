@@ -1,6 +1,6 @@
 import RoutineJournalMVI
 
-public protocol OnConfirmModifier: MVIIntent {
+public protocol ConfirmationModifier: MVIIntent {
   var actionOnConfirm: (() -> Void)? { get set }
 
   func reinit(model: Model, actionOnConfirm: @escaping () -> Void) -> Self
@@ -8,7 +8,7 @@ public protocol OnConfirmModifier: MVIIntent {
   func onConfirm()
 }
 
-extension OnConfirmModifier {
+extension ConfirmationModifier {
   public func reinit(
     model: Model,
     actionOnConfirm: @escaping () -> Void
