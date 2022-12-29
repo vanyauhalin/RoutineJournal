@@ -66,7 +66,7 @@ struct CategoryPickerOption_Previews: PreviewProvider {
         }
       }
       .id(CategoryPickerOption_Previews.name)
-      .sheet()
+      .modifier(.sheet)
       .value(category?.title)
     }
 

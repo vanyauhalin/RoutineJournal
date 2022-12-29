@@ -54,7 +54,7 @@ struct CategoryPicker_Previews: PreviewProvider {
         }
       }
       .id(CategoryPicker_Previews.name)
-      .data()
+      .modifier(.data)
       .value(category?.title)
     }
   }
