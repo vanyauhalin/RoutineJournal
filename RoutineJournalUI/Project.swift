@@ -17,6 +17,7 @@ let project = Project(
       dependencies: [
         .target(name: "RoutineJournalUIResources"),
         .project("RoutineJournalCore"),
+        .project("RoutineJournalFoundation"),
         .project("RoutineJournalMVI")
       ]
     ),
