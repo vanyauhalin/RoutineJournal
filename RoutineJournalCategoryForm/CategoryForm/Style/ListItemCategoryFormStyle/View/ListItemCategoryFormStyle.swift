@@ -1,6 +1,5 @@
 import RoutineJournalMVI
 import RoutineJournalUI
-import RoutineJournalViewStyle
 import SwiftUI
 
 public struct ListItemCategoryFormStyle: MVIView, CategoryFormStyle {
