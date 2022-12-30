@@ -5,6 +5,7 @@ import SwiftUI
 public struct SettingsView: View {
   public typealias Model = SettingsModel
   public typealias ViewStyle = SettingsViewStyle
+  public typealias ToolbarContentStyle = SettingsToolbarContentStyle
 
   public var body: some View {
     List {
@@ -16,6 +17,11 @@ public struct SettingsView: View {
 
   public func style<Style>(_ style: Style) -> some View
   where Style: ViewStyle, Style.Content == Self {
+    style.body(content: self)
+  }
+
+  public func style<Style>(_ style: Style) -> some ToolbarContent
+  where Style: ToolbarContentStyle, Style.Content == Self {
     style.body(content: self)
   }
 }
