@@ -1,3 +1,4 @@
+import RoutineJournalCategoriesLink
 import SwiftUI
 
 public struct SettingsView: View {
@@ -7,7 +8,7 @@ public struct SettingsView: View {
 
   public var body: some View {
     List {
-      SettingsCategories()
+      CategoriesLink()
     }
     .navigationTitle(Model.title)
   }
