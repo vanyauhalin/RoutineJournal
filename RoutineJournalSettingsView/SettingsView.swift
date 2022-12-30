@@ -3,6 +3,7 @@ import SwiftUI
 
 public struct SettingsView: View {
   public typealias Model = SettingsModel
+  public typealias ViewStyle = SettingsViewStyle
 
   public var model: Model
 
@@ -15,6 +16,11 @@ public struct SettingsView: View {
 
   public init() {
     self.model = Model()
+  }
+
+  public func style<Style>(_ style: Style) -> some View
+  where Style: ViewStyle, Style.Content == Self {
+    style.body(content: self)
   }
 }
 
