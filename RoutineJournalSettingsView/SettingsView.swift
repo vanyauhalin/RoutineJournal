@@ -29,7 +29,9 @@ public struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
   static var previews: some View {
     PreviewContext { _ in
-      SettingsView()
+      NavigationView {
+        SettingsView()
+      }
     }
     .id(name)
     .modifier(.data)
